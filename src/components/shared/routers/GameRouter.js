@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Redirect, Route } from "react-router-dom";
 import Game from "../../game/Game";
+import Profile from "../../game/Profile";
 
 const Container = styled.div`
   display: flex;
@@ -9,6 +10,20 @@ const Container = styled.div`
 `;
 
 class GameRouter extends React.Component {
+    constructor() {
+    super();
+    this.state = {
+        selectedUser: undefined,
+    };
+    this.onSelectUser = this.onSelectUser.bind(this);
+}
+
+    onSelectUser(user) {
+        this.setState({
+            selectedUser: user
+        });
+    }
+
   render() {
     /**
      * "this.props.base" is "/app" because as been passed as a prop in the parent of GameRouter, i.e., App.js
@@ -19,6 +34,7 @@ class GameRouter extends React.Component {
           exact
           path={`${this.props.base}/dashboard`}
           render={() => <Game />}
+          render={() => <Game onSelectUser={this.onSelectUser}/>}
         />
 
         <Route
@@ -26,6 +42,11 @@ class GameRouter extends React.Component {
           path={`${this.props.base}`}
           render={() => <Redirect to={`${this.props.base}/dashboard`} />}
         />
+          <Route
+              exact
+              path={`${this.props.base}/profile`}
+              render={() => <Profile user={this.state.selectedUser}/>}
+          />
       </Container>
     );
   }

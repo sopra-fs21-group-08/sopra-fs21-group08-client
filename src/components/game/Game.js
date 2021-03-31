@@ -6,6 +6,7 @@ import Player from '../../views/Player';
 import { Spinner } from '../../views/design/Spinner';
 import { Button } from '../../views/design/Button';
 import { withRouter } from 'react-router-dom';
+import User from "../shared/models/User";
 
 const Container = styled(BaseContainer)`
   color: white;
@@ -25,16 +26,32 @@ const PlayerContainer = styled.li`
 `;
 
 class Game extends React.Component {
-  constructor() {
-    super();
+
+  constructor(props) {
+    super(props);
     this.state = {
       users: null
     };
   }
 
-  logout() {
-    localStorage.removeItem('token');
-    this.props.history.push('/login');
+  async logout() {
+
+    try {
+      const requestBody = JSON.stringify({
+        id: localStorage.getItem('id'),
+        token: localStorage.getItem('token')
+      });
+      const response = await api.put('/logout', requestBody);
+      localStorage.removeItem('token');
+      localStorage.removeItem('id');
+      // Logout successful --> navigate to the route /login in the AppRouter
+      this.props.history.push('/login');
+    }catch (error){
+      alert(`Something went wrong during logout: \n${handleError(error)}`);
+      localStorage.removeItem('token');
+      localStorage.removeItem('id');
+      this.props.history.push('/login');
+    }
   }
 
   async componentDidMount() {
@@ -74,7 +91,12 @@ class Game extends React.Component {
             <Users>
               {this.state.users.map(user => {
                 return (
-                  <PlayerContainer key={user.id}>
+                  <PlayerContainer key={user.id}
+                                   onClick={() => {
+                                     this.props.onSelectUser(user);
+                                     this.props.history.push("profile")
+                                   }}
+                  >
                     <Player user={user} />
                   </PlayerContainer>
                 );
