@@ -3,10 +3,48 @@
 }
 
 .center{
-    position: fixed;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-    
+  width: 30%;
 }
 
+.hcenter{
+  margin: auto;
+  margin-top: 20px;
+  width: 500px;
+}
+
+.header{
+  text-align: center;
+}
+
+.zbutton {
+  background-color: #0F05A0;
+  border-color: #080046;
+}
+
+.zbutton:hover{
+  background-color: #6692ff;
+}
+
+/* Background colors of Zurich */
+
+.zbg-1{
+  background-color: #0F05A0;
+  color: white;
+}
+
+.zbg-2{
+  background-color: #080046;
+}
+.zbg-3{
+  background-color: #6692ff;
+}
+.zbg-4{
+  background-color: #3631db;
+}
+.zbg-5{
+  background-color: #c1d7ff;
+}
