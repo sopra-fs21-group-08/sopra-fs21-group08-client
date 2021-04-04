@@ -20,12 +20,17 @@
   text-align: center;
 }
 
+
+
 .zbutton {
   background-color: #0F05A0;
   border-color: #080046;
 }
 
 .zbutton:hover{
+  background-color: #6692ff;
+}
+.zbutton:disabled{
   background-color: #6692ff;
 }
 
@@ -47,4 +52,10 @@
 }
 .zbg-5{
   background-color: #c1d7ff;
+}
+
+.background{
+  height: 1vh;
+  width: 1vw;
+  background-image: ;
 }
