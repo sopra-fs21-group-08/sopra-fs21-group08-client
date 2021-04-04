@@ -1,26 +1,24 @@
 import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button';
-import { Card, Form, Alert } from 'react-bootstrap';
+import { Card, Form, Alert, Button } from 'react-bootstrap';
 import ZButton from '../../views/design/ZButton'
 import Header from '../../views/Header'
 import { api } from '../../helpers/api';
+import { useHistory, Link } from 'react-router-dom';
 function Login() {
     const [user, setUser] = useState({ username: null, password: null })
     const [alert, setAlert] = useState({ display: false, variant: null, message: null })
+    
     // Login Functionality
     const login = async () => {
         try{
             const response = await api.put('/login', user);
 
         }catch(error){
-            console.log(error)
-            setAlert({display: true, variant: "danger", message: error})
+            setAlert({display: true, variant: "danger", message: error.response.data.message})
         }
     }
 
     const handleUserInputChange = (key, value) => {
-        // Example: if the key is username, this statement is the equivalent to the following one:
-        // this.setState({'username': value});
         setUser({...user,[key]: value });
     }
     return (
@@ -29,7 +27,7 @@ function Login() {
             <Card className="hcenter">
                 <Card.Header className="zbg-1">Login</Card.Header>
                 <Card.Body>
-                {alert.display&&<Alert variant="danger">Testalert</Alert>}
+                {alert.display&&<Alert variant="danger">{alert.message}</Alert>}
                     <Form>
                         <Form.Group>
                             <Form.Label>Username:</Form.Label>
@@ -51,7 +49,7 @@ function Login() {
                     </Form>
                 </Card.Body>
                 <Card.Footer className="zbg-1">
-                    Don't have an account? Sign up
+                    Don't have an account? <Link to="/register">Sign up</Link>
                 </Card.Footer>
             </Card>
         </div>
