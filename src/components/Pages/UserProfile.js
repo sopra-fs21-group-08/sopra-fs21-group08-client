@@ -39,8 +39,8 @@ function UserProfile() {
             </div>
             <Card.Body>
               <Row>
-                <Col> <ZButton>Create Game</ZButton> </Col>
-                <Col> <ZButton>Join Game</ZButton> </Col>
+                <Col> <center> <ZButton>Create Game</ZButton> </center> </Col>
+                <Col> <center> <ZButton>Join Game</ZButton> </center> </Col>
               </Row>
             </Card.Body>
           </Card>
@@ -68,7 +68,7 @@ function UserProfile() {
                </div>
             <Card.Text>
 
-              </Card.Text>
+            </Card.Text>
             </Card.Body>
             <Card.Footer>
               <small className="text-muted">Last updated 3 mins ago</small>
