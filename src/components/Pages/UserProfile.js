@@ -4,7 +4,8 @@ import { Card, Form, Alert, CardDeck, Image, Container, Col, Row } from 'react-b
 import ZButton from '../../views/design/ZButton'
 import ZButtonSmall from '../../views/design/ZButtonSmall'
 import Header from '../../views/Header'
-import { api } from '../../helpers/api';
+import { api } from '../../helpers/api'
+import avatar from '../../assets/img/avatar/avatar2.png'
 
 
 function UserProfile() {
@@ -23,7 +24,7 @@ function UserProfile() {
           <div className='mt-3'>
             <Row>
               <Col>
-              <Card.Img variant="top" src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" />
+              <Card.Img variant="top" src={avatar} />
               </Col>
               <Col>
               </Col>
