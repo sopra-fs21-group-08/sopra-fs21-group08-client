@@ -13,7 +13,7 @@ function UserProfile() {
       <div>
         <Header />
         <center>
-        <Container style={{ margin: '0rem' }}>
+        <Container style={{ margin: '0rem'}}>
         <CardDeck  className='mt-5'>
           <Col>
           <Card className="hcenter" style={{ width: '27rem', height: '29rem', margin: '0.5rem' }}>

@@ -18,6 +18,8 @@
 
 .header{
   text-align: center;
+  margin-top: 20px;
+  color: rgba(237, 237, 237, .9);
 }
 
 
@@ -56,7 +58,16 @@
 }
 
 .background{
-  height: 1vh;
-  width: 1vw;
   background-image: ;
+  opacity: .9;
+  background-blend-mode: luminosity;
+  background-size: cover;
+  position: absolute;
+  filter: blur(2px) grayscale(30%) brightness(50%);
+  -webkit-filter: blur(2px) grayscale(30%) brightness(50%);
+  height: 100%;
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-position: center;
 }
