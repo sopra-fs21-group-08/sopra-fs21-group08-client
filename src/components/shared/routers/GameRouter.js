@@ -32,7 +32,7 @@ class GameRouter extends React.Component {
       <Container>
         <Route
           exact
-          path={`${this.props.base}/dashboard`}
+          path={`${this.props.base}/profile`}
           render={() => <Game />}
           render={() => <Profile onSelectUser={this.onSelectUser}/>}
         />
@@ -40,11 +40,11 @@ class GameRouter extends React.Component {
         <Route
           exact
           path={`${this.props.base}`}
-          render={() => <Redirect to={`${this.props.base}/dashboard`} />}
+          render={() => <Redirect to={`${this.props.base}/profile`} />}
         />
           <Route
               exact
-              path={`${this.props.base}/profile`}
+              path={`${this.props.base}/...`}
               render={() => <Profile user={this.state.selectedUser}/>}
           />
       </Container>
