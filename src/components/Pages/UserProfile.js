@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
-import { Card, Form, Alert, CardDeck, Image, Container, Col, Row } from 'react-bootstrap';
+import { Card, Form, Alert, CardDeck, Image, Container, Col, Row, Modal } from 'react-bootstrap';
 import ZButton from '../../views/design/ZButton'
-import ZButtonSmall from '../../views/design/ZButtonSmall'
 import Header from '../../views/Header'
 import { api } from '../../helpers/api'
 import avatar from '../../assets/img/avatar/avatar2.png'
+import Background from '../../views/Background';
+import BackgroundImage from '../../assets/img/background/zurich_background.jpg'
 
 
 function UserProfile() {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
-      <div>
+        <>
         <Header />
         <center>
         <Container style={{ margin: '0rem'}}>
@@ -34,8 +40,16 @@ function UserProfile() {
                   transform: 'translate(-50%, -50%)'
                 }}>
                   <Row>
-                    <Col> <center> <ZButtonSmall>Edit Profile</ZButtonSmall> </center> </Col>
-                    <Col> <center> <ZButtonSmall>LOG OUT</ZButtonSmall> </center> </Col>
+                    <Col> <center>
+                    <Button variant="light" size="sm" style={{ width: '7rem', height: '2rem', margin: '0.3rem' }}>
+                    Edit Profile
+                    </Button>
+                    </center> </Col>
+                    <Col> <center>
+                    <Button  onClick={handleShow} variant="light" size="sm" style={{ width: '7rem', height: '2rem', margin: '0.3rem' }}>
+                    LOG OUT
+                    </Button>
+                    </center> </Col>
                   </Row>
                 </div>
               </Col>
@@ -106,7 +120,22 @@ function UserProfile() {
         </CardDeck>
         </Container>
         </center>
-      </div>
+
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Log Out</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Are you sure you want to log out?</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Cancel
+            </Button>
+            <ZButton onClick={handleClose}>
+              Log out
+            </ZButton>
+          </Modal.Footer>
+        </Modal>
+        </>
     )
 }
 
