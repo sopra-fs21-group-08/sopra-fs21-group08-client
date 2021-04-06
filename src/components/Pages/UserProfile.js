@@ -15,17 +15,21 @@ function UserProfile() {
         <Container style={{ margin: '0rem' }}>
         <CardDeck  className='mt-5'>
           <Col>
-          <Card className="hcenter" style={{ width: '27rem', height: '25rem', margin: '0.5rem' }}>
+          <Card className="hcenter" style={{ width: '27rem', height: '29rem', margin: '0.5rem' }}>
+          <Card.Header style={{fontSize: 28}}>
+          Me
+          </Card.Header>
           <div className='ml-3'>
           <div className='mt-3'>
-            <Row style={{textAlign: "left"}}>
-              <Col><Card.Img variant="top" src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" /></Col>
+            <Row>
               <Col>
-              <Card.Title style={{fontSize: 33, position: 'absolute', left: '25%', top: '50%', transform: 'translate(-50%, -50%)'}}>Me</Card.Title>
+              <Card.Img variant="top" src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" />
+              </Col>
+              <Col>
               </Col>
               <Col>
                 <div style={{
-                  position: 'absolute', left: '17%', top: '50%',
+                  position: 'absolute', left: '0%', top: '50%',
                   transform: 'translate(-50%, -50%)'
                 }}>
                   <Row>
@@ -60,8 +64,8 @@ function UserProfile() {
             <div className='mr-3'>
               <footer>
                 <Row>
-                  <Col> <center> <ZButton>Create Game</ZButton> </center> </Col>
-                  <Col> <center> <ZButton>Join Game</ZButton> </center> </Col>
+                  <Col style={{textAlign: "left"}}> <ZButton className='ml-5'>Create Game</ZButton> </Col>
+                  <Col style={{textAlign: "left"}}> <ZButton>Join Game</ZButton> </Col>
                 </Row>
               </footer>
             </div>
@@ -71,11 +75,11 @@ function UserProfile() {
           </Col>
 
           <Col>
-          <Card className="hcenter" style={{ width: '27rem', height: '25rem', margin: '0.5rem' }}>
+          <Card className="hcenter" style={{ width: '27rem', height: '29rem', margin: '0.5rem' }}>
             <div className='ml-3'>
             <div className='mt-3'>
               <Row>
-                <Col> <Card.Title style={{fontSize: 33}}> Online Players </Card.Title> </Col>
+                <Col> <Card.Title style={{fontSize: 28}}> Online Players </Card.Title> </Col>
               </Row>
             </div>
             </div>
@@ -85,16 +89,13 @@ function UserProfile() {
                  <Col><Card.Img variant="top" src="https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg" /></Col>
                  <Col><Card.Img variant="top" src="https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg" /></Col>
                </Row>
-               <div className='mt-4'>
+               <div className='mt-5'>
                <Row>
                  <Col><Card.Img variant="top" src="https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg" /></Col>
                  <Col><Card.Img variant="top" src="https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg" /></Col>
                  <Col><Card.Img variant="top" src="https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg" /></Col>
                </Row>
                </div>
-            <Card.Text>
-
-            </Card.Text>
             </Card.Body>
             <Card.Footer>
               <small className="text-muted">Last updated 3 mins ago</small>
