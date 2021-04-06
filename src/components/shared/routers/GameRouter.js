@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Redirect, Route } from "react-router-dom";
-import Game from "../../game/Game";
-import Profile from "../../game/Profile";
+import Game from "../../Pages/UserProfile";
+import Profile from "../../Pages/UserProfile";
 
 const Container = styled.div`
   display: flex;
@@ -34,7 +34,7 @@ class GameRouter extends React.Component {
           exact
           path={`${this.props.base}/dashboard`}
           render={() => <Game />}
-          render={() => <Game onSelectUser={this.onSelectUser}/>}
+          render={() => <Profile onSelectUser={this.onSelectUser}/>}
         />
 
         <Route

@@ -4,6 +4,9 @@ import { LoginGuard } from "../routeProtectors/LoginGuard";
 import Login from "../../Pages/Login"
 import Register from "../../Pages/Register";
 import Background from "../../../views/Background";
+import Game from "../../Pages/UserProfile";
+import { GameGuard } from "../routeProtectors/GameGuard";
+import GameRouter from "./GameRouter";
 import {Container, Row, Col} from "react-bootstrap";
 
 
@@ -11,6 +14,21 @@ class AppRouter extends React.Component {
   render() {
     return (
       <BrowserRouter>
+        <Switch>
+          <div>
+            <Route
+              path="/game"
+              render={() => (
+                <GameGuard>
+                  <Container style={{position: "absolute", zIndex: 10}} fluid>
+                  <GameRouter base={"/game"} />
+                  </Container>
+                  <Background />
+                </GameGuard>
+              )}
+            />
+          </div>
+        </Switch>
         <Switch>
           <div>
             <Route
