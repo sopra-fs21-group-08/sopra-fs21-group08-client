@@ -7,13 +7,29 @@ import { api } from '../../helpers/api'
 import avatar from '../../assets/img/avatar/avatar2.png'
 import Background from '../../views/Background';
 import BackgroundImage from '../../assets/img/background/zurich_background.jpg'
+import { useHistory, Link, withRouter } from 'react-router-dom';
 
 
 function UserProfile() {
+    let history = useHistory();
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [alert, setAlert] = useState({ display: false, variant: null, message: null })
+
+    const logout = async () => {
+        try{
+            const token = localStorage.getItem('token');
+            const response = await api.put('/logout', token);
+            localStorage.removeItem('token');
+            history.push('/login');
+        }catch(error){
+            //setAlert({display: true, variant: "danger", message: error.response.data.message})
+            localStorage.removeItem('token');
+            history.push('/login');
+        }
+    }
 
     return (
         <>
@@ -60,7 +76,6 @@ function UserProfile() {
             <div className='ml-3'>
             <div className='mr-3'>
             <Card.Body className="zbg-5">
-              <Card.Title>  </Card.Title>
               <Card.Text style={{textAlign: "left"}}>
                 <Col>
                   <p style={{fontWeight: "bold"}}>Games played: </p>
@@ -130,7 +145,7 @@ function UserProfile() {
             <Button variant="secondary" onClick={handleClose}>
               Cancel
             </Button>
-            <ZButton onClick={handleClose}>
+            <ZButton onClick={logout}>
               Log out
             </ZButton>
           </Modal.Footer>
