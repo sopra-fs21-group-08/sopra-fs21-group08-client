@@ -1,5 +1,7 @@
-# SoPra FS21 - Client Template
+# SoPra FS21 - Scotland Yard Zürich Edition - Client Template
 
+https://sopra-fs21-group-08-client.herokuapp.com/
+  
 ## Getting started with React
 
 Read and go through those Tutorials, It will make your life easier!
