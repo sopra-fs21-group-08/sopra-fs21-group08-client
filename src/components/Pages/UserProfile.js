@@ -4,6 +4,7 @@ import { Card, Form, Alert, CardDeck, Image, Container, Col, Row, Modal } from '
 import ZButton from '../../views/design/ZButton'
 import Header from '../../views/Header'
 import { api, handleError } from '../../helpers/api';
+import defaultavatar from '../../assets/img/avatar/avatar0.jpeg'
 import avatar from '../../assets/img/avatar/avatar2.png'
 import Background from '../../views/Background';
 import BackgroundImage from '../../assets/img/background/zurich_background.jpg'
@@ -28,7 +29,7 @@ function UserProfile() {
           username: inputusername,
         });
         try{
-          //await api.put('/users/'+user.id, requestBody, { headers: { 'Authorization': localStorage.getItem('token') }});
+          await api.put('/users/', requestBody, { headers: { 'Authorization': localStorage.getItem('token') }});
           closeEdit();
         } catch (error) {
           alert(`Something went wrong while updating the user: \n${handleError(error)}`);
@@ -132,15 +133,15 @@ function UserProfile() {
             </div>
             <Card.Body>
                <Row>
-                 <Col><Card.Img variant="top" src="https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg" /></Col>
-                 <Col><Card.Img variant="top" src="https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg" /></Col>
-                 <Col><Card.Img variant="top" src="https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg" /></Col>
+                 <Col><Card.Img variant="top" src={defaultavatar} /></Col>
+                 <Col><Card.Img variant="top" src={defaultavatar} /></Col>
+                 <Col><Card.Img variant="top" src={defaultavatar} /></Col>
                </Row>
                <div className='mt-5'>
                <Row>
-                 <Col><Card.Img variant="top" src="https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg" /></Col>
-                 <Col><Card.Img variant="top" src="https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg" /></Col>
-                 <Col><Card.Img variant="top" src="https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg" /></Col>
+                 <Col><Card.Img variant="top" src={defaultavatar} /></Col>
+                 <Col><Card.Img variant="top" src={defaultavatar} /></Col>
+                 <Col><Card.Img variant="top" src={defaultavatar} /></Col>
                </Row>
                </div>
             </Card.Body>
