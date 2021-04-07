@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { Card, Form, Alert, CardDeck, Image, Container, Col, Row, Modal } from 'react-bootstrap';
 import ZButton from '../../views/design/ZButton'
 import Header from '../../views/Header'
-import { api } from '../../helpers/api'
+import { api, handleError } from '../../helpers/api';
 import avatar from '../../assets/img/avatar/avatar2.png'
 import Background from '../../views/Background';
 import BackgroundImage from '../../assets/img/background/zurich_background.jpg'
@@ -21,21 +21,28 @@ function UserProfile() {
     const ShowEdit = () => setShowEdit(true);
     const [alert, setAlert] = useState({ display: false, variant: null, message: null });
 
-    const [user, setUser] = useState({ username: null });
-    const [isValid, setIsValid] = useState({ username: true });
+    const [inputusername, setusername] = useState(null);
 
-    const handleUserInputChange = (key, value) => {
-        setUser({ ...user, [key]: value });
-    }
+    const submitValue = async () => {
+        const requestBody = JSON.stringify({
+          username: inputusername,
+        });
+        try{
+          //await api.put('/users/'+user.id, requestBody, { headers: { 'Authorization': localStorage.getItem('token') }});
+          closeEdit();
+        } catch (error) {
+          alert(`Something went wrong while updating the user: \n${handleError(error)}`);
+        }
+    };
 
     const logout = async () => {
         try{
             const token = localStorage.getItem('token');
-            const response = await api.put('/logout', token);
+            await api.put('/logout', token);
             localStorage.removeItem('token');
             history.push('/login');
         }catch(error){
-            //setAlert({display: true, variant: "danger", message: error.response.data.message})
+            alert(`Something went wrong while trying to log out: \n${handleError(error)}`);
             localStorage.removeItem('token');
             history.push('/login');
         }
@@ -169,9 +176,7 @@ function UserProfile() {
             <Form>
                 <Form.Group>
                     <Form.Label>Username:</Form.Label>
-                    <Form.Control type="text" placeholder="Username" onChange={e => {
-                        handleUserInputChange('username', e.target.value);
-                    }} isInvalid={!isValid.username}>
+                    <Form.Control type="text" placeholder="Username" onChange={event => setusername(event.target.value)}>
                     </Form.Control>
                 </Form.Group>
             </Form>
@@ -180,7 +185,10 @@ function UserProfile() {
             <Button variant="secondary" onClick={closeEdit}>
               Cancel
             </Button>
-            <ZButton>
+            <ZButton
+            onClick={() => {
+                submitValue();
+            }}>
               Save
             </ZButton>
           </Modal.Footer>
