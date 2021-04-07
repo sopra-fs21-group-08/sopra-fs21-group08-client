@@ -63,6 +63,9 @@ function UserProfile() {
             history.push('/login');
         }catch(error){
             alert(`Something went wrong while trying to log out: \n${handleError(error)}`);
+            localStorage.removeItem('token');
+            localStorage.removeItem('userId');
+            history.push('/login');
         }
     }
 
