@@ -5,7 +5,13 @@ import ZButton from '../../views/design/ZButton'
 import Header from '../../views/Header'
 import { api, handleError } from '../../helpers/api';
 import defaultavatar from '../../assets/img/avatar/avatar0.jpeg'
-import avatar from '../../assets/img/avatar/avatar2.png'
+import avatar0 from '../../assets/img/avatar/avatar2.png'
+import avatar1 from '../../assets/img/avatar/avatar1.png'
+import avatar2 from '../../assets/img/avatar/avatar3.png'
+import avatar3 from '../../assets/img/avatar/avatar4.png'
+import avatar4 from '../../assets/img/avatar/avatar5.png'
+import avatar5 from '../../assets/img/avatar/avatar6.png'
+import avatar6 from '../../assets/img/avatar/avatar7.png'
 import Background from '../../views/Background';
 import BackgroundImage from '../../assets/img/background/zurich_background.jpg'
 import { useHistory, Link, withRouter } from 'react-router-dom';
@@ -15,6 +21,8 @@ function UserProfile() {
 
     const [user, setuser] = useState([]);
 
+    const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6]
+
     useEffect(() =>
     {
       const fetchData = async () => {
@@ -22,7 +30,6 @@ function UserProfile() {
           console.log(response);
           const user = new User(response.data);
           setuser(user);
-          console.log(user.username);
       };
       fetchData();
     }, []);
@@ -43,7 +50,7 @@ function UserProfile() {
           username: inputusername,
         });
         try{
-          await api.put('/users/', requestBody, { headers: { 'Authorization': localStorage.getItem('token') }});
+          await api.put('/users/'+localStorage.getItem("userId"), requestBody);
           closeEdit();
         } catch (error) {
           alert(`Something went wrong while updating the user: \n${handleError(error)}`);
@@ -84,7 +91,7 @@ function UserProfile() {
           <div className='mt-3'>
             <Row>
               <Col>
-              <Card.Img variant="top" src={avatar} />
+              <Card.Img variant="top" src={avatar[user.userId%6]} />
               </Col>
               <Col>
               </Col>
