@@ -38,8 +38,7 @@ function UserProfile() {
 
     const logout = async () => {
         try{
-            const token = localStorage.getItem('token');
-            await api.put('/logout', token);
+            await api.put('users/logout', { headers: { 'Authorization': localStorage.getItem('token') }});
             localStorage.removeItem('token');
             history.push('/login');
         }catch(error){
