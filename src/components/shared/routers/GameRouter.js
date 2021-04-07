@@ -4,6 +4,7 @@ import { Redirect, Route } from "react-router-dom";
 import Game from "../../Pages/UserProfile";
 import Profile from "../../Pages/UserProfile";
 import Lobby from "../../Pages/Lobby";
+import Background from "../../../views/Background";
 
 const Container = styled.div`
   display: flex;

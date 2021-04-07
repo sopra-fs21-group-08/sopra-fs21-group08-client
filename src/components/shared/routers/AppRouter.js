@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { LoginGuard } from "../routeProtectors/LoginGuard";
-import Login from "../../Pages/Login"
+import Login from "../../Pages/Login";
+import Lobby from "../../Pages/Lobby";
 import Register from "../../Pages/Register";
 import Background from "../../../views/Background";
 import Game from "../../Pages/UserProfile";
@@ -63,6 +64,22 @@ class AppRouter extends React.Component {
             <Route path="/" exact render={() => <Redirect to={"/login"} />} />
           </div>
         </Switch>
+        <Switch>
+          <div>
+          <Route
+              path="/lobby"
+              exact
+              render={() => (
+                <LoginGuard>
+                  <Container style={{position: "absolute", zIndex: 10}} fluid>
+                  <Lobby />
+                  </Container>
+                  <Background />
+                </LoginGuard>
+              )}
+            />
+          </div>
+        </Switch>
       </BrowserRouter>
     );
   }
@@ -70,3 +87,5 @@ class AppRouter extends React.Component {
 
 
 export default AppRouter;
+
+//Todo: delete <Switch> to lobby
