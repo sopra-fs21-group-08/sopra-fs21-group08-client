@@ -59,7 +59,6 @@
 }
 
 .background{
-  background-image: ;
   opacity: .9;
   background-blend-mode: luminosity;
   position: absolute;
@@ -67,6 +66,7 @@
   -webkit-filter: blur(2px) grayscale(30%) brightness(50%);
   height: 100%;
   background-position: center;
+  position: sticky;
   background-repeat: y-repeat;
   background-attachment: fixed;
 }
