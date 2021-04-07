@@ -13,10 +13,20 @@ import { useHistory, Link, withRouter } from 'react-router-dom';
 function UserProfile() {
     let history = useHistory();
     const [show, setShow] = useState(false);
+    const [showEdit, setShowEdit] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [alert, setAlert] = useState({ display: false, variant: null, message: null })
+    const closeEdit = () => setShowEdit(false);
+    const ShowEdit = () => setShowEdit(true);
+    const [alert, setAlert] = useState({ display: false, variant: null, message: null });
+
+    const [user, setUser] = useState({ username: null });
+    const [isValid, setIsValid] = useState({ username: true });
+
+    const handleUserInputChange = (key, value) => {
+        setUser({ ...user, [key]: value });
+    }
 
     const logout = async () => {
         try{
@@ -57,7 +67,7 @@ function UserProfile() {
                 }}>
                   <Row>
                     <Col> <center>
-                    <Button variant="light" size="sm" style={{ width: '7rem', height: '2rem', margin: '0.3rem' }}>
+                    <Button onClick={ShowEdit} variant="light" size="sm" style={{ width: '7rem', height: '2rem', margin: '0.3rem' }}>
                     Edit Profile
                     </Button>
                     </center> </Col>
@@ -150,6 +160,31 @@ function UserProfile() {
             </ZButton>
           </Modal.Footer>
         </Modal>
+
+        <Modal show={showEdit} onHide={closeEdit}>
+          <Modal.Header closeButton>
+            <Modal.Title>Edit Profile</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+                <Form.Group>
+                    <Form.Label>Username:</Form.Label>
+                    <Form.Control type="text" placeholder="Username" onChange={e => {
+                        handleUserInputChange('username', e.target.value);
+                    }} isInvalid={!isValid.username}>
+                    </Form.Control>
+                </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={closeEdit}>
+              Cancel
+            </Button>
+            <ZButton>
+              Save
+            </ZButton>
+          </Modal.Footer>
+          </Modal>
         </>
     )
 }
