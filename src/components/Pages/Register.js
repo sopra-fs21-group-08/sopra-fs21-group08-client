@@ -16,8 +16,10 @@ function Register() {
         try {
             setIsValid({ ...isValid, password: true, controlPassword: true });
             if (user.password === user.controlPassword) {
-                const response = await api.put('/register', user);
-                console.log(response)
+                const response = await api.post('/register', user);
+                //Mocktoken for testing, since the backend doesn't return a token for now
+                localStorage.setItem('token', 'Mocktoken')
+                history.push('/game')
             } else {
                 setIsValid({ ...isValid, password: false, controlPassword: false });
 
@@ -61,11 +63,11 @@ function Register() {
                                     handleUserInputChange('controlPassword', e.target.value);
                                 }} isInvalid={!isValid.controlPassword} >
                             </Form.Control>
-                            {!isValid.controlPassword&&<Form.Control.Feedback type="invalid">
-                            Your password doesn't match
+                            {!isValid.controlPassword && <Form.Control.Feedback type="invalid">
+                                Your password doesn't match
                             </Form.Control.Feedback>}
                         </Form.Group>
-                        <ZButton disabled={!user.username||!user.password||!user.controlPassword} onClick={register}>Register</ZButton>
+                        <ZButton disabled={!user.username || !user.password || !user.controlPassword} onClick={register}>Register</ZButton>
 
                     </Form>
                 </Card.Body>

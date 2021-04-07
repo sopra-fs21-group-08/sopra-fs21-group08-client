@@ -7,12 +7,15 @@ import { useHistory, Link } from 'react-router-dom';
 function Login() {
     const [user, setUser] = useState({ username: null, password: null })
     const [alert, setAlert] = useState({ display: false, variant: null, message: null })
-    
+
+    const history = useHistory();
     // Login Functionality
     const login = async () => {
         try{
             const response = await api.put('/login', user);
-
+            //Mocktoken for testing, since the backend doesn't return a token for now
+            localStorage.setItem('token', 'Mocktoken')
+            history.push('/game')
         }catch(error){
             setAlert({display: true, variant: "danger", message: error.response.data.message})
         }
