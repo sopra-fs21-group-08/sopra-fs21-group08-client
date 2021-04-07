@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Redirect, Route } from "react-router-dom";
 import Game from "../../Pages/UserProfile";
 import Profile from "../../Pages/UserProfile";
+import Lobby from "../../Pages/Lobby";
 
 const Container = styled.div`
   display: flex;
@@ -39,14 +40,28 @@ class GameRouter extends React.Component {
 
         <Route
           exact
+          path={`${this.props.base}/lobby`}
+          render={() => 
+            <div>
+              <Container style={{position: "absolute", zIndex: 10}} fluid>
+              <Lobby />
+              </Container>
+              <Background />
+            </div>
+          }
+        />
+
+        <Route
+          exact
           path={`${this.props.base}`}
           render={() => <Redirect to={`${this.props.base}/profile`} />}
         />
-          <Route
-              exact
-              path={`${this.props.base}/...`}
-              render={() => <Profile user={this.state.selectedUser}/>}
-          />
+        
+        <Route
+            exact
+            path={`${this.props.base}/...`}
+            render={() => <Profile user={this.state.selectedUser}/>}
+        />
       </Container>
     );
   }
