@@ -17,8 +17,8 @@ function Register() {
             setIsValid({ ...isValid, password: true, controlPassword: true });
             if (user.password === user.controlPassword) {
                 const response = await api.post('/register', user);
-                //Mocktoken for testing, since the backend doesn't return a token for now
-                localStorage.setItem('token', 'Mocktoken')
+                localStorage.setItem('token', response.data.token)
+                localStorage.setItem('userId', response.data.userId)
                 history.push('/game')
             } else {
                 setIsValid({ ...isValid, password: false, controlPassword: false });

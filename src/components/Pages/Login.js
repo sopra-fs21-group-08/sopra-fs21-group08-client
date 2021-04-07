@@ -13,8 +13,8 @@ function Login() {
     const login = async () => {
         try{
             const response = await api.put('/login', user);
-            //Mocktoken for testing, since the backend doesn't return a token for now
-            localStorage.setItem('token', 'Mocktoken')
+            localStorage.setItem('token', response.data.token)
+            localStorage.setItem('userId', response.data.userId)
             history.push('/game')
         }catch(error){
             setAlert({display: true, variant: "danger", message: error.response.data.message})
