@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from 'react-bootstrap/Button';
 import { Card, Form, Alert, CardDeck, Image, Container, Col, Row, Modal } from 'react-bootstrap';
 import ZButton from '../../views/design/ZButton'
@@ -9,9 +9,24 @@ import avatar from '../../assets/img/avatar/avatar2.png'
 import Background from '../../views/Background';
 import BackgroundImage from '../../assets/img/background/zurich_background.jpg'
 import { useHistory, Link, withRouter } from 'react-router-dom';
-
+import User from '../shared/models/User';
 
 function UserProfile() {
+
+    const [user, setuser] = useState([]);
+
+    useEffect(() =>
+    {
+      const fetchData = async () => {
+          const response = await api.get('/users/'+localStorage.getItem('userId'));
+          console.log(response);
+          const user = new User(response.data);
+          setuser(user);
+          console.log(user.username);
+      };
+      fetchData();
+    }, []);
+
     let history = useHistory();
     const [show, setShow] = useState(false);
     const [showEdit, setShowEdit] = useState(false);
@@ -20,7 +35,6 @@ function UserProfile() {
     const handleShow = () => setShow(true);
     const closeEdit = () => setShowEdit(false);
     const ShowEdit = () => setShowEdit(true);
-    const [alert, setAlert] = useState({ display: false, variant: null, message: null });
 
     const [inputusername, setusername] = useState(null);
 
@@ -37,14 +51,18 @@ function UserProfile() {
     };
 
     const logout = async () => {
+        const requestBody = JSON.stringify({
+            userId : user.userId,
+            username : user.username
+        })
+        console.log(requestBody);
         try{
-            await api.put('users/logout', { headers: { 'Authorization': localStorage.getItem('token') }});
+            await api.put('/users/logout', requestBody);
             localStorage.removeItem('token');
+            localStorage.removeItem('userId');
             history.push('/login');
         }catch(error){
             alert(`Something went wrong while trying to log out: \n${handleError(error)}`);
-            localStorage.removeItem('token');
-            history.push('/login');
         }
     }
 
@@ -57,7 +75,7 @@ function UserProfile() {
           <Col>
           <Card className="hcenter" style={{ width: '27rem', height: '29rem', margin: '0.5rem' }}>
           <Card.Header style={{fontSize: 28}}>
-          Me
+           {user.username}
           </Card.Header>
           <div className='ml-3'>
           <div className='mt-3'>
