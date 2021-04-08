@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { Card, Form, Alert, CardDeck, Image, Container, Col, Row, Modal } from 'react-bootstrap';
 import ZButton from '../../views/design/ZButton'
 import Header from '../../views/Header'
+import Player from '../../views/Player'
 import { api, handleError } from '../../helpers/api';
 import defaultavatar from '../../assets/img/avatar/avatar0.jpeg'
 import avatar0 from '../../assets/img/avatar/avatar1.png'
@@ -21,7 +22,7 @@ function UserProfile() {
 
     const [user, setuser] = useState([]);
 
-    const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6]
+    const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
     useEffect(() =>
     {
@@ -150,32 +151,7 @@ function UserProfile() {
           </Col>
 
           <Col>
-          <Card className="hcenter" style={{ width: '27rem', height: '29rem', margin: '0.5rem' }}>
-            <div className='ml-3'>
-            <div className='mt-3'>
-              <Row>
-                <Col> <Card.Title style={{fontSize: 28}}> Online Players </Card.Title> </Col>
-              </Row>
-            </div>
-            </div>
-            <Card.Body>
-               <Row>
-                 <Col><Card.Img variant="top" src={defaultavatar} /></Col>
-                 <Col><Card.Img variant="top" src={defaultavatar} /></Col>
-                 <Col><Card.Img variant="top" src={defaultavatar} /></Col>
-               </Row>
-               <div className='mt-5'>
-               <Row>
-                 <Col><Card.Img variant="top" src={defaultavatar} /></Col>
-                 <Col><Card.Img variant="top" src={defaultavatar} /></Col>
-                 <Col><Card.Img variant="top" src={defaultavatar} /></Col>
-               </Row>
-               </div>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
+            <Player />
           </Col>
         </CardDeck>
         </Container>
