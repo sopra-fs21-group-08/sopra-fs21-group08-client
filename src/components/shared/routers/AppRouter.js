@@ -64,22 +64,6 @@ class AppRouter extends React.Component {
             <Route path="/" exact render={() => <Redirect to={"/login"} />} />
           </div>
         </Switch>
-        <Switch>
-          <div>
-          <Route
-              path="/lobby"
-              exact
-              render={() => (
-                <LoginGuard>
-                  <Container style={{position: "absolute", zIndex: 10}} fluid>
-                  <Lobby />
-                  </Container>
-                  <Background />
-                </LoginGuard>
-              )}
-            />
-          </div>
-        </Switch>
       </BrowserRouter>
     );
   }
