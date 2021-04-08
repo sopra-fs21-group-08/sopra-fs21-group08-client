@@ -1,15 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Redirect, Route } from "react-router-dom";
-import Game from "../../Pages/UserProfile";
-import Profile from "../../Pages/UserProfile";
+import UserProfile from "../../Pages/UserProfile";
 import Lobby from "../../Pages/Lobby";
+import Map from "../../Pages/Map";
 import Background from "../../../views/Background";
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+import {Container, Row, Col} from "react-bootstrap";
 
 class GameRouter extends React.Component {
     constructor() {
@@ -31,12 +27,18 @@ class GameRouter extends React.Component {
      * "this.props.base" is "/app" because as been passed as a prop in the parent of GameRouter, i.e., App.js
      */
     return (
-      <Container>
+      <>
         <Route
           exact
           path={`${this.props.base}/profile`}
-          render={() => <Game />}
-          render={() => <Profile onSelectUser={this.onSelectUser}/>}
+        
+          render={() => 
+            <>
+            <Container style={{position: "absolute", zIndex: 10}} fluid>
+            <UserProfile onSelectUser={this.onSelectUser}/>
+            </Container>
+            <Background />
+            </>}
         />
 
         <Route
@@ -51,6 +53,15 @@ class GameRouter extends React.Component {
             </div>
           }
         />
+        <Route
+          exact
+          path={`${this.props.base}/map`}
+          render={() => 
+            <div>
+              <Map/>
+            </div>
+          }
+        />
 
         <Route
           exact
@@ -61,9 +72,10 @@ class GameRouter extends React.Component {
         <Route
             exact
             path={`${this.props.base}/...`}
-            render={() => <Profile user={this.state.selectedUser}/>}
+            render={() => <UserProfile user={this.state.selectedUser}/>}
         />
-      </Container>
+        </>
+      
     );
   }
 }
