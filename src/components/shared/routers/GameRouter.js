@@ -42,14 +42,7 @@ class GameRouter extends React.Component {
         <Route
           exact
           path={`${this.props.base}/lobby`}
-          render={() => 
-            <div>
-              <Container style={{position: "absolute", zIndex: 10}} fluid>
-              <Lobby />
-              </Container>
-              <Background />
-            </div>
-          }
+          render={() => <Lobby />}
         />
 
         <Route

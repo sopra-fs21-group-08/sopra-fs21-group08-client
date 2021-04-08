@@ -2,7 +2,7 @@ import React from 'react'
 
 function Rules() {
     return (
-        <div className="rules">
+        <div>
             <h3>Mr. X Zürich Edition</h3>
             <h4>RULES</h4>
             <p>
@@ -75,3 +75,5 @@ function Rules() {
 }
 
 export default Rules
+
+//todo: change postion of the rules button

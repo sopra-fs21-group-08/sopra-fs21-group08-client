@@ -20,13 +20,14 @@ function Lobby() {
     // update list of players every 5 sec
 
     useEffect(() => {
-        // fetch list of players & game id from server
+        // fetch list of players & game name from server
     })
 
     return (
-        <div>
-            <Header />
-            <Card className="center">
+        <>
+        <center>
+        <Header />
+        <Card className="hcenter">
                 <Card.Header className="zbg-1">Game Lobby</Card.Header>
                 <Card.Body>
                     <Card.Title>{gameId}</Card.Title>
@@ -35,13 +36,11 @@ function Lobby() {
                         <Col><Card.Img variant="top" src={img} /></Col>
                         <Col><Card.Img variant="top" src={img} /></Col>
                     </Row>
-                    <div className='mt-5'>
                     <Row>
                         <Col><Card.Img variant="top" src={img} /></Col>
                         <Col><Card.Img variant="top" src={img} /></Col>
                         <Col><Card.Img variant="top" src={img} /></Col>
                     </Row>
-                    </div>
 
                     <ZButton disabled={players.length < 3}>Start Game</ZButton>
                 </Card.Body>
@@ -55,7 +54,9 @@ function Lobby() {
                     </Row>
                 </Card.Footer>
 
-                <Modal show={show} onHide={handleClose} size="lg">
+        </Card>
+        </center>
+        <Modal show={show} onHide={handleClose} size="lg">
                     <Modal.Header closeButton>
                     <Modal.Title>Game rules</Modal.Title>
                     </Modal.Header>
@@ -67,14 +68,13 @@ function Lobby() {
                         Close
                     </ZButton>
                     </Modal.Footer>
-                </Modal>
-
-            </Card>
+        </Modal>
             
-        </div>
+        </>
     )
 }
 
-// pop up window if player wants to quit game or start game with less then 6 players in the room
+// TODO: pop up window if player wants to quit game or start game with less then 6 players in the room
+// TODO: 
 
 export default Lobby
