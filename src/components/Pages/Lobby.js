@@ -26,7 +26,7 @@ function Lobby() {
     return (
         <div>
             <Header />
-            <Card className="center">
+            <Card className="hcenter">
                 <Card.Header className="zbg-1">Game Lobby</Card.Header>
                 <Card.Body>
                     <Card.Title>{gameId}</Card.Title>

@@ -21,10 +21,7 @@ class AppRouter extends React.Component {
               path="/game"
               render={() => (
                 <GameGuard>
-                  <Container style={{position: "absolute", zIndex: 10}} fluid>
                   <GameRouter base={"/game"} />
-                  </Container>
-                  <Background />
                 </GameGuard>
               )}
             />
