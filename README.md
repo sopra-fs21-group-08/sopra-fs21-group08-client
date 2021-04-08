@@ -1,6 +1,9 @@
 # SoPra FS21 - Scotland Yard Zürich Edition - Client Template
 
 https://sopra-fs21-group-08-client.herokuapp.com/
+
+## Bootstrap Components
+https://react-bootstrap.github.io/components/alerts 
   
 ## Getting started with React
 

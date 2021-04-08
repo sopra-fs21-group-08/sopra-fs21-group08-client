@@ -26,7 +26,7 @@ function Lobby() {
     return (
         <div>
             <Header />
-            <Card className="hcenter">
+            <Card className="center">
                 <Card.Header className="zbg-1">Game Lobby</Card.Header>
                 <Card.Body>
                     <Card.Title>{gameId}</Card.Title>
@@ -55,7 +55,7 @@ function Lobby() {
                     </Row>
                 </Card.Footer>
 
-                <Modal show={show} onHide={handleClose}>
+                <Modal show={show} onHide={handleClose} size="lg">
                     <Modal.Header closeButton>
                     <Modal.Title>Game rules</Modal.Title>
                     </Modal.Header>
