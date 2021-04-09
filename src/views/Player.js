@@ -41,14 +41,10 @@ const Player = () => {
   return (
           <div>
             <Card className="hcenter" style={{ width: '27rem', height: '29rem', margin: '0.5rem' }}>
-              <div className='ml-3'>
-              <div className='mt-3'>
-                <Row>
-                  <Col> <Card.Title style={{fontSize: 28}}> Other Players </Card.Title> </Col>
-                </Row>
-              </div>
-              </div>
-              <Card.Body>
+                <Card.Header style={{fontSize: 28}}>
+                   Other Players
+                </Card.Header>
+              <Card.Body style={{overflowY: 'scroll'}}>
                  <Row>
                  {users.map(user => (
                  <>
