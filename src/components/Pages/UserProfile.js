@@ -38,13 +38,17 @@ function UserProfile() {
     let history = useHistory();
     const [show, setShow] = useState(false);
     const [showEdit, setShowEdit] = useState(false);
+    const [showRoom, setShowRoom] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const closeEdit = () => setShowEdit(false);
     const ShowEdit = () => setShowEdit(true);
+    const closeRoom = () => setShowRoom(false);
+    const ShowRoom = () => setShowRoom(true);
 
     const [inputusername, setusername] = useState(null);
+    const [inputlobby, setlobby] = useState(null);
 
     const editProfile = async () => {
         const requestBody = JSON.stringify({
@@ -77,11 +81,37 @@ function UserProfile() {
         }
     }
 
+    const join = async () => {
+        const requestBody = JSON.stringify({
+          userId: localStorage.getItem("userId")
+        });
+        try{
+          await api.put('/lobbies/'+inputlobby, requestBody);
+          history.push('lobby');
+        } catch (error) {
+          alert(`Room doesn't exist`);
+        }
+    };
+
+    const createGame = async () => {
+        const requestBody = JSON.stringify({
+          userId: localStorage.getItem("userId"),
+          lobbyName: " "
+        });
+        try{
+          await api.post('/lobbies/', requestBody);
+          history.push('lobby');
+        } catch (error) {
+          alert(`Something went wrong while trying to create a new Game: \n${handleError(error)}`);
+        }
+    };
+
     return (
         <>
         <Header />
         <center>
         <Container style={{ margin: '0rem'}}>
+
         <CardDeck  className='mt-5'>
           <Col>
           <Card className="hcenter" style={{ width: '27rem', height: '29rem', margin: '0.5rem' }}>
@@ -140,8 +170,8 @@ function UserProfile() {
             <div className='mr-3'>
               <footer>
                 <Row>
-                  <Col style={{textAlign: "left"}}> <ZButton className='ml-5'>Create Game</ZButton> </Col>
-                  <Col style={{textAlign: "left"}}> <ZButton>Join Game</ZButton> </Col>
+                  <Col style={{textAlign: "left"}}> <ZButton className='ml-5' onClick={createGame}>Create Game</ZButton> </Col>
+                  <Col style={{textAlign: "left"}}> <ZButton onClick={ShowRoom} >Join Game</ZButton> </Col>
                 </Row>
               </footer>
             </div>
@@ -156,6 +186,7 @@ function UserProfile() {
         </CardDeck>
         </Container>
         </center>
+
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -197,6 +228,30 @@ function UserProfile() {
             </ZButton>
           </Modal.Footer>
           </Modal>
+
+        <Modal show={showRoom} onHide={closeRoom}>
+          <Modal.Body  closeButton>
+            <Form>
+                <Form.Group>
+                    <Form.Label>Join Room</Form.Label>
+                    <Form.Control type="number" placeholder="Room Number" onChange={event => setlobby(event.target.value)}>
+                    </Form.Control>
+                </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={closeRoom}>
+              Cancel
+            </Button>
+            <ZButton
+            onClick={() => {
+                join();
+            }}>
+              Join
+            </ZButton>
+          </Modal.Footer>
+          </Modal>
+
         </>
     )
 }
