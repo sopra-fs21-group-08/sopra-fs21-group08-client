@@ -30,7 +30,7 @@ const Player = () => {
       const fetchData = async () => {
           const response = await api.get('/users/');
           console.log(response);
-          const users = response.data.slice(0,6);
+          const users = response.data;
           setusers(users);
           console.log(users);
       };
@@ -84,9 +84,6 @@ const Player = () => {
                  ))}
                  </Row>
               </Card.Body>
-              <Card.Footer>
-                <small className="text-muted">Last updated 3 mins ago</small>
-              </Card.Footer>
             </Card>
           </div>
     );
