@@ -35,6 +35,12 @@ const Player = () => {
           console.log(users);
       };
       fetchData();
+
+      const interval=setInterval(()=>{
+            fetchData()
+           },10000)
+
+      return()=>clearInterval(interval)
     }, []);
 
   const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6]
