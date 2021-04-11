@@ -1,27 +1,44 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
+import L, { bounds } from 'leaflet';
+import { MapContainer, SVGOverlay, WMSTileLayer, Circle, Marker } from 'react-leaflet'
+import {iconPerson as figure} from '../../views/Map/Figure'
+import StationMarker from '../../views/Map/StationMarker'
+import stations from '../../assets/mockstations/stations.json'
 function GameMap() {
-    var map;
-    let mapContainer;
 
-    useEffect(() => {
-        map = L.map(mapContainer);
-        map.setView([47.36609056723141, 8.544442200801285], 15);
-        var wmsLayer = L.tileLayer.wms('https://wms.zh.ch/OrthoZHWMS?', {
-            layers: 'ortho_s'
-        }).addTo(map);
-        L.circle([47.36609056723141, 8.544442200801285], {radius: 5}).addTo(map);
+    const [figPos, setFigPos]=useState(stations[439])
+
+    const changePosition = (station)=>{
+        setFigPos(station)
 
 
+    }
 
-    }, [mapContainer]);
 
 
     return (
-        <div className="map-container" style={{ height: "100vh", width: "100vw" }} ref={el => mapContainer = el}>
+        <MapContainer center={[47.367270, 8.534655]} transparent={true} zoom={13} style={{ height: "100vh" }} scrollWheelZoom={true}>
+            <WMSTileLayer
+                layers={["ortho_s"]}
+                format="image/png"
+                transparent={true}
+                url="https://wms.zh.ch/OrthoZHWMS"
+            />
+            <div>
+                        {stations.map((station, index) =>
+                            <StationMarker onClickStation={changePosition} key={station.DIVA_NR} station={station} transport={station.VTYP} number={index} bounds={[station.N, station.E]}></StationMarker>
+                        )}</div>
+                        <Marker
+        position={[ figPos.N, figPos.E]}
+        icon={ figure }
+        >
+      </Marker>
+                        
 
-        </div>
+            
+            
+        </MapContainer>
     )
 }
 
