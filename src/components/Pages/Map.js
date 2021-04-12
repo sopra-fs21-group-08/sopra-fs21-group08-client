@@ -7,10 +7,11 @@ import StationMarker from '../../views/Map/StationMarker'
 import stations from '../../assets/mockstations/stations.json'
 function GameMap() {
 
-    const [figPos, setFigPos]=useState(stations[439])
+    const [figPos, setFigPos]=useState(stations[98])
 
     const changePosition = (station)=>{
         setFigPos(station)
+        console.log(station.name)
 
 
     }
@@ -26,11 +27,11 @@ function GameMap() {
                 url="https://wms.zh.ch/OrthoZHWMS"
             />
             <div>
-                        {stations.map((station, index) =>
-                            <StationMarker onClickStation={changePosition} key={station.DIVA_NR} station={station} transport={station.VTYP} number={index} bounds={[station.N, station.E]}></StationMarker>
+                        {stations.map((station) =>
+                            <StationMarker onClickStation={changePosition} key={station.id} station={station} number={station.id} bounds={[station.stop_lat, station.stop_lon]}></StationMarker>
                         )}</div>
                         <Marker
-        position={[ figPos.N, figPos.E]}
+        position={[ figPos.stop_lat, figPos.stop_lon]}
         icon={ figure }
         >
       </Marker>
