@@ -99,8 +99,9 @@ function UserProfile() {
           lobbyName: " "
         });
         try{
-          await api.post('/lobbies/', requestBody);
-          history.push('lobby');
+          const response = await api.post('/lobbies/', requestBody);
+          const lobbyId = response.data.lobbyId
+          history.push('lobbies/' + response.data.lobbyId);
         } catch (error) {
           alert(`Something went wrong while trying to create a new Game: \n${handleError(error)}`);
         }

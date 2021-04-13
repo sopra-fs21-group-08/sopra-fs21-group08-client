@@ -1,48 +1,63 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Card, Row, Col, Modal } from 'react-bootstrap'
 
 import Header from '../../views/Header'
 import ZButton from '../../views/design/ZButton'
 import avatar from '../../assets/img/avatar/avatar4.png'
 import Rules from '../../components/shared/Rules'
+import { api, handleError } from '../../helpers/api';
 
 
-function Lobby() {
-    const [players, setTasks] = useState([])
-    let gameId = 'Room #1'
+const Lobby = () => {
+    const [players, setPlayers] = useState([])
+    const {id} = useParams()
+    let gameId = id // TODO: decide how to get game id
     let img = "https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg/100px100"
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    // update list of players every 5 sec
+    // update list of players every sec
 
-    useEffect(() => {
-        // fetch list of players & game id from server
-    })
+    useEffect(() => 
+    {
+        const fetchData = async () => {
+            const response = await api.get('/lobbies/'+ gameId); //TODO: change when 'lobbies/{id}' api is available
+            console.log(response);
+            const players = response.data;
+            setPlayers(players);
+            console.log(players);
+        };
+        fetchData();
+  
+        const interval=setInterval(()=>{
+              fetchData()
+             },1000)
+  
+        return()=>clearInterval(interval)
+      }, []);
 
     return (
         <div>
             <Header />
+            <center>
             <Card className="hcenter">
                 <Card.Header className="zbg-1">Game Lobby</Card.Header>
                 <Card.Body>
-                    <Card.Title>{gameId}</Card.Title>
+                    <Card.Title>Game #{gameId}</Card.Title>
                     <Row>
-                        <Col><Card.Img variant="top" src={avatar} /></Col>
-                        <Col><Card.Img variant="top" src={img} /></Col>
-                        <Col><Card.Img variant="top" src={img} /></Col>
+                        {players.map(player => (
+                            <Col><Card.Img variant="top" src={img} />
+                            </Col>
+                        ))}
                     </Row>
-                    <div className='mt-5'>
                     <Row>
-                        <Col><Card.Img variant="top" src={img} /></Col>
-                        <Col><Card.Img variant="top" src={img} /></Col>
-                        <Col><Card.Img variant="top" src={img} /></Col>
+                        {players.map(player => (
+                            <Col>{player.username}</Col>
+                        ))}
                     </Row>
-                    </div>
-
                     <ZButton disabled={players.length < 3}>Start Game</ZButton>
                 </Card.Body>
                 <Card.Footer className="zbg-1">
@@ -70,6 +85,7 @@ function Lobby() {
                 </Modal>
 
             </Card>
+            </center>
             
         </div>
     )
@@ -78,3 +94,27 @@ function Lobby() {
 // pop up window if player wants to quit game or start game with less then 6 players in the room
 
 export default Lobby
+
+
+{/* <Row>
+                        <Col><Card.Img variant="top" src={avatar} /></Col>
+                        <Col><Card.Img variant="top" src={img} /></Col>
+                        <Col><Card.Img variant="top" src={img} /></Col>
+                    </Row>
+                    <Row>
+                        <Col>User 1</Col>
+                        <Col>User 2</Col>
+                        <Col>User 3</Col>
+                    </Row>
+                    <div className='mt-5'>
+                    <Row>
+                        <Col><Card.Img variant="top" src={img} /></Col>
+                        <Col><Card.Img variant="top" src={img} /></Col>
+                        <Col><Card.Img variant="top" src={img} /></Col>
+                    </Row>
+                    <Row>
+                        <Col>User 4</Col>
+                        <Col>User 5</Col>
+                        <Col>User 6</Col>
+                    </Row>
+                    </div> */}
