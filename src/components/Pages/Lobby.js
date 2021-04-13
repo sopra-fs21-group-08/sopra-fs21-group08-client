@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import { Card, Row, Col, Modal } from 'react-bootstrap'
 
 import Header from '../../views/Header'
@@ -18,6 +18,7 @@ const Lobby = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    let history = useHistory();
 
     // update list of players every sec
 
@@ -39,6 +40,11 @@ const Lobby = () => {
         return()=>clearInterval(interval)
       }, []);
 
+    const startGame = () => {
+        let path = '/game/' + id
+        history.push(path);
+    }
+
     return (
         <div>
             <Header />
@@ -58,7 +64,7 @@ const Lobby = () => {
                             <Col>{player.username}</Col>
                         ))}
                     </Row>
-                    <ZButton disabled={players.length < 3}>Start Game</ZButton>
+                    <ZButton disabled={players.length < 1} onClick={startGame}>Start Game</ZButton>
                 </Card.Body>
                 <Card.Footer className="zbg-1">
                     <Row>

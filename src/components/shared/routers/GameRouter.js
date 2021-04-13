@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Redirect, Route } from "react-router-dom";
 import UserProfile from "../../Pages/UserProfile";
 import Lobby from "../../Pages/Lobby";
+import Game from "../../Pages/Game";
 import Map from "../../Pages/Map";
 import Background from "../../../views/Background";
 import {Container, Row, Col} from "react-bootstrap";
@@ -48,6 +49,18 @@ class GameRouter extends React.Component {
             <div>
               <Container style={{position: "absolute", zIndex: 10}} fluid>
               <Lobby />
+              </Container>
+              <Background />
+            </div>
+          }
+        />
+        <Route
+          exact
+          path={`${this.props.base}/:id`}
+          render={() => 
+            <div>
+              <Container style={{position: "absolute", zIndex: 10}} fluid>
+              <Game />
               </Container>
               <Background />
             </div>
