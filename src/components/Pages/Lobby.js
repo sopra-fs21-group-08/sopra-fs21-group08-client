@@ -98,7 +98,7 @@ const Lobby = () => {
                     </Row>
                     <Card.Text>{players.length} out of 6 players are in the lobby</Card.Text>
                     <Card.Text>Minimum 3 players are needed to start game</Card.Text>
-                    <ZButton disabled={players.length < 1} onClick={startGame}>Start Game</ZButton>
+                    <ZButton disabled={players.length < 3} onClick={startGame}>Start Game</ZButton>
                 </Card.Body>
                 <Card.Footer className="zbg-1">
                     <Row>
@@ -150,9 +150,3 @@ const Lobby = () => {
 }
 
 export default Lobby
-
-// TODO: pop up window if player wants to quit game or start game with less then 6 players in the room
-// TODO: change the min number of players to 3
-
-
-{/* <Col><Link to="/game">Leave game</Link></Col> */}
