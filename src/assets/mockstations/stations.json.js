@@ -1,3 +1,2878 @@
-const stations = [{"NHSTID": 8591221, "DIVA_NR": 1362, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kapfstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,N16,N19,N71,N74", "E": 8.571214037110703, "N": 47.361153370136236}, {"NHSTID": 8591115, "DIVA_NR": 713, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Drusbergstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,N16,N19,N71,N74", "E": 8.578848553535762, "N": 47.36034061121883}, {"NHSTID": 8591264, "DIVA_NR": 1590, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Luegisland", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,N11", "E": 8.581403341538755, "N": 47.40601111080104}, {"NHSTID": 8591396, "DIVA_NR": 2671, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Tobelhof", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "751,N17", "E": 8.585594882674467, "N": 47.38285171249059}, {"NHSTID": 8591445, "DIVA_NR": 3011, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Zweiackerstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,N16,N74", "E": 8.597893188392334, "N": 47.357047561439394}, {"NHSTID": 8591333, "DIVA_NR": 2152, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Salzweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "35,67,78,N13", "E": 8.471778257422566, "N": 47.38770424866093}, {"NHSTID": 8591328, "DIVA_NR": 2140, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Rütihof", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 46, "E": 8.477424468973028, "N": 47.41370301805657}, {"NHSTID": 8591155, "DIVA_NR": 944, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Geeringstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "46,89,485,N4", "E": 8.480446948105357, "N": 47.41444037386577}, {"NHSTID": 8591136, "DIVA_NR": 872, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Frankental", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "13,89,304,308,485,N4", "E": 8.48163612673854, "N": 47.405470672899355}, {"NHSTID": 8576241, "DIVA_NR": 1156, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Heizenholz", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "46,89,N4", "E": 8.483862425536094, "N": 47.4122417133312}, {"NHSTID": 8591037, "DIVA_NR": 3705, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Albisriederdörfli", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "67,80,N13", "E": 8.485229918317053, "N": 47.375313865990336}, {"NHSTID": 8591158, "DIVA_NR": 979, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Giblenstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "46,N4", "E": 8.485966117032229, "N": 47.41072950855677}, {"NHSTID": 8591097, "DIVA_NR": 542, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bristenstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "78,80,83,89", "E": 8.487069996509812, "N": 47.3900759419837}, {"NHSTID": 8591372, "DIVA_NR": 6003, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Solidapark", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 35, "E": 8.488507121793262, "N": 47.38772418200541}, {"NHSTID": 8591423, "DIVA_NR": 2831, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Wartau", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "13,80,N4", "E": 8.491968821922494, "N": 47.4026963638794}, {"NHSTID": 8591344, "DIVA_NR": 3155, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schulhaus Altweg", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "33,N9,N14", "E": 8.494213898684217, "N": 47.372272709695714}, {"NHSTID": 8503610, "DIVA_NR": 2680, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Triemli", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,14,33,80,215,220,235,236,245,350,N9,N14", "E": 8.495361844349743, "N": 47.368061504716046}, {"NHSTID": 8591446, "DIVA_NR": 3015, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Zwielplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "13,80,N4", "E": 8.496569236027295, "N": 47.40218659826738}, {"NHSTID": 8591213, "DIVA_NR": 1316, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Im Wingert", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 69, "E": 8.508848627818795, "N": 47.40142588391932}, {"NHSTID": 8591084, "DIVA_NR": 3714, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Binz Center", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 76, "E": 8.511059854455091, "N": 47.3618989688442}, {"NHSTID": 8591083, "DIVA_NR": 489, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Grubenstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 76, "E": 8.511687727747521, "N": 47.362837619505456}, {"NHSTID": 8591210, "DIVA_NR": 1310, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Im Hüsli", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "70,N12", "E": 8.51271136656538, "N": 47.32823251617324}, {"NHSTID": 8591448, "DIVA_NR": 3019, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Zypressenstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,3,N3,N14", "E": 8.513780903512721, "N": 47.376688579695134}, {"NHSTID": 8591370, "DIVA_NR": 2398, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Sihlweidstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "70,N12", "E": 8.514672523718009, "N": 47.326415191463255}, {"NHSTID": 8591135, "DIVA_NR": 927, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Förrlibuckstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "6,8,N13", "E": 8.51716740125652, "N": 47.39220955584131}, {"NHSTID": 8591259, "DIVA_NR": 1579, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Lochergut", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,3,N3,N14", "E": 8.517515868308248, "N": 47.375412409072304}, {"NHSTID": 8591417, "DIVA_NR": 2800, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Waidfussweg", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "13,N4", "E": 8.518413017312099, "N": 47.39549911692546}, {"NHSTID": 8591061, "DIVA_NR": 2547, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Leimbach", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "70,N12", "E": 8.51860799025014, "N": 47.333250829656315}, {"NHSTID": 8503499, "DIVA_NR": 6217, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Central Polybahn", "CNAME": "Zürich", "VTYP": ["Standseilbahn"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 6, "SYMB_TEXT": "Bergbahn", "LINIEN": 24, "E": 8.544088749714412, "N": 47.37650134719197}, {"NHSTID": 8591174, "DIVA_NR": 1100, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Haldenegg", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "6,7,10,15,N6,N10", "E": 8.544430592953049, "N": 47.379574412977554}, {"NHSTID": 8591386, "DIVA_NR": 2598, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Strickhof", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 39, "E": 8.547554995365918, "N": 47.39352292610889}, {"NHSTID": 8591332, "DIVA_NR": 2151, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Salersteig", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "10,14,N6,N9,N10", "E": 8.548492281397134, "N": 47.40608009496016}, {"NHSTID": 8591336, "DIVA_NR": 2314, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schäppiweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 39, "E": 8.550906836535225, "N": 47.389739722958474}, {"NHSTID": 8591156, "DIVA_NR": 971, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Germaniastrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Standseilbahn"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 9, "SYMB_TEXT": "Bergbahn Bus", "LINIEN": "23,39", "E": 8.552229759305822, "N": 47.387127376290564}, {"NHSTID": 8591303, "DIVA_NR": 1889, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Platte", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "5,6,N17", "E": 8.55265188330943, "N": 47.375006840315336}, {"NHSTID": 8591364, "DIVA_NR": 2388, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Signaustrasse", "CNAME": "Zürich", "VTYP": ["Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "11,31", "E": 8.557635191905268, "N": 47.36322888360441}, {"NHSTID": 8591196, "DIVA_NR": 3469, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hofstrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 33, "E": 8.561568876327645, "N": 47.3733642266038}, {"NHSTID": 8591198, "DIVA_NR": 3470, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hölderlinsteig", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 33, "E": 8.56493976460822, "N": 47.366827833862644}, {"NHSTID": 8591323, "DIVA_NR": 2104, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Rosengartenstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "33,46,72,83,N1,N7,N8,N9", "E": 8.525476216985483, "N": 47.39432647564164}, {"NHSTID": 8591427, "DIVA_NR": 6238, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Werd", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "9,14", "E": 8.526806890720941, "N": 47.37258168746902}, {"NHSTID": 8591425, "DIVA_NR": 2858, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Weihersteig", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 69, "E": 8.52867546178245, "N": 47.39789436253292}, {"NHSTID": 8591306, "DIVA_NR": 2014, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Quellenstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "4,6,13,N1,N4,N5,N7,N13", "E": 8.528765033264888, "N": 47.38673957750248}, {"NHSTID": 8591219, "DIVA_NR": 1358, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kanonengasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,N2,N8", "E": 8.530317287117178, "N": 47.3784673669756}, {"NHSTID": 8503090, "DIVA_NR": 12551, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Selnau", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S4,SN4,S10", "E": 8.531642861201133, "N": 47.37207724998321}, {"NHSTID": 8591283, "DIVA_NR": 1666, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Museum Rietberg", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,N15", "E": 8.531568753329271, "N": 47.36071708401049}, {"NHSTID": 8591430, "DIVA_NR": 2889, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Widmerstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 66, "E": 8.532904156753695, "N": 47.336777195405595}, {"NHSTID": 8502495, "DIVA_NR": 7022, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Wollishofen", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "70,184,185", "E": 8.533322379916688, "N": 47.34812520925053}, {"NHSTID": 8591286, "DIVA_NR": 1710, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Neubühl", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 66, "E": 8.534955359558252, "N": 47.3329257473913}, {"NHSTID": 8591234, "DIVA_NR": 6304, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Köschenrüti", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "75,N6", "E": 8.537107696605906, "N": 47.42904520895138}, {"NHSTID": 8591168, "DIVA_NR": 1061, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Guggachstrasse", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "7,14", "E": 8.540155633283376, "N": 47.39570758384049}, {"NHSTID": 8591105, "DIVA_NR": 615, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bürkliplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,5,8,9,11,161,165,N91", "E": 8.540784023229998, "N": 47.36653931234173}, {"NHSTID": 8591298, "DIVA_NR": 1856, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Ottikerstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,15,N6", "E": 8.542428042705776, "N": 47.38518856640835}, {"NHSTID": 8591248, "DIVA_NR": 1532, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Leimgrübelstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "75,N6", "E": 8.543674194282769, "N": 47.42864977784207}, {"NHSTID": 8591340, "DIVA_NR": 2251, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schlyfi", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,N16,N19,N71,N74", "E": 8.574157152993719, "N": 47.36259068450458}, {"NHSTID": 8591271, "DIVA_NR": 1620, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Mattenhof", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,N11", "E": 8.590929257136132, "N": 47.39863946420161}, {"NHSTID": 8591432, "DIVA_NR": 3772, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Wiesliacher", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 91, "E": 8.596820822759602, "N": 47.3552142959568}, {"NHSTID": 8591399, "DIVA_NR": 3769, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Trichtenhausenfussweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 91, "E": 8.598612196031032, "N": 47.35419783234473}, {"NHSTID": 8596008, "DIVA_NR": 6998, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hermetschloo", "CNAME": "Zürich", "VTYP": [""], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": "", "SYMB_CODE": 99, "SYMB_TEXT": "", "LINIEN": "", "E": 8.473663447817918, "N": 47.39406498408845}, {"NHSTID": 8591310, "DIVA_NR": 2033, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Rautihalde", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "35,67,78,N13", "E": 8.474119339062097, "N": 47.3861720169661}, {"NHSTID": 8576242, "DIVA_NR": 1045, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Grünwald", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 485, "E": 8.483181876403126, "N": 47.41740204346012}, {"NHSTID": 8591036, "DIVA_NR": 47, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Albisrieden", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "3,80,N3,N13", "E": 8.484801106561928, "N": 47.37438227343913}, {"NHSTID": 8591167, "DIVA_NR": 1041, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Grünaustrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "6,78,N13", "E": 8.489224715325374, "N": 47.395228506286884}, {"NHSTID": 8591896, "DIVA_NR": 6648, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Würzgraben", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 4, "E": 8.49485862625776, "N": 47.39209184631393}, {"NHSTID": 8591275, "DIVA_NR": 1641, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Michelstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 38, "E": 8.495617988803584, "N": 47.406324007480016}, {"NHSTID": 8591331, "DIVA_NR": 2147, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Sackzelg", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "33,67,N9,N14", "E": 8.49552693601973, "N": 47.374383527037004}, {"NHSTID": 8591223, "DIVA_NR": 3138, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kappenbühlweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 38, "E": 8.49825400275731, "N": 47.40296272237036}, {"NHSTID": 8576240, "DIVA_NR": 1626, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Meierhofplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "13,38,46,80,N4,N8", "E": 8.499387620097716, "N": 47.402007846019465}, {"NHSTID": 8591208, "DIVA_NR": 3123, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Im Gut", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "67,89", "E": 8.503377158154489, "N": 47.37360975397933}, {"NHSTID": 8591090, "DIVA_NR": 6626, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Blumenfeldstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 61, "E": 8.505255448121567, "N": 47.423775765272204}, {"NHSTID": 8591170, "DIVA_NR": 1073, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Gutstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 67, "E": 8.506649960947009, "N": 47.37173552603227}, {"NHSTID": 8591249, "DIVA_NR": 1539, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Lerchenhalde", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "37,80", "E": 8.509888611955455, "N": 47.41163459842219}, {"NHSTID": 8591390, "DIVA_NR": 2638, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Talwiesenstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,14,N5", "E": 8.509659398327472, "N": 47.36994460216391}, {"NHSTID": 8591145, "DIVA_NR": 897, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Friedhof Sihlfeld", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 72, "E": 8.510905358821361, "N": 47.375932755526726}, {"NHSTID": 8591121, "DIVA_NR": 800, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Eschergutweg", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "13,N4", "E": 8.512056757508448, "N": 47.396268954497735}, {"NHSTID": 8591308, "DIVA_NR": 2120, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Räffelstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 76, "E": 8.514677875996801, "N": 47.36274681084328}, {"NHSTID": 8591391, "DIVA_NR": 3453, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Technopark", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 4, "E": 8.515355224290747, "N": 47.38906018968923}, {"NHSTID": 8591447, "DIVA_NR": 3018, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Zwinglihaus", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "32,72,N5", "E": 8.51596699492413, "N": 47.37150501544451}, {"NHSTID": 8591173, "DIVA_NR": 1098, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Haldenbach", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,10,N10,N11", "E": 8.548139697099389, "N": 47.3802584618719}, {"NHSTID": 8591362, "DIVA_NR": 2367, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Seilbahn Rigiblick", "CNAME": "Zürich", "VTYP": ["Bus", "Standseilbahn", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 10, "SYMB_TEXT": "Bergbahn Bus Tram", "LINIEN": "9,10,23,33,N10,N11", "E": 8.54831328515396, "N": 47.38604967393986}, {"NHSTID": 8591411, "DIVA_NR": 2779, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Vogelsangstrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 33, "E": 8.54908216430594, "N": 47.38354162646857}, {"NHSTID": 8591273, "DIVA_NR": 3154, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Messe/Hallenstadion", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "11,61,62,94,N11", "E": 8.55009134234224, "N": 47.41095804652686}, {"NHSTID": 8591109, "DIVA_NR": 3717, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Chinagarten", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "912,916", "E": 8.552964834750261, "N": 47.35451270859292}, {"NHSTID": 8503083, "DIVA_NR": 2124, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Römerhof", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Zahnradbahn"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 10, "SYMB_TEXT": "Bergbahn Bus Tram", "LINIEN": "3,8,25,N16,N19,N71,N74", "E": 8.560545989329926, "N": 47.36817496015349}, {"NHSTID": 8591225, "DIVA_NR": 3121, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Genossenschaftsstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "781,787,N78", "E": 8.562385064516771, "N": 47.41520171285896}, {"NHSTID": 8591330, "DIVA_NR": 2145, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Saatlenstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "61,62,94,N11", "E": 8.562875374128973, "N": 47.4108073695417}, {"NHSTID": 8591189, "DIVA_NR": 1186, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Heubeeriweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 39, "E": 8.564748542058016, "N": 47.38159080955855}, {"NHSTID": 8591087, "DIVA_NR": 3445, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bircher-Benner", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 751, "E": 8.564810177802668, "N": 47.375734345588}, {"NHSTID": 8591268, "DIVA_NR": 1612, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Manegg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "70,N12", "E": 8.520363767528947, "N": 47.33696740523041}, {"NHSTID": 8591206, "DIVA_NR": 1292, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hürstholz", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 40, "E": 8.522875438550331, "N": 47.41688350036257}, {"NHSTID": 8591052, "DIVA_NR": 1234, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bäckeranlage", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "8,31,N2,N8", "E": 8.523104110229157, "N": 47.378670267544}, {"NHSTID": 8506517, "DIVA_NR": 7040, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hertersteg", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "72,76", "E": 8.522999550592996, "N": 47.367679201425084}, {"NHSTID": 8591266, "DIVA_NR": 1611, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Maienweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 40, "E": 8.526401449209462, "N": 47.407846330560524}, {"NHSTID": 8591216, "DIVA_NR": 1354, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Jugendherberge", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "66,72,N12", "E": 8.528050446580528, "N": 47.347914248271714}, {"NHSTID": 8591066, "DIVA_NR": 3043, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Wipkingen", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "33,46", "E": 8.529801496584144, "N": 47.393368194165326}, {"NHSTID": 8591279, "DIVA_NR": 1660, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Morgental", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,66,70,72,184,185,N12", "E": 8.530153013356713, "N": 47.343945468723845}, {"NHSTID": 8591111, "DIVA_NR": 649, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Dangelstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "184,185,N12", "E": 8.529973681379577, "N": 47.33453814765594}, {"NHSTID": 8591106, "DIVA_NR": 586, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Butzenstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,70,184,185,N12", "E": 8.530326018050339, "N": 47.341407178020546}, {"NHSTID": 8591240, "DIVA_NR": 1595, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Lägernstrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 32, "E": 8.53218504944338, "N": 47.39590925406368}, {"NHSTID": 8591217, "DIVA_NR": 1356, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kalchbühlweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 66, "E": 8.531525564769012, "N": 47.340532281111265}, {"NHSTID": 8591291, "DIVA_NR": 1745, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Nordstrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "32,46", "E": 8.536175064628129, "N": 47.38832450227168}, {"NHSTID": 8591092, "DIVA_NR": 3789, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bollingerweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "64,75,N6", "E": 8.537916190685277, "N": 47.414285760097584}, {"NHSTID": 8591368, "DIVA_NR": 2395, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Sihlquai/HB", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "4,6,13,N1,N4,N5,N7,N13", "E": 8.537616577725426, "N": 47.37987333632334}, {"NHSTID": 8516661, "DIVA_NR": 14012, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich HB Museum", "CNAME": "Zürich", "VTYP": [""], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": "", "SYMB_CODE": 99, "SYMB_TEXT": "", "LINIEN": "", "E": 8.538498919299764, "N": 47.37899240394586}, {"NHSTID": 8591299, "DIVA_NR": 1861, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Paradeplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,7,8,9,10,11,13,N1,N4,N6,N14,N91", "E": 8.53891689005165, "N": 47.36973240387672}, {"NHSTID": 8591324, "DIVA_NR": 2128, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Röslistrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,15,N6", "E": 8.540513218166588, "N": 47.38866099141192}, {"NHSTID": 8591379, "DIVA_NR": 2474, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Stampfenbachplatz", "CNAME": "Zürich", "VTYP": ["Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "11,14,46", "E": 8.542776833552088, "N": 47.38029185973564}, {"NHSTID": 8591440, "DIVA_NR": 2956, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Wonnebergstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 77, "E": 8.566555610187077, "N": 47.35184395374919}, {"NHSTID": 8591148, "DIVA_NR": 901, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Friedrichstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "75,N11", "E": 8.569076724689284, "N": 47.40393756859415}, {"NHSTID": 8591421, "DIVA_NR": 2815, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Waldhaus Dolder", "CNAME": "Zürich", "VTYP": ["Zahnradbahn"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 6, "SYMB_TEXT": "Bergbahn", "LINIEN": 25, "E": 8.568490522199136, "N": 47.373188703898826}, {"NHSTID": 8591188, "DIVA_NR": 1179, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Herzogenmühlestrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "61,62,79,N11", "E": 8.572717246796358, "N": 47.40752692817081}, {"NHSTID": 8591211, "DIVA_NR": 1311, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Im Klösterli", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 39, "E": 8.576944721706694, "N": 47.38462845887216}, {"NHSTID": 8591102, "DIVA_NR": 3787, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Buchholz", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 91, "E": 8.588710559734539, "N": 47.36092641919915}, {"NHSTID": 8591072, "DIVA_NR": 455, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Berghaldenstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,N16,N19,N71,N74", "E": 8.590077814928566, "N": 47.35864598298924}, {"NHSTID": 8503147, "DIVA_NR": 12575, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Stettbach", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "SN1,S3,S5,S9,SN9,S11,S12", "E": 8.596046945262318, "N": 47.39699617001687}, {"NHSTID": 8591065, "DIVA_NR": 2575, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Stettbach", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,12,743,744,745,751,752,754,760,N11,N17", "E": 8.596145716047173, "N": 47.39727403086204}, {"NHSTID": 8591320, "DIVA_NR": 3122, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Riedhofstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "89,485,N4", "E": 8.479590003634026, "N": 47.409923645017}, {"NHSTID": 8591068, "DIVA_NR": 592, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bändliweg", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "6,78,307", "E": 8.485021119686698, "N": 47.39635504760061}, {"NHSTID": 8591214, "DIVA_NR": 1320, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, In der Ey", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "33,80,N9,N14", "E": 8.491638067246864, "N": 47.36923791989188}, {"NHSTID": 8591434, "DIVA_NR": 2934, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Winzerhalde", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "80,89,304,308", "E": 8.494579419318613, "N": 47.40005499175833}, {"NHSTID": 8591265, "DIVA_NR": 1592, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Letzibach", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,83,N2", "E": 8.49469291612463, "N": 47.38908002280824}, {"NHSTID": 8591138, "DIVA_NR": 883, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Freihofstrasse", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 2, "E": 8.499384337115652, "N": 47.383226233807584}, {"NHSTID": 8591046, "DIVA_NR": 6627, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Aspholz", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 61, "E": 8.501025032691341, "N": 47.424984095460914}, {"NHSTID": 8591151, "DIVA_NR": 904, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Friesenbergstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "32,73,89,N5", "E": 8.50510574807403, "N": 47.36206208938611}, {"NHSTID": 8591043, "DIVA_NR": 3150, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Am Börtli", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 38, "E": 8.507156425031956, "N": 47.39962454860765}, {"NHSTID": 8591034, "DIVA_NR": 46, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Albisgütli", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "10,13", "E": 8.507723576429969, "N": 47.3519902927435}, {"NHSTID": 8591186, "DIVA_NR": 1162, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Herdernstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,N2", "E": 8.50917724932818, "N": 47.38482696169963}, {"NHSTID": 8502572, "DIVA_NR": 1012, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Goldbrunnenplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,14,32,67,215,220,235,236,245,350,N5", "E": 8.513902855230459, "N": 47.37026495028554}, {"NHSTID": 8591312, "DIVA_NR": 2035, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Rebbergsteig", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "46,N8", "E": 8.51492017127951, "N": 47.397024886339935}, {"NHSTID": 8591824, "DIVA_NR": 493, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Binz", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "76,N5", "E": 8.518336206054464, "N": 47.36296450433511}, {"NHSTID": 8591339, "DIVA_NR": 2164, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Scheuchzerstrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 33, "E": 8.543991930196727, "N": 47.387791200540164}, {"NHSTID": 8580449, "DIVA_NR": 3034, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Oerlikon", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "11,61,62,94,768,781,787,N11,N78", "E": 8.54488102891021, "N": 47.411466798296225}, {"NHSTID": 8505333, "DIVA_NR": 7055, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Bellevue (See)", "CNAME": "Zürich", "VTYP": [""], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 99, "SYMB_TEXT": "", "LINIEN": "", "E": 8.544442200801285, "N": 47.36609056723141}, {"NHSTID": 8591354, "DIVA_NR": 2346, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Seebach", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "14,40,75,742,768,N6,N7,N10", "E": 8.549788953311147, "N": 47.4218629008185}, {"NHSTID": 8591393, "DIVA_NR": 2666, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Tierspital", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,9,N11", "E": 8.551810097909117, "N": 47.40190143078168}, {"NHSTID": 8591140, "DIVA_NR": 888, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Friedackerstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 75, "E": 8.553496675830814, "N": 47.40588799055035}, {"NHSTID": 8530473, "DIVA_NR": 2090, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Rigiblick", "CNAME": "Zürich", "VTYP": ["Bus", "Standseilbahn"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 9, "SYMB_TEXT": "Bergbahn Bus", "LINIEN": "23,39", "E": 8.553426092584282, "N": 47.38733171845248}, {"NHSTID": 8530813, "DIVA_NR": 1453, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kreuzplatz", "CNAME": "Zürich", "VTYP": ["S-Bahn", "Tram", "Trolleybus"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 7, "SYMB_TEXT": "Bahn Bus Tram", "LINIEN": "8,11,31,S18,SN18", "E": 8.553953236729496, "N": 47.36505459454429}, {"NHSTID": 8591377, "DIVA_NR": 2452, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Spyristeig", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 39, "E": 8.556211415089852, "N": 47.38625233970626}, {"NHSTID": 8591420, "DIVA_NR": 2814, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Waldgarten", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,9,75,N11", "E": 8.557200808055299, "N": 47.40372034522049}, {"NHSTID": 8591318, "DIVA_NR": 2067, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Riedbach", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "781,787,N78", "E": 8.558421625409425, "N": 47.41452059126535}, {"NHSTID": 8591343, "DIVA_NR": 2326, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schörlistrasse", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "7,9", "E": 8.563885584931109, "N": 47.40594018939061}, {"NHSTID": 8591154, "DIVA_NR": 916, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Frymannstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "70,N12", "E": 8.519162186279253, "N": 47.335134640073086}, {"NHSTID": 8591218, "DIVA_NR": 1357, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich,Kalkbreite/Bhf.Wiedikon", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,3,32,N3,N14", "E": 8.521335938006633, "N": 47.37442316119232}, {"NHSTID": 8503091, "DIVA_NR": 12546, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Giesshübel", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S4,SN4", "E": 8.521997200041703, "N": 47.362660339422824}, {"NHSTID": 8591366, "DIVA_NR": 2771, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Sihlcity Nord", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "5,10,13,72,200,210,N12", "E": 8.52304311666625, "N": 47.360059915824216}, {"NHSTID": 8591410, "DIVA_NR": 2776, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Verenastrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "70,N12", "E": 8.52539127618157, "N": 47.340824092823524}, {"NHSTID": 8591414, "DIVA_NR": 6019, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Waffenplatz-/Bederstr.", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "66,72", "E": 8.52651779220811, "N": 47.36166432676482}, {"NHSTID": 8591204, "DIVA_NR": 1288, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hügelstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "66,72", "E": 8.527009982897223, "N": 47.358538369313194}, {"NHSTID": 8591392, "DIVA_NR": 2659, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Thujastrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "66,72,N12", "E": 8.527818857669468, "N": 47.35018322413023}, {"NHSTID": 8591086, "DIVA_NR": 498, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Birchdörfli", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "32,N1", "E": 8.530608618112499, "N": 47.40753679832339}, {"NHSTID": 8591059, "DIVA_NR": 199, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Enge/Bederstr.", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "5,10,13,200,210,444,445,N12", "E": 8.530469060844933, "N": 47.36455043155828}, {"NHSTID": 8591257, "DIVA_NR": 1557, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Limmatplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "4,6,13,32,N1,N4,N5,N7,N13", "E": 8.531634952382268, "N": 47.38459859340911}, {"NHSTID": 8591304, "DIVA_NR": 2005, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Post Wollishofen", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,70,184,185", "E": 8.532969360800568, "N": 47.34446750497236}, {"NHSTID": 8503009, "DIVA_NR": 13044, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Wollishofen", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S2,S8,SN8,S24", "E": 8.53385716554242, "N": 47.34774233838866}, {"NHSTID": 8591307, "DIVA_NR": 2017, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Radiostudio", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "11,32,40,N1,N7", "E": 8.535197905511797, "N": 47.40197936209069}, {"NHSTID": 8503044, "DIVA_NR": 13035, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich HB Sihlpost", "CNAME": "Zürich", "VTYP": [""], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": "", "SYMB_CODE": 99, "SYMB_TEXT": "", "LINIEN": "", "E": 8.53547577365965, "N": 47.37816661824691}, {"NHSTID": 8591144, "DIVA_NR": 896, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Friedhof Schwandenholz", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 40, "E": 8.537704259874177, "N": 47.421348842944546}, {"NHSTID": 8503000, "DIVA_NR": 13030, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich HB", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "SN1,S2,S3,S5,SN5,S6,SN6,S7,SN7,S8,SN8,S9,SN9,S11,S12,S14,S15,S16,S19,S21,S24,S25,S42", "E": 8.537958912206827, "N": 47.378493816467504}, {"NHSTID": 8503088, "DIVA_NR": 14011, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich HB SZU", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S4,SN4,S10", "E": 8.53903982472567, "N": 47.37761098866179}, {"NHSTID": 8591237, "DIVA_NR": 1468, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kronenstrasse", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "11,14", "E": 8.539322348594554, "N": 47.388078667008514}, {"NHSTID": 8591071, "DIVA_NR": 435, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Beckenhof", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "11,14", "E": 8.54045823365672, "N": 47.38408298146985}, {"NHSTID": 8530822, "DIVA_NR": 6453, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Limmatquai", "CNAME": "Zürich", "VTYP": ["Schiff"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp1.gif\" ALT=\"Schiffsstation\">", "HAFAS_PRIO": 1, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 4, "SYMB_TEXT": "Schiff", "LINIEN": 3734, "E": 8.542627226308777, "N": 47.37307018326494}, {"NHSTID": 8591049, "DIVA_NR": 132, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Auzelg", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "11,12,79", "E": 8.5688391646043, "N": 47.4170906823806}, {"NHSTID": 8591349, "DIVA_NR": 2294, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schwamendingerplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,9,61,62,75,79,N11", "E": 8.57189953892072, "N": 47.404593543166406}, {"NHSTID": 8591047, "DIVA_NR": 114, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Aubrücke", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "61,62,79,94,787,N11,N78", "E": 8.572139333581827, "N": 47.41087876241901}, {"NHSTID": 8591104, "DIVA_NR": 580, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Burgwies", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 11, "E": 8.571875452951696, "N": 47.35801653498515}, {"NHSTID": 8591325, "DIVA_NR": 2107, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Roswiesen", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,N11", "E": 8.57699196806434, "N": 47.40295133586774}, {"NHSTID": 8591142, "DIVA_NR": 894, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Friedhof Enzenbühl", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 11, "E": 8.58028938162372, "N": 47.35097129119926}, {"NHSTID": 8591263, "DIVA_NR": 1587, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Luchswiesen", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,94,787,N11,N78", "E": 8.585887151687764, "N": 47.40687518207431}, {"NHSTID": 8591305, "DIVA_NR": 2008, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Probstei", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,N11", "E": 8.586604822690965, "N": 47.40022067163995}, {"NHSTID": 8591261, "DIVA_NR": 1584, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Loorenstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,701,703,704,N16,N19,N71,N74", "E": 8.594538885075725, "N": 47.35986073358336}, {"NHSTID": 8591400, "DIVA_NR": 6416, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Trichtisal", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 91, "E": 8.60108126941248, "N": 47.353912129891576}, {"NHSTID": 8591044, "DIVA_NR": 92, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Am Suteracher", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 35, "E": 8.469787917623725, "N": 47.390942514351494}, {"NHSTID": 8591361, "DIVA_NR": 2366, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Seidelhof", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": "", "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "N2", "E": 8.483728648233976, "N": 47.39192321076988}, {"NHSTID": 8591311, "DIVA_NR": 2034, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Rautistrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "67,78,80,N13", "E": 8.484103263096975, "N": 47.383347591981874}, {"NHSTID": 8591436, "DIVA_NR": 6015, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Winzerstrasse Süd", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "80,89,304,308", "E": 8.486139368620664, "N": 47.4033700474056}, {"NHSTID": 8591358, "DIVA_NR": 2364, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Segantinistrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "46,N4", "E": 8.489982525264276, "N": 47.4074458585753}, {"NHSTID": 8591057, "DIVA_NR": 5001, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Altstetten N", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "4,304,307,308,485", "E": 8.48991732239709, "N": 47.39206495434389}, {"NHSTID": 8591431, "DIVA_NR": 2899, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Wieslergasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "38,46,N4", "E": 8.49597057063218, "N": 47.40406303805257}, {"NHSTID": 8591441, "DIVA_NR": 2998, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Zielweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 73, "E": 8.497601231667993, "N": 47.35882099569453}, {"NHSTID": 8591253, "DIVA_NR": 3148, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Letzipark", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,N2", "E": 8.49922320874167, "N": 47.38777021907101}, {"NHSTID": 8591033, "DIVA_NR": 7, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Aargauerstrasse", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 4, "E": 8.50249000984086, "N": 47.39217474275621}, {"NHSTID": 8503053, "DIVA_NR": 12302, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Schweighof", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S10", "E": 8.503151876561885, "N": 47.36498554672999}, {"NHSTID": 8591190, "DIVA_NR": 1187, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Heuried", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,14,N5", "E": 8.506364987221914, "N": 47.36940843557496}, {"NHSTID": 8591122, "DIVA_NR": 735, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, ETH Hönggerberg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "37,69,80,N8", "E": 8.507722341689302, "N": 47.40867730685281}, {"NHSTID": 8503008, "DIVA_NR": 13021, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Affoltern", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S6,SN6,S21", "E": 8.508763707386947, "N": 47.42093687975408}, {"NHSTID": 8591209, "DIVA_NR": 1307, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Im Hagacker", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "32,89,N5", "E": 8.50772389482443, "N": 47.35926736814556}, {"NHSTID": 8591195, "DIVA_NR": 1272, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Höfliweg", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 32, "E": 8.510962265074193, "N": 47.367575789199826}, {"NHSTID": 8591118, "DIVA_NR": 767, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Einfangstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "32,61,62,N1", "E": 8.51293882936975, "N": 47.41569900569825}, {"NHSTID": 8591177, "DIVA_NR": 1122, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hardplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "8,31,33,72,83,N2,N5,N8,N9", "E": 8.514543920274768, "N": 47.38233940693554}, {"NHSTID": 8591270, "DIVA_NR": 1615, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Marbachweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "70,N12", "E": 8.515387023349042, "N": 47.330348469644655}, {"NHSTID": 8591060, "DIVA_NR": 3029, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Hardbrücke", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "8,33,72,83,N5,N8,N9", "E": 8.517104968053367, "N": 47.385202949664624}, {"NHSTID": 8591341, "DIVA_NR": 2256, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schmiede Wiedikon", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,14,67,72,76,215,220,235,236,245,350,N5", "E": 8.51907716124167, "N": 47.370126677492046}, {"NHSTID": 8588078, "DIVA_NR": 619, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Central", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "3,4,6,7,10,15,31,46,N2,N5,N6,N7,N8,N10,N13,N71,N74", "E": 8.543975931813952, "N": 47.37680826155995}, {"NHSTID": 8591255, "DIVA_NR": 1550, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Letzistrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,10,39,N10,N11", "E": 8.545508972793964, "N": 47.39068210193376}, {"NHSTID": 8591382, "DIVA_NR": 2572, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Sternen Oerlikon", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "10,11,14,61,62,75,94,N6,N9,N10,N11", "E": 8.546243303056183, "N": 47.4100685106313}, {"NHSTID": 8503500, "DIVA_NR": 1896, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Polyterrasse ETH", "CNAME": "Zürich", "VTYP": ["Standseilbahn"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 6, "SYMB_TEXT": "Bergbahn", "LINIEN": 24, "E": 8.546400145032026, "N": 47.37684800644521}, {"NHSTID": 8591433, "DIVA_NR": 2924, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Winkelriedstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,10,N10,N11", "E": 8.54822721460589, "N": 47.38319003573384}, {"NHSTID": 8591242, "DIVA_NR": 1502, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Langensteinenstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 39, "E": 8.549758952691667, "N": 47.39249428939777}, {"NHSTID": 8591220, "DIVA_NR": 1359, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kantonsschule", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "5,9", "E": 8.55053832018629, "N": 47.372715453140664}, {"NHSTID": 8591412, "DIVA_NR": 2788, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Voltastrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "5,6,N17", "E": 8.554531497082719, "N": 47.376868664510425}, {"NHSTID": 8591202, "DIVA_NR": 1251, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hottingerplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "3,N16,N19,N71,N74", "E": 8.554442192832727, "N": 47.36943951702021}, {"NHSTID": 8576198, "DIVA_NR": 1286, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Höschgasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,4,33,912,916,N18,N91", "E": 8.554215751968334, "N": 47.3579907897199}, {"NHSTID": 8591119, "DIVA_NR": 788, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Englischviertelstrasse", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 8, "E": 8.558185384898762, "N": 47.36673167819931}, {"NHSTID": 8576200, "DIVA_NR": 2907, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Wildbachstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,4,33,912,916,N18,N91", "E": 8.558867108079356, "N": 47.35318721162865}, {"NHSTID": 8576182, "DIVA_NR": 3041, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Tiefenbrunnen", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,4,33,910,912,916,N18,N91", "E": 8.561005959645609, "N": 47.35041385908509}, {"NHSTID": 8591199, "DIVA_NR": 1278, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hölderlinstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "3,8,N16,N19,N71,N74", "E": 8.562395907396743, "N": 47.36611503855903}, {"NHSTID": 8591444, "DIVA_NR": 3045, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Zürichbergstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "6,N17", "E": 8.564118573490736, "N": 47.37872749312931}, {"NHSTID": 8591394, "DIVA_NR": 2667, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Titlisstrasse", "CNAME": "Zürich", "VTYP": ["Zahnradbahn"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 6, "SYMB_TEXT": "Bergbahn", "LINIEN": 25, "E": 8.564894059076904, "N": 47.370930096633714}, {"NHSTID": 8503094, "DIVA_NR": 12547, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Leimbach", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S4,SN4", "E": 8.519047824457829, "N": 47.33340862608684}, {"NHSTID": 8591269, "DIVA_NR": 1614, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Manesseplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "72,76,N5", "E": 8.521644802595015, "N": 47.36551510298805}, {"NHSTID": 8591418, "DIVA_NR": 2801, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Waidhof", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "62,N1", "E": 8.523044075324291, "N": 47.42386205032627}, {"NHSTID": 8503087, "DIVA_NR": 12550, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Saalsporthalle", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S4,SN4", "E": 8.522245424966579, "N": 47.357287909742766}, {"NHSTID": 8591079, "DIVA_NR": 478, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bezirksgebäude", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,3,N3,N14", "E": 8.525568084098442, "N": 47.37416751102436}, {"NHSTID": 8591415, "DIVA_NR": 2795, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Waffenplatzstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "5,10,13,66,72,N12", "E": 8.525759485302096, "N": 47.36148257507631}, {"NHSTID": 8591293, "DIVA_NR": 1821, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Oberwiesenstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "61,62", "E": 8.532828748800146, "N": 47.410475164752995}, {"NHSTID": 8591404, "DIVA_NR": 2689, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Tunnelstrasse", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "7,10,13", "E": 8.532540561213315, "N": 47.366140944960286}, {"NHSTID": 8591292, "DIVA_NR": 1753, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Nürenbergstrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 33, "E": 8.533447866793592, "N": 47.39225427450538}, {"NHSTID": 8591296, "DIVA_NR": 3786, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Okenstrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 46, "E": 8.534155338127649, "N": 47.38801085791765}, {"NHSTID": 8591369, "DIVA_NR": 2396, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Sihlstrasse", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "2,9", "E": 8.53458627099205, "N": 47.37226523233879}, {"NHSTID": 8591080, "DIVA_NR": 3774, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bhf. Wollishofen/Werft", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "161,165,N15", "E": 8.534366849538623, "N": 47.34807032445031}, {"NHSTID": 8591317, "DIVA_NR": 2055, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Rentenanstalt", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "5,161,165,N12,N15", "E": 8.535052351194297, "N": 47.363382598549045}, {"NHSTID": 8591384, "DIVA_NR": 2582, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Stockerstrasse", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "7,8,10,13", "E": 8.535422672169027, "N": 47.36786766115119}, {"NHSTID": 8591352, "DIVA_NR": 3477, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schweizer Rück", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "161,165,N15", "E": 8.535468259789576, "N": 47.35978958069967}, {"NHSTID": 8587347, "DIVA_NR": 2109, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Rote Fabrik", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "161,165,N15", "E": 8.536124512567037, "N": 47.34280040355961}, {"NHSTID": 8503681, "DIVA_NR": 2952, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Wollishofen (See)", "CNAME": "Zürich", "VTYP": ["Schiff"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp1.gif\" ALT=\"Schiffsstation\">", "HAFAS_PRIO": 1, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 4, "SYMB_TEXT": "Schiff", "LINIEN": 3730, "E": 8.536841850945384, "N": 47.3455011385293}, {"NHSTID": 8503449, "DIVA_NR": 786, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Enge (See)", "CNAME": "Zürich", "VTYP": ["Schiff"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp1.gif\" ALT=\"Schiffsstation\">", "HAFAS_PRIO": 1, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 4, "SYMB_TEXT": "Schiff", "LINIEN": 3734, "E": 8.537276811523778, "N": 47.358899857453906}, {"NHSTID": 8591191, "DIVA_NR": 6250, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Himmeri", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "75,N6", "E": 8.538657126644713, "N": 47.41999952187271}, {"NHSTID": 8591272, "DIVA_NR": 3764, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Max-Bill-Platz", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "64,75,80,N6,N7", "E": 8.54134343333784, "N": 47.41404621079589}, {"NHSTID": 8591276, "DIVA_NR": 1643, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Milchbuck", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,9,10,14,69,72,83,N6,N9,N10", "E": 8.541775128072489, "N": 47.397787987936184}, {"NHSTID": 8591378, "DIVA_NR": 2461, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Stadtgrenze", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "161,165,N15", "E": 8.54148253474761, "N": 47.33504038802007}, {"NHSTID": 8591187, "DIVA_NR": 1175, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hertensteinstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 40, "E": 8.543501278677548, "N": 47.422876660930484}, {"NHSTID": 8591050, "DIVA_NR": 134, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Auzelg Ost", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 79, "E": 8.571983251557041, "N": 47.413506846829556}, {"NHSTID": 8591442, "DIVA_NR": 3005, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Zoo", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "6,39,N17", "E": 8.571568608029322, "N": 47.38156902894735}, {"NHSTID": 8591212, "DIVA_NR": 1315, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Im Walder", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 77, "E": 8.57437817635326, "N": 47.348115136294346}, {"NHSTID": 8591159, "DIVA_NR": 998, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Glattwiesen", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,N11", "E": 8.581772326963588, "N": 47.40159985082739}, {"NHSTID": 8591438, "DIVA_NR": 3773, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Buchzelgstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 91, "E": 8.585257439159255, "N": 47.359179712363726}, {"NHSTID": 8587652, "DIVA_NR": 88, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Altried", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,94,759,787,N11,N78", "E": 8.591110375820053, "N": 47.40577977915068}, {"NHSTID": 8591162, "DIVA_NR": 3444, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Glockenacker", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "701,703,704,N16,N19,N71,N74", "E": 8.5989176145162, "N": 47.36093221813139}, {"NHSTID": 8591116, "DIVA_NR": 716, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Dunkelhölzli", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "35,67,78,N13", "E": 8.470066069086895, "N": 47.388889043144225}, {"NHSTID": 8591051, "DIVA_NR": 137, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bachmattstrasse", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 2, "E": 8.483060504210371, "N": 47.388924920692226}, {"NHSTID": 8591163, "DIVA_NR": 1007, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Goldackerweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 80, "E": 8.487943202224677, "N": 47.37188913066594}, {"NHSTID": 8591371, "DIVA_NR": 2402, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Singlistrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "46,N4", "E": 8.4935005141319, "N": 47.40511104507628}, {"NHSTID": 8591143, "DIVA_NR": 895, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Friedhof Hönggerberg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 38, "E": 8.494146065727922, "N": 47.40893701933015}, {"NHSTID": 8591402, "DIVA_NR": 2707, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Tüffenwies", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "6,80,89,304,308,485", "E": 8.494722580005131, "N": 47.39792186557511}, {"NHSTID": 8591176, "DIVA_NR": 1120, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hardhof", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 6, "E": 8.497486532977192, "N": 47.396349426601255}, {"NHSTID": 8591201, "DIVA_NR": 1280, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hönggerberg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "69,80,N8", "E": 8.504827121311802, "N": 47.40503407953498}, {"NHSTID": 8503052, "DIVA_NR": 10902, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Friesenberg", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S10", "E": 8.508032681864334, "N": 47.36476052029896}, {"NHSTID": 8591074, "DIVA_NR": 467, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bernoulli-Häuser", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "6,8,N13", "E": 8.508721108917907, "N": 47.393763292279665}, {"NHSTID": 8591416, "DIVA_NR": 2799, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Waidbadstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "38,69", "E": 8.51355525426277, "N": 47.39897152688685}, {"NHSTID": 8591278, "DIVA_NR": 1648, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Mittelleimbach", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "70,151,N12", "E": 8.514302052651837, "N": 47.323135354316165}, {"NHSTID": 8503020, "DIVA_NR": 13029, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Hardbrücke", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "SN1,S3,S5,SN5,S6,SN6,S7,SN7,S9,SN9,S11,S12,S15,S16,S21", "E": 8.516911255771308, "N": 47.38544762680995}, {"NHSTID": 8591245, "DIVA_NR": 1519, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Laubegg", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "5,10,13,89,N5", "E": 8.51709874899871, "N": 47.358730373998554}, {"NHSTID": 8591161, "DIVA_NR": 6020, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Glaubtenstrasse Süd", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 80, "E": 8.51870178514011, "N": 47.413657388306746}, {"NHSTID": 8503051, "DIVA_NR": 12544, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Binz", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S10", "E": 8.518567718943018, "N": 47.36262951831706}, {"NHSTID": 8591085, "DIVA_NR": 497, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Birch-/Glatttalstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "75,742,N6", "E": 8.546153488109407, "N": 47.427402728398995}, {"NHSTID": 8591063, "DIVA_NR": 3447, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Oerlikon Ost", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "10,14,75,768,781,787,N6,N9,N10,N78", "E": 8.546099435661224, "N": 47.41334407772668}, {"NHSTID": 8591287, "DIVA_NR": 1724, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Neumarkt", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "3,31,N71,N74", "E": 8.547361545866421, "N": 47.372772974312596}, {"NHSTID": 8591164, "DIVA_NR": 1008, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Goldauerstrasse", "CNAME": "Zürich", "VTYP": ["Standseilbahn"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 6, "SYMB_TEXT": "Bergbahn", "LINIEN": 23, "E": 8.54997398212731, "N": 47.38629456499349}, {"NHSTID": 8576194, "DIVA_NR": 769, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Elektrowatt", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "912,916", "E": 8.550417181418304, "N": 47.35738879111197}, {"NHSTID": 8591171, "DIVA_NR": 1087, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hadlaubstrasse", "CNAME": "Zürich", "VTYP": ["Standseilbahn"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 6, "SYMB_TEXT": "Bergbahn", "LINIEN": 23, "E": 8.551335386186237, "N": 47.38679418111343}, {"NHSTID": 8591319, "DIVA_NR": 2069, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Riedgraben", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "61,62,94,N11", "E": 8.558833707781304, "N": 47.41080165257825}, {"NHSTID": 8530812, "DIVA_NR": 1144, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hegibachplatz", "CNAME": "Zürich", "VTYP": ["Bus", "S-Bahn", "Tram", "Trolleybus"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 7, "SYMB_TEXT": "Bahn Bus Tram", "LINIEN": "11,31,33,77,S18,SN18", "E": 8.560728848510971, "N": 47.361768585009955}, {"NHSTID": 8591185, "DIVA_NR": 1160, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Herbstweg", "CNAME": "Zürich", "VTYP": [""], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 99, "SYMB_TEXT": "", "LINIEN": "", "E": 8.564794843986697, "N": 47.408836751775006}, {"NHSTID": 8591233, "DIVA_NR": 1430, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Klusplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "3,8,31,33,701,703,704,N16,N19,N71,N74", "E": 8.566362942508757, "N": 47.36400741608569}, {"NHSTID": 8591350, "DIVA_NR": 2298, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schwandenholz", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "62,N1", "E": 8.520698009959567, "N": 47.42385705260272}, {"NHSTID": 8503093, "DIVA_NR": 11612, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Manegg", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S4,SN4", "E": 8.519688830281815, "N": 47.338269047033876}, {"NHSTID": 8591329, "DIVA_NR": 2550, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Saalsporthalle", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "5,10,13,89,200,210,444,445", "E": 8.520417079099316, "N": 47.35786276429331}, {"NHSTID": 8580522, "DIVA_NR": 799, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Escher-Wyss-Platz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "4,6,8,13,33,72,83,N1,N4,N5,N7,N8,N9,N13", "E": 8.523053060856084, "N": 47.3904723572056}, {"NHSTID": 8503011, "DIVA_NR": 13042, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Wiedikon", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S2,S8,SN8,S24", "E": 8.523004316675353, "N": 47.37181690880083}, {"NHSTID": 8573710, "DIVA_NR": 3042, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Wiedikon", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,14,67,76,215,220,235,236,245,350", "E": 8.524215117438482, "N": 47.37145471772942}, {"NHSTID": 8591184, "DIVA_NR": 1158, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Helvetiaplatz", "CNAME": "Zürich", "VTYP": ["Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "8,32", "E": 8.525744527002452, "N": 47.376324687881066}, {"NHSTID": 8503015, "DIVA_NR": 13043, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Wipkingen", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S24", "E": 8.529194820930213, "N": 47.392204558708734}, {"NHSTID": 8591381, "DIVA_NR": 2556, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Stauffacher", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,3,8,9,14,N3,N14", "E": 8.5292604984499, "N": 47.37342207092489}, {"NHSTID": 8591082, "DIVA_NR": 488, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Billoweg", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,N15", "E": 8.53198795713354, "N": 47.35146608143753}, {"NHSTID": 8591076, "DIVA_NR": 3587, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Berufswahlschule", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 40, "E": 8.533339288464092, "N": 47.40437169084568}, {"NHSTID": 8591101, "DIVA_NR": 564, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bucheggplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "11,15,32,40,69,72,83,N1,N7,N9", "E": 8.533295447058928, "N": 47.39837238658494}, {"NHSTID": 8591387, "DIVA_NR": 3522, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Sukkulentensammlung", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "161,165,N15", "E": 8.534309198659791, "N": 47.35492520222612}, {"NHSTID": 8591282, "DIVA_NR": 1667, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Museum für Gestaltung", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "4,6,13,N1,N4,N5,N7,N13", "E": 8.534947991220717, "N": 47.38212050762395}, {"NHSTID": 8591088, "DIVA_NR": 3449, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Birchstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 80, "E": 8.535863134893802, "N": 47.41304596405427}, {"NHSTID": 8591053, "DIVA_NR": 144, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bad Allenmoos", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 11, "E": 8.537795959124452, "N": 47.4058945160827}, {"NHSTID": 8591262, "DIVA_NR": 1608, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Löwenplatz", "CNAME": "Zürich", "VTYP": ["Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "3,14,31", "E": 8.537442072784932, "N": 47.37590812486164}, {"NHSTID": 8591103, "DIVA_NR": 573, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Buhnstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "40,75,N6", "E": 8.53895556617137, "N": 47.42225441853119}, {"NHSTID": 8503446, "DIVA_NR": 3031, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Landesmuseum (See)", "CNAME": "Zürich", "VTYP": ["Schiff"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp1.gif\" ALT=\"Schiffsstation\">", "HAFAS_PRIO": 1, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 4, "SYMB_TEXT": "Schiff", "LINIEN": 3734, "E": 8.541547354354057, "N": 47.37911624579839}, {"NHSTID": 8591193, "DIVA_NR": 1215, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hirschwiesenstrasse", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "10,14", "E": 8.543509110203049, "N": 47.4002720537314}, {"NHSTID": 8591062, "DIVA_NR": 6255, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Oerlikon Nord", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "64,80,N7", "E": 8.543946382947025, "N": 47.41240223026555}, {"NHSTID": 8591091, "DIVA_NR": 3715, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bocklerstrasse", "CNAME": "Zürich", "VTYP": [""], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 99, "SYMB_TEXT": "", "LINIEN": "", "E": 8.567352566560674, "N": 47.40260515664399}, {"NHSTID": 8591132, "DIVA_NR": 859, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Flobotstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 39, "E": 8.56805125189735, "N": 47.38057805708575}, {"NHSTID": 8591389, "DIVA_NR": 2618, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Susenbergstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "6,N17", "E": 8.568021217263913, "N": 47.37853644337784}, {"NHSTID": 8591133, "DIVA_NR": 868, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Flühgasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 77, "E": 8.569491091411514, "N": 47.3504569173666}, {"NHSTID": 8503084, "DIVA_NR": 459, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bergstation Dolderbahn", "CNAME": "Zürich", "VTYP": ["Zahnradbahn"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 6, "SYMB_TEXT": "Bergbahn", "LINIEN": 25, "E": 8.574714492055337, "N": 47.373208554322616}, {"NHSTID": 8591114, "DIVA_NR": 711, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Dreiwiesen", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 751, "E": 8.575655261101508, "N": 47.378821279789065}, {"NHSTID": 8591347, "DIVA_NR": 2329, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schürgistrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "94,787,N78", "E": 8.579608880735627, "N": 47.4088353173873}, {"NHSTID": 8591107, "DIVA_NR": 617, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Zentrum Witikon", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,91,701,703,704,N16,N19,N71,N74", "E": 8.586602462800993, "N": 47.35832078917533}, {"NHSTID": 8591194, "DIVA_NR": 1220, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hirzenbach", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 9, "E": 8.59117486218606, "N": 47.40325151051894}, {"NHSTID": 8591300, "DIVA_NR": 3765, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Stodolastrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 91, "E": 8.59056970890825, "N": 47.35690499027786}, {"NHSTID": 8591228, "DIVA_NR": 1389, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kienastenwies", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,N16,N74", "E": 8.600935895157564, "N": 47.35513695183479}, {"NHSTID": 8591260, "DIVA_NR": 1581, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Loogarten", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 35, "E": 8.472341475226704, "N": 47.389426323245424}, {"NHSTID": 8591141, "DIVA_NR": 893, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Friedhof Eichbühl", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 35, "E": 8.47454522443346, "N": 47.38287604110847}, {"NHSTID": 8590318, "DIVA_NR": 821, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Farbhof", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,35,N2", "E": 8.479072099833893, "N": 47.39087684683945}, {"NHSTID": 8591056, "DIVA_NR": 3022, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Altstetten", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,35,78,80,83,89,N2,N13", "E": 8.488388394920037, "N": 47.39110739347751}, {"NHSTID": 8591126, "DIVA_NR": 840, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Fellenbergstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "3,67,N3", "E": 8.488429166806114, "N": 47.37571658135499}, {"NHSTID": 8591070, "DIVA_NR": 427, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Baslerstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "83,89", "E": 8.490156738026586, "N": 47.38876159834194}, {"NHSTID": 8591134, "DIVA_NR": 867, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Flurstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "83,89", "E": 8.492000592115549, "N": 47.38153979145331}, {"NHSTID": 8591035, "DIVA_NR": 3797, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Albisrank", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "83,89", "E": 8.494681285182022, "N": 47.37981525396241}, {"NHSTID": 8591200, "DIVA_NR": 1239, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Holzerhurd", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "32,N1", "E": 8.49662761309142, "N": 47.42380113510174}, {"NHSTID": 8591254, "DIVA_NR": 1549, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Letzipark West", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "83,89", "E": 8.496480073108058, "N": 47.38636515702825}, {"NHSTID": 8591348, "DIVA_NR": 3566, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schützenhaus Höngg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 38, "E": 8.497063618657819, "N": 47.409728891378755}, {"NHSTID": 8591203, "DIVA_NR": 1252, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hubertus", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "3,33,83,89,N3,N9,N14", "E": 8.499148682482032, "N": 47.37738163834283}, {"NHSTID": 8591243, "DIVA_NR": 1503, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Langgrütstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 67, "E": 8.501075697583982, "N": 47.37373890318412}, {"NHSTID": 8591351, "DIVA_NR": 2302, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schweighof", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "73,89,N5", "E": 8.502710748411774, "N": 47.36477373262537}, {"NHSTID": 8591252, "DIVA_NR": 1548, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Letzigrund", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 2, "E": 8.5037414519885, "N": 47.381234209005}, {"NHSTID": 8591374, "DIVA_NR": 2449, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Sportweg", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 4, "E": 8.50585668165712, "N": 47.3916219795067}, {"NHSTID": 8591338, "DIVA_NR": 3458, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schauenberg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 37, "E": 8.506945638090682, "N": 47.41619534883348}, {"NHSTID": 8591039, "DIVA_NR": 67, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Alte Trotte", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "13,N4", "E": 8.507658861437621, "N": 47.397596018905595}, {"NHSTID": 8591149, "DIVA_NR": 902, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Friesenberg", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 32, "E": 8.508009879424913, "N": 47.3642839910756}, {"NHSTID": 8591250, "DIVA_NR": 3457, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Lerchenrain", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 37, "E": 8.509504764568526, "N": 47.414291691366685}, {"NHSTID": 8591038, "DIVA_NR": 48, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Albisriederplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,3,33,72,83,N3,N5,N9,N14", "E": 8.510408309469227, "N": 47.37821312603057}, {"NHSTID": 8591131, "DIVA_NR": 857, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Fischerweg", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "6,8,N13", "E": 8.512134801734124, "N": 47.39356971341391}, {"NHSTID": 8591075, "DIVA_NR": 468, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bertastrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "72,N5", "E": 8.513472736266767, "N": 47.37388498363165}, {"NHSTID": 8591346, "DIVA_NR": 2289, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schumacherweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 80, "E": 8.514604362421153, "N": 47.41221143266939}, {"NHSTID": 8591160, "DIVA_NR": 1000, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Glaubtenstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "32,40,61,62,80,N1", "E": 8.518937417956437, "N": 47.41416790234108}, {"NHSTID": 8591373, "DIVA_NR": 2411, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Sonneggstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,15,N6", "E": 8.543703707266353, "N": 47.38283762316384}, {"NHSTID": 8591355, "DIVA_NR": 1275, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Seebacherplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "14,40,75,768,N6,N7,N10", "E": 8.548356337734033, "N": 47.419897769790914}, {"NHSTID": 8591048, "DIVA_NR": 128, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Ausserdorfstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "75,742,N6", "E": 8.548571826874102, "N": 47.424510129039994}, {"NHSTID": 8503059, "DIVA_NR": 3039, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Stadelhofen", "CNAME": "Zürich", "VTYP": ["S-Bahn", "Tram"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 8, "SYMB_TEXT": "Bahn Tram", "LINIEN": "8,11,15,S18,SN18", "E": 8.548166547239457, "N": 47.36627972844731}, {"NHSTID": 8591112, "DIVA_NR": 694, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Dorflinde", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 75, "E": 8.549261888149275, "N": 47.40740397325863}, {"NHSTID": 8591375, "DIVA_NR": 2450, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Sprecherstrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 31, "E": 8.552269741197314, "N": 47.36749056534099}, {"NHSTID": 8576197, "DIVA_NR": 832, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Feldeggstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,4,912,916,N18,N91", "E": 8.552254775544883, "N": 47.36043845744977}, {"NHSTID": 8591172, "DIVA_NR": 1093, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hagenholz", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "781,787,N78", "E": 8.555187124152942, "N": 47.414470938406836}, {"NHSTID": 8591192, "DIVA_NR": 1194, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hinterbergstrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 33, "E": 8.554572799274647, "N": 47.38010652137352}, {"NHSTID": 8591175, "DIVA_NR": 3760, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hallenbad Oerlikon", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "61,62,94,N11", "E": 8.555876702133938, "N": 47.41070435513041}, {"NHSTID": 8591230, "DIVA_NR": 1407, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kirche Fluntern", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "5,6,33,751,N17", "E": 8.559394845440579, "N": 47.37639875071218}, {"NHSTID": 8505332, "DIVA_NR": 7056, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Tiefenbrunnen (See)", "CNAME": "Zürich", "VTYP": [""], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 99, "SYMB_TEXT": "", "LINIEN": "", "E": 8.560437856376916, "N": 47.349834689711685}, {"NHSTID": 8591152, "DIVA_NR": 908, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Frohburg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "75,N11", "E": 8.562417124210668, "N": 47.40416445343775}, {"NHSTID": 8591040, "DIVA_NR": 70, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Altenhofstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 77, "E": 8.561426658404116, "N": 47.35530321113529}, {"NHSTID": 8503004, "DIVA_NR": 13041, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Tiefenbrunnen", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S6,SN6,S7,SN7,S16", "E": 8.56154454085047, "N": 47.350219716276094}, {"NHSTID": 8591231, "DIVA_NR": 3648, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Klosbach", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 33, "E": 8.564160013854575, "N": 47.37002874610111}, {"NHSTID": 8591098, "DIVA_NR": 546, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Brunau/Mutschellenstr.", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "66,72", "E": 8.526915208008472, "N": 47.355193064938796}, {"NHSTID": 8591277, "DIVA_NR": 1644, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Militär-/Langstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,32,N2,N8", "E": 8.527638902083964, "N": 47.379599061857036}, {"NHSTID": 8507183, "DIVA_NR": 7039, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kantonsschule Enge", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 66, "E": 8.527523517322301, "N": 47.36423644661712}, {"NHSTID": 8591077, "DIVA_NR": 470, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Besenrainstrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 72, "E": 8.527868338711267, "N": 47.34547825938208}, {"NHSTID": 8591439, "DIVA_NR": 2950, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Wollishoferplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,184,185,N12", "E": 8.530172642035627, "N": 47.33844020143898}, {"NHSTID": 8591100, "DIVA_NR": 547, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Brunaustrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,N15", "E": 8.532229274048184, "N": 47.35613228928445}, {"NHSTID": 8591380, "DIVA_NR": 3768, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Staudenbühl", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 40, "E": 8.535370605103624, "N": 47.420012781167074}, {"NHSTID": 8591342, "DIVA_NR": 2320, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schönauring", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "75,N6", "E": 8.536463700848392, "N": 47.42610098524815}, {"NHSTID": 8591246, "DIVA_NR": 1522, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Laubiweg", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "11,15", "E": 8.53635214696683, "N": 47.3949882056513}, {"NHSTID": 8591335, "DIVA_NR": 2158, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schaffhauserplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,11,14,15,33,N1,N6,N7", "E": 8.538721100243963, "N": 47.39167345532526}, {"NHSTID": 8591314, "DIVA_NR": 2045, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Regensbergbrücke", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "11,61,62", "E": 8.539287425090627, "N": 47.4088217031097}, {"NHSTID": 8503651, "DIVA_NR": 3023, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Bürkliplatz (See)", "CNAME": "Zürich", "VTYP": ["Schiff"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp1.gif\" ALT=\"Schiffsstation\">", "HAFAS_PRIO": 1, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 4, "SYMB_TEXT": "Schiff", "LINIEN": "3730,3732,3734", "E": 8.541004252128268, "N": 47.3656646803881}, {"NHSTID": 8591207, "DIVA_NR": 1303, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Im Ebnet", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "742,N6", "E": 8.54374666545351, "N": 47.43150048628198}, {"NHSTID": 8591183, "DIVA_NR": 1157, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Helmhaus", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "4,15", "E": 8.543306549959555, "N": 47.370068302176364}, {"NHSTID": 8591120, "DIVA_NR": 3594, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, EPI-Klinik", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 77, "E": 8.570670337472908, "N": 47.34864630373237}, {"NHSTID": 8591089, "DIVA_NR": 508, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bleulerstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 77, "E": 8.571605154318336, "N": 47.34717090477836}, {"NHSTID": 8530811, "DIVA_NR": 421, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Balgrist", "CNAME": "Zürich", "VTYP": ["S-Bahn", "Tram"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 8, "SYMB_TEXT": "Bahn Tram", "LINIEN": "11,S18,SN18", "E": 8.575019653637625, "N": 47.35461240572722}, {"NHSTID": 8591181, "DIVA_NR": 1139, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Heerenwiesen", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,N11", "E": 8.576340637807986, "N": 47.404711805822075}, {"NHSTID": 8591424, "DIVA_NR": 2836, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Waserstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,N16,N19,N71,N74", "E": 8.584060749653656, "N": 47.3583190525465}, {"NHSTID": 8591360, "DIVA_NR": 3767, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Segeten", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 91, "E": 8.594304187858782, "N": 47.35575224991202}, {"NHSTID": 8591130, "DIVA_NR": 852, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Feusisbergli", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 35, "E": 8.470986999078551, "N": 47.392667878814024}, {"NHSTID": 8591215, "DIVA_NR": 3153, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Juchhof", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 307, "E": 8.473176402022967, "N": 47.39831496948645}, {"NHSTID": 8591284, "DIVA_NR": 1698, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Neeserweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 35, "E": 8.474721874278982, "N": 47.39059229835627}, {"NHSTID": 8591345, "DIVA_NR": 2276, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schulhaus Buchlern", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "35,67,78,N13", "E": 8.478579823053932, "N": 47.38466575633021}, {"NHSTID": 8591428, "DIVA_NR": 2872, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Werdhölzli", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "6,307", "E": 8.482029662975538, "N": 47.397830323341985}, {"NHSTID": 8591435, "DIVA_NR": 2935, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Winzerstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "13,80,N4", "E": 8.486385591696681, "N": 47.4037635957194}, {"NHSTID": 8591258, "DIVA_NR": 1570, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Lindenplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,35,78,80,N13", "E": 8.486124865746667, "N": 47.38781777106922}, {"NHSTID": 8591165, "DIVA_NR": 1026, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Grimselstrasse", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 2, "E": 8.49009473174545, "N": 47.38696315463855}, {"NHSTID": 8591401, "DIVA_NR": 2682, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Triemlispital", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 80, "E": 8.496895909131451, "N": 47.36596958166769}, {"NHSTID": 8580912, "DIVA_NR": 2160, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schaufelbergerstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,14,89,215,220,235,236,245,350,N5", "E": 8.501786747773885, "N": 47.36889300381435}, {"NHSTID": 8591150, "DIVA_NR": 903, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Friesenberghalde", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 73, "E": 8.502412649843992, "N": 47.36111547522004}, {"NHSTID": 8591334, "DIVA_NR": 2142, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, SBB-Werkstätte", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,N2", "E": 8.503384474447957, "N": 47.38656258261221}, {"NHSTID": 8591178, "DIVA_NR": 2447, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hardturm", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "6,8,N13", "E": 8.504516707414846, "N": 47.39416195833754}, {"NHSTID": 8591353, "DIVA_NR": 2306, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schwert", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "13,38,46,N4,N8", "E": 8.50486675436581, "N": 47.399735649360515}, {"NHSTID": 8576262, "DIVA_NR": 2968, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Zehntenhausplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "32,37,61,62,491,N1", "E": 8.506474991359228, "N": 47.41915905915734}, {"NHSTID": 8591182, "DIVA_NR": 1143, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hegianwandweg", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "32,89,N5", "E": 8.510014336263577, "N": 47.356646533111885}, {"NHSTID": 8591398, "DIVA_NR": 718, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Toni-Areal", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 4, "E": 8.510715459627267, "N": 47.3901827594942}, {"NHSTID": 8591385, "DIVA_NR": 2596, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Strassenverkehrsamt", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "10,13,32,89,N5", "E": 8.511320727162678, "N": 47.35315327164033}, {"NHSTID": 8591302, "DIVA_NR": 1441, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Pflegezentr. Käferberg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "38,69", "E": 8.517715605335752, "N": 47.39965234919898}, {"NHSTID": 8503007, "DIVA_NR": 13037, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Seebach", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S6,SN6", "E": 8.544509731213978, "N": 47.41846846495475}, {"NHSTID": 8591127, "DIVA_NR": 845, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Felsenrainstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "14,768,N6,N7,N10", "E": 8.545387889804175, "N": 47.41672402252647}, {"NHSTID": 8503003, "DIVA_NR": 13039, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Stadelhofen", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "SN1,S3,S5,SN5,S6,SN6,S7,SN7,S9,SN9,S11,S12,S15,S16", "E": 8.548678739697888, "N": 47.366715570595034}, {"NHSTID": 8576196, "DIVA_NR": 1456, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kreuzstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,4,912,916,N18,N91", "E": 8.54979680862394, "N": 47.363187703978724}, {"NHSTID": 8591256, "DIVA_NR": 1552, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Leutschenbach", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "10,11,781,787,N9,N78", "E": 8.551329734634594, "N": 47.41441820071922}, {"NHSTID": 8591376, "DIVA_NR": 2451, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Spyriplatz", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 33, "E": 8.551982815047772, "N": 47.38228137699336}, {"NHSTID": 8591124, "DIVA_NR": 3446, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Ettenfeld", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "768,N7,N10", "E": 8.553694431102166, "N": 47.42545026163873}, {"NHSTID": 8591294, "DIVA_NR": 6459, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Oerlikerhus", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "10,11", "E": 8.55421872035896, "N": 47.41758357201566}, {"NHSTID": 8503653, "DIVA_NR": 3046, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürichhorn (See)", "CNAME": "Zürich", "VTYP": ["Schiff"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp1.gif\" ALT=\"Schiffsstation\">", "HAFAS_PRIO": 1, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 4, "SYMB_TEXT": "Schiff", "LINIEN": "3730,3732,3734", "E": 8.553202741281464, "N": 47.35196474320124}, {"NHSTID": 8591094, "DIVA_NR": 3645, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Botanischer Garten", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "33,77", "E": 8.557844789733172, "N": 47.35934091179509}, {"NHSTID": 8591397, "DIVA_NR": 2673, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Toblerplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "6,33,N17", "E": 8.559358705503552, "N": 47.379088656517105}, {"NHSTID": 8591238, "DIVA_NR": 1471, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Krönleinstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 39, "E": 8.561042091349998, "N": 47.38419054286296}, {"NHSTID": 8591137, "DIVA_NR": 3466, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Freiestrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "31,33", "E": 8.562987922881433, "N": 47.36279902554779}, {"NHSTID": 8591180, "DIVA_NR": 1138, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hedwigsteig", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 11, "E": 8.565042669091989, "N": 47.36042222354246}, {"NHSTID": 8591113, "DIVA_NR": 708, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Dreispitz", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "61,62,94,N11", "E": 8.567181625025292, "N": 47.410792370806945}, {"NHSTID": 8591169, "DIVA_NR": 1076, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Güterbahnhof", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "8,31,N2,N8", "E": 8.519985605063802, "N": 47.380309645601905}, {"NHSTID": 8591365, "DIVA_NR": 6463, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Sihlcity", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "89,200,210,444,445", "E": 8.52227255470442, "N": 47.35797128615251}, {"NHSTID": 8591227, "DIVA_NR": 1386, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kernstrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 32, "E": 8.524277245213632, "N": 47.37450348229684}, {"NHSTID": 8591280, "DIVA_NR": 3451, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Mötteliweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 80, "E": 8.52647320533945, "N": 47.413953288950665}, {"NHSTID": 8503086, "DIVA_NR": 12545, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Brunau", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S4,SN4", "E": 8.526328416053058, "N": 47.35173545954655}, {"NHSTID": 8591108, "DIVA_NR": 3450, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Chaletweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 80, "E": 8.53123177886148, "N": 47.413368692726465}, {"NHSTID": 8591267, "DIVA_NR": 3788, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Maillartstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 64, "E": 8.532111569667224, "N": 47.416202805602026}, {"NHSTID": 8585407, "DIVA_NR": 6700, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bhf Enge Pausenplatz", "CNAME": "Zürich", "VTYP": [""], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": "", "SYMB_CODE": 99, "SYMB_TEXT": "", "LINIEN": "", "E": 8.531379709498136, "N": 47.36570218552443}, {"NHSTID": 8591058, "DIVA_NR": 3026, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Enge", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "5,7,N15", "E": 8.531585701464214, "N": 47.36412608496646}, {"NHSTID": 8591064, "DIVA_NR": 2551, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Selnau", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": 8, "E": 8.532024460837027, "N": 47.37067038850575}, {"NHSTID": 8591251, "DIVA_NR": 1547, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Lettenstrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 46, "E": 8.532750946520576, "N": 47.39056979429466}, {"NHSTID": 8591081, "DIVA_NR": 3044, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zch, Bhf.Wollishofen/Staubstr.", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,70,184,185,N15", "E": 8.532929344939323, "N": 47.347031524524496}, {"NHSTID": 8591367, "DIVA_NR": 1366, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Sihlpost / HB", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "3,14,31,N2,N3,N8", "E": 8.534214766799254, "N": 47.376091709572464}, {"NHSTID": 8591241, "DIVA_NR": 3141, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Landiwiese", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "161,165,N15", "E": 8.53424147149906, "N": 47.35098595577702}, {"NHSTID": 8591326, "DIVA_NR": 2108, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Rotbuchstrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "32,33", "E": 8.536129916307054, "N": 47.39127533715118}, {"NHSTID": 8591316, "DIVA_NR": 2054, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Rennweg", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,10,11,13,N91", "E": 8.53828464627936, "N": 47.373102609819355}, {"NHSTID": 8591357, "DIVA_NR": 2834, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Seerose", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "161,165,N15", "E": 8.538148537583693, "N": 47.33891317738834}, {"NHSTID": 8591093, "DIVA_NR": 601, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kantonalbank", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,8,9,11,N91", "E": 8.539758473801777, "N": 47.368168222025}, {"NHSTID": 8591403, "DIVA_NR": 2688, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Tulpenstrasse", "CNAME": "Zürich", "VTYP": [""], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 99, "SYMB_TEXT": "", "LINIEN": "", "E": 8.568540067649236, "N": 47.406119640273054}, {"NHSTID": 8591429, "DIVA_NR": 2879, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Wetlistrasse", "CNAME": "Zürich", "VTYP": ["S-Bahn", "Tram"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 8, "SYMB_TEXT": "Bahn Tram", "LINIEN": "11,SN18", "E": 8.568637790565608, "N": 47.36015317720208}, {"NHSTID": 8591443, "DIVA_NR": 4, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Zoo/Forrenweid", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 751, "E": 8.57810134455776, "N": 47.38049724446036}, {"NHSTID": 8591315, "DIVA_NR": 2549, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Rehalp", "CNAME": "Zürich", "VTYP": ["S-Bahn", "Tram"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 8, "SYMB_TEXT": "Bahn Tram", "LINIEN": "11,S18,SN18", "E": 8.582990698920975, "N": 47.35102549816709}, {"NHSTID": 8591147, "DIVA_NR": 899, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Friedhof Witikon", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "701,703,704,N16,N19,N71,N74", "E": 8.602687153940563, "N": 47.36138001379561}, {"NHSTID": 8591274, "DIVA_NR": 1640, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Micafil", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,N2", "E": 8.474517640875302, "N": 47.39303186169406}, {"NHSTID": 8591408, "DIVA_NR": 2754, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Untermoosstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "67,80,N13", "E": 8.483398452595248, "N": 47.37982794216623}, {"NHSTID": 8591413, "DIVA_NR": 3588, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Vulkanstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 307, "E": 8.484094168297332, "N": 47.394348557111755}, {"NHSTID": 8573711, "DIVA_NR": 3156, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Sädlenweg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "215,220,235,236,245,350,N9", "E": 8.487477845901912, "N": 47.36775560820944}, {"NHSTID": 8503001, "DIVA_NR": 13022, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Altstetten", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "SN1,S5,SN5,S11,S12,S14,S19,S42", "E": 8.489101119775077, "N": 47.3916496120525}, {"NHSTID": 8591197, "DIVA_NR": 1231, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hohenklingensteig", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "80,89,304,308", "E": 8.490219802226484, "N": 47.4013450538057}, {"NHSTID": 8591363, "DIVA_NR": 2385, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Siemens", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "3,N3", "E": 8.494018802080141, "N": 47.37846306739724}, {"NHSTID": 8591222, "DIVA_NR": 1364, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kappeli", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,83,89", "E": 8.495380323310775, "N": 47.38500797410446}, {"NHSTID": 8591281, "DIVA_NR": 6628, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Mühlacker", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 61, "E": 8.49637022519374, "N": 47.42618716590812}, {"NHSTID": 8503054, "DIVA_NR": 12530, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Triemli", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S10", "E": 8.495233785436538, "N": 47.364941383724485}, {"NHSTID": 8576263, "DIVA_NR": 1259, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Hungerbergstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "32,491,N1", "E": 8.50153054561326, "N": 47.4210936112165}, {"NHSTID": 8591146, "DIVA_NR": 898, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Friedhof Uetliberg", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 73, "E": 8.500617117140568, "N": 47.358703334600925}, {"NHSTID": 8591054, "DIVA_NR": 3021, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhof Affoltern", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "37,61,62,N1", "E": 8.507430068216506, "N": 47.42118309693673}, {"NHSTID": 8591236, "DIVA_NR": 1446, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Altes Krematorium", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "3,33,72,83,N3,N9,N14", "E": 8.50788400948808, "N": 47.37780477183026}, {"NHSTID": 8591045, "DIVA_NR": 3151, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Appenzellerstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 38, "E": 8.509539930192151, "N": 47.39890986545167}, {"NHSTID": 8591153, "DIVA_NR": 914, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Fronwald", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "62,N1", "E": 8.510056598975195, "N": 47.42195932068785}, {"NHSTID": 8591226, "DIVA_NR": 1379, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kempfhofsteig", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "46,N8", "E": 8.509868602626117, "N": 47.39746761280266}, {"NHSTID": 8591407, "DIVA_NR": 2737, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Unteraffoltern", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "62,N1", "E": 8.511859039678797, "N": 47.42458711958221}, {"NHSTID": 8591405, "DIVA_NR": 2722, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Uetlihof", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "10,13,89,N5", "E": 8.513974090859067, "N": 47.356735630175045}, {"NHSTID": 8595899, "DIVA_NR": 6975, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Glaubtenstrasse Nord", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "40,80", "E": 8.519664737290299, "N": 47.414745777625164}, {"NHSTID": 8594239, "DIVA_NR": 6759, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schiffbau", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "4,8,33,72,83,N5,N8,N9", "E": 8.519864200275276, "N": 47.38802859977444}, {"NHSTID": 8503006, "DIVA_NR": 13034, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Oerlikon", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S2,S3,S6,SN6,S7,SN7,S8,SN8,S9,SN9,S14,S15,S16,S19,S21,S24", "E": 8.54441305611187, "N": 47.411903038937766}, {"NHSTID": 8591406, "DIVA_NR": 1334, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Universität Irchel", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,10,39,N10", "E": 8.544841194088145, "N": 47.39615753472338}, {"NHSTID": 8591244, "DIVA_NR": 1507, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Langmauerstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,10,N10,N11", "E": 8.544800078687237, "N": 47.39354034893968}, {"NHSTID": 8576193, "DIVA_NR": 440, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bellevue", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,4,5,8,9,11,15,912,916,N1,N2,N4,N5,N6,N7,N8,N11,N12,N13,N14,N15,N16,N17,N18,N19,N91", "E": 8.545098493601667, "N": 47.3670917409636}, {"NHSTID": 8591229, "DIVA_NR": 1399, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kinkelstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "9,10,N10,N11", "E": 8.546345800801484, "N": 47.38888404670595}, {"NHSTID": 8594255, "DIVA_NR": 6776, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Schanzackerstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 39, "E": 8.547444262745163, "N": 47.39202180272529}, {"NHSTID": 8591073, "DIVA_NR": 465, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Berninaplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "10,14,N6,N9,N10", "E": 8.548006025073121, "N": 47.40372804946104}, {"NHSTID": 8576195, "DIVA_NR": 1845, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Opernhaus", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,4,912,916,N18,N91", "E": 8.547528307456423, "N": 47.36551227273521}, {"NHSTID": 8591123, "DIVA_NR": 736, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, ETH/Universitätsspital", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "6,9,10,N10,N11", "E": 8.54823680224098, "N": 47.377289132057}, {"NHSTID": 8591239, "DIVA_NR": 1472, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Kunsthaus", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "3,5,9,31,N71,N74", "E": 8.549153417012313, "N": 47.370435008937}, {"NHSTID": 8591078, "DIVA_NR": 471, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bethanien", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 33, "E": 8.556006698632569, "N": 47.38091120306861}, {"NHSTID": 8576199, "DIVA_NR": 917, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Fröhlichstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "2,4,33,912,916,N18,N91", "E": 8.556909939989305, "N": 47.35516717365268}, {"NHSTID": 8591247, "DIVA_NR": 1528, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Lehenstrasse", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "46,N8", "E": 8.52071783229864, "N": 47.39614318428186}, {"NHSTID": 8591419, "DIVA_NR": 2803, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Waidspital", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "38,69", "E": 8.52171983795031, "N": 47.39916512882414}, {"NHSTID": 8591437, "DIVA_NR": 2937, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Wipkingerplatz", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "13,N4", "E": 8.523586302082295, "N": 47.392590196534165}, {"NHSTID": 8591041, "DIVA_NR": 3706, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Althoos", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 40, "E": 8.524074643209675, "N": 47.410701648451635}, {"NHSTID": 8591285, "DIVA_NR": 1705, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Neuaffoltern", "CNAME": "Zürich", "VTYP": ["Bus", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "32,61,62,N1", "E": 8.525038752652929, "N": 47.411843953901375}, {"NHSTID": 8591110, "DIVA_NR": 648, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Löwenbräu", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "4,6,13,N1,N4,N5,N7,N13", "E": 8.5260181294383, "N": 47.38842957221234}, {"NHSTID": 8591235, "DIVA_NR": 1445, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Krematorium Nordheim", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 40, "E": 8.528245412148182, "N": 47.405364319215536}, {"NHSTID": 8591322, "DIVA_NR": 2127, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Röntgenstrasse", "CNAME": "Zürich", "VTYP": ["Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 32, "E": 8.529275824658818, "N": 47.38193134802382}, {"NHSTID": 8591290, "DIVA_NR": 1744, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Nordheimstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 40, "E": 8.530526730146603, "N": 47.403543775814285}, {"NHSTID": 8503010, "DIVA_NR": 13026, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Enge", "CNAME": "Zürich", "VTYP": ["S-Bahn"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp4.gif\" ALT=\"S-Bahn Haltestelle\">", "HAFAS_PRIO": 4, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 1, "SYMB_TEXT": "Bahn", "LINIEN": "S2,S8,SN8,S24", "E": 8.53065876738562, "N": 47.36411686974971}, {"NHSTID": 8591383, "DIVA_NR": 6117, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Stierenried", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": 64, "E": 8.535486224519799, "N": 47.416620576557236}, {"NHSTID": 8591289, "DIVA_NR": 3804, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Neunbrunnen", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "64,75,N6", "E": 8.538241988769736, "N": 47.416585380807724}, {"NHSTID": 8587348, "DIVA_NR": 412, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhofplatz/HB", "CNAME": "Zürich", "VTYP": ["Bus", "Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "3,14,31,N2,N3,N8,N10", "E": 8.539310430213783, "N": 47.37724860236593}, {"NHSTID": 8591067, "DIVA_NR": 416, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhofstrasse/HB", "CNAME": "Zürich", "VTYP": ["Bus", "Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "7,10,11,13,N1,N4,N6,N71,N74,N91", "E": 8.539461359661248, "N": 47.37622171291439}, {"NHSTID": 8591224, "DIVA_NR": 1483, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Käshaldenstrasse", "CNAME": "Zürich", "VTYP": ["Bus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 0, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 2, "SYMB_TEXT": "Bus", "LINIEN": "75,N6", "E": 8.54103685358447, "N": 47.429952256005485}, {"NHSTID": 8587349, "DIVA_NR": 413, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Bahnhofquai/HB", "CNAME": "Zürich", "VTYP": ["Tram", "Trolleybus"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 3, "SYMB_TEXT": "Bus Tram", "LINIEN": "4,6,11,13,14,46", "E": 8.541699010062581, "N": 47.3774866704258}, {"NHSTID": 8503447, "DIVA_NR": 2585, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich Storchen", "CNAME": "Zürich", "VTYP": ["Schiff"], "HSTTYP": "<IMG SRC=\"../gisbrowser/_img/ZVV/HstTyp1.gif\" ALT=\"Schiffsstation\">", "HAFAS_PRIO": 1, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 4, "SYMB_TEXT": "Schiff", "LINIEN": 3734, "E": 8.541978211741089, "N": 47.37114242675655}, {"NHSTID": 8591309, "DIVA_NR": 2030, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Rathaus", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "4,15", "E": 8.542890912349478, "N": 47.371736380346675}, {"NHSTID": 8591327, "DIVA_NR": 2113, "Y_KOORD": "", "X_KOORD": "", "CHSTNAME": "Zürich, Rudolf-Brun-Brücke", "CNAME": "Zürich", "VTYP": ["Tram"], "HSTTYP": "&nbsp;", "HAFAS_PRIO": 2, "LINKTEXT": "", "ZONEN": 110, "SYMB_CODE": 5, "SYMB_TEXT": "Tram", "LINIEN": "4,15", "E": 8.542936742054254, "N": 47.373948749308376}];
+const stations = [
+	{
+		"id": 1,
+		"name": "Zürich, Bahnhof Wiedikon",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			3,
+			6
+		],
+		"stop_lat": 47.3711802915849,
+		"stop_lon": 8.52362864194321
+	},
+	{
+		"id": 2,
+		"name": "Rümlang, Bäuler",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			248,
+			113
+		],
+		"stop_lat": 47.43490611329371,
+		"stop_lon": 8.55728851564386
+	},
+	{
+		"id": 3,
+		"name": "Zürich, Werd",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			1,
+			122
+		],
+		"stop_lat": 47.372415289658896,
+		"stop_lon": 8.52662901499259
+	},
+	{
+		"id": 4,
+		"name": "Zürich, Haldenbach",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			191,
+			181
+		],
+		"stop_lat": 47.38011664476711,
+		"stop_lon": 8.548071800827511
+	},
+	{
+		"id": 5,
+		"name": "Zürich, Central",
+		"reachable_by_bus": [
+			45,
+			135
+		],
+		"reachable_by_tram": [
+			169,
+			184,
+			199,
+			135,
+			45,
+			46
+		],
+		"stop_lat": 47.37679534520039,
+		"stop_lon": 8.544074297812621
+	},
+	{
+		"id": 6,
+		"name": "Zürich, Schmiede Wiedikon",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			1,
+			194
+		],
+		"stop_lat": 47.37020687370789,
+		"stop_lon": 8.518849604631031
+	},
+	{
+		"id": 7,
+		"name": "Zürich, Hegianwandweg",
+		"reachable_by_bus": [
+			59,
+			209
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3565467094935,
+		"stop_lon": 8.51003713169259
+	},
+	{
+		"id": 8,
+		"name": "Zürich, Klosbach",
+		"reachable_by_bus": [
+			65,
+			132
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.370334635828506,
+		"stop_lon": 8.56362163839778
+	},
+	{
+		"id": 9,
+		"name": "Zürich, Röslistrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			140,
+			63
+		],
+		"stop_lat": 47.388461551079295,
+		"stop_lon": 8.5405349355927
+	},
+	{
+		"id": 10,
+		"name": "Zürich, Schlyfi",
+		"reachable_by_bus": [
+			128,
+			174
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3626987847054,
+		"stop_lon": 8.57432057343313
+	},
+	{
+		"id": 11,
+		"name": "Zürich, Friesenberg",
+		"reachable_by_bus": [
+			142,
+			121
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.36446334252889,
+		"stop_lon": 8.50790812446893
+	},
+	{
+		"id": 12,
+		"name": "Zürich, Sackzelg",
+		"reachable_by_bus": [
+			208,
+			244
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3740091853096,
+		"stop_lon": 8.49521492950256
+	},
+	{
+		"id": 13,
+		"name": "Zürich, Lochergut",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			141,
+			212
+		],
+		"stop_lat": 47.375365783732605,
+		"stop_lon": 8.517825525206991
+	},
+	{
+		"id": 14,
+		"name": "Zürich, Kantonsschule",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			191,
+			118
+		],
+		"stop_lat": 47.3727377228187,
+		"stop_lon": 8.550353521649491
+	},
+	{
+		"id": 15,
+		"name": "Zürich, Regensbergbrücke",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			249,
+			78
+		],
+		"stop_lat": 47.408515550016006,
+		"stop_lon": 8.53907966483222
+	},
+	{
+		"id": 16,
+		"name": "Wallisellen, Bahnhof",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			160,
+			210
+		],
+		"stop_lat": 47.4125582606597,
+		"stop_lon": 8.59328400908354
+	},
+	{
+		"id": 17,
+		"name": "Zürich, Technopark",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			234,
+			155
+		],
+		"stop_lat": 47.388966339042504,
+		"stop_lon": 8.51555278753785
+	},
+	{
+		"id": 18,
+		"name": "Zürich, Helvetiaplatz",
+		"reachable_by_bus": [
+			179,
+			60
+		],
+		"reachable_by_tram": [
+			122,
+			57
+		],
+		"stop_lat": 47.376162692991,
+		"stop_lon": 8.52607205951636
+	},
+	{
+		"id": 19,
+		"name": "Zürich, Post Wollishofen",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			40,
+			156
+		],
+		"stop_lat": 47.3446299679502,
+		"stop_lon": 8.53301603666357
+	},
+	{
+		"id": 20,
+		"name": "Zürich, Kreuzstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			211,
+			176
+		],
+		"stop_lat": 47.36337419139621,
+		"stop_lon": 8.54951808843514
+	},
+	{
+		"id": 21,
+		"name": "Zürich, Wipkingerplatz",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			119,
+			105
+		],
+		"stop_lat": 47.3924997194205,
+		"stop_lon": 8.52369152401311
+	},
+	{
+		"id": 22,
+		"name": "Zürich, Schaufelbergerstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			53,
+			123
+		],
+		"stop_lat": 47.368892731074894,
+		"stop_lon": 8.50154805225648
+	},
+	{
+		"id": 23,
+		"name": "Zürich, Auzelg",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			207,
+			130
+		],
+		"stop_lat": 47.4163332034833,
+		"stop_lon": 8.56899356379756
+	},
+	{
+		"id": 24,
+		"name": "Zürich, Aargauerstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			154,
+			87
+		],
+		"stop_lat": 47.3922199767694,
+		"stop_lon": 8.502715862126
+	},
+	{
+		"id": 25,
+		"name": "Schlieren, Zentrum/Bahnhof",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			158,
+			170
+		],
+		"stop_lat": 47.3977719825142,
+		"stop_lon": 8.4487271135429
+	},
+	{
+		"id": 26,
+		"name": "Zürich, Mattenhof",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			218,
+			185
+		],
+		"stop_lat": 47.3988056977355,
+		"stop_lon": 8.590750759981969
+	},
+	{
+		"id": 27,
+		"name": "Glattbrugg, Lindberghplatz",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			232,
+			113
+		],
+		"stop_lat": 47.4251099631438,
+		"stop_lon": 8.56036973706882
+	},
+	{
+		"id": 28,
+		"name": "Zürich, Römerhof",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			34,
+			164
+		],
+		"stop_lat": 47.3680227019655,
+		"stop_lon": 8.56036973706882
+	},
+	{
+		"id": 29,
+		"name": "Zürich, Werdhölzli",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			54
+		],
+		"stop_lat": 47.3977902247233,
+		"stop_lon": 8.48205461058837
+	},
+	{
+		"id": 30,
+		"name": "Zürich, Tierspital",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			127,
+			175
+		],
+		"stop_lat": 47.4018094374629,
+		"stop_lon": 8.55210523645377
+	},
+	{
+		"id": 31,
+		"name": "Zürich, Birchdörfli",
+		"reachable_by_bus": [
+			222,
+			189
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.4072206011409,
+		"stop_lon": 8.53089601259275
+	},
+	{
+		"id": 32,
+		"name": "Zürich, Rosengartenstrasse",
+		"reachable_by_bus": [
+			119,
+			73
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.394366659524,
+		"stop_lon": 8.525200693690639
+	},
+	{
+		"id": 33,
+		"name": "Zürich, Luchswiesen",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			229,
+			81
+		],
+		"stop_lat": 47.4067281474386,
+		"stop_lon": 8.58507340738554
+	},
+	{
+		"id": 34,
+		"name": "Zürich, Hottingerplatz",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			28,
+			118
+		],
+		"stop_lat": 47.369349034311,
+		"stop_lon": 8.55457560348544
+	},
+	{
+		"id": 35,
+		"name": "Zürich, Kappeli",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			242,
+			102
+		],
+		"stop_lat": 47.38506779083429,
+		"stop_lon": 8.49511611482129
+	},
+	{
+		"id": 36,
+		"name": "Zürich, Hardturm",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			136,
+			104
+		],
+		"stop_lat": 47.3941963875977,
+		"stop_lon": 8.50444062747175
+	},
+	{
+		"id": 37,
+		"name": "Zürich, Albisriederplatz",
+		"reachable_by_bus": [
+			83,
+			213
+		],
+		"reachable_by_tram": [
+			110,
+			213,
+			141
+		],
+		"stop_lat": 47.378188369941704,
+		"stop_lon": 8.51052222194608
+	},
+	{
+		"id": 38,
+		"name": "Zürich, Wollishoferplatz",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			137
+		],
+		"stop_lat": 47.3383114211963,
+		"stop_lon": 8.53079719791148
+	},
+	{
+		"id": 39,
+		"name": "Zürich, Sihlcity Nord",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			173,
+			62
+		],
+		"stop_lat": 47.359753667088,
+		"stop_lon": 8.52255066360212
+	},
+	{
+		"id": 40,
+		"name": "Zch, Bhf.Wollishofen/Staubstr.",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			246,
+			19
+		],
+		"stop_lat": 47.34688206094751,
+		"stop_lon": 8.5329172219823
+	},
+	{
+		"id": 41,
+		"name": "Zürich, Güterbahnhof",
+		"reachable_by_bus": [
+			83,
+			57
+		],
+		"reachable_by_tram": [
+			83,
+			57
+		],
+		"stop_lat": 47.38022613459721,
+		"stop_lon": 8.52012521233466
+	},
+	{
+		"id": 42,
+		"name": "Zürich, Freiestrasse",
+		"reachable_by_bus": [
+			134,
+			196
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.362869158379794,
+		"stop_lon": 8.562876036711861
+	},
+	{
+		"id": 43,
+		"name": "Zürich, Lägernstrasse",
+		"reachable_by_bus": [
+			88,
+			126
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.39585043445229,
+		"stop_lon": 8.5320907719208
+	},
+	{
+		"id": 44,
+		"name": "Zürich, Talwiesenstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			53,
+			194
+		],
+		"stop_lat": 47.3698175015265,
+		"stop_lon": 8.50928254685383
+	},
+	{
+		"id": 45,
+		"name": "Zürich, Neumarkt",
+		"reachable_by_bus": [
+			5,
+			118
+		],
+		"reachable_by_tram": [
+			5,
+			118
+		],
+		"stop_lat": 47.372640384714096,
+		"stop_lon": 8.54744298012854
+	},
+	{
+		"id": 46,
+		"name": "Zürich, Haldenegg",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			191,
+			5,
+			56
+		],
+		"stop_lat": 47.37914339184,
+		"stop_lon": 8.54500854570823
+	},
+	{
+		"id": 47,
+		"name": "Zürich, Botanischer Garten",
+		"reachable_by_bus": [
+			134,
+			162
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3591816623693,
+		"stop_lon": 8.55749512815923
+	},
+	{
+		"id": 48,
+		"name": "Zürich, Lindenplatz",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			75,
+			242
+		],
+		"stop_lat": 47.3877803837547,
+		"stop_lon": 8.48634855764706
+	},
+	{
+		"id": 49,
+		"name": "Zürich, Helmhaus",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			92,
+			98
+		],
+		"stop_lat": 47.3695619744703,
+		"stop_lon": 8.54347242657217
+	},
+	{
+		"id": 50,
+		"name": "Wallisellen, Neugut",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			210,
+			147
+		],
+		"stop_lat": 47.4046974872424,
+		"stop_lon": 8.60451295013659
+	},
+	{
+		"id": 51,
+		"name": "Zürich, Signaustrasse",
+		"reachable_by_bus": [
+			134,
+			166
+		],
+		"reachable_by_tram": [
+			134,
+			166
+		],
+		"stop_lat": 47.36300302302379,
+		"stop_lon": 8.55787242057862
+	},
+	{
+		"id": 52,
+		"name": "Zürich, Letzibach",
+		"reachable_by_bus": [
+			149,
+			195
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3888751126601,
+		"stop_lon": 8.49551137354636
+	},
+	{
+		"id": 53,
+		"name": "Zürich, Heuried",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			22,
+			44
+		],
+		"stop_lat": 47.3694342104779,
+		"stop_lon": 8.50612047705329
+	},
+	{
+		"id": 54,
+		"name": "Zürich, Bändliweg",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			217,
+			29
+		],
+		"stop_lat": 47.3962700189648,
+		"stop_lon": 8.4852346466946
+	},
+	{
+		"id": 55,
+		"name": "Zürich, Guggachstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			140,
+			175
+		],
+		"stop_lat": 47.3956132765108,
+		"stop_lon": 8.540067811644889
+	},
+	{
+		"id": 56,
+		"name": "Zürich, Sonneggstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			63,
+			46
+		],
+		"stop_lat": 47.38275042040279,
+		"stop_lon": 8.54349039287786
+	},
+	{
+		"id": 57,
+		"name": "Zürich, Bäckeranlage",
+		"reachable_by_bus": [
+			41,
+			60
+		],
+		"reachable_by_tram": [
+			41,
+			18
+		],
+		"stop_lat": 47.3782248679118,
+		"stop_lon": 8.52271236035328
+	},
+	{
+		"id": 58,
+		"name": "Zürich, Friedhof Enzenbühl",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			64,
+			72
+		],
+		"stop_lat": 47.3509903614489,
+		"stop_lon": 8.58056386465863
+	},
+	{
+		"id": 59,
+		"name": "Zürich, Im Hagacker",
+		"reachable_by_bus": [
+			7,
+			121
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3595346021838,
+		"stop_lon": 8.50738710160407
+	},
+	{
+		"id": 60,
+		"name": "Zürich, Militär-/Langstrasse",
+		"reachable_by_bus": [
+			201,
+			146,
+			57,
+			18
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3796908488222,
+		"stop_lon": 8.52750038081831
+	},
+	{
+		"id": 61,
+		"name": "Zürich, Rentenanstalt",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			67,
+			79
+		],
+		"stop_lat": 47.3634532925151,
+		"stop_lon": 8.53460605471668
+	},
+	{
+		"id": 62,
+		"name": "Zürich, Waffenplatzstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			39,
+			95
+		],
+		"stop_lat": 47.3609889327173,
+		"stop_lon": 8.524931199105371
+	},
+	{
+		"id": 63,
+		"name": "Zürich, Ottikerstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			9,
+			56
+		],
+		"stop_lat": 47.3856334327159,
+		"stop_lon": 8.542214785174231
+	},
+	{
+		"id": 64,
+		"name": "Zürich, Balgrist",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			165,
+			58
+		],
+		"stop_lat": 47.3543558863687,
+		"stop_lon": 8.5751380403418
+	},
+	{
+		"id": 65,
+		"name": "Zürich, Hölderlinsteig",
+		"reachable_by_bus": [
+			8,
+			196
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3672439224786,
+		"stop_lon": 8.56470859989172
+	},
+	{
+		"id": 66,
+		"name": "Zürich, Schörlistrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			127,
+			231
+		],
+		"stop_lat": 47.4060472162165,
+		"stop_lon": 8.56406181288706
+	},
+	{
+		"id": 67,
+		"name": "Zürich, Bürkliplatz",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			183,
+			61,
+			98
+		],
+		"stop_lat": 47.3666111556789,
+		"stop_lon": 8.54176562753211
+	},
+	{
+		"id": 68,
+		"name": "Zürich, Stampfenbachplatz",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			184,
+			84
+		],
+		"stop_lat": 47.3798915816247,
+		"stop_lon": 8.54252919552372
+	},
+	{
+		"id": 69,
+		"name": "Zürich, Zehntenhausplatz",
+		"reachable_by_bus": [
+			243,
+			163
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.4188375250837,
+		"stop_lon": 8.50713557332448
+	},
+	{
+		"id": 70,
+		"name": "Zürich, Loorenstrasse",
+		"reachable_by_bus": [
+			82,
+			131
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.35943723971211,
+		"stop_lon": 8.59476622930254
+	},
+	{
+		"id": 71,
+		"name": "Zürich, Uetlihof",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			209,
+			245
+		],
+		"stop_lat": 47.356589307930605,
+		"stop_lon": 8.51381903903926
+	},
+	{
+		"id": 72,
+		"name": "Zürich, Rehalp",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			58
+		],
+		"stop_lat": 47.3508625524751,
+		"stop_lon": 8.58299829907894
+	},
+	{
+		"id": 73,
+		"name": "Zürich, Bahnhof Wipkingen",
+		"reachable_by_bus": [
+			129,
+			32
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3934727257728,
+		"stop_lon": 8.52967430380618
+	},
+	{
+		"id": 74,
+		"name": "Zürich, Seebach",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			148
+		],
+		"stop_lat": 47.4216942513698,
+		"stop_lon": 8.54995826292442
+	},
+	{
+		"id": 75,
+		"name": "Zürich, Bachmattstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			48,
+			203
+		],
+		"stop_lat": 47.38899066605121,
+		"stop_lon": 8.48299784163683
+	},
+	{
+		"id": 76,
+		"name": "Zürich, Berninaplatz",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			145,
+			171
+		],
+		"stop_lat": 47.40360308700971,
+		"stop_lon": 8.54787417146497
+	},
+	{
+		"id": 77,
+		"name": "Zürich, Wetlistrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			125,
+			165
+		],
+		"stop_lat": 47.360039667121896,
+		"stop_lon": 8.56858033876681
+	},
+	{
+		"id": 78,
+		"name": "Zürich, Bad Allenmoos",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			15,
+			189
+		],
+		"stop_lat": 47.4059499396091,
+		"stop_lon": 8.53764236037743
+	},
+	{
+		"id": 79,
+		"name": "Zürich, Bahnhof Enge",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			107,
+			95,
+			61,
+			228
+		],
+		"stop_lat": 47.364080012571705,
+		"stop_lon": 8.53147991752751
+	},
+	{
+		"id": 80,
+		"name": "Zürich, Felsenrainstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			240,
+			148
+		],
+		"stop_lat": 47.41666144659229,
+		"stop_lon": 8.545215158223609
+	},
+	{
+		"id": 81,
+		"name": "Zürich, Luegisland",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			192,
+			33
+		],
+		"stop_lat": 47.4059681789866,
+		"stop_lon": 8.58094115707802
+	},
+	{
+		"id": 82,
+		"name": "Zürich, Zweiackerstrasse",
+		"reachable_by_bus": [
+			241,
+			70
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3569666068716,
+		"stop_lon": 8.59806304639572
+	},
+	{
+		"id": 83,
+		"name": "Zürich, Hardplatz",
+		"reachable_by_bus": [
+			41,
+			220,
+			37,
+			225
+		],
+		"reachable_by_tram": [
+			41,
+			225
+		],
+		"stop_lat": 47.3823428932854,
+		"stop_lon": 8.51491498368604
+	},
+	{
+		"id": 84,
+		"name": "Zürich, Beckenhof",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			68,
+			167
+		],
+		"stop_lat": 47.3839364888622,
+		"stop_lon": 8.54040018830006
+	},
+	{
+		"id": 85,
+		"name": "Zürich, Holzerhurd",
+		"reachable_by_bus": [
+			243
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.42377287817099,
+		"stop_lon": 8.49664325080451
+	},
+	{
+		"id": 86,
+		"name": "Zürich, Limmatplatz",
+		"reachable_by_bus": [
+			236,
+			201
+		],
+		"reachable_by_tram": [
+			89,
+			178
+		],
+		"stop_lat": 47.384489978344405,
+		"stop_lon": 8.53176737841847
+	},
+	{
+		"id": 87,
+		"name": "Zürich, Sportweg",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			234,
+			24
+		],
+		"stop_lat": 47.391502369265204,
+		"stop_lon": 8.506093527594759
+	},
+	{
+		"id": 88,
+		"name": "Zürich, Rotbuchstrasse",
+		"reachable_by_bus": [
+			129,
+			236,
+			43,
+			140
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.390924627310106,
+		"stop_lon": 8.53621403907548
+	},
+	{
+		"id": 89,
+		"name": "Zürich, Quellenstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			86,
+			144
+		],
+		"stop_lat": 47.3866065658351,
+		"stop_lon": 8.52891073581457
+	},
+	{
+		"id": 90,
+		"name": "Zürich, Hermetschloo",
+		"reachable_by_bus": [
+			111
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3940626021267,
+		"stop_lon": 8.47374519420911
+	},
+	{
+		"id": 91,
+		"name": "Zürich Flughafen, Bahnhof",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			206,
+			233
+		],
+		"stop_lat": 47.45070858804271,
+		"stop_lon": 8.563819267760321
+	},
+	{
+		"id": 92,
+		"name": "Zürich, Rathaus",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			49,
+			199
+		],
+		"stop_lat": 47.371849505953705,
+		"stop_lon": 8.54272682488625
+	},
+	{
+		"id": 93,
+		"name": "Zürich, Langmauerstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			186,
+			139
+		],
+		"stop_lat": 47.3934484008329,
+		"stop_lon": 8.544945663638341
+	},
+	{
+		"id": 94,
+		"name": "Zürich, Kinkelstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			186,
+			235
+		],
+		"stop_lat": 47.3888021314405,
+		"stop_lon": 8.546382968093129
+	},
+	{
+		"id": 95,
+		"name": "Zürich, Bahnhof Enge/Bederstr.",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			228,
+			79,
+			62
+		],
+		"stop_lat": 47.364536357443,
+		"stop_lon": 8.53022227612957
+	},
+	{
+		"id": 96,
+		"name": "Zürich, Glaubtenstrasse",
+		"reachable_by_bus": [
+			222,
+			163
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.4139077882063,
+		"stop_lon": 8.51978385252665
+	},
+	{
+		"id": 97,
+		"name": "Zürich, SBB-Werkstätte",
+		"reachable_by_bus": [
+			149,
+			220
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3866673860586,
+		"stop_lon": 8.50281467680727
+	},
+	{
+		"id": 98,
+		"name": "Zürich, Bellevue",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			49,
+			176,
+			223,
+			118,
+			67
+		],
+		"stop_lat": 47.3668727813338,
+		"stop_lon": 8.54533193921056
+	},
+	{
+		"id": 99,
+		"name": "Zürich, Laubiweg",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			140,
+			126
+		],
+		"stop_lat": 47.394859228784505,
+		"stop_lon": 8.53645658420223
+	},
+	{
+		"id": 100,
+		"name": "Zürich, Glattwiesen",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			185,
+			239
+		],
+		"stop_lat": 47.401693912178494,
+		"stop_lon": 8.58158794408267
+	},
+	{
+		"id": 101,
+		"name": "Zürich, Seidelhof",
+		"reachable_by_bus": [
+			195,
+			203
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3919037441582,
+		"stop_lon": 8.483680561252859
+	},
+	{
+		"id": 102,
+		"name": "Zürich, Freihofstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			110,
+			35
+		],
+		"stop_lat": 47.3830180484378,
+		"stop_lon": 8.49984125321642
+	},
+	{
+		"id": 103,
+		"name": "Zürich, Leutschenbach",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			240,
+			221,
+			188
+		],
+		"stop_lat": 47.4142907559401,
+		"stop_lon": 8.5514764157548
+	},
+	{
+		"id": 104,
+		"name": "Zürich, Hardhof",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			36,
+			138
+		],
+		"stop_lat": 47.396203128904,
+		"stop_lon": 8.497694279687071
+	},
+	{
+		"id": 105,
+		"name": "Zürich, Waidfussweg",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			21,
+			177
+		],
+		"stop_lat": 47.3952362539964,
+		"stop_lon": 8.51922689705042
+	},
+	{
+		"id": 106,
+		"name": "Zürich, Wartau",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			180,
+			198
+		],
+		"stop_lat": 47.4026667487634,
+		"stop_lon": 8.49209777546623
+	},
+	{
+		"id": 107,
+		"name": "Zürich, Museum Rietberg",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			153,
+			79
+		],
+		"stop_lat": 47.3605264721249,
+		"stop_lon": 8.53157873220878
+	},
+	{
+		"id": 108,
+		"name": "Zürich, Wildbachstrasse",
+		"reachable_by_bus": [
+			190,
+			172
+		],
+		"reachable_by_tram": [
+			190,
+			172
+		],
+		"stop_lat": 47.3531082936664,
+		"stop_lon": 8.55889650000265
+	},
+	{
+		"id": 109,
+		"name": "Zürich, Zwinglihaus",
+		"reachable_by_bus": [
+			212,
+			194
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3720746034237,
+		"stop_lon": 8.51663974903179
+	},
+	{
+		"id": 110,
+		"name": "Zürich, Letzigrund",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			102,
+			37
+		],
+		"stop_lat": 47.381138541005,
+		"stop_lon": 8.503784857314251
+	},
+	{
+		"id": 111,
+		"name": "Zürich, Micafil",
+		"reachable_by_bus": [
+			90,
+			203
+		],
+		"reachable_by_tram": [
+			203,
+			224
+		],
+		"stop_lat": 47.39289500541779,
+		"stop_lon": 8.47481418939736
+	},
+	{
+		"id": 112,
+		"name": "Zürich, Kirche Fluntern",
+		"reachable_by_bus": [
+			238,
+			132
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.376290440683405,
+		"stop_lon": 8.55928277557488
+	},
+	{
+		"id": 113,
+		"name": "Glattbrugg, Bahnhof",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			2,
+			27
+		],
+		"stop_lat": 47.4306281181422,
+		"stop_lon": 8.55951633754878
+	},
+	{
+		"id": 114,
+		"name": "Zürich, Förrlibuckstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			119,
+			116
+		],
+		"stop_lat": 47.3922199767694,
+		"stop_lon": 8.51743924963477
+	},
+	{
+		"id": 115,
+		"name": "Zürich, Paradeplatz",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			182,
+			237,
+			183,
+			117
+		],
+		"stop_lat": 47.3696167303722,
+		"stop_lon": 8.53919644581917
+	},
+	{
+		"id": 116,
+		"name": "Zürich, Fischerweg",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			114,
+			136
+		],
+		"stop_lat": 47.3935213756188,
+		"stop_lon": 8.51259733025269
+	},
+	{
+		"id": 117,
+		"name": "Zürich, Sihlstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			115,
+			122
+		],
+		"stop_lat": 47.372171942572606,
+		"stop_lon": 8.5348216503849
+	},
+	{
+		"id": 118,
+		"name": "Zürich, Kunsthaus",
+		"reachable_by_bus": [
+			45,
+			143
+		],
+		"reachable_by_tram": [
+			34,
+			14,
+			45,
+			98
+		],
+		"stop_lat": 47.3705475720085,
+		"stop_lon": 8.54904198133449
+	},
+	{
+		"id": 119,
+		"name": "Zürich, Escher-Wyss-Platz",
+		"reachable_by_bus": [
+			155,
+			32
+		],
+		"reachable_by_tram": [
+			114,
+			21,
+			155,
+			144
+		],
+		"stop_lat": 47.3899637371901,
+		"stop_lon": 8.52360169248469
+	},
+	{
+		"id": 120,
+		"name": "Zürich, Albisrieden",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			151
+		],
+		"stop_lat": 47.374362025925706,
+		"stop_lon": 8.48501006787354
+	},
+	{
+		"id": 121,
+		"name": "Zürich, Friesenbergstrasse",
+		"reachable_by_bus": [
+			59,
+			11
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3620720482395,
+		"stop_lon": 8.50498859979514
+	},
+	{
+		"id": 122,
+		"name": "Zürich, Stauffacher",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			3,
+			157,
+			18,
+			227,
+			117,
+			193
+		],
+		"stop_lat": 47.373595507097995,
+		"stop_lon": 8.530303124505151
+	},
+	{
+		"id": 123,
+		"name": "Zürich, Triemli",
+		"reachable_by_bus": [
+			214
+		],
+		"reachable_by_tram": [
+			22
+		],
+		"stop_lat": 47.36774891361279,
+		"stop_lon": 8.49534069364235
+	},
+	{
+		"id": 124,
+		"name": "Zürich, Albisgütli",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			209
+		],
+		"stop_lat": 47.3519823920064,
+		"stop_lon": 8.50737811845123
+	},
+	{
+		"id": 125,
+		"name": "Zürich, Hedwigsteig",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			134,
+			77
+		],
+		"stop_lat": 47.3603074104294,
+		"stop_lon": 8.5652116564509
+	},
+	{
+		"id": 126,
+		"name": "Zürich, Bucheggplatz",
+		"reachable_by_bus": [
+			43,
+			189
+		],
+		"reachable_by_tram": [
+			189,
+			99
+		],
+		"stop_lat": 47.3980577763979,
+		"stop_lon": 8.533384345930111
+	},
+	{
+		"id": 127,
+		"name": "Zürich, Waldgarten",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			30,
+			66
+		],
+		"stop_lat": 47.4036213271999,
+		"stop_lon": 8.55683935800174
+	},
+	{
+		"id": 128,
+		"name": "Zürich, Drusbergstrasse",
+		"reachable_by_bus": [
+			10,
+			159
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3603804310956,
+		"stop_lon": 8.578776217242991
+	},
+	{
+		"id": 129,
+		"name": "Zürich, Nürenbergstrasse",
+		"reachable_by_bus": [
+			88,
+			73
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3926760781549,
+		"stop_lon": 8.53253992956292
+	},
+	{
+		"id": 130,
+		"name": "Wallisellen, Herti",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			23,
+			160
+		],
+		"stop_lat": 47.41650340386929,
+		"stop_lon": 8.57926130749648
+	},
+	{
+		"id": 131,
+		"name": "Zürich, Berghaldenstrasse",
+		"reachable_by_bus": [
+			161,
+			70
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3586826744651,
+		"stop_lon": 8.590265669728481
+	},
+	{
+		"id": 132,
+		"name": "Zürich, Hofstrasse",
+		"reachable_by_bus": [
+			8,
+			112
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.372932398489,
+		"stop_lon": 8.56259755897374
+	},
+	{
+		"id": 133,
+		"name": "Zürich, Sternen Oerlikon",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			240,
+			145,
+			188,
+			249
+		],
+		"stop_lat": 47.409670641865205,
+		"stop_lon": 8.546248220800491
+	},
+	{
+		"id": 134,
+		"name": "Zürich, Hegibachplatz",
+		"reachable_by_bus": [
+			42,
+			51,
+			47
+		],
+		"reachable_by_tram": [
+			125,
+			51
+		],
+		"stop_lat": 47.361694785805994,
+		"stop_lon": 8.5609177093922
+	},
+	{
+		"id": 135,
+		"name": "Zürich, Bahnhofplatz/HB",
+		"reachable_by_bus": [
+			216,
+			5
+		],
+		"reachable_by_tram": [
+			216,
+			184,
+			5
+		],
+		"stop_lat": 47.3770812528432,
+		"stop_lon": 8.53977136760109
+	},
+	{
+		"id": 136,
+		"name": "Zürich, Bernoulli-Häuser",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			36,
+			116
+		],
+		"stop_lat": 47.393819354945705,
+		"stop_lon": 8.5088962712816
+	},
+	{
+		"id": 137,
+		"name": "Zürich, Butzenstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			38,
+			156
+		],
+		"stop_lat": 47.340715966944195,
+		"stop_lon": 8.53019532667104
+	},
+	{
+		"id": 138,
+		"name": "Zürich, Tüffenwies",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			104,
+			217
+		],
+		"stop_lat": 47.39761388310411,
+		"stop_lon": 8.49485560338886
+	},
+	{
+		"id": 139,
+		"name": "Zürich, Universität Irchel",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			175,
+			93
+		],
+		"stop_lat": 47.3960936722579,
+		"stop_lon": 8.5451073603895
+	},
+	{
+		"id": 140,
+		"name": "Zürich, Schaffhauserplatz",
+		"reachable_by_bus": [
+			88,
+			202
+		],
+		"reachable_by_tram": [
+			9,
+			99,
+			55,
+			167
+		],
+		"stop_lat": 47.392408499153994,
+		"stop_lon": 8.53894491753958
+	},
+	{
+		"id": 141,
+		"name": "Zürich, Zypressenstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			13,
+			37
+		],
+		"stop_lat": 47.376661515558396,
+		"stop_lon": 8.51397175263758
+	},
+	{
+		"id": 142,
+		"name": "Zürich, Höfliweg",
+		"reachable_by_bus": [
+			11,
+			194
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.367615061012,
+		"stop_lon": 8.51093544697684
+	},
+	{
+		"id": 143,
+		"name": "Zürich, Sprecherstrasse",
+		"reachable_by_bus": [
+			166,
+			118
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3678827658739,
+		"stop_lon": 8.55182675871565
+	},
+	{
+		"id": 144,
+		"name": "Zürich, Löwenbräu",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			119,
+			89
+		],
+		"stop_lat": 47.388254769072,
+		"stop_lon": 8.526278672031731
+	},
+	{
+		"id": 145,
+		"name": "Zürich, Salersteig",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			133,
+			76
+		],
+		"stop_lat": 47.40604113643379,
+		"stop_lon": 8.54836824487131
+	},
+	{
+		"id": 146,
+		"name": "Zürich, Kanonengasse",
+		"reachable_by_bus": [
+			60,
+			157
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.378322195708506,
+		"stop_lon": 8.5302492255881
+	},
+	{
+		"id": 147,
+		"name": "Dübendorf, Giessen",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			50,
+			197
+		],
+		"stop_lat": 47.402034407026704,
+		"stop_lon": 8.60745942426892
+	},
+	{
+		"id": 148,
+		"name": "Zürich, Seebacherplatz",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			74,
+			80
+		],
+		"stop_lat": 47.4197796540743,
+		"stop_lon": 8.54815264920309
+	},
+	{
+		"id": 149,
+		"name": "Zürich, Letzipark",
+		"reachable_by_bus": [
+			97,
+			52
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3874458787206,
+		"stop_lon": 8.50033532662275
+	},
+	{
+		"id": 150,
+		"name": "Zürich, Hirzenbach",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			229
+		],
+		"stop_lat": 47.403128839848,
+		"stop_lon": 8.59106517033145
+	},
+	{
+		"id": 151,
+		"name": "Zürich, Fellenbergstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			120,
+			168
+		],
+		"stop_lat": 47.375779448057,
+		"stop_lon": 8.48823501974398
+	},
+	{
+		"id": 152,
+		"name": "Zürich, Alte Trotte",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			226,
+			177
+		],
+		"stop_lat": 47.397492267850396,
+		"stop_lon": 8.507773377176301
+	},
+	{
+		"id": 153,
+		"name": "Zürich, Brunaustrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			246,
+			107
+		],
+		"stop_lat": 47.35592598550961,
+		"stop_lon": 8.532198569754911
+	},
+	{
+		"id": 154,
+		"name": "Zürich, Würzgraben",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			215,
+			24
+		],
+		"stop_lat": 47.3920740234923,
+		"stop_lon": 8.495098148515611
+	},
+	{
+		"id": 155,
+		"name": "Zürich, Schiffbau",
+		"reachable_by_bus": [
+			119,
+			225
+		],
+		"reachable_by_tram": [
+			119,
+			17,
+			225
+		],
+		"stop_lat": 47.3879202670485,
+		"stop_lon": 8.51978385252665
+	},
+	{
+		"id": 156,
+		"name": "Zürich, Morgental",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			137,
+			19
+		],
+		"stop_lat": 47.343260404957704,
+		"stop_lon": 8.53036600657505
+	},
+	{
+		"id": 157,
+		"name": "Zürich, Sihlpost / HB",
+		"reachable_by_bus": [
+			216,
+			146
+		],
+		"reachable_by_tram": [
+			216,
+			122
+		],
+		"stop_lat": 47.3763391063895,
+		"stop_lon": 8.53457012210531
+	},
+	{
+		"id": 158,
+		"name": "Schlieren, Wagonsfabrik",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			187,
+			25
+		],
+		"stop_lat": 47.398477343333596,
+		"stop_lon": 8.45463802811323
+	},
+	{
+		"id": 159,
+		"name": "Zürich, Waserstrasse",
+		"reachable_by_bus": [
+			128,
+			161
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.358274961332995,
+		"stop_lon": 8.58438170461667
+	},
+	{
+		"id": 160,
+		"name": "Wallisellen, Belair",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			16,
+			130
+		],
+		"stop_lat": 47.4142542829426,
+		"stop_lon": 8.58589985744705
+	},
+	{
+		"id": 161,
+		"name": "Zürich, Zentrum Witikon",
+		"reachable_by_bus": [
+			159,
+			131
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.358195852449796,
+		"stop_lon": 8.587498858653001
+	},
+	{
+		"id": 162,
+		"name": "Zürich, Höschgasse",
+		"reachable_by_bus": [
+			190,
+			47
+		],
+		"reachable_by_tram": [
+			190,
+			211
+		],
+		"stop_lat": 47.3578733303911,
+		"stop_lon": 8.55435102466438
+	},
+	{
+		"id": 163,
+		"name": "Zürich, Einfangstrasse",
+		"reachable_by_bus": [
+			69,
+			96
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.4155065080687,
+		"stop_lon": 8.51338784770283
+	},
+	{
+		"id": 164,
+		"name": "Zürich, Hölderlinstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			196,
+			28
+		],
+		"stop_lat": 47.365990550098196,
+		"stop_lon": 8.562498744292471
+	},
+	{
+		"id": 165,
+		"name": "Zürich, Burgwies",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			64,
+			77
+		],
+		"stop_lat": 47.3579159277571,
+		"stop_lon": 8.57190410531852
+	},
+	{
+		"id": 166,
+		"name": "Zürich, Kreuzplatz",
+		"reachable_by_bus": [
+			51,
+			143
+		],
+		"reachable_by_tram": [
+			51,
+			223
+		],
+		"stop_lat": 47.364785824303596,
+		"stop_lon": 8.55424322683027
+	},
+	{
+		"id": 167,
+		"name": "Zürich, Kronenstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			140,
+			84
+		],
+		"stop_lat": 47.3879263489224,
+		"stop_lon": 8.53935814257034
+	},
+	{
+		"id": 168,
+		"name": "Zürich, Siemens",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			208,
+			151
+		],
+		"stop_lat": 47.3786020121232,
+		"stop_lon": 8.494334580524
+	},
+	{
+		"id": 169,
+		"name": "Zürich, Bahnhofstrasse/HB",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			182,
+			184,
+			5
+		],
+		"stop_lat": 47.375974112498504,
+		"stop_lon": 8.53934017626465
+	},
+	{
+		"id": 170,
+		"name": "Schlieren, Geissweid",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			25
+		],
+		"stop_lat": 47.3978935971223,
+		"stop_lon": 8.44481045890359
+	},
+	{
+		"id": 171,
+		"name": "Zürich, Hirschwiesenstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			76,
+			175
+		],
+		"stop_lat": 47.4001494972038,
+		"stop_lon": 8.543283780362481
+	},
+	{
+		"id": 172,
+		"name": "Zürich, Bahnhof Tiefenbrunnen",
+		"reachable_by_bus": [
+			108
+		],
+		"reachable_by_tram": [
+			108
+		],
+		"stop_lat": 47.3506130197771,
+		"stop_lon": 8.56093567569789
+	},
+	{
+		"id": 173,
+		"name": "Zürich, Saalsporthalle",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			39,
+			245
+		],
+		"stop_lat": 47.357964610418996,
+		"stop_lon": 8.52034979115572
+	},
+	{
+		"id": 174,
+		"name": "Zürich, Kapfstrasse",
+		"reachable_by_bus": [
+			10,
+			196
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.361031527567995,
+		"stop_lon": 8.57115850363259
+	},
+	{
+		"id": 175,
+		"name": "Zürich, Milchbuck",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			55,
+			30,
+			171,
+			139
+		],
+		"stop_lat": 47.39748010630961,
+		"stop_lon": 8.54161291393379
+	},
+	{
+		"id": 176,
+		"name": "Zürich, Opernhaus",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			20,
+			98
+		],
+		"stop_lat": 47.3653151769051,
+		"stop_lon": 8.54772145786665
+	},
+	{
+		"id": 177,
+		"name": "Zürich, Eschergutweg",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			105,
+			152
+		],
+		"stop_lat": 47.3963247471331,
+		"stop_lon": 8.513253100410191
+	},
+	{
+		"id": 178,
+		"name": "Zürich, Museum für Gestaltung",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			86,
+			247
+		],
+		"stop_lat": 47.38205093162271,
+		"stop_lon": 8.5350552123588
+	},
+	{
+		"id": 179,
+		"name": "Zürich, Kernstrasse",
+		"reachable_by_bus": [
+			18,
+			212
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3746540301674,
+		"stop_lon": 8.52439220993482
+	},
+	{
+		"id": 180,
+		"name": "Zürich, Winzerstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			106,
+			230
+		],
+		"stop_lat": 47.4036456474437,
+		"stop_lon": 8.48655517016244
+	},
+	{
+		"id": 181,
+		"name": "Zürich, Winkelriedstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			235,
+			4
+		],
+		"stop_lat": 47.382999801114906,
+		"stop_lon": 8.54817061550877
+	},
+	{
+		"id": 182,
+		"name": "Zürich, Rennweg",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			169,
+			115
+		],
+		"stop_lat": 47.37290198046289,
+		"stop_lon": 8.53821728215934
+	},
+	{
+		"id": 183,
+		"name": "Zürich, Kantonalbank",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			67,
+			115
+		],
+		"stop_lat": 47.368047038639205,
+		"stop_lon": 8.53982526651814
+	},
+	{
+		"id": 184,
+		"name": "Zürich, Bahnhofquai/HB",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			169,
+			5,
+			247,
+			135,
+			68
+		],
+		"stop_lat": 47.377379325118,
+		"stop_lon": 8.54166681285084
+	},
+	{
+		"id": 185,
+		"name": "Zürich, Probstei",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			26,
+			100
+		],
+		"stop_lat": 47.4003866347285,
+		"stop_lon": 8.5860795205039
+	},
+	{
+		"id": 186,
+		"name": "Zürich, Letzistrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			94,
+			93
+		],
+		"stop_lat": 47.39051108181089,
+		"stop_lon": 8.54549363596172
+	},
+	{
+		"id": 187,
+		"name": "Schlieren, Gasometerbrücke",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			158,
+			224
+		],
+		"stop_lat": 47.3976017215914,
+		"stop_lon": 8.460557925836401
+	},
+	{
+		"id": 188,
+		"name": "Zürich, Messe/Hallenstadion",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			133,
+			103
+		],
+		"stop_lat": 47.411220856901295,
+		"stop_lon": 8.550281656426751
+	},
+	{
+		"id": 189,
+		"name": "Zürich, Radiostudio",
+		"reachable_by_bus": [
+			126,
+			31
+		],
+		"reachable_by_tram": [
+			126,
+			78
+		],
+		"stop_lat": 47.402070888486996,
+		"stop_lon": 8.53498334713606
+	},
+	{
+		"id": 190,
+		"name": "Zürich, Fröhlichstrasse",
+		"reachable_by_bus": [
+			108,
+			162
+		],
+		"reachable_by_tram": [
+			108,
+			162
+		],
+		"stop_lat": 47.3551105134921,
+		"stop_lon": 8.55699207160005
+	},
+	{
+		"id": 191,
+		"name": "Zürich, ETH/Universitätsspital",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			4,
+			14,
+			46
+		],
+		"stop_lat": 47.3772089983102,
+		"stop_lon": 8.54746992958706
+	},
+	{
+		"id": 192,
+		"name": "Zürich, Heerenwiesen",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			81,
+			231
+		],
+		"stop_lat": 47.404825165788495,
+		"stop_lon": 8.57605432193173
+	},
+	{
+		"id": 193,
+		"name": "Zürich, Bahnhof Selnau",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			237,
+			122
+		],
+		"stop_lat": 47.3706996687536,
+		"stop_lon": 8.53178534472415
+	},
+	{
+		"id": 194,
+		"name": "Zürich, Goldbrunnenplatz",
+		"reachable_by_bus": [
+			109,
+			142
+		],
+		"reachable_by_tram": [
+			6,
+			44
+		],
+		"stop_lat": 47.3702920484894,
+		"stop_lon": 8.51362140967673
+	},
+	{
+		"id": 195,
+		"name": "Zürich, Bahnhof Altstetten",
+		"reachable_by_bus": [
+			101,
+			52
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.390669202531996,
+		"stop_lon": 8.48925909916802
+	},
+	{
+		"id": 196,
+		"name": "Zürich, Klusplatz",
+		"reachable_by_bus": [
+			65,
+			42,
+			174
+		],
+		"reachable_by_tram": [
+			164
+		],
+		"stop_lat": 47.3640374201824,
+		"stop_lon": 8.56620878641641
+	},
+	{
+		"id": 197,
+		"name": "Dübendorf, Ringwiesen",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			218,
+			147
+		],
+		"stop_lat": 47.3973584907472,
+		"stop_lon": 8.60412667456437
+	},
+	{
+		"id": 198,
+		"name": "Zürich, Zwielplatz",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			106,
+			219
+		],
+		"stop_lat": 47.402162092027396,
+		"stop_lon": 8.49662528449882
+	},
+	{
+		"id": 199,
+		"name": "Zürich, Rudolf-Brun-Brücke",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			5,
+			92
+		],
+		"stop_lat": 47.373753678562096,
+		"stop_lon": 8.54275377434478
+	},
+	{
+		"id": 200,
+		"name": "Zürich, Vogelsangstrasse",
+		"reachable_by_bus": [
+			205,
+			235
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.38354113567411,
+		"stop_lon": 8.54923062754418
+	},
+	{
+		"id": 201,
+		"name": "Zürich, Röntgenstrasse",
+		"reachable_by_bus": [
+			60,
+			86
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3820691792739,
+		"stop_lon": 8.52932396084532
+	},
+	{
+		"id": 202,
+		"name": "Zürich, Scheuchzerstrasse",
+		"reachable_by_bus": [
+			140,
+			235
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3880783955424,
+		"stop_lon": 8.54364310647618
+	},
+	{
+		"id": 203,
+		"name": "Zürich, Farbhof",
+		"reachable_by_bus": [
+			101,
+			111
+		],
+		"reachable_by_tram": [
+			75,
+			111
+		],
+		"stop_lat": 47.3902495734235,
+		"stop_lon": 8.478910507093518
+	},
+	{
+		"id": 204,
+		"name": "Zürich, Bethanien",
+		"reachable_by_bus": [
+			205,
+			238
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3808830688024,
+		"stop_lon": 8.55605782370444
+	},
+	{
+		"id": 205,
+		"name": "Zürich, Spyriplatz",
+		"reachable_by_bus": [
+			200,
+			204
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.38214825235661,
+		"stop_lon": 8.55203337123103
+	},
+	{
+		"id": 206,
+		"name": "Zürich Flughafen, Fracht",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			91
+		],
+		"stop_lat": 47.4525613162346,
+		"stop_lon": 8.57216461675095
+	},
+	{
+		"id": 207,
+		"name": "Zürich, Fernsehstudio",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			232,
+			23
+		],
+		"stop_lat": 47.418375571806095,
+		"stop_lon": 8.561420765951379
+	},
+	{
+		"id": 208,
+		"name": "Zürich, Hubertus",
+		"reachable_by_bus": [
+			12,
+			213
+		],
+		"reachable_by_tram": [
+			213,
+			168
+		],
+		"stop_lat": 47.3774097405616,
+		"stop_lon": 8.49916751675323
+	},
+	{
+		"id": 209,
+		"name": "Zürich, Strassenverkehrsamt",
+		"reachable_by_bus": [
+			7
+		],
+		"reachable_by_tram": [
+			124,
+			71
+		],
+		"stop_lat": 47.353144808993704,
+		"stop_lon": 8.511097143728
+	},
+	{
+		"id": 210,
+		"name": "Wallisellen, Glatt (Tram)",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			16,
+			50
+		],
+		"stop_lat": 47.409184290489904,
+		"stop_lon": 8.59806304639572
+	},
+	{
+		"id": 211,
+		"name": "Zürich, Feldeggstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			20,
+			162
+		],
+		"stop_lat": 47.3604899619055,
+		"stop_lon": 8.55204235438387
+	},
+	{
+		"id": 212,
+		"name": "Zürich,Kalkbreite/Bhf.Wiedikon",
+		"reachable_by_bus": [
+			179,
+			109
+		],
+		"reachable_by_tram": [
+			227,
+			13
+		],
+		"stop_lat": 47.374495861403894,
+		"stop_lon": 8.52128403905133
+	},
+	{
+		"id": 213,
+		"name": "Zürich, Altes Krematorium",
+		"reachable_by_bus": [
+			208,
+			37
+		],
+		"reachable_by_tram": [
+			208,
+			37
+		],
+		"stop_lat": 47.3777321431841,
+		"stop_lon": 8.50760269727229
+	},
+	{
+		"id": 214,
+		"name": "Zürich, In der Ey",
+		"reachable_by_bus": [
+			244,
+			123
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3695680584622,
+		"stop_lon": 8.49188217979801
+	},
+	{
+		"id": 215,
+		"name": "Zürich, Bahnhof Altstetten N",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			154
+		],
+		"stop_lat": 47.3920253723101,
+		"stop_lon": 8.49048080795459
+	},
+	{
+		"id": 216,
+		"name": "Zürich, Löwenplatz",
+		"reachable_by_bus": [
+			157,
+			135
+		],
+		"reachable_by_tram": [
+			157,
+			135
+		],
+		"stop_lat": 47.3760775276908,
+		"stop_lon": 8.53747168047342
+	},
+	{
+		"id": 217,
+		"name": "Zürich, Grünaustrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			54,
+			138
+		],
+		"stop_lat": 47.3950355796226,
+		"stop_lon": 8.48994181878404
+	},
+	{
+		"id": 218,
+		"name": "Zürich, Bahnhof Stettbach",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			197,
+			26
+		],
+		"stop_lat": 47.3969267532335,
+		"stop_lon": 8.59567352773963
+	},
+	{
+		"id": 219,
+		"name": "Zürich, Meierhofplatz",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			226,
+			198
+		],
+		"stop_lat": 47.401815517734,
+		"stop_lon": 8.49995803420337
+	},
+	{
+		"id": 220,
+		"name": "Zürich, Herdernstrasse",
+		"reachable_by_bus": [
+			83,
+			97
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.385311078409,
+		"stop_lon": 8.50772846141208
+	},
+	{
+		"id": 221,
+		"name": "Zürich, Oerlikerhus",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			232,
+			103
+		],
+		"stop_lat": 47.4174698884865,
+		"stop_lon": 8.55369525450688
+	},
+	{
+		"id": 222,
+		"name": "Zürich, Neuaffoltern",
+		"reachable_by_bus": [
+			31,
+			96
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.411536973582,
+		"stop_lon": 8.525362390441801
+	},
+	{
+		"id": 223,
+		"name": "Zürich, Bahnhof Stadelhofen",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			166,
+			98
+		],
+		"stop_lat": 47.3661122380425,
+		"stop_lon": 8.54812569974456
+	},
+	{
+		"id": 224,
+		"name": "Schlieren, Mülligen",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			187,
+			111
+		],
+		"stop_lat": 47.3957896248255,
+		"stop_lon": 8.46705274534149
+	},
+	{
+		"id": 225,
+		"name": "Zürich, Bahnhof Hardbrücke",
+		"reachable_by_bus": [
+			83,
+			155
+		],
+		"reachable_by_tram": [
+			83,
+			155
+		],
+		"stop_lat": 47.3853049962333,
+		"stop_lon": 8.5173404349535
+	},
+	{
+		"id": 226,
+		"name": "Zürich, Schwert",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			219,
+			152
+		],
+		"stop_lat": 47.3996448163545,
+		"stop_lon": 8.50492571772524
+	},
+	{
+		"id": 227,
+		"name": "Zürich, Bezirksgebäude",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			122,
+			212
+		],
+		"stop_lat": 47.373948350481996,
+		"stop_lon": 8.52587443015382
+	},
+	{
+		"id": 228,
+		"name": "Zürich, Tunnelstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			237,
+			79,
+			95
+		],
+		"stop_lat": 47.366197419436396,
+		"stop_lon": 8.532620777938499
+	},
+	{
+		"id": 229,
+		"name": "Zürich, Altried",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			150,
+			33
+		],
+		"stop_lat": 47.405542591864204,
+		"stop_lon": 8.59136161437525
+	},
+	{
+		"id": 230,
+		"name": "Zürich, Frankental",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			180
+		],
+		"stop_lat": 47.405414915057,
+		"stop_lon": 8.481767149697419
+	},
+	{
+		"id": 231,
+		"name": "Zürich, Schwamendingerplatz",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			192,
+			66,
+			239
+		],
+		"stop_lat": 47.404879885070706,
+		"stop_lon": 8.57148189713492
+	},
+	{
+		"id": 232,
+		"name": "Glattpark",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			207,
+			221,
+			27
+		],
+		"stop_lat": 47.420259829461095,
+		"stop_lon": 8.55691122322447
+	},
+	{
+		"id": 233,
+		"name": "Kloten Balsberg, Bahnhof",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			91,
+			248
+		],
+		"stop_lat": 47.4414986492587,
+		"stop_lon": 8.56827491157017
+	},
+	{
+		"id": 234,
+		"name": "Zürich, Toni-Areal",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			17,
+			87
+		],
+		"stop_lat": 47.390091451443396,
+		"stop_lon": 8.51087256490694
+	},
+	{
+		"id": 235,
+		"name": "Zürich, Seilbahn Rigiblick",
+		"reachable_by_bus": [
+			202,
+			200
+		],
+		"reachable_by_tram": [
+			94,
+			181
+		],
+		"stop_lat": 47.3857003361929,
+		"stop_lon": 8.54844011009405
+	},
+	{
+		"id": 236,
+		"name": "Zürich, Nordstrasse",
+		"reachable_by_bus": [
+			88,
+			86
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3880662318289,
+		"stop_lon": 8.53610624124137
+	},
+	{
+		"id": 237,
+		"name": "Zürich, Stockerstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			115,
+			193,
+			228
+		],
+		"stop_lat": 47.3677306610054,
+		"stop_lon": 8.53495639767754
+	},
+	{
+		"id": 238,
+		"name": "Zürich, Toblerplatz",
+		"reachable_by_bus": [
+			112,
+			204
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3791920549131,
+		"stop_lon": 8.5594354891732
+	},
+	{
+		"id": 239,
+		"name": "Zürich, Roswiesen",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			231,
+			100
+		],
+		"stop_lat": 47.403128839848,
+		"stop_lon": 8.57670110893638
+	},
+	{
+		"id": 240,
+		"name": "Zürich, Bahnhof Oerlikon Ost",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			133,
+			103,
+			80
+		],
+		"stop_lat": 47.4132755814091,
+		"stop_lon": 8.54597872621522
+	},
+	{
+		"id": 241,
+		"name": "Zürich, Kienastenwies",
+		"reachable_by_bus": [
+			82
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.3552200552421,
+		"stop_lon": 8.60082087431835
+	},
+	{
+		"id": 242,
+		"name": "Zürich, Grimselstrasse",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			48,
+			35
+		],
+		"stop_lat": 47.3868985022676,
+		"stop_lon": 8.49031911120342
+	},
+	{
+		"id": 243,
+		"name": "Zürich, Hungerbergstrasse",
+		"reachable_by_bus": [
+			85,
+			69
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.42091626467629,
+		"stop_lon": 8.50216788980261
+	},
+	{
+		"id": 244,
+		"name": "Zürich, Schulhaus Altweg",
+		"reachable_by_bus": [
+			12,
+			214
+		],
+		"reachable_by_tram": [],
+		"stop_lat": 47.372640384714096,
+		"stop_lon": 8.494154917467151
+	},
+	{
+		"id": 245,
+		"name": "Zürich, Laubegg",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			71,
+			173
+		],
+		"stop_lat": 47.3587861235647,
+		"stop_lon": 8.51722365396655
+	},
+	{
+		"id": 246,
+		"name": "Zürich, Billoweg",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			153,
+			40
+		],
+		"stop_lat": 47.351440733461,
+		"stop_lon": 8.53191110886395
+	},
+	{
+		"id": 247,
+		"name": "Zürich, Sihlquai/HB",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			184,
+			178
+		],
+		"stop_lat": 47.379763842657006,
+		"stop_lon": 8.53739981525068
+	},
+	{
+		"id": 248,
+		"name": "Glattbrugg, Unterriet",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			2,
+			233
+		],
+		"stop_lat": 47.4379928596955,
+		"stop_lon": 8.56242687906973
+	},
+	{
+		"id": 249,
+		"name": "Zürich, Bahnhof Oerlikon",
+		"reachable_by_bus": [],
+		"reachable_by_tram": [
+			133,
+			15
+		],
+		"stop_lat": 47.4115248152832,
+		"stop_lon": 8.54502651201392
+	}
+];
 
 export default stations;

@@ -13,12 +13,12 @@ export default function StationMarker(props) {
 
     }
     useEffect(()=>{
-    if(props.transport.includes("Bus")&&props.transport.includes("Tram")){
+    if(props.station["reachable_by_bus"].length>0&&props.station["reachable_by_tram"].length>0){
         setColorScheme({...colorScheme, top:{fill: "#F4E72D"}, bottom: {fill: "#3299CC"}})
-    }else if(props.transport.includes("Bus")){
+    }else if(props.station["reachable_by_bus"].length>0){
         setColorScheme({...colorScheme, top:{fill: "#F4E72D"}, bottom: {fill: "#F4E72D"}})
 
-    }else if(props.transport.includes("Tram")){
+    }else if(props.station["reachable_by_tram"].length>0){
         setColorScheme({...colorScheme, top:{fill: "#3299CC"}, bottom: {fill: "#3299CC"}})
 
     }
