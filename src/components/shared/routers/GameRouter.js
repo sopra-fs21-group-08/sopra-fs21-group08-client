@@ -54,18 +54,7 @@ class GameRouter extends React.Component {
             </div>
           }
         />
-        <Route
-          exact
-          path={`${this.props.base}/:id`}
-          render={() => 
-            <div>
-              <Container style={{position: "absolute", zIndex: 10}} fluid>
-              <Game />
-              </Container>
-              <Background />
-            </div>
-          }
-        />
+        
         <Route
           exact
           path={`${this.props.base}/map`}
@@ -92,7 +81,19 @@ class GameRouter extends React.Component {
     );
   }
 }
-/*
-* Don't forget to export your component!
- */
+
 export default GameRouter;
+
+
+// <Route
+//           exact
+//           path={`${this.props.base}/:id`}
+//           render={() => 
+//             <div>
+//               <Container style={{position: "absolute", zIndex: 10}} fluid>
+//               <Game />
+//               </Container>
+//               <Background />
+//             </div>
+//           }
+//         />

@@ -96,6 +96,8 @@ const Lobby = () => {
                             <Col xs={4}>{player.username}</Col>
                         ))}
                     </Row>
+                    <Card.Text>{players.length} out of 6 players are in the lobby</Card.Text>
+                    <Card.Text>Minimum 3 players are needed to start game</Card.Text>
                     <ZButton disabled={players.length < 1} onClick={startGame}>Start Game</ZButton>
                 </Card.Body>
                 <Card.Footer className="zbg-1">
