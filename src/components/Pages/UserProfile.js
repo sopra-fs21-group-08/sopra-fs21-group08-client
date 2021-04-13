@@ -87,7 +87,7 @@ function UserProfile() {
         });
         try{
           await api.put('/lobbies/'+inputlobby, requestBody);
-          history.push('lobby');
+          history.push('lobbies/' + inputlobby);
         } catch (error) {
           alert(`Room doesn't exist`);
         }
@@ -100,7 +100,6 @@ function UserProfile() {
         });
         try{
           const response = await api.post('/lobbies/', requestBody);
-          const lobbyId = response.data.lobbyId
           history.push('lobbies/' + response.data.lobbyId);
         } catch (error) {
           alert(`Something went wrong while trying to create a new Game: \n${handleError(error)}`);
