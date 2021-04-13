@@ -5,11 +5,19 @@ import { Card, Row, Col, Modal } from 'react-bootstrap'
 import Header from '../../views/Header'
 import ZButton from '../../views/design/ZButton'
 import avatar from '../../assets/img/avatar/avatar4.png'
+import avatar0 from '../../assets/img/avatar/avatar1.png'
+import avatar1 from '../../assets/img/avatar/avatar2.png'
+import avatar2 from '../../assets/img/avatar/avatar3.png'
+import avatar3 from '../../assets/img/avatar/avatar4.png'
+import avatar4 from '../../assets/img/avatar/avatar5.png'
+import avatar5 from '../../assets/img/avatar/avatar6.png'
+import avatar6 from '../../assets/img/avatar/avatar7.png'
 import Rules from '../../components/shared/Rules'
 import { api, handleError } from '../../helpers/api';
 
 
 const Lobby = () => {
+    const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6]
     const [players, setPlayers] = useState([])
     const {id} = useParams()
     let gameId = id // TODO: decide how to get game id
@@ -55,7 +63,7 @@ const Lobby = () => {
                     <Card.Title>Game #{gameId}</Card.Title>
                     <Row>
                         {players.map(player => (
-                            <Col><Card.Img variant="top" src={img} />
+                            <Col><Card.Img variant="top" src={avatar[player.userId%7]} />
                             </Col>
                         ))}
                     </Row>
