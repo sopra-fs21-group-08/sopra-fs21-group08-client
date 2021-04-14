@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { Card, Form, Alert, CardDeck, Image, Container, Col, Row, Modal } from 'react-bootstrap';
 import ZButton from '../../views/design/ZButton'
 import Header from '../../views/Header'
-import Player from '../../views/Player'
+import Player from '../../views/Players'
 import { api, handleError } from '../../helpers/api';
 import defaultavatar from '../../assets/img/avatar/avatar0.jpeg'
 import avatar0 from '../../assets/img/avatar/avatar1.png'
@@ -33,7 +33,7 @@ function UserProfile() {
           setuser(user);
       };
       fetchData();
-    }, []);
+    });
 
     let history = useHistory();
     const [show, setShow] = useState(false);

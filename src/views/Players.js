@@ -22,7 +22,7 @@ import User from '../components/shared/models/User';
  * https://reactjs.org/docs/components-and-props.html
  * @FunctionalComponent
  */
-const Player = () => {
+const Players = () => {
 
     const [users, setusers] = useState([[]]);
 
@@ -39,7 +39,7 @@ const Player = () => {
 
       const interval=setInterval(()=>{
             fetchData()
-           },10000)
+           },1000)
 
       return()=>clearInterval(interval)
     }, []);
@@ -92,4 +92,4 @@ const Player = () => {
     );
 };
 
-export default Player;
+export default Players;
