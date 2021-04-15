@@ -35,8 +35,6 @@ const Lobby = () => {
 
     let history = useHistory();
 
-    // update list of players every sec
-
     useEffect(() => 
     {
         const fetchData = async () => {

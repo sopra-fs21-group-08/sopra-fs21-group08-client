@@ -2,10 +2,9 @@ import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { LoginGuard } from "../routeProtectors/LoginGuard";
 import Login from "../../Pages/Login";
-import Lobby from "../../Pages/Lobby";
+import Game from "../../Pages/Game";
 import Register from "../../Pages/Register";
 import Background from "../../../views/Background";
-import Game from "../../Pages/UserProfile";
 import { GameGuard } from "../routeProtectors/GameGuard";
 import GameRouter from "./GameRouter";
 import {Container, Row, Col} from "react-bootstrap";
@@ -64,15 +63,14 @@ class AppRouter extends React.Component {
         <Switch>
           <div>
           <Route
-              path="/lobby"
+              path="/zoia"
               exact
               render={() => (
-                <LoginGuard>
+                <>
                   <Container style={{position: "absolute", zIndex: 10}} fluid>
-                  <Lobby />
+                  <Game />
                   </Container>
-                  <Background />
-                </LoginGuard>
+                </>
               )}
             />
           </div>

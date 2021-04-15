@@ -70,14 +70,25 @@ class GameRouter extends React.Component {
           path={`${this.props.base}`}
           render={() => <Redirect to={`${this.props.base}/profile`} />}
         />
-        
+
         <Route
-            exact
-            path={`${this.props.base}/...`}
-            render={() => <UserProfile user={this.state.selectedUser}/>}
+          exact
+          path={`${this.props.base}/...`}
+          render={() => <UserProfile user={this.state.selectedUser}/>}
         />
-        </>
-      
+
+        <Route
+          exact
+          path={`${this.props.base}/game/:id`}
+          render={() => 
+            <div>
+              <Container style={{position: "absolute", zIndex: 10}} fluid>
+              <Game />
+              </Container>
+            </div>
+          }
+        />
+      </>
     );
   }
 }
@@ -85,15 +96,4 @@ class GameRouter extends React.Component {
 export default GameRouter;
 
 
-// <Route
-//           exact
-//           path={`${this.props.base}/:id`}
-//           render={() => 
-//             <div>
-//               <Container style={{position: "absolute", zIndex: 10}} fluid>
-//               <Game />
-//               </Container>
-//               <Background />
-//             </div>
-//           }
-//         />
+

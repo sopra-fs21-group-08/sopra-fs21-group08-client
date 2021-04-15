@@ -15,31 +15,31 @@ function Rules() {
                 Roles and positions on the map are randomly assigned. One player becomes Mister X and all others are detectives. <br/>
                 <br/>
                 <h6>Mister X receives</h6>
-                double-move tickets x2<br/>
-                black tickets x(# of detectives)<br/>
-                tram x4<br/>
-                bus x3<br/>
-                S-bahn x3<br/>
+                <b>Double-move</b> x 2<br/>
+                <b>Black</b> x(# of detectives)<br/>
+                <b>Tram</b> x 4<br/>
+                <b>Bus</b> x 3<br/>
+                <b>S-Bahn</b> x 3<br/>
                 <i>Note: Mister X picks up normal tickets from the general draw pile throughout the game. </i><br/>
                 <br/>
                 <h6>Each detective receives</h6>
-                tram x10<br/>
-                bus x8<br/>
-                S-bahn x4<br/>
+                <b>tram</b> x 10<br/>
+                <b>bus</b> x 8<br/>
+                <b>S-Bahn</b> x 4<br/>
                 <br/>
-                <h6>Less than 4 detectives</h6>
+                {/* <h6>Less than 4 detectives</h6>
                 If less than 4 detectives are in the game, Bobbies in the form of additional playing pieces lend a helping hand:<br/>
                 * For 2 detectives: 2 Bobbies<br/>
                 * For 3 detectives: 1 Bobby<br/>
                 For games with 2 or 3 detectives, both detectives and Bobbies are in play!<br/>
                 Each Bobby is represented by one of the remaining playing pieces. Place a cardboard ring around each playing piece representing a Bobby. The ring stays on the respective playing pieces throughout the game to indicate that they're Bobbies.<br/>
-                The ring is their free fare for all means of transportation. Bobbies don't require any tickets for their moves! Bobbies are moved collectively by all detectives during the game. The detectives decide together where the Bobbies should move.
+                The ring is their free fare for all means of transportation. Bobbies don't require any tickets for their moves! Bobbies are moved collectively by all detectives during the game. The detectives decide together where the Bobbies should move. */}
             </p>
             <p>
                 <h5>Initial Starting Position</h5>
                 To determine your starting position, shuffle the start cards according to the back side of the cards (D and X). Shuffle the D and X cards separately, placing them face down on the table.
                 <br/>Each detective draws a start card with the D on the back and places his playing piece on the corresponding station.
-                <br/>If Bobbies are in play, draw one start card with a D on the back for each Bobby and place its playing piece on the corresponding station. Then, Mister X draws a start card with an X on the back and looks at the card without revealing it to the detectives, but does not place his playing piece on the game board.
+                {/* <br/>If Bobbies are in play, draw one start card with a D on the back for each Bobby and place its playing piece on the corresponding station. Then, Mister X draws a start card with an X on the back and looks at the card without revealing it to the detectives, but does not place his playing piece on the game board. */}
             </p>
             <p>
                 <h5>Game Play</h5>
