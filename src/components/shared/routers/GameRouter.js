@@ -79,12 +79,10 @@ class GameRouter extends React.Component {
 
         <Route
           exact
-          path={`${this.props.base}/game/:id`}
+          path={`${this.props.base}/:id`}
           render={() => 
             <div>
-              <Container style={{position: "absolute", zIndex: 10}} fluid>
               <Game />
-              </Container>
             </div>
           }
         />
