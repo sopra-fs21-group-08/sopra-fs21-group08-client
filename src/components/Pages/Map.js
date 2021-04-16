@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import 'leaflet/dist/leaflet.css';
 import L, { bounds } from 'leaflet';
-import { MapContainer, SVGOverlay, WMSTileLayer, Circle, Marker } from 'react-leaflet'
+import { MapContainer, SVGOverlay, WMSTileLayer, Circle, Marker, Polyline } from 'react-leaflet'
 import {iconPerson as figure} from '../../views/Map/Figure'
 import StationMarker from '../../views/Map/StationMarker'
 import stations from '../../assets/mockstations/stations.json'
+import routes from '../../assets/mockstations/routes'
 function GameMap() {
 
     const [figPos, setFigPos]=useState(stations[98])
@@ -12,7 +13,6 @@ function GameMap() {
     const changePosition = (station)=>{
         setFigPos(station)
         console.log(station.name)
-
 
     }
 
@@ -35,6 +35,10 @@ function GameMap() {
         icon={ figure }
         >
       </Marker>
+      
+      
+      {Object.keys(routes).map((route)=><Polyline pathOptions={{color: routes[route].color}} positions={routes[route].positions} />)}
+
                         
 
             
