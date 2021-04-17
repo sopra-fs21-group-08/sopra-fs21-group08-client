@@ -27,10 +27,17 @@ function UserProfile() {
     useEffect(() =>
     {
       const fetchData = async () => {
-          const response = await api.get('/users/'+localStorage.getItem('userId'));
-          console.log(response);
-          const user = new User(response.data);
-          setuser(user);
+          try {
+            const response = await api.get('/users/'+localStorage.getItem('userId'));
+            console.log(response);
+            const user = new User(response.data);
+            setuser(user);
+          }
+          catch {
+            localStorage.removeItem('token');
+            localStorage.removeItem('userId');
+            history.push('/login');
+          }
       };
       fetchData();
     });
@@ -115,7 +122,7 @@ function UserProfile() {
         <CardDeck  className='mt-5'>
           <Col>
           <Card className="hcenter" style={{ width: '27rem', height: '29rem', margin: '0.5rem' }}>
-          <Card.Header style={{fontSize: 28}}>
+          <Card.Header style={{fontSize: 28}} className="zbg-1">
            {user.username}
           </Card.Header>
           <div className='ml-3'>
@@ -165,18 +172,12 @@ function UserProfile() {
             <Card.Body>
 
             </Card.Body>
-            <div className='mb-4'>
-            <div className='ml-3'>
-            <div className='mr-3'>
-              <footer>
+              <Card.Footer className="zbg-1">
                 <Row>
-                  <Col style={{textAlign: "left"}}> <ZButton className='ml-5' onClick={createGame}>Create Game</ZButton> </Col>
-                  <Col style={{textAlign: "left"}}> <ZButton onClick={ShowRoom} >Join Game</ZButton> </Col>
+                  <Col> <ZButton onClick={createGame}>Create Game</ZButton> </Col>
+                  <Col> <ZButton onClick={ShowRoom} >Join Game</ZButton> </Col>
                 </Row>
-              </footer>
-            </div>
-            </div>
-            </div>
+              </Card.Footer>
           </Card>
           </Col>
 

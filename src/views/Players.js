@@ -48,7 +48,7 @@ const Players = () => {
   return (
           <div>
             <Card className="hcenter" style={{ width: '27rem', height: '29rem', margin: '0.5rem' }}>
-                <Card.Header style={{fontSize: 28}}>
+                <Card.Header style={{fontSize: 28}} className="zbg-1">
                    Other Players
                 </Card.Header>
               <Card.Body style={{overflowY: 'scroll'}}>
