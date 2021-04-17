@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Redirect, Route } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import UserProfile from "../../Pages/UserProfile";
+import GameOver from "../../Pages/GameOver";
 import Lobby from "../../Pages/Lobby";
 import Game from "../../Pages/Game";
 import Map from "../../Pages/Map";
@@ -9,26 +10,13 @@ import Background from "../../../views/Background";
 import {Container, Row, Col} from "react-bootstrap";
 
 class GameRouter extends React.Component {
-    constructor() {
-    super();
-    this.state = {
-        selectedUser: undefined,
-    };
-    this.onSelectUser = this.onSelectUser.bind(this);
-}
-
-    onSelectUser(user) {
-        this.setState({
-            selectedUser: user
-        });
-    }
 
   render() {
     /**
      * "this.props.base" is "/app" because as been passed as a prop in the parent of GameRouter, i.e., App.js
      */
     return (
-      <>
+      <Switch>
         <Route
           exact
           path={`${this.props.base}/profile`}
@@ -36,7 +24,20 @@ class GameRouter extends React.Component {
           render={() => 
             <>
             <Container style={{position: "absolute", zIndex: 10}} fluid>
-            <UserProfile onSelectUser={this.onSelectUser}/>
+            <UserProfile />
+            </Container>
+            <Background />
+            </>}
+        />
+
+        <Route
+          exact
+          path={`${this.props.base}/gameover`}
+
+          render={() =>
+            <>
+            <Container style={{position: "absolute", zIndex: 10}} fluid>
+            <GameOver />
             </Container>
             <Background />
             </>}
@@ -73,12 +74,6 @@ class GameRouter extends React.Component {
 
         <Route
           exact
-          path={`${this.props.base}/...`}
-          render={() => <UserProfile user={this.state.selectedUser}/>}
-        />
-
-        <Route
-          exact
           path={`${this.props.base}/:id`}
           render={() => 
             <div>
@@ -86,7 +81,7 @@ class GameRouter extends React.Component {
             </div>
           }
         />
-      </>
+      </Switch>
     );
   }
 }
