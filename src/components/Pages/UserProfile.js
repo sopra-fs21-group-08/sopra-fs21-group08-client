@@ -24,24 +24,6 @@ function UserProfile() {
 
     const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
-    useEffect(() =>
-    {
-      const fetchData = async () => {
-          try {
-            const response = await api.get('/users/'+localStorage.getItem('userId'));
-            console.log(response);
-            const user = new User(response.data);
-            setuser(user);
-          }
-          catch {
-            localStorage.removeItem('token');
-            localStorage.removeItem('userId');
-            history.push('/login');
-          }
-      };
-      fetchData();
-    });
-
     let history = useHistory();
     const [show, setShow] = useState(false);
     const [showEdit, setShowEdit] = useState(false);
@@ -53,6 +35,26 @@ function UserProfile() {
     const ShowEdit = () => setShowEdit(true);
     const closeRoom = () => setShowRoom(false);
     const ShowRoom = () => setShowRoom(true);
+
+    useEffect(() =>
+    {
+      const fetchData = async () => {
+          try {
+            const response = await api.get('/users/'+localStorage.getItem('userId'));
+            console.log(response);
+            const user = new User(response.data);
+            setuser(user);
+          }
+          catch (error) {
+            alert(`Something went wrong while updating the user: \n${handleError(error)}`);
+            localStorage.removeItem('token');
+            localStorage.removeItem('userId');
+            history.push('/login');
+          }
+      };
+      fetchData();
+    },[showEdit]);
+
 
     const [inputusername, setusername] = useState(null);
     const [inputlobby, setlobby] = useState(null);
