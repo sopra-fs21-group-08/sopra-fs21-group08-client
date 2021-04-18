@@ -74,7 +74,7 @@ function UserProfile() {
     const logout = async () => {
         const requestBody = JSON.stringify({
             userId : user.userId,
-            username : user.username
+            token : localStorage.getItem("token")
         })
         console.log(requestBody);
         try{
@@ -105,7 +105,7 @@ function UserProfile() {
     const createGame = async () => {
         const requestBody = JSON.stringify({
           userId: localStorage.getItem("userId"),
-          lobbyName: " "
+          lobbyName: "mama"
         });
         try{
           const response = await api.post('/lobbies/', requestBody);
