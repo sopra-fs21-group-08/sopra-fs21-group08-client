@@ -24,7 +24,7 @@ const Player = ({player, color, isMoving=false}) => {
     transportInfo['Bus'] = 8
     transportInfo['S-Bahn'] = 0
     const themes = ['primary','success','danger','warning','info']
-    var opacity = isMoving ? 1 : 0.3
+    var opacity = isMoving ? 1 : 0.5
 
 
     return (

@@ -19,7 +19,7 @@ const styles = {
 };
 
 const MisterX = ({isMoving=false}) => {
-    var opacity = isMoving ? 1 : 0.3
+    var opacity = isMoving ? 1 : 0.5
     var transportInfo = []
     transportInfo['Tram'] = 10
     transportInfo['Bus'] = 8
