@@ -31,8 +31,8 @@ const Player = ({player, color, isMoving=false}) => {
         <>
             <Card bg={themes[color-1]}
             text = {'info' === 'light' ? 'dark' : 'white'} 
-            style={{ width: '13rem', height: '5rem' , opacity: opacity }} 
-            className="hcenter"  
+            style={{ opacity: opacity }} 
+            className="player"  
             >
                 <Card.Body>
                     <Row >
