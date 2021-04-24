@@ -56,6 +56,7 @@ const Chat = () => {
                 <Accordion.Collapse eventKey="0">
                 <Card.Body style={{paddingLeft: 10, paddingRight: 0, paddingTop: 5,paddingBottom: 5}}>
                 <div style={{height:100, overflowY: 'scroll', overflowX: 'hidden'}}>
+                <Message text="This is an example message!" user={user}/>
                     {messages.map(mess => (
                      <>
                      {(() => {
