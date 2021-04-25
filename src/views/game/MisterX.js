@@ -1,4 +1,9 @@
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom';
+import { api, handleError } from '../../helpers/api';
+
 import { Accordion, Card, Row, Col } from 'react-bootstrap';
+
 import TransportButton from './TransportButton'
 
 const styles = {
@@ -21,11 +26,24 @@ const styles = {
 const MisterX = ({isMoving=false}) => {
     var opacity = isMoving ? 1 : 0.5
     var transportInfo = []
+    const { id } = useParams()
+
     transportInfo['Tram'] = 10
     transportInfo['Bus'] = 8
     transportInfo['S-Bahn'] = 0
     transportInfo['Double'] = 2
     transportInfo['Black'] = 3
+
+    // fetch info about Mister X from Backend
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const response = await api.get('/games/'+ id + '/mrx'); 
+    //         console.log(response);
+    //         const mrx = response.data;
+    //         console.log(mrx);
+    //     };
+    //     fetchData();
+    // }, []);
 
     return (
         <>
@@ -33,7 +51,7 @@ const MisterX = ({isMoving=false}) => {
             <Card bg={'secondary'}
             text = {'info' === 'light' ? 'dark' : 'white'} 
             style={{ width: '13rem', opacity: opacity }} 
-            className="hcenter"  
+            className="player"  
             >
                 <Accordion.Toggle as= {Card.Header} eventKey="0">
                     Mister X

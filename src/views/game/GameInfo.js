@@ -1,6 +1,9 @@
 import { Card, Row, Col } from 'react-bootstrap';
 
-const GameInfo = () => {
+const GameInfo = ({currentRound, currentPlayer}) => {
+    // var currentRound = gameStatus.currentRound
+    // var currentPlayer = gameStatus.userId
+
     return (
         <>
             <Card bg={'light'}
@@ -11,12 +14,12 @@ const GameInfo = () => {
                 <Card.Body style={{fontSize: 14}}>
                     <Row >
                         <Card.Text>
-                            <b>Round 1/22 </b>
+                            <b>Round {currentRound}/22 </b>
                         </Card.Text>
                     </Row>
                     <Row >
                         <Card.Text>
-                            Turn of Detective 2
+                            Turn of {currentPlayer}
                         </Card.Text>
                     </Row>
                     

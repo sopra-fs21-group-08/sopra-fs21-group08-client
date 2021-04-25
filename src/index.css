@@ -32,13 +32,9 @@
 }
 
 .player{
-  /* text-align: center; */
   margin-top: 5px;
-  /* color: white; */
   border-radius: 1rem;
   width: 13rem;
-  height: 5rem;
-
 }
 
 .chat{

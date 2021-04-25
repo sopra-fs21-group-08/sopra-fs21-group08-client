@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Redirect, useParams, useHistory } from 'react-router-dom';
 import { Card, Row, Col, Modal } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
-
 import Header from '../../views/Header'
 import ZButton from '../../views/design/ZButton'
 import avatar0 from '../../assets/img/avatar/avatar1.png'
@@ -83,7 +82,7 @@ const Lobby = () => {
           await api.post('/games/', requestBody);
           handleGameIsStarted();
         } catch (error) {
-          alert(`Something went wrong while trying to create a new Game: \n${handleError(error)}`);
+          alert(`Something went wrong while trying to start a new Game: \n${handleError(error)}`);
         }
     }
 
