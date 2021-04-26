@@ -5,6 +5,7 @@ import { api, handleError } from '../../helpers/api';
 import { Accordion, Card, Row, Col } from 'react-bootstrap';
 
 import TransportButton from './TransportButton'
+import mrx from '../../assets/img/avatar/mrx.png'
 
 const styles = {
     grid: {
@@ -23,16 +24,10 @@ const styles = {
     }
 };
 
-const MisterX = ({isMoving=false}) => {
+const MisterX = ({isMoving}) => {
     var opacity = isMoving ? 1 : 0.5
-    var transportInfo = []
     const { id } = useParams()
 
-    transportInfo['Tram'] = 10
-    transportInfo['Bus'] = 8
-    transportInfo['S-Bahn'] = 0
-    transportInfo['Double'] = 2
-    transportInfo['Black'] = 3
 
     // fetch info about Mister X from Backend
     // useEffect(() => {
@@ -45,6 +40,19 @@ const MisterX = ({isMoving=false}) => {
     //     fetchData();
     // }, []);
 
+    const misterX = {
+        'userId': 2,
+        'userName' : 'Jack',
+        'stationId' : 56,
+        'ticketWallet' : {
+            'Tram' : 4,
+            'Bus' : 3,
+            'SBahn' : 2,
+            'Double' : 4,
+            'Black' : 2
+        }
+    }
+
     return (
         <>
         <Accordion defaultActiveKey="0">
@@ -54,7 +62,10 @@ const MisterX = ({isMoving=false}) => {
             className="player"  
             >
                 <Accordion.Toggle as= {Card.Header} eventKey="0">
-                    Mister X
+                    <Row >
+                    <Col xs={3} ><Card.Img variant="top" src={mrx}/></Col>
+                    <Col>Mister X : {misterX.userName}</Col>
+                    </Row >
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey="0">
                 <Card.Body style={{paddingLeft: 10, paddingRight: 0, paddingTop: 5,paddingBottom: 5}}>
@@ -98,21 +109,21 @@ const MisterX = ({isMoving=false}) => {
                 <Card.Footer style={{paddingRight: 0, paddingTop: 0,paddingBottom: 5}}>
                     <Row>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={transportInfo['Tram']}>Tram : </TransportButton>
+                            <TransportButton number={misterX.ticketWallet.Tram}>Tram : </TransportButton>
                         </Col>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={transportInfo['Bus']}>Bus : </TransportButton>
+                            <TransportButton number={misterX.ticketWallet.Bus}>Bus : </TransportButton>
                         </Col>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={transportInfo['S-Bahn']}>S-Bahn : </TransportButton>
+                            <TransportButton number={misterX.ticketWallet.SBahn}>S-Bahn : </TransportButton>
                         </Col>
                     </Row>
                     <Row className="justify-content-md-center">
                         <Col style={styles.col}>
-                            <TransportButton number={transportInfo['Double']}>Double : </TransportButton>
+                            <TransportButton number={misterX.ticketWallet.Double}>Double : </TransportButton>
                         </Col>
                         <Col style={styles.col}>
-                            <TransportButton number={transportInfo['Black']}>Black : </TransportButton>
+                            <TransportButton number={misterX.ticketWallet.Black}>Black : </TransportButton>
                         </Col>
                     </Row>
                 </Card.Footer>

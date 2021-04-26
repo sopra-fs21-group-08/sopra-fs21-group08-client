@@ -12,39 +12,47 @@ import Chat from './Chat/Chat'
 import Button from 'react-bootstrap/Button';
 import { useHistory, Link, withRouter } from 'react-router-dom';
 
-const Sidebar = () => {
+const Sidebar = ({currentRound, currentPlayerID}) => {
   let history = useHistory();
   const handleClick = () => history.push('/game')
   const { id } = useParams()
-  const [gameStatus, setGameStatus] = useState();
 
-  // fetch info about game status
+  const gameStatus = {
+    'currentPlayerId': 2,
+    'gameState' : true,
+    'currentRound' : 1
+  }
+
+  // ******** List of Detectives ********
+
+  const detectives = [1, 2, 3, 4] //userId of all detectives
+  // const [detectives, setDetectives] = useState();
   useEffect(() => {
-    const fetchData = async () => {
-        const response = await api.get('/games/'+ id + '/status'); 
-        console.log(response);
-        const gameInfo = response.data;
-        setGameStatus(gameInfo);
-        console.log(gameStatus);
-    };
-    fetchData();
-}, []);
+    // const fetchData = async () => {
+    //     const response = await api.get('/games/'+ id + '/players'); 
+    //     console.log(response);
+    //     const detectiveInfo = response.data;
+    //     setDetectives(detectiveInfo);
+    //     console.log(detectives);
+    // };
+    // fetchData();
+  }, []);
+
+  // ******** ******** ********
 
   return(
-    <div className='sidebar'>
-        <GameInfo currentRound={1} currentPlayer={'Max'}/>
-        <Chat />
-        <MisterX isMoving={false}/>
-        <Player player={1} color={Number(1)}/>
-        <Player player={2} color={Number(2)} isMoving={true}/>
-        <Player player={3} color={Number(3)}/>
-        <Player player={4} color={Number(4)}/>
-        <Button variant="danger" style={{ marginTop: 20, marginBottom: 40, width: '13rem'}} onClick={handleClick}> Quit Game </Button>
-    </div>
-  );
+      <div className='sidebar'>
+          <GameInfo currentRound={currentRound} currentPlayer={currentPlayerID}/>
+          <Chat />
+          <MisterX isMoving={false}/>
+          {detectives.map((detectiveId, index) => (
+            <Player playerId= {detectiveId} color={index+1} isMoving={detectiveId === gameStatus.currentPlayerId ? true : false}/>
+          ))}
+          <Button variant="danger" style={{ marginTop: 20, marginBottom: 40, width: '13rem'}} onClick={handleClick}> Quit Game </Button>
+      </div>
+    );
 }
 
 
 export default Sidebar
 
-// fetch game status
