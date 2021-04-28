@@ -46,7 +46,7 @@ const Sidebar = ({currentRound, currentPlayerID}) => {
           <Chat />
           <MisterX isMoving={false}/>
           {detectives.map((detectiveId, index) => (
-            <Player playerId= {detectiveId} color={index+1} isMoving={detectiveId === gameStatus.currentPlayerId ? true : false}/>
+            <Player key={detectiveId} playerId= {detectiveId} color={index+1} isMoving={detectiveId === gameStatus.currentPlayerId ? true : false}/>
           ))}
           <Button variant="danger" style={{ marginTop: 20, marginBottom: 40, width: '13rem'}} onClick={handleClick}> Quit Game </Button>
       </div>

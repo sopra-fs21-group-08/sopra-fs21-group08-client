@@ -30,14 +30,9 @@ const Player = ({playerId, color, isMoving=false}) => {
     const { id } = useParams()
     var opacity = isMoving ? 1 : 0.5
     const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6]
-    // const [player, setPlayer] = useState();
-
-    const detective = 'Detective ID is'
-    var transportInfo = []
-    transportInfo['Tram'] = 10
-    transportInfo['Bus'] = 8
-    transportInfo['S-Bahn'] = 0
     const themes = ['primary','success','danger','warning','info']
+    // const [player, setPlayer] = useState();
+    
 
     // fetch info about Mister X from Backend
     // useEffect(() => {

@@ -73,13 +73,13 @@ const Lobby = () => {
         // initiate new game at backend
         const requestBody = JSON.stringify({
             userId: localStorage.getItem("userId"),
-            lobbyId: id,
             token: localStorage.getItem("token"),
           });
         try{
             console.log("creating new game at backend")
             console.log(requestBody)
-          await api.post('/games/', requestBody);
+          const response = await api.post('/games/' + id, requestBody);
+          console.log("Status Code " + response.status)
           handleGameIsStarted();
         } catch (error) {
           alert(`Something went wrong while trying to start a new Game: \n${handleError(error)}`);
