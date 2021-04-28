@@ -40,7 +40,7 @@ const Game = () => {
         try {
             const response = await api.get('/stations');
             setStations(response.data)
-            console.log(stations)
+            //console.log(stations)
         } catch (error) {
             alert('Couldnt fetch the stations');
         }
