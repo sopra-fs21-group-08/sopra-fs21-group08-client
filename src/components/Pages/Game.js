@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
-import Header from '../../views/Header'
 import Sidebar from '../../views/game/Sidebar'
 import Map from '../Pages/Map'
 import { Container, Modal, Button } from 'react-bootstrap'
@@ -46,13 +45,6 @@ const Game = () => {
         }
     }, [])
 
-    // Fetch players from backend
-    useEffect(() => {
-        
-    }, []);
-
-    
-
     return (
         <>
             <Container style={{ position: "absolute", zIndex: 1000 }} fluid>
@@ -77,80 +69,3 @@ const Game = () => {
 }
 
 export default Game
-
-// GAME STATUS REPRESENTATION
-//
-// {
-//     "gameId": 6,
-//     "currentPlayer": {
-//         "user": {
-//             "userId": 17,
-//             "username": "zojaKat",
-//             "status": "ONLINE",
-//             "dob": null,
-//             "creationDate": "2021-04-28"
-//         },
-//         "playerClass": "MRX",
-//         "stationId": null,
-//         "wallet": {
-//             "train": 0,
-//             "tram": 0,
-//             "bus": 0
-//         }
-//     },
-//     "currentRound": 1,
-//     "gameOver": false,
-//     "mrXVisible": false
-// }
-
-// Players
-// [
-//     {
-//         "user": {
-//             "userId": 17,
-//             "username": "zojaKat",
-//             "status": "ONLINE",
-//             "dob": null,
-//             "creationDate": "2021-04-28"
-//         },
-//         "playerClass": "MRX",
-//         "stationId": 189,
-//         "wallet": {
-//             "train": 0,
-//             "tram": 0,
-//             "bus": 0
-//         }
-//     },
-//     {
-//         "user": {
-//             "userId": 16,
-//             "username": "joy",
-//             "status": "ONLINE",
-//             "dob": null,
-//             "creationDate": "2021-04-28"
-//         },
-//         "playerClass": "DETECTIVE",
-//         "stationId": 120,
-//         "wallet": {
-//             "train": 0,
-//             "tram": 0,
-//             "bus": 0
-//         }
-//     },
-//     {
-//         "user": {
-//             "userId": 15,
-//             "username": "key",
-//             "status": "ONLINE",
-//             "dob": null,
-//             "creationDate": "2021-04-28"
-//         },
-//         "playerClass": "DETECTIVE",
-//         "stationId": 137,
-//         "wallet": {
-//             "train": 0,
-//             "tram": 0,
-//             "bus": 0
-//         }
-//     }
-// ]

@@ -34,7 +34,6 @@ const Sidebar = ({gameStatus, players}) => {
                    return(
                     <Player key={index} player={player} color={index} isMoving={player.user.userId === currentPlayerId ? true : false}/>
                    )
-
                  }})()}
             </>
           ))}
@@ -45,26 +44,3 @@ const Sidebar = ({gameStatus, players}) => {
 
 
 export default Sidebar
-
-// if(index === 0){
-//   <MisterX />
-// }else{<Player key={index} player={player} color={index+1}/>}
-
-// Players
-// [
-//     {
-//         "user": {
-//             "userId": 17,
-//             "username": "zojaKat",
-//             "status": "ONLINE",
-//             "dob": null,
-//             "creationDate": "2021-04-28"
-//         },
-//         "playerClass": "MRX",
-//         "stationId": 189,
-//         "wallet": {
-//             "train": 0,
-//             "tram": 0,
-//             "bus": 0
-//         }
-//     },

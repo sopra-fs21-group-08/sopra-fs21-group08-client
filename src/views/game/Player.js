@@ -73,7 +73,7 @@ const Player = ({ player, playerId, color, isMoving=false}) => {
                         </Col>
                     </Row>
                     <Row >
-                        
+
                         <Col md="auto" style={styles.col}>
                             <TransportButton number={player.wallet.tram}>Tram : </TransportButton>
                         </Col>
@@ -92,24 +92,3 @@ const Player = ({ player, playerId, color, isMoving=false}) => {
 }
 
 export default Player
-
-// each player has it's own color, username, icon, position
-// upon hover propose to exit game
-
-
-//     {
-//         "user": {
-//             "userId": 17,
-//             "username": "zojaKat",
-//             "status": "ONLINE",
-//             "dob": null,
-//             "creationDate": "2021-04-28"
-//         },
-//         "playerClass": "MRX",
-//         "stationId": 189,
-//         "wallet": {
-//             "train": 0,
-//             "tram": 0,
-//             "bus": 0
-//         }
-//     },
