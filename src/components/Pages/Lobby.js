@@ -33,6 +33,19 @@ const Lobby = () => {
             console.log(players);
         };
         fetchData();
+
+        // update gameIsStarted
+        const updateGameStatus = async () => {
+            console.log("Check if game has started")
+            const token = localStorage.getItem("token");
+            const response = await api.get('/games/'+ gameId + '/status', 
+                                            { headers: {'Authorization':  `Basic ${token}`} }
+                                            ); 
+            if (response.data) {
+                setGameIsStarted(true);
+            }
+        };
+        updateGameStatus();
   
         const interval=setInterval(()=>{
               fetchData()
@@ -78,13 +91,14 @@ const Lobby = () => {
         try{
             console.log("creating new game at backend")
             console.log(requestBody)
-          const response = await api.post('/games/' + id, requestBody);
-          console.log("Status Code " + response.status)
-          handleGameIsStarted();
+            const response = await api.post('/games/' + id, requestBody);
+            console.log("Status Code " + response.status)
+            handleGameIsStarted();
         } catch (error) {
-          alert(`Something went wrong while trying to start a new Game: \n${handleError(error)}`);
+            alert(`Something went wrong while trying to start a new Game: \n${handleError(error)}`);
         }
     }
+
 
     // handle back button
     const [isGoingBack, setIsGoingBack] = useState(false);
@@ -115,7 +129,7 @@ const Lobby = () => {
                             <Card.Title>Game #{gameId}</Card.Title>
                             <Row>
                                 {players.map(player => (
-                                        <Col xs={4}>
+                                        <Col key={player.userId} xs={4}>
                                             <Card.Img variant="top" src={avatar[player.userId%7]} />
                                             <div className='mt-2'>
                                             </div>
