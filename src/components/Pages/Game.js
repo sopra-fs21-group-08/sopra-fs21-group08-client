@@ -10,6 +10,8 @@ const Game = () => {
     const { id } = useParams()
 
     const [stations, setStations] = useState([])
+    const [players, setPlayers] = useState([])
+    const [gameStatus, setGameStatus] = useState({})
 
     // Fetches the stations from the backend
     useEffect(async () => {
@@ -22,27 +24,55 @@ const Game = () => {
         }
     }, [])
 
+    // Fetch players from backend
+    useEffect(() => {
+        const fetchPlayers = async () => {
+            const response = await api.get('/games/'+ id+'/players', {headers:{Authorization: ""}}); 
+            console.log(response);
+            const players = response.data;
+            setPlayers(players);
+            //console.log(players);
+        };
+        fetchPlayers();
+  
+        const interval=setInterval(()=>{
+              fetchPlayers()
+             },1000)
+  
+        return()=>clearInterval(interval)
+    }, []);
+
     // ******** GAME STATUS ********
     // fetch data on game status
 
     // const [gameStatus, setGameStatus] = useState();
     // fetch info about game status
+
+    //fetch Game Status
     useEffect(() => {
-        // const fetchData = async () => {
-        //     const response = await api.get('/games/'+ id + '/status'); 
-        //     console.log(response);
-        //     const gameInfo = response.data;
-        //     setGameStatus(gameInfo);
-        //     console.log(gameStatus);
-        // };
-        // fetchData();
+         const fetchData = async () => {
+             const response = await api.get('/games/'+ id + '/status', {headers:{Authorization: ""}}); 
+             console.log(response);
+             const gameInfo = response.data;
+             setGameStatus(gameInfo);
+             //console.log(gameStatus);
+         };
+        fetchData();
+        const interval=setInterval(()=>{
+            fetchData();
+           },1000)
+
+      return()=>clearInterval(interval)
     }, []);
 
-    const gameStatus = {
+    /**
+     * const gameStatus = {
     'currentPlayerId': 2,
     'gameOver' : false,
     'currentRound' : 1
     }
+     */
+    
     // ******** ******** ********
 
     return (
@@ -63,7 +93,7 @@ const Game = () => {
                             </Modal.Footer>
                 </Modal>
             </Container>
-            <Map stations={stations} />
+            <Map stations={stations} players={players} gameStatus={gameStatus} />
         </>
     )
 }
