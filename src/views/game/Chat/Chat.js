@@ -5,40 +5,42 @@ import { EnvelopeFill } from 'react-bootstrap-icons';
 import Message from './Message'
 import { api, handleError } from '../../../helpers/api';
 import User from '../../../components/shared/models/User';
+import { useParams } from 'react-router-dom';
 
 
 const Chat = () => {
     const [user, setuser] = useState([]);
     const [messages, setmessages] = useState([]);
     const [chatmessage, setMessage] = useState([]);
-    const [gameID, setgameID] = useState(['1'])
+    const { id } = useParams()
+    let gameId = id
 
     useEffect(() =>
     {
-      const fetchUser = async () => {
-        const response = await api.get('/users/'+localStorage.getItem('userId'));
-        console.log(response);
-        const user = new User(response.data);
-        setuser(user);
-      };
       const fetchMessages = async () => {
-        const response = await api.get('/games/'+{gameID}+'/chats')
-        console.log(response);
-        setmessages(response);
+        const response = await api.get('/games/'+gameId+'/chats')
+        const messages = response.data;
+        setmessages(messages);
+        console.log(messages);
       };
-      fetchUser();
       fetchMessages();
+      const interval=setInterval(()=>{
+            fetchMessages();
+           },1000)
+
+      return()=>clearInterval(interval)
     },[]);
 
     const sendMessage = async () => {
         const requestBody = JSON.stringify({
           message: chatmessage,
-          userId: localStorage.getItem("userId")
+          userId: localStorage.getItem("userId"),
+          token: localStorage.getItem("token")
         });
         try{
-          await api.post('/games/'+'1'+'/chats', requestBody, { headers: { 'Authorization': localStorage.getItem('token') }});
+          await api.post('/games/'+gameId+'/chats', requestBody);
         } catch (error) {
-          alert(`Something went wrong while updating the user: \n${handleError(error)}`);
+          alert(`Something went wrong while trying to send the message: \n${handleError(error)}`);
         }
         document.getElementById('myInput').value = ''
     };
@@ -56,14 +58,15 @@ const Chat = () => {
                 <Accordion.Collapse eventKey="0">
                 <Card.Body style={{paddingLeft: 10, paddingRight: 0, paddingTop: 5,paddingBottom: 5}}>
                 <div style={{height:100, overflowY: 'scroll', overflowX: 'hidden'}}>
-                <Message text="This is an example message!" user={user}/>
-                    {messages.map(mess => (
-                     <>
-                     {(() => {
-                        <Message text={mess} user={mess.username}/>
-                       })()}
-                     </>
-                     ))}
+                {messages.map(mess => (
+                 <>
+                 {(() => {
+                 return(
+                    <Message text={mess.message} user={mess.username}/>
+                 )
+                 })()}
+                 </>
+                 ))}
                 </div>
                 <Form>
                     <Container style={{ width: '14rem', height: '2rem', marginBottom: '10px', marginTop: '10px', marginLeft: '-15px'}}>
