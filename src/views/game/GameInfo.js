@@ -1,8 +1,6 @@
 import { Card, Row, Col } from 'react-bootstrap';
 
 const GameInfo = ({currentRound, currentPlayer}) => {
-    // var currentRound = gameStatus.currentRound
-    // var currentPlayer = gameStatus.userId
 
     return (
         <>

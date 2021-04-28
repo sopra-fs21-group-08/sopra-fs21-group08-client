@@ -24,21 +24,9 @@ const styles = {
     }
 };
 
-const MisterX = ({isMoving}) => {
+const MisterX = ({player, isMoving}) => {
     var opacity = isMoving ? 1 : 0.5
     const { id } = useParams()
-
-
-    // fetch info about Mister X from Backend
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         const response = await api.get('/games/'+ id + '/mrx'); 
-    //         console.log(response);
-    //         const mrx = response.data;
-    //         console.log(mrx);
-    //     };
-    //     fetchData();
-    // }, []);
 
     const misterX = {
         'userId': 2,
@@ -64,7 +52,7 @@ const MisterX = ({isMoving}) => {
                 <Accordion.Toggle as= {Card.Header} eventKey="0">
                     <Row >
                     <Col xs={3} ><Card.Img variant="top" src={mrx}/></Col>
-                    <Col>Mister X : {misterX.userName}</Col>
+                    <Col>Mister X : {player.user.username}</Col>
                     </Row >
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey="0">
@@ -109,13 +97,13 @@ const MisterX = ({isMoving}) => {
                 <Card.Footer style={{paddingRight: 0, paddingTop: 0,paddingBottom: 5}}>
                     <Row>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={misterX.ticketWallet.Tram}>Tram : </TransportButton>
+                            <TransportButton number={player.wallet.tram}>Tram : </TransportButton>
                         </Col>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={misterX.ticketWallet.Bus}>Bus : </TransportButton>
+                            <TransportButton number={player.wallet.bus}>Bus : </TransportButton>
                         </Col>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={misterX.ticketWallet.SBahn}>S-Bahn : </TransportButton>
+                            <TransportButton number={player.wallet.train}>Train : </TransportButton>
                         </Col>
                     </Row>
                     <Row className="justify-content-md-center">
