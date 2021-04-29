@@ -22,6 +22,7 @@ const Lobby = () => {
     let gameId = id 
     let history = useHistory();
     let img = "https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg/100px100"
+    const [lobbyName, setlobbyName] = useState([])
 
     // fetch data from backend
     useEffect(() => {
@@ -29,6 +30,7 @@ const Lobby = () => {
             const response = await api.get('/lobbies/'+ gameId); 
             console.log(response);
             const players = response.data.users;
+            setlobbyName(response.data.lobbyName);
             setGameIsStarted(response.data.gameStarted);
             setPlayers(players);
             console.log(players);
@@ -112,7 +114,7 @@ const Lobby = () => {
                     <Header />
                     <center>
                     <Card className="hcenter">
-                        <Card.Header className="zbg-1">Game Lobby</Card.Header>
+                        <Card.Header className="zbg-1">{lobbyName}</Card.Header>
                         <Card.Body>
                             <Card.Title>Game #{gameId}</Card.Title>
                             <Row>

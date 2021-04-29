@@ -37,7 +37,7 @@ function GameMap(props) {
             id = player.user.userId;
             figure = figures[idx];
             position = props.stations.find(station => station.id===player.stationId)
-            //console.log(position)
+            console.log(position)
             formattedPlayers.push({id: id, figure: figure, position: [position.stop_lat, position.stop_lon]})
             
         })

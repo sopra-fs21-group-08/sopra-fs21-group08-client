@@ -4,6 +4,7 @@ import { Card, Form, Alert, CardDeck, Image, Container, Col, Row, Modal } from '
 import ZButton from '../../views/design/ZButton'
 import Header from '../../views/Header'
 import Player from '../../views/Players'
+import Lobbies from '../../views/Lobbies'
 import { api, handleError } from '../../helpers/api';
 import defaultavatar from '../../assets/img/avatar/avatar0.jpeg'
 import avatar0 from '../../assets/img/avatar/avatar1.png'
@@ -28,6 +29,7 @@ function UserProfile() {
     const [show, setShow] = useState(false);
     const [showEdit, setShowEdit] = useState(false);
     const [showRoom, setShowRoom] = useState(false);
+    const [showJoinRoom, setJoinRoom] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -35,6 +37,8 @@ function UserProfile() {
     const ShowEdit = () => setShowEdit(true);
     const closeRoom = () => setShowRoom(false);
     const ShowRoom = () => setShowRoom(true);
+    const closeJoinRoom = () => setJoinRoom(false);
+    const ShowJoinRoom = () => setJoinRoom(true);
 
     useEffect(() =>
     {
@@ -90,22 +94,10 @@ function UserProfile() {
         }
     }
 
-    const join = async () => {
-        const requestBody = JSON.stringify({
-          userId: localStorage.getItem("userId")
-        });
-        try{
-          await api.put('/lobbies/'+inputlobby, requestBody);
-          history.push('lobbies/' + inputlobby);
-        } catch (error) {
-          alert(`Room doesn't exist`);
-        }
-    };
-
     const createGame = async () => {
         const requestBody = JSON.stringify({
           userId: localStorage.getItem("userId"),
-          lobbyName: "mama"
+          lobbyName: inputlobby
         });
         try{
           const response = await api.post('/lobbies/', requestBody);
@@ -171,13 +163,11 @@ function UserProfile() {
             </div>
             </div>
             </div>
-            <Card.Body>
-
-            </Card.Body>
+            <Card.Body/>
               <Card.Footer className="zbg-1">
                 <Row>
-                  <Col> <ZButton onClick={createGame}>Create Game</ZButton> </Col>
-                  <Col> <ZButton onClick={ShowRoom} >Join Game</ZButton> </Col>
+                  <Col> <ZButton onClick={ShowRoom}>Create Game</ZButton> </Col>
+                  <Col> <ZButton onClick={ShowJoinRoom} >Join Game</ZButton> </Col>
                 </Row>
               </Card.Footer>
           </Card>
@@ -190,7 +180,7 @@ function UserProfile() {
         </Container>
         </center>
 
-
+        //Logout
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Log Out</Modal.Title>
@@ -206,6 +196,7 @@ function UserProfile() {
           </Modal.Footer>
         </Modal>
 
+        //Edit Profile
         <Modal show={showEdit} onHide={closeEdit}>
           <Modal.Header closeButton>
             <Modal.Title>Edit Profile</Modal.Title>
@@ -232,12 +223,13 @@ function UserProfile() {
           </Modal.Footer>
           </Modal>
 
+        //Create a Lobby
         <Modal show={showRoom} onHide={closeRoom}>
           <Modal.Body  closeButton>
             <Form>
                 <Form.Group>
-                    <Form.Label>Join Room</Form.Label>
-                    <Form.Control type="number" placeholder="Room Number" onChange={event => setlobby(event.target.value)}>
+                    <Form.Label>Create a new Game</Form.Label>
+                    <Form.Control type="text" placeholder="Lobby Name" onChange={event => setlobby(event.target.value)}>
                     </Form.Control>
                 </Form.Group>
             </Form>
@@ -248,12 +240,27 @@ function UserProfile() {
             </Button>
             <ZButton
             onClick={() => {
-                join();
+                createGame();
             }}>
-              Join
+              Create Game
             </ZButton>
           </Modal.Footer>
           </Modal>
+
+        //Join a Lobby
+        <Modal show={showJoinRoom} onHide={closeJoinRoom}>
+        <Modal.Header>
+          <Modal.Title>Lobbies</Modal.Title>
+        </Modal.Header>
+          <Modal.Body  closeButton>
+          <Lobbies/>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={closeJoinRoom}>
+              Cancel
+            </Button>
+          </Modal.Footer>
+        </Modal>
 
         </>
     )
