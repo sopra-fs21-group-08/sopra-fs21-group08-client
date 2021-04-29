@@ -6,6 +6,8 @@ import { Card, Form, Alert, CardDeck, Image, Container, Col, Row, Modal } from '
 import Button from 'react-bootstrap/Button';
 import { useHistory, Link, withRouter } from 'react-router-dom';
 
+
+
 const Lobbies = () => {
 
     let history = useHistory();
@@ -57,14 +59,12 @@ const Lobbies = () => {
          {lobbies.map(lobby => (
          <>
          {(() => {
-         if(lobby == null) {
+         if(lobby.length == 0) {
+           console.log("No lobbies")
            return(
-           <div>
-           There are no lobbies to join.
-           </div>
+             <>There are no lobbies to join.</>
            )
          }
-         else {
            return(
            <Card className="mt-3" style={{paddingLeft: 10, paddingRight: 10, paddingBottom: 16}}>
            <Row className="mt-3">
@@ -82,6 +82,7 @@ const Lobbies = () => {
                return(
                  <Button
                  variant="outline-primary"
+                 className="lobbybutton"
                  style={{'width':60}}
                  onClick={join}
                  id={lobby.lobbyId}>
@@ -102,7 +103,6 @@ const Lobbies = () => {
            </Row>
            </Card>
            )
-         }
            })()}
          </>
          ))}

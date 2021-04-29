@@ -180,7 +180,6 @@ function UserProfile() {
         </Container>
         </center>
 
-        //Logout
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Log Out</Modal.Title>
@@ -196,7 +195,6 @@ function UserProfile() {
           </Modal.Footer>
         </Modal>
 
-        //Edit Profile
         <Modal show={showEdit} onHide={closeEdit}>
           <Modal.Header closeButton>
             <Modal.Title>Edit Profile</Modal.Title>
@@ -223,7 +221,6 @@ function UserProfile() {
           </Modal.Footer>
           </Modal>
 
-        //Create a Lobby
         <Modal show={showRoom} onHide={closeRoom}>
           <Modal.Body  closeButton>
             <Form>
@@ -247,7 +244,6 @@ function UserProfile() {
           </Modal.Footer>
           </Modal>
 
-        //Join a Lobby
         <Modal show={showJoinRoom} onHide={closeJoinRoom}>
         <Modal.Header>
           <Modal.Title>Lobbies</Modal.Title>
