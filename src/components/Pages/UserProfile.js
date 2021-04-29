@@ -253,7 +253,7 @@ function UserProfile() {
           <Modal.Title>Lobbies</Modal.Title>
         </Modal.Header>
           <Modal.Body  closeButton>
-          <Lobbies/>
+              <Lobbies />
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={closeJoinRoom}>
