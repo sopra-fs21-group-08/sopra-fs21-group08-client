@@ -22,34 +22,23 @@ const Lobby = () => {
     let gameId = id 
     let history = useHistory();
     let img = "https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg/100px100"
+    let gameStarted;
 
     // fetch data from backend
     useEffect(() => {
         const fetchData = async () => {
             const response = await api.get('/lobbies/'+ gameId); 
             console.log(response);
-            const players = response.data;
+            const players = response.data.users;
+            setGameIsStarted(response.data.gameStarted);
             setPlayers(players);
             console.log(players);
         };
         fetchData();
-
-        // update gameIsStarted
-        const updateGameStatus = async () => {
-            console.log("Check if game has started")
-            const token = localStorage.getItem("token");
-            const response = await api.get('/games/'+ gameId + '/status', 
-                                            { headers: {'Authorization':  `Basic ${token}`} }
-                                            ); 
-            if (response.data) {
-                setGameIsStarted(true);
-            }
-        };
-        updateGameStatus();
   
         const interval=setInterval(()=>{
               fetchData()
-             },10000)
+             },1000)
   
         return()=>clearInterval(interval)
     }, []);
@@ -137,7 +126,6 @@ const Lobby = () => {
                                             <div className='mt-4'>
                                             </div>
                                         </Col>
-                                    
                                 ))}
                             </Row>
                             <Card.Text className="text-muted">{players.length} out of 6 players are in the lobby</Card.Text>
