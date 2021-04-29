@@ -81,7 +81,7 @@ const Lobbies = () => {
              if(lobby.amountOfUsers<=5 && lobby.gameStarted==false){
                return(
                  <Button
-                 variant="primary"
+                 variant="outline-primary"
                  style={{'width':60}}
                  onClick={join}
                  id={lobby.lobbyId}>
@@ -89,9 +89,9 @@ const Lobbies = () => {
                  </Button>
                )
              }
-             else if (lobby.amountOfUsers>5) {
+             else if (lobby.amountOfUsers>5 && lobby.gameStarted==false) {
                return(
-                 <Button variant="danger" style={{'width':60}} disabled="true">
+                 <Button variant="outline-danger" style={{'width':60}} disabled="true">
                    Full
                  </Button>
                )
