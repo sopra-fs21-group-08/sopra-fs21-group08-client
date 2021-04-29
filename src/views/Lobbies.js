@@ -70,7 +70,16 @@ const Lobbies = () => {
            <Row className="mt-3">
              <Col xs="1">{lobby.lobbyId}</Col>
              <Col xs="4">{lobby.lobbyName}</Col>
-             <Col xs="4">{lobby.amountOfUsers}/6</Col>
+             {(() => {
+             if(lobby.gameStarted==true){
+             return (
+               <Col xs="4">{lobby.amountOfUsers}/{lobby.amountOfUsers}</Col>
+             )}
+             else {
+             return (
+               <Col xs="4">{lobby.amountOfUsers}/6</Col>
+             )}
+             })()}
              <Col>{lobby.gameStarted}</Col>
              <Col>
              <div style={{
@@ -90,7 +99,7 @@ const Lobbies = () => {
                  </Button>
                )
              }
-             else if (lobby.amountOfUsers>5 && lobby.gameStarted==false) {
+             else {
                return(
                  <Button variant="outline-danger" style={{'width':60}} disabled="true">
                    Full

@@ -172,7 +172,6 @@ function UserProfile() {
               </Card.Footer>
           </Card>
           </Col>
-
           <Col>
             <Player />
           </Col>
@@ -235,7 +234,7 @@ function UserProfile() {
             <Button variant="secondary" onClick={closeRoom}>
               Cancel
             </Button>
-            <ZButton
+            <ZButton disabled={!inputlobby}
             onClick={() => {
                 createGame();
             }}>
