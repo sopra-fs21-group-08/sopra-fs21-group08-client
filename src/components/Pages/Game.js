@@ -63,7 +63,7 @@ const Game = () => {
                             </Modal.Footer>
                 </Modal>
             </Container>
-            <Map stations={stations} players={players} gameStatus={gameStatus} />
+            {players.length>0&&stations.length>0&&<Map stations={stations} players={players} gameStatus={gameStatus} />}
         </>
     )
 }

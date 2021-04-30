@@ -8,9 +8,9 @@ import routes from '../../assets/mockstations/routes'
 function GameMap(props) {
 
     const [rts, setRts] = useState(routes)
-    const [stations, setStations] = useState([])
+    const [stations, setStations] = useState(props.stations)
     const [figPos, setFigPos] = useState({})
-    const [players, setPlayers] = useState(props.players)
+    const [players, setPlayers] = useState([])
     const [gameStatus, setGameStatus] = useState(props.gameStatus)
     const figures = [figureTurquoise, figureBlack, figureBlue, figureRed, figureWhite, figureYellow]
 
@@ -28,8 +28,9 @@ function GameMap(props) {
     }, [])
 
     useEffect(() => {
-        setPlayers(props.players)
         var formattedPlayers = [];
+        console.log("STATIONS")
+        console.log(props.stations)
         var id = null;
         var position = null;
         var figure = null;
@@ -44,7 +45,7 @@ function GameMap(props) {
         setPlayers(formattedPlayers)
         console.log(players)
 
-    }, [props.players])
+    }, [props.players, props.stations])
 
 
 
@@ -67,7 +68,7 @@ function GameMap(props) {
             </Marker>)}
 
 
-            {Object.keys(rts).map((route) => <Polyline pathOptions={{ color: rts[route].color }} positions={routes[route].positions} />)}
+            {Object.keys(rts).map((route, index) => <Polyline key={index} pathOptions={{ color: rts[route].color }} positions={routes[route].positions} />)}
         </MapContainer>
     )
 }
