@@ -9,9 +9,12 @@ function GameMap(props) {
 
     const [rts, setRts] = useState(routes)
     const [stations, setStations] = useState(props.stations)
+    const [center, setCenter] = useState([47.367270, 8.534655])
     const [figPos, setFigPos] = useState({})
     const [players, setPlayers] = useState([])
-    const [gameStatus, setGameStatus] = useState(props.gameStatus)
+    const [gameStatus, setGameStatus] = useState({})
+    const [oldStatus, setOldStatus] = useState({})
+    
     const figures = [figureTurquoise, figureBlack, figureBlue, figureRed, figureWhite, figureYellow]
 
     const changePosition = (station) => {
@@ -40,11 +43,21 @@ function GameMap(props) {
         setPlayers(formattedPlayers)
 
     }, [props.players, props.stations])
+    
+    useEffect(()=>{
+        
+        if(props.possibleMoves.length>0){
+            console.log(props.possibleMoves)
+        }
+
+    },[props.possibleMoves])
+
+    
 
 
 
     return (
-        <MapContainer center={[47.367270, 8.534655]} attributionControl={false} transparent={true} zoom={13} style={{ height: "100vh" }} scrollWheelZoom={true}>
+        <MapContainer center={center} attributionControl={false} transparent={true} zoom={13} style={{ height: "100vh" }} scrollWheelZoom={true}>
             <WMSTileLayer
                 layers={["ortho_s"]}
                 format="image/png"

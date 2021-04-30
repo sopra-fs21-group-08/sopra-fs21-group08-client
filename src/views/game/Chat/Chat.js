@@ -21,12 +21,12 @@ const Chat = () => {
         const response = await api.get('/games/'+gameId+'/chats')
         const messages = response.data;
         setmessages(messages);
-        console.log(messages);
+        
       };
       fetchMessages();
       const interval=setInterval(()=>{
             fetchMessages();
-           },1000)
+           },10000)
 
       return()=>clearInterval(interval)
     },[]);

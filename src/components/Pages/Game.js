@@ -39,7 +39,7 @@ const Game = () => {
 
         const interval=setInterval(()=>{
             fetchGameStatus();
-           },1000)
+           },10000)
 
         return()=>clearInterval(interval)
    }, []);
@@ -57,11 +57,11 @@ const Game = () => {
 
    // handle move
    const fetchPossibleMoves = async (userId, ticketToMove) => {
-       console.log("Fetching possible moves for " + userId + " with " + ticketToMove)
-       const url = 'games/' + id + '/moves/validate/' + userId
+       //console.log("Fetching possible moves for " + userId + " with " + ticketToMove)
+       const url = '/games/' + id + '/moves/validate/' + userId
     //    const requestBody = JSON.stringify({ticket: ticketToMove})
-       const response = await api.get(url, {params: {ticket: ticketToMove}}, {headers:{'Authorization': ''}})
-       console.log(response)
+       const response = await api.post(url,{ticket: ticketToMove}, {headers:{'Authorization': 'adsfa'}})
+       //console.log(response)
        setPossibleMoves(response.data)
    }
 
@@ -83,7 +83,7 @@ const Game = () => {
                             </Modal.Footer>
                 </Modal>
             </Container>
-            {players.length>0&&stations.length>0&&<Map stations={stations} players={players} gameStatus={gameStatus} />}
+            {players.length>0&&stations.length>0&&Object.keys(gameStatus).length>0&&<Map possibleMoves={possibleMoves} stations={stations} players={players} gameStatus={gameStatus} />}
         </>
     )
 }
