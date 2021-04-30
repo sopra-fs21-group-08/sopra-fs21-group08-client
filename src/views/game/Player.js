@@ -31,31 +31,6 @@ const Player = ({ player, playerId, color, isMoving=false}) => {
     var opacity = isMoving ? 1 : 0.5
     const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6]
     const themes = ['primary','success','danger','warning','info']
-    // const [player, setPlayer] = useState();
-    
-
-    // fetch info about Mister X from Backend
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         const response = await api.get('/games/'+ id + '/players/' + playerId); 
-    //         console.log(response);
-    //         setPlayer(response.data);
-    //         console.log(player);
-    //     };
-    //     fetchData();
-    // }, []);
-
-    const playerToDel = {
-        'userId': playerId,
-        'userName' : 'John',
-        'stationId' : 100,
-        'ticketWallet' : {
-            'Tram' : 10,
-            'Bus' : 8,
-            'SBahn' : 4
-        }
-    }
-
 
     return (
         <>
@@ -73,7 +48,6 @@ const Player = ({ player, playerId, color, isMoving=false}) => {
                         </Col>
                     </Row>
                     <Row >
-
                         <Col md="auto" style={styles.col}>
                             <TransportButton number={player.wallet.tram}>Tram : </TransportButton>
                         </Col>
@@ -92,3 +66,5 @@ const Player = ({ player, playerId, color, isMoving=false}) => {
 }
 
 export default Player
+
+// TODO: iterate over the wallet

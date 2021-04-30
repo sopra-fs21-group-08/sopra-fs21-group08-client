@@ -11,39 +11,51 @@ const Game = () => {
     const [stations, setStations] = useState([])
     const [players, setPlayers] = useState([])
     const [gameStatus, setGameStatus] = useState({})
+    const [possibleMoves, setPossibleMoves] = useState([])
 
-    //fetch Game Status
+    // Fetches the stations from the backend
     useEffect(() => {
+        const fetchStations = async () => {
+            try {
+                const response = await api.get('/stations');
+                setStations(response.data)
+                //console.log(stations)
+            } catch (error) {
+                alert('Couldnt fetch the stations');
+            }
+        }
+        fetchStations();
+      }, []); // this is called only the first time component is rendered
+
+    //fetch Game Status every second
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        const fetchGameStatus = async () => {
+            const response = await api.get('/games/'+ id + '/status', {headers:{'Authorization':  `Basic ${token}`}}); 
+            const gameInfo = response.data;
+            setGameStatus(gameInfo);
+        };
+        fetchGameStatus();
+
+        const interval=setInterval(()=>{
+            fetchGameStatus();
+           },1000)
+
+        return()=>clearInterval(interval)
+   }, []);
+
+   //fetch Players each time Game Status is updated
+   useEffect(() => {
         const token = localStorage.getItem("token");
         const fetchPlayers = async () => {
             const response = await api.get('/games/'+ id+'/players', {headers:{'Authorization':  `Basic ${token}`}}); 
-            console.log(response);
             const players = response.data;
             setPlayers(players);
-            console.log(players);
         };
         fetchPlayers();
-        const fetchGameStatus = async () => {
-            const response = await api.get('/games/'+ id + '/status', {headers:{'Authorization':  `Basic ${token}`}}); 
-            console.log(response);
-            const gameInfo = response.data;
-            setGameStatus(gameInfo);
-            console.log("Game status")
-            console.log(gameStatus);
-        };
-        fetchGameStatus();
-   }, []);
+    }, [gameStatus]);
 
-    // Fetches the stations from the backend
-    useEffect(async () => {
-        try {
-            const response = await api.get('/stations');
-            setStations(response.data)
-            //console.log(stations)
-        } catch (error) {
-            alert('Couldnt fetch the stations');
-        }
-    }, [])
+   // handle move
 
     return (
         <>
@@ -69,3 +81,8 @@ const Game = () => {
 }
 
 export default Game
+
+// TODO: fetch possibleMoves from backend
+// - create state
+// - create function
+// - call function from Player component

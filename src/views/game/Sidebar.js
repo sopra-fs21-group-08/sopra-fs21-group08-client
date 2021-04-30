@@ -16,7 +16,6 @@ const Sidebar = ({gameStatus, players}) => {
   let history = useHistory();
   const handleClick = () => history.push('/game')
   const { id } = useParams()
-  console.log("Sidebar is rendered")
   const currentPlayerId = gameStatus.currentPlayer&&gameStatus.currentPlayer.user&&gameStatus.currentPlayer.user.userId
 
   return(
