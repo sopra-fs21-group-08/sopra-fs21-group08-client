@@ -26,8 +26,7 @@ const styles = {
     }
 };
 
-const Player = ({ player, playerId, color, isMoving=false}) => {
-    const { id } = useParams()
+const Player = ({ player, color, isMoving=false, fetchPossibleMoves }) => {
     var opacity = isMoving ? 1 : 0.5
     const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6]
     const themes = ['primary','success','danger','warning','info']
@@ -49,13 +48,13 @@ const Player = ({ player, playerId, color, isMoving=false}) => {
                     </Row>
                     <Row >
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.tram}>Tram : </TransportButton>
+                            <TransportButton number={player.wallet.tram} onClick={() => fetchPossibleMoves(player.user.userId, "TRAM")}>Tram : </TransportButton>
                         </Col>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.bus}>Bus : </TransportButton>
+                            <TransportButton number={player.wallet.bus} onClick={() => fetchPossibleMoves(player.user.userId, "BUS")}>Bus : </TransportButton>
                         </Col>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.train}>Train : </TransportButton>
+                            <TransportButton number={player.wallet.train} onClick={() => fetchPossibleMoves(player.user.userId, "TRAIN")}>Train : </TransportButton>
                         </Col>
                     </Row>
                     

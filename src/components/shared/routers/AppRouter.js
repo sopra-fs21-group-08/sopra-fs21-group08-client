@@ -15,7 +15,7 @@ class AppRouter extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <div>
+          <>
             <Route
               path="/game"
               render={() => (
@@ -24,10 +24,10 @@ class AppRouter extends React.Component {
                 </GameGuard>
               )}
             />
-          </div>
+          </>
         </Switch>
         <Switch>
-          <div>
+          <>
             <Route
               path="/login"
               exact
@@ -41,10 +41,10 @@ class AppRouter extends React.Component {
               )}
             />
             <Route path="/" exact render={() => <Redirect to={"/login"} />} />
-          </div>
+          </>
         </Switch>
         <Switch>
-          <div>
+          <>
             <Route
               path="/register"
               exact
@@ -58,10 +58,10 @@ class AppRouter extends React.Component {
               )}
             />
             <Route path="/" exact render={() => <Redirect to={"/login"} />} />
-          </div>
+          </>
         </Switch>
         <Switch>
-          <div>
+          <>
           <Route
               path="/zoia"
               exact
@@ -73,7 +73,7 @@ class AppRouter extends React.Component {
                 </>
               )}
             />
-          </div>
+          </>
         </Switch>
       </BrowserRouter>
     );

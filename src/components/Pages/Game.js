@@ -48,7 +48,7 @@ const Game = () => {
    useEffect(() => {
         const token = localStorage.getItem("token");
         const fetchPlayers = async () => {
-            const response = await api.get('/games/'+ id+'/players', {headers:{'Authorization':  `Basic ${token}`}}); 
+            const response = await api.get('/games/'+ id +'/players', {headers:{'Authorization':  `Basic ${token}`}}); 
             const players = response.data;
             setPlayers(players);
         };
@@ -56,11 +56,19 @@ const Game = () => {
     }, [gameStatus]);
 
    // handle move
+   const fetchPossibleMoves = async (userId, ticketToMove) => {
+       console.log("Fetching possible moves for " + userId + " with " + ticketToMove)
+       const url = 'games/' + id + '/moves/validate/' + userId
+    //    const requestBody = JSON.stringify({ticket: ticketToMove})
+       const response = await api.get(url, {params: {ticket: ticketToMove}}, {headers:{'Authorization': ''}})
+       console.log(response)
+       setPossibleMoves(response.data)
+   }
 
     return (
         <>
             <Container style={{ position: "absolute", zIndex: 1000 }} fluid>
-                <Sidebar gameStatus={gameStatus} players={players} />
+                <Sidebar gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves} />
                 <Modal show={gameStatus.gameOver}>
                     <Modal.Header>
                         <Modal.Title>Game is over</Modal.Title>
@@ -81,8 +89,3 @@ const Game = () => {
 }
 
 export default Game
-
-// TODO: fetch possibleMoves from backend
-// - create state
-// - create function
-// - call function from Player component

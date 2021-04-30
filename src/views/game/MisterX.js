@@ -24,22 +24,9 @@ const styles = {
     }
 };
 
-const MisterX = ({player, isMoving}) => {
+const MisterX = ({player, isMoving, fetchPossibleMoves}) => {
     var opacity = isMoving ? 1 : 0.5
     const { id } = useParams()
-
-    const misterX = {
-        'userId': 2,
-        'userName' : 'Jack',
-        'stationId' : 56,
-        'ticketWallet' : {
-            'Tram' : 4,
-            'Bus' : 3,
-            'SBahn' : 2,
-            'Double' : 4,
-            'Black' : 2
-        }
-    }
 
     return (
         <>
@@ -97,21 +84,21 @@ const MisterX = ({player, isMoving}) => {
                 <Card.Footer style={{paddingRight: 0, paddingTop: 0,paddingBottom: 5}}>
                     <Row>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.tram}>Tram : </TransportButton>
+                            <TransportButton number={player.wallet.tram} onClick={() => fetchPossibleMoves(player.user.userId, "TRAM")}>Tram : </TransportButton>
                         </Col>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.bus}>Bus : </TransportButton>
+                            <TransportButton number={player.wallet.bus} onClick={() => fetchPossibleMoves(player.user.userId, "BUS")}>Bus : </TransportButton>
                         </Col>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.train}>Train : </TransportButton>
+                            <TransportButton number={player.wallet.train} onClick={() => fetchPossibleMoves(player.user.userId, "TRAIN")}>Train : </TransportButton>
                         </Col>
                     </Row>
                     <Row className="justify-content-md-center">
                         <Col style={styles.col}>
-                            <TransportButton number={misterX.ticketWallet.Double}>Double : </TransportButton>
+                            <TransportButton number={player.wallet.double} onClick={() => fetchPossibleMoves(player.user.userId, "DOUBLE")}>Double : </TransportButton>
                         </Col>
                         <Col style={styles.col}>
-                            <TransportButton number={misterX.ticketWallet.Black}>Black : </TransportButton>
+                            <TransportButton number={player.wallet.black} onClick={() => fetchPossibleMoves(player.user.userId, "BLACK")}>Black : </TransportButton>
                         </Col>
                     </Row>
                 </Card.Footer>
@@ -122,3 +109,23 @@ const MisterX = ({player, isMoving}) => {
 }
 
 export default MisterX
+
+// player representation:
+// {
+//     "user": {
+//         "userId": 9,
+//         "username": "e",
+//         "status": "ONLINE",
+//         "dob": null,
+//         "creationDate": "2021-04-30"
+//     },
+//     "playerClass": "MRX",
+//     "stationId": 145,
+//     "wallet": {
+//         "bus": 10,
+//         "black": 2,
+//         "double": 2,
+//         "train": 10,
+//         "tram": 10
+//     }
+// },

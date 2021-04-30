@@ -12,7 +12,7 @@ import Chat from './Chat/Chat'
 import Button from 'react-bootstrap/Button';
 import { useHistory, Link, withRouter } from 'react-router-dom';
 
-const Sidebar = ({gameStatus, players}) => {
+const Sidebar = ({gameStatus, players, fetchPossibleMoves }) => {
   let history = useHistory();
   const handleClick = () => history.push('/game')
   const { id } = useParams()
@@ -21,17 +21,24 @@ const Sidebar = ({gameStatus, players}) => {
   return(
       <div className='sidebar'>
           <GameInfo currentRound={gameStatus.currentRound} currentPlayer={gameStatus.currentPlayer&&gameStatus.currentPlayer.user&&gameStatus.currentPlayer.user.username}/>
-          <Chat />
+          {/* <Chat /> */}
           {players.map((player, index) => (
             <>
             {(() => {
                  if(index === 0) {
                    return(
-                   <MisterX key={index} player={player} isMoving={player.user.userId === currentPlayerId ? true : false}/>
+                   <MisterX key={index} 
+                            player={player} 
+                            isMoving={player.user.userId === currentPlayerId ? true : false}
+                            fetchPossibleMoves={fetchPossibleMoves}/>
                    )
                  }else{
                    return(
-                    <Player key={index} player={player} color={index} isMoving={player.user.userId === currentPlayerId ? true : false}/>
+                    <Player key={index} 
+                            player={player} 
+                            color={index} 
+                            isMoving={player.user.userId === currentPlayerId ? true : false}
+                            fetchPossibleMoves={fetchPossibleMoves}/>
                    )
                  }})()}
             </>
