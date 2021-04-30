@@ -16,11 +16,9 @@ function GameMap(props) {
 
     const changePosition = (station) => {
         setFigPos(station)
-        console.log(station.name)
 
     }
     useEffect(() => {
-        console.log(stations)
         setFigPos({
             "stop_lat": 47.3668727813338,
             "stop_lon": 8.54533193921056
@@ -29,8 +27,6 @@ function GameMap(props) {
 
     useEffect(() => {
         var formattedPlayers = [];
-        console.log("STATIONS")
-        console.log(props.stations)
         var id = null;
         var position = null;
         var figure = null;
@@ -38,12 +34,10 @@ function GameMap(props) {
             id = player.user.userId;
             figure = figures[idx];
             position = props.stations.find(station => station.id===player.stationId)
-            console.log(position)
             formattedPlayers.push({id: id, figure: figure, position: [position.stop_lat, position.stop_lon]})
             
         })
         setPlayers(formattedPlayers)
-        console.log(players)
 
     }, [props.players, props.stations])
 
