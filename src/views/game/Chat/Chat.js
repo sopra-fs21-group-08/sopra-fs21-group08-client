@@ -26,7 +26,7 @@ const Chat = () => {
       fetchMessages();
       const interval=setInterval(()=>{
             fetchMessages();
-           },10000)
+           },1000)
 
       return()=>clearInterval(interval)
     },[]);

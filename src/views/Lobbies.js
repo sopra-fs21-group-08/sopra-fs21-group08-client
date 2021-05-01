@@ -19,16 +19,14 @@ const Lobbies = () => {
     {
       const fetchData = async () => {
           const response = await api.get('/lobbies/');
-          console.log(response);
           const lobbies = response.data;
           setlobbies(lobbies);
-          console.log(lobbies);
       };
       fetchData();
 
       const interval=setInterval(()=>{
             fetchData()
-           },10000)
+           },1000)
 
       return()=>clearInterval(interval)
     }, []);
