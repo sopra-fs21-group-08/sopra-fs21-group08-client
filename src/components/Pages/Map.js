@@ -3,6 +3,7 @@ import 'leaflet/dist/leaflet.css';
 import L, { bounds } from 'leaflet';
 import { MapContainer, SVGOverlay, WMSTileLayer, Circle, Marker, Polyline, AttributionControl } from 'react-leaflet'
 import { figureTurquoise, figureBlack, figureBlue, figureRed, figureWhite, figureYellow } from '../../views/Map/Figure'
+import ChangeView from '../../views/Map/ChangeView'
 import StationMarker from '../../views/Map/StationMarker'
 import routes from '../../assets/mockstations/routes'
 function GameMap(props) {
@@ -10,15 +11,20 @@ function GameMap(props) {
     const [rts, setRts] = useState(routes)
     const [stations, setStations] = useState(props.stations)
     const [center, setCenter] = useState([47.367270, 8.534655])
+    const [zoom, setZoom] = useState(13)
     const [figPos, setFigPos] = useState({})
     const [players, setPlayers] = useState([])
-    const [gameStatus, setGameStatus] = useState({})
-    const [oldStatus, setOldStatus] = useState({})
+    const [gameStatus, setGameStatus] = useState(null)
+    const [oldStatus, setOldStatus] = useState(null)
+    const [mapKey, setMapKey] = useState(1)
+    
     
     const figures = [figureTurquoise, figureBlack, figureBlue, figureRed, figureWhite, figureYellow]
 
-    const changePosition = (station) => {
-        setFigPos(station)
+    const makeMove = (station) => {
+        console.log(station)
+        console.log(props.selectedTicket)
+        props.makeMove(station.id, props.selectedTicket)
 
     }
     useEffect(() => {
@@ -52,12 +58,31 @@ function GameMap(props) {
 
     },[props.possibleMoves])
 
-    
+    useEffect(()=>{
+        if(props.myTurn&&oldStatus ===null&&gameStatus!==null&&typeof(gameStatus)!="undefined"){
+           setOldStatus(gameStatus)
+           var position = props.stations.find((station)=>station.id===gameStatus.currentPlayer.stationId)
+           position = [position.stop_lat, position.stop_lon]
+           setCenter(position)
+           setZoom(16)
+           setOldStatus(gameStatus)
+           setMapKey(mapKey+1)
+           
+        }
+ 
+     },[gameStatus, props.myTurn])
+ 
+     useEffect(()=>{
+         setOldStatus(gameStatus)
+         setGameStatus(props.gameStatus)
+        
+ 
+     },[props.gameStatus])
 
 
 
     return (
-        <MapContainer center={center} attributionControl={false} transparent={true} zoom={13} style={{ height: "100vh" }} scrollWheelZoom={true}>
+        <MapContainer center={center} key={mapKey} attributionControl={false} transparent={true} zoom={zoom} style={{ height: "100vh" }} scrollWheelZoom={true}>
             <WMSTileLayer
                 layers={["ortho_s"]}
                 format="image/png"
@@ -66,7 +91,7 @@ function GameMap(props) {
             />
             <div>
                 {props.stations.map((station) =>
-                    <StationMarker onClickStation={changePosition} key={station.id} station={station} number={station.id} bounds={[station.stop_lat, station.stop_lon]}></StationMarker>
+                    <StationMarker possibleMoves={props.possibleMoves} onClickStation={makeMove} key={station.id} station={station} number={station.id} bounds={[station.stop_lat, station.stop_lon]}></StationMarker>
                 )}</div>
             {players.map((player) => <Marker key={player.id}
                 position={player.position}

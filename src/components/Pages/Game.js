@@ -12,6 +12,8 @@ const Game = () => {
     const [players, setPlayers] = useState([])
     const [gameStatus, setGameStatus] = useState({})
     const [possibleMoves, setPossibleMoves] = useState([])
+    const [myTurn, setMyTurn] = useState(false)
+    const [selectedTicket, setSelectedTicket] = useState(null)
 
     // Fetches the stations from the backend
     useEffect(() => {
@@ -30,9 +32,15 @@ const Game = () => {
     //fetch Game Status every second
     useEffect(() => {
         const token = localStorage.getItem("token");
+        const userId = parseInt(localStorage.getItem("userId"));
         const fetchGameStatus = async () => {
             const response = await api.get('/games/'+ id + '/status', {headers:{'Authorization':  `Basic ${token}`}}); 
             const gameInfo = response.data;
+            if(gameInfo.currentPlayer.user.userId==userId){
+                setMyTurn(true)
+            }else{
+                setMyTurn(false)
+            }
             setGameStatus(gameInfo);
         };
         fetchGameStatus();
@@ -57,12 +65,25 @@ const Game = () => {
 
    // handle move
    const fetchPossibleMoves = async (userId, ticketToMove) => {
+       setSelectedTicket(ticketToMove)
        //console.log("Fetching possible moves for " + userId + " with " + ticketToMove)
        const url = '/games/' + id + '/moves/validate/' + userId
     //    const requestBody = JSON.stringify({ticket: ticketToMove})
        const response = await api.post(url,{ticket: ticketToMove}, {headers:{'Authorization': 'adsfa'}})
        //console.log(response)
        setPossibleMoves(response.data)
+   }
+
+   //makeMove
+   const makeMove = async (fieldId, ticketToMove)=>{
+       const userId = parseInt(localStorage.getItem("userId"));
+       const url = '/games/'+id+'/moves/'+userId;
+       try{
+       const response = await api.post(url, {ticket: ticketToMove, to: fieldId}, {headers:{'Authorization': 'adsfa'}})
+       console.log(response)
+    }catch(error){
+        console.log(error)
+    }
    }
 
     return (
@@ -83,7 +104,8 @@ const Game = () => {
                             </Modal.Footer>
                 </Modal>
             </Container>
-            {players.length>0&&stations.length>0&&Object.keys(gameStatus).length>0&&<Map possibleMoves={possibleMoves} stations={stations} players={players} gameStatus={gameStatus} />}
+            {players.length>0&&stations.length>0&&Object.keys(gameStatus).length>0&&
+            <Map selectedTicket={selectedTicket} makeMove={makeMove} myTurn={myTurn} possibleMoves={possibleMoves} stations={stations} players={players} gameStatus={gameStatus} />}
         </>
     )
 }
