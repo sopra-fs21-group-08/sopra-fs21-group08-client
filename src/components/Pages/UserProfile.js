@@ -45,7 +45,6 @@ function UserProfile() {
       const fetchData = async () => {
           try {
             const response = await api.get('/users/'+localStorage.getItem('userId'));
-            console.log(response);
             const user = new User(response.data);
             setuser(user);
           }

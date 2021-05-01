@@ -39,7 +39,7 @@ const Game = () => {
 
         const interval=setInterval(()=>{
             fetchGameStatus();
-           },10000)
+           },1000)
 
         return()=>clearInterval(interval)
    }, []);

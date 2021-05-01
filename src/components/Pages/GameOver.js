@@ -15,6 +15,7 @@ import User from '../shared/models/User';
 const GameOver = ({victory=true}) => {
     const [user, setuser] = useState([]);
     const Quit = () => history.push('/game')
+    //TODO: change gameId
     const PlayAgain = () => history.push('/game/1')
     const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
@@ -30,6 +31,7 @@ const GameOver = ({victory=true}) => {
       };
       fetchData();
     },[]);
+  //TODO: Add all the players that won
   if(victory==true){
       return (
         <div className="header">
