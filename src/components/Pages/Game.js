@@ -14,7 +14,7 @@ const Game = () => {
     const [possibleMoves, setPossibleMoves] = useState([])
     const [myTurn, setMyTurn] = useState(false)
     const [selectedTicket, setSelectedTicket] = useState(null)
-    const [playerClass, setPlayerClass] = useState("")
+    const [playerClass, setPlayerClass] = useState(null)
 
     // Fetches the stations from the backend
     useEffect(() => {
@@ -69,7 +69,6 @@ const Game = () => {
     useEffect(()=>{
         const userId = parseInt(localStorage.getItem("userId"));
         const player = players.find((player)=>player.user.userId==userId)
-        console.log("PLAYER")
         if(typeof(player)!="undefined"){
             setPlayerClass(player.playerClass)
         }
@@ -118,7 +117,7 @@ const Game = () => {
                             </Modal.Footer>
                 </Modal>
             </Container>
-            {players.length>0&&stations.length>0&&Object.keys(gameStatus).length>0&&
+            {players.length>0&&stations.length>0&&playerClass!=null&&Object.keys(gameStatus).length>0&&
             <Map selectedTicket={selectedTicket} playerClass={playerClass} makeMove={makeMove} myTurn={myTurn} possibleMoves={possibleMoves} stations={stations} players={players} gameStatus={gameStatus} />}
         </>
     )

@@ -17,9 +17,10 @@ function GameMap(props) {
     const [gameStatus, setGameStatus] = useState(null)
     const [oldStatus, setOldStatus] = useState(null)
     const [mapKey, setMapKey] = useState(1)
+    const [lastMrXPosition, setLastMrXPosition] = useState([0,0])
     
     
-    const figures = [figureTurquoise, figureBlack, figureBlue, figureRed, figureWhite, figureYellow]
+    const figures = [figureTurquoise, figureBlue, figureRed, figureWhite, figureYellow, figureBlack]
 
     const makeMove = (station) => {
         console.log(station)
@@ -41,9 +42,22 @@ function GameMap(props) {
         var figure = null;
         props.players.forEach((player, idx) => {
             id = player.user.userId;
-            figure = figures[idx];
-            position = props.stations.find(station => station.id===player.stationId)
-            formattedPlayers.push({id: id, figure: figure, position: [position.stop_lat, position.stop_lon]})
+            if(player.playerClass == "MRX"){
+                figure= figureBlack
+            }else{
+                figure = figures[idx]
+            }
+            if(player.playerClass=="DETECTIVE"||props.playerClass=="MRX"|| props.gameStatus.mrXVisible){
+                position = props.stations.find(station => station.id===player.stationId)
+                position = [position.stop_lat, position.stop_lon]
+                if(player.playerClass=="DETECTIVE"&&props.gameStatus.mrXVisible){
+                    setLastMrXPosition(position)
+                }
+            }else{
+                position = lastMrXPosition
+            }
+            formattedPlayers.push({id: id, figure: figure, position: position})
+        
             
         })
         setPlayers(formattedPlayers)
