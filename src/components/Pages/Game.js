@@ -14,6 +14,7 @@ const Game = () => {
     const [possibleMoves, setPossibleMoves] = useState([])
     const [myTurn, setMyTurn] = useState(false)
     const [selectedTicket, setSelectedTicket] = useState(null)
+    const [playerClass, setPlayerClass] = useState("")
 
     // Fetches the stations from the backend
     useEffect(() => {
@@ -63,6 +64,19 @@ const Game = () => {
         fetchPlayers();
     }, [gameStatus]);
 
+    // Check if Player is Mr. X or Detective
+
+    useEffect(()=>{
+        const userId = parseInt(localStorage.getItem("userId"));
+        const player = players.find((player)=>player.user.userId==userId)
+        console.log("PLAYER")
+        if(typeof(player)!="undefined"){
+            setPlayerClass(player.playerClass)
+        }
+
+
+    }, [players])
+
    // handle move
    const fetchPossibleMoves = async (userId, ticketToMove) => {
        setSelectedTicket(ticketToMove)
@@ -105,7 +119,7 @@ const Game = () => {
                 </Modal>
             </Container>
             {players.length>0&&stations.length>0&&Object.keys(gameStatus).length>0&&
-            <Map selectedTicket={selectedTicket} makeMove={makeMove} myTurn={myTurn} possibleMoves={possibleMoves} stations={stations} players={players} gameStatus={gameStatus} />}
+            <Map selectedTicket={selectedTicket} playerClass={playerClass} makeMove={makeMove} myTurn={myTurn} possibleMoves={possibleMoves} stations={stations} players={players} gameStatus={gameStatus} />}
         </>
     )
 }
