@@ -19,7 +19,7 @@ export default function StationMarker(props) {
     useEffect(()=>{
         var station = props.possibleMoves.find((station)=>station.id ===props.number)
         setIsActive(typeof(station)!="undefined")
-        if(isActive){
+        if(typeof(station)!="undefined"){
             setCircleColor("red")
             setCircleRadius(20)
             setCircleKey(circleKey+1)
