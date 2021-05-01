@@ -7,7 +7,7 @@ function TransportButton(props) {
         <div>
             <Button variant="outline-light" 
                 size="sm" 
-                disabled={props.number === 0} 
+                disabled={props.number === 0 || props.id != localStorage.getItem("userId")}
                 onClick={props.onClick} 
                 style={{fontSize: 10}}
             >

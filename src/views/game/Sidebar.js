@@ -21,7 +21,7 @@ const Sidebar = ({gameStatus, players, fetchPossibleMoves }) => {
   return(
       <div className='sidebar'>
           <GameInfo currentRound={gameStatus.currentRound} currentPlayer={gameStatus.currentPlayer&&gameStatus.currentPlayer.user&&gameStatus.currentPlayer.user.username}/>
-          {/* <Chat /> */}
+          <Chat />
           {players.map((player, index) => (
             <>
             {(() => {
