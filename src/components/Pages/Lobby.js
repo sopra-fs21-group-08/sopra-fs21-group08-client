@@ -18,6 +18,7 @@ import { api, handleError } from '../../helpers/api';
 const Lobby = () => {
     const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6]
     const [players, setPlayers] = useState([])
+    const [gameIsStarted, setGameIsStarted] = useState(false);
     const {id} = useParams()
     let gameId = id 
     let history = useHistory();
@@ -69,8 +70,8 @@ const Lobby = () => {
     }
 
     // handle game start
-    const [gameIsStarted, setGameIsStarted] = useState(false);
-    const handleGameIsStarted = () => setGameIsStarted(true);
+    
+    // const handleGameIsStarted = () => setGameIsStarted(true);
 
     const startGame = async () => {
         // initiate new game at backend
@@ -83,7 +84,7 @@ const Lobby = () => {
             console.log(requestBody)
             const response = await api.post('/games/' + id, requestBody);
             console.log("Status Code " + response.status)
-            handleGameIsStarted();
+            // handleGameIsStarted();
         } catch (error) {
             alert(`Something went wrong while trying to start a new Game: \n${handleError(error)}`);
         }

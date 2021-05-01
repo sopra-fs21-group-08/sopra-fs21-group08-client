@@ -13,6 +13,7 @@ const Game = () => {
     const [gameStatus, setGameStatus] = useState({})
     const [possibleMoves, setPossibleMoves] = useState([])
     const [myTurn, setMyTurn] = useState(false)
+    const [amIMrX, setAmIMrX] = useState(false)
     const [selectedTicket, setSelectedTicket] = useState(null)
     const [playerClass, setPlayerClass] = useState(null)
 
@@ -37,7 +38,8 @@ const Game = () => {
         const fetchGameStatus = async () => {
             const response = await api.get('/games/'+ id + '/status', {headers:{'Authorization':  `Basic ${token}`}}); 
             const gameInfo = response.data;
-            if(gameInfo.currentPlayer.user.userId==userId){
+            const currentPlayerId = gameStatus.currentPlayer&&gameStatus.currentPlayer.user&&gameStatus.currentPlayer.user.userId
+            if(currentPlayerId === userId){
                 setMyTurn(true)
             }else{
                 setMyTurn(false)
@@ -60,6 +62,14 @@ const Game = () => {
             const response = await api.get('/games/'+ id +'/players', {headers:{'Authorization':  `Basic ${token}`}}); 
             const players = response.data;
             setPlayers(players);
+            const userId = parseInt(localStorage.getItem("userId"));
+            const mrXId = players&&players[0].user&&players[0].user.usedId
+            console.log("Mr X" + mrXId)
+            console.log("Mr userId" + userId)
+            if(mrXId === userId){
+                console.log('you are mr x')
+                setAmIMrX(true)
+            }
         };
         fetchPlayers();
     }, [gameStatus]);
@@ -72,18 +82,13 @@ const Game = () => {
         if(typeof(player)!="undefined"){
             setPlayerClass(player.playerClass)
         }
-
-
     }, [players])
 
    // handle move
    const fetchPossibleMoves = async (userId, ticketToMove) => {
        setSelectedTicket(ticketToMove)
-       //console.log("Fetching possible moves for " + userId + " with " + ticketToMove)
        const url = '/games/' + id + '/moves/validate/' + userId
-    //    const requestBody = JSON.stringify({ticket: ticketToMove})
        const response = await api.post(url,{ticket: ticketToMove}, {headers:{'Authorization': 'adsfa'}})
-       //console.log(response)
        setPossibleMoves(response.data)
    }
 
@@ -102,7 +107,7 @@ const Game = () => {
     return (
         <>
             <Container style={{ position: "absolute", zIndex: 1000 }} fluid>
-                <Sidebar gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves} />
+                <Sidebar gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves} amIMrX={amIMrX} />
                 <Modal show={gameStatus.gameOver}>
                     <Modal.Header>
                         <Modal.Title>Game is over</Modal.Title>
@@ -124,3 +129,23 @@ const Game = () => {
 }
 
 export default Game
+
+// player representation:
+// {
+//     "user": {
+//         "userId": 9,
+//         "username": "e",
+//         "status": "ONLINE",
+//         "dob": null,
+//         "creationDate": "2021-04-30"
+//     },
+//     "playerClass": "MRX",
+//     "stationId": 145,
+//     "wallet": {
+//         "bus": 10,
+//         "black": 2,
+//         "double": 2,
+//         "train": 10,
+//         "tram": 10
+//     }
+// },
