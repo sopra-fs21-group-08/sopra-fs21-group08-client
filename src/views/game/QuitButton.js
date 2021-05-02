@@ -35,7 +35,7 @@ function QuitButton() {
 
     return (
         <div>
-            <Button variant="danger" style={{ marginTop: 20, marginBottom: 40, width: '13rem'}} onClick={handleShow}> Quit Game </Button>
+            <Button variant="danger" style={{ marginTop: 20, marginBottom: 40, width: '13rem', borderRadius: '1rem'}} onClick={handleShow}> Quit Game </Button>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Quit</Modal.Title>
