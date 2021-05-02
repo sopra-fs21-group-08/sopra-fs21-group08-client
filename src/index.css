@@ -19,6 +19,12 @@
     overflow-y: auto;
 }
 
+.rules{
+  position: fixed;
+  left: 20px;
+  top: 15px;
+}
+
 .hcenter{
   margin: auto;
   margin-top: 20px;

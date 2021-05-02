@@ -3,8 +3,10 @@ import { Card, Form, Alert, Button } from 'react-bootstrap';
 import ZButton from '../../views/design/ZButton'
 import Header from '../../views/Header'
 import { api } from '../../helpers/api';
+import Rules from '../../components/shared/Rules'
 import { useHistory, Link } from 'react-router-dom';
 function Login() {
+
     const [user, setUser] = useState({ username: null, password: null })
     const [alert, setAlert] = useState({ display: false, variant: null, message: null })
 
@@ -55,6 +57,7 @@ function Login() {
                     Don't have an account? <Link to="/register">Sign up</Link>
                 </Card.Footer>
             </Card>
+            <Rules/>
         </div>
     )
 }
