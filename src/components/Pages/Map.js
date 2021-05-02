@@ -20,7 +20,7 @@ function GameMap(props) {
     const [lastMrXPosition, setLastMrXPosition] = useState([0,0])
     
     
-    const figures = [figureTurquoise, figureBlue, figureRed, figureWhite, figureYellow, figureBlack]
+    const figures = [figureBlack, figureTurquoise, figureBlue, figureRed, figureWhite, figureYellow]
 
     const makeMove = (station) => {
         console.log(station)

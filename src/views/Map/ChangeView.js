@@ -8,11 +8,6 @@ function ChangeView({ center, zoom, myTurn }) {
         map.flyTo(center, zoom)
       }
     },[myTurn])
-      
-  
-    
-   
-  //
   return null;
 }
 
