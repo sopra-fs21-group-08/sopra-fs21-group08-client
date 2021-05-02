@@ -10,6 +10,7 @@ import GameInfo from './GameInfo'
 
 import Chat from './Chat/Chat'
 import Button from 'react-bootstrap/Button';
+import QuitButton from './QuitButton';
 import { useHistory, Link, withRouter } from 'react-router-dom';
 
 const Sidebar = ({gameStatus, players, fetchPossibleMoves, amIMrX }) => {
@@ -43,7 +44,7 @@ const Sidebar = ({gameStatus, players, fetchPossibleMoves, amIMrX }) => {
                  }})()}
             </>
           ))}
-          <Button variant="danger" style={{ marginTop: 20, marginBottom: 40, width: '13rem'}} onClick={handleClick}> Quit Game </Button>
+          <QuitButton/>
       </div>
     );
 }
