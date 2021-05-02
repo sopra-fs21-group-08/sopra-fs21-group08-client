@@ -18,9 +18,10 @@ function GameMap(props) {
     const [oldStatus, setOldStatus] = useState(null)
     const [mapKey, setMapKey] = useState(1)
     const [lastMrXPosition, setLastMrXPosition] = useState([0,0])
+    const [resetFields, setResetfields] = useState(0)
     
     
-    const figures = [figureBlack, figureTurquoise, figureBlue, figureRed, figureWhite, figureYellow]
+    const figures = [figureBlack, figureTurquoise, figureBlue, figureRed, figureWhite, figureYellow];
 
     const makeMove = (station) => {
         console.log(station)
@@ -31,6 +32,9 @@ function GameMap(props) {
         var player = newPlayers.find((player)=>player.id===userId)
         player.position = [station.stop_lat, station.stop_lon]
         setPlayers(newPlayers)
+        setResetfields(resetFields+1)
+        props.movesClearer()
+        
 
     }
     useEffect(() => {
@@ -39,6 +43,8 @@ function GameMap(props) {
             "stop_lon": 8.54533193921056
         })
     }, [])
+
+
 
     useEffect(() => {
         var formattedPlayers = [];
@@ -52,6 +58,7 @@ function GameMap(props) {
             }else{
                 figure = figures[idx]
             }
+            /*
             if(player.playerClass=="DETECTIVE"||props.playerClass=="MRX"|| props.gameStatus.mrXVisible){
                 position = props.stations.find(station => station.id===player.stationId)
                 position = [position.stop_lat, position.stop_lon]
@@ -61,6 +68,17 @@ function GameMap(props) {
             }else{
                 position = lastMrXPosition
             }
+            */
+           if(idx===0&&!props.gameStatus.mrXVisible&&props.playerClass=="DETECTIVE"){
+               position = lastMrXPosition
+           }else{
+            position = props.stations.find(station => station.id===player.stationId)
+            position = [position.stop_lat, position.stop_lon]
+            if(idx===0&&props.playerClass=="DETECTIVE"&&props.gameStatus.mrXVisible){
+                setLastMrXPosition(position)
+            }
+
+           }
             formattedPlayers.push({id: id, figure: figure, position: position})
         
             
@@ -114,7 +132,7 @@ function GameMap(props) {
             />
             <div>
                 {props.stations.map((station) =>
-                    <StationMarker myTurn={props.myTurn} possibleMoves={props.possibleMoves} onClickStation={makeMove} key={station.id} station={station} number={station.id} bounds={[station.stop_lat, station.stop_lon]}></StationMarker>
+                    <StationMarker resetFields={resetFields} myTurn={props.myTurn} possibleMoves={props.possibleMoves} onClickStation={makeMove} key={station.id} station={station} number={station.id} bounds={[station.stop_lat, station.stop_lon]}></StationMarker>
                 )}</div>
             {players.map((player) => <Marker key={player.id}
                 position={player.position}

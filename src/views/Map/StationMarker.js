@@ -28,13 +28,18 @@ export default function StationMarker(props) {
             setCircleRadius(15)
             setCircleKey(circleKey+1)
         }
-        if(!props.myTurn){
+
+        
+    },[props.possibleMoves, props.myTurn])
+
+    useEffect(()=>{
+       
             setCircleColor("transparent")
             setCircleRadius(15)
             setCircleKey(circleKey+1)
-        }
+
         
-    },[props.possibleMoves, props.myTurn])
+    }, [props.resetFields])
 
     useEffect(()=>{
     if(props.station["reachable_by_bus"].length>0&&props.station["reachable_by_tram"].length>0){

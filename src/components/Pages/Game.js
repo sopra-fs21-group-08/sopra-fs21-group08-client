@@ -45,11 +45,9 @@ const Game = () => {
             //console.log("USERID")
             //console.log(userId)
             if(currentPlayerId === userId){
-        
                 setMyTurn(true)
             }else{
                 setMyTurn(false)
-                setPossibleMoves([])
             }
             setGameStatus(gameInfo);
         };
@@ -122,6 +120,11 @@ const Game = () => {
     }
    }
 
+   const movesClearer = ()=>{
+    setPossibleMoves([])
+}
+
+
     return (
         <>
             <Container style={{ position: "absolute", zIndex: 1000 }} fluid>
@@ -142,7 +145,7 @@ const Game = () => {
                 <Rules/>
             </Container>
             {players.length>0&&stations.length>0&&playerClass!=null&&Object.keys(gameStatus).length>0&&
-            <Map selectedTicket={selectedTicket} playerClass={playerClass} makeMove={makeMove} myTurn={myTurn} possibleMoves={possibleMoves} stations={stations} players={players} gameStatus={gameStatus} />}
+            <Map  movesClearer={movesClearer} selectedTicket={selectedTicket} playerClass={playerClass} makeMove={makeMove} myTurn={myTurn} possibleMoves={possibleMoves} stations={stations} players={players} gameStatus={gameStatus} />}
             
         </>
     )
