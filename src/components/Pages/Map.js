@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import 'leaflet/dist/leaflet.css';
 import L, { bounds } from 'leaflet';
-import { MapContainer, SVGOverlay, WMSTileLayer, Circle, Marker, Polyline, AttributionControl } from 'react-leaflet'
+import { MapContainer, SVGOverlay, WMSTileLayer, Circle, Marker, Polyline, AttributionControl, useMap } from 'react-leaflet'
 import { figureTurquoise, figureBlack, figureBlue, figureRed, figureWhite, figureYellow } from '../../views/Map/Figure'
 import ChangeView from '../../views/Map/ChangeView'
 import StationMarker from '../../views/Map/StationMarker'
@@ -64,27 +64,8 @@ function GameMap(props) {
 
     }, [props.players, props.stations])
     
-    useEffect(()=>{
-        
-        if(props.possibleMoves.length>0){
-            console.log(props.possibleMoves)
-        }
 
-    },[props.possibleMoves])
-
-    useEffect(()=>{
-        if(props.myTurn&&oldStatus ===null&&gameStatus!==null&&typeof(gameStatus)!="undefined"){
-           setOldStatus(gameStatus)
-           var position = props.stations.find((station)=>station.id===gameStatus.currentPlayer.stationId)
-           position = [position.stop_lat, position.stop_lon]
-           setCenter(position)
-           setZoom(16)
-           setOldStatus(gameStatus)
-           setMapKey(mapKey+1)
-           
-        }
- 
-     },[gameStatus, props.myTurn])
+    
  
      useEffect(()=>{
          setOldStatus(gameStatus)
@@ -93,10 +74,31 @@ function GameMap(props) {
  
      },[props.gameStatus])
 
+     useEffect(()=>{
+         console.log(props.myTurn)
+        
+        if(props.myTurn){
+            
+            
+           setOldStatus(gameStatus)
+           var position = props.stations.find((station)=>station.id===props.gameStatus.currentPlayer.stationId)
+           position = [position.stop_lat, position.stop_lon]
+         
+            setCenter(position)
+           setZoom(16)
+           setOldStatus(gameStatus)
+           //setMapKey(mapKey+1)
+           
+           
+        }
+ 
+     },[props.myTurn])
+
 
 
     return (
         <MapContainer center={center} key={mapKey} attributionControl={false} transparent={true} zoom={zoom} style={{ height: "100vh" }} scrollWheelZoom={true}>
+           <ChangeView center={center} zoom={zoom} myTurn={props.myTurn} />
             <WMSTileLayer
                 layers={["ortho_s"]}
                 format="image/png"

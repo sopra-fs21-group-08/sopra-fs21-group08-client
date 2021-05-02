@@ -12,7 +12,7 @@ const Game = () => {
     const [players, setPlayers] = useState([])
     const [gameStatus, setGameStatus] = useState({})
     const [possibleMoves, setPossibleMoves] = useState([])
-    const [myTurn, setMyTurn] = useState(false)
+    const [myTurn, setMyTurn] = useState(null)
     const [amIMrX, setAmIMrX] = useState(false)
     const [selectedTicket, setSelectedTicket] = useState(null)
     const [playerClass, setPlayerClass] = useState(null)
@@ -38,8 +38,12 @@ const Game = () => {
         const fetchGameStatus = async () => {
             const response = await api.get('/games/'+ id + '/status', {headers:{'Authorization':  `Basic ${token}`}}); 
             const gameInfo = response.data;
-            const currentPlayerId = gameStatus.currentPlayer&&gameStatus.currentPlayer.user&&gameStatus.currentPlayer.user.userId
+            const currentPlayerId = gameInfo.currentPlayer&&gameInfo.currentPlayer.user&&gameInfo.currentPlayer.user.userId
+            //console.log(currentPlayerId)
+            //console.log("USERID")
+            //console.log(userId)
             if(currentPlayerId === userId){
+        
                 setMyTurn(true)
             }else{
                 setMyTurn(false)
@@ -64,10 +68,10 @@ const Game = () => {
             setPlayers(players);
             const userId = parseInt(localStorage.getItem("userId"));
             const mrXId = players&&players[0].user&&players[0].user.usedId
-            console.log("Mr X" + mrXId)
-            console.log("Mr userId" + userId)
+            //console.log("Mr X" + mrXId)
+            //console.log("Mr userId" + userId)
             if(mrXId === userId){
-                console.log('you are mr x')
+                //console.log('you are mr x')
                 setAmIMrX(true)
             }
         };
@@ -98,9 +102,9 @@ const Game = () => {
        const url = '/games/'+id+'/moves/'+userId;
        try{
        const response = await api.post(url, {ticket: ticketToMove, to: fieldId}, {headers:{'Authorization': 'adsfa'}})
-       console.log(response)
+       //console.log(response)
     }catch(error){
-        console.log(error)
+        //console.log(error)
     }
    }
 
