@@ -48,6 +48,7 @@ const Game = () => {
                 setMyTurn(true)
             }else{
                 setMyTurn(false)
+                setPossibleMoves([])
             }
             setGameStatus(gameInfo);
         };

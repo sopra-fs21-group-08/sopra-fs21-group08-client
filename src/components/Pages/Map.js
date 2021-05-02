@@ -55,7 +55,7 @@ function GameMap(props) {
             if(player.playerClass=="DETECTIVE"||props.playerClass=="MRX"|| props.gameStatus.mrXVisible){
                 position = props.stations.find(station => station.id===player.stationId)
                 position = [position.stop_lat, position.stop_lon]
-                if(player.playerClass=="DETECTIVE"&&props.gameStatus.mrXVisible){
+                if(props.playerClass=="DETECTIVE"&&props.gameStatus.mrXVisible){
                     setLastMrXPosition(position)
                 }
             }else{
