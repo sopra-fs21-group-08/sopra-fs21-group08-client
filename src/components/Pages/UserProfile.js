@@ -22,6 +22,7 @@ import User from '../shared/models/User';
 function UserProfile() {
 
     const [user, setuser] = useState([]);
+    const [lobbyId, setlobbyId] = useState([]);
 
     const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
@@ -49,7 +50,7 @@ function UserProfile() {
             setuser(user);
           }
           catch (error) {
-            alert(`Something went wrong while updating the user: \n${handleError(error)}`);
+            alert(`Something went wrong: \n${handleError(error)}`);
             localStorage.removeItem('token');
             localStorage.removeItem('userId');
             history.push('/login');
@@ -57,6 +58,37 @@ function UserProfile() {
       };
       fetchData();
     },[showEdit]);
+
+    useEffect(() =>
+    {
+      const checkifUserInLobby = async () => {
+          try{
+            const response = await api.get('/lobbies/'+ lobbyId);
+            console.log(response);
+            const players = response.data.users;
+            players.map(player => {
+              if(player.userId == localStorage.getItem("userId")){
+                  history.push('lobbies/' + lobbyId);
+              }
+            })
+          } catch (error) {
+
+          }
+      }
+      checkifUserInLobby();
+    }, [lobbyId]);
+
+    useEffect(() =>
+    {
+      const fetchlobbies = async () => {
+          const response = await api.get('/lobbies/');
+          const lobbies = response.data;
+          lobbies.map(lobby => {
+            setlobbyId(lobby.lobbyId);
+          })
+      }
+      fetchlobbies();
+    }, []);
 
 
     const [inputusername, setusername] = useState(null);
