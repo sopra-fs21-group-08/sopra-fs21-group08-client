@@ -8,6 +8,7 @@ import Game from "../../Pages/Game";
 import Map from "../../Pages/Map";
 import Background from "../../../views/Background";
 import {Container, Row, Col} from "react-bootstrap";
+import { UserProfileGuard } from "../routeProtectors/UserProfileGuard";
 
 class GameRouter extends React.Component {
 
@@ -21,13 +22,14 @@ class GameRouter extends React.Component {
           exact
           path={`${this.props.base}/profile`}
         
-          render={() => 
-            <>
+          render={() =>
+            <UserProfileGuard>
             <Container style={{position: "absolute", zIndex: 10}} fluid>
             <UserProfile />
             </Container>
             <Background />
-            </>}
+            </UserProfileGuard>
+          }
         />
 
         <Route
