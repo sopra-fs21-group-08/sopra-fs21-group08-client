@@ -26,6 +26,11 @@ function GameMap(props) {
         console.log(station)
         console.log(props.selectedTicket)
         props.makeMove(station.id, props.selectedTicket)
+        const userId = parseInt(localStorage.getItem("userId"));
+        var newPlayers = players
+        var player = newPlayers.find((player)=>player.id===userId)
+        player.position = [station.stop_lat, station.stop_lon]
+        setPlayers(newPlayers)
 
     }
     useEffect(() => {
@@ -50,7 +55,7 @@ function GameMap(props) {
             if(player.playerClass=="DETECTIVE"||props.playerClass=="MRX"|| props.gameStatus.mrXVisible){
                 position = props.stations.find(station => station.id===player.stationId)
                 position = [position.stop_lat, position.stop_lon]
-                if(player.playerClass=="DETECTIVE"&&props.gameStatus.mrXVisible){
+                if(props.playerClass=="DETECTIVE"&&props.gameStatus.mrXVisible){
                     setLastMrXPosition(position)
                 }
             }else{
@@ -76,8 +81,10 @@ function GameMap(props) {
 
      useEffect(()=>{
          console.log(props.myTurn)
+         const currentPlayerId = props.gameStatus.currentPlayer&&props.gameStatus.currentPlayer.user&&props.gameStatus.currentPlayer.user.userId
+         const userId = parseInt(localStorage.getItem("userId"));
         
-        if(props.myTurn){
+        if(currentPlayerId===userId){
             
             
            setOldStatus(gameStatus)
@@ -107,7 +114,7 @@ function GameMap(props) {
             />
             <div>
                 {props.stations.map((station) =>
-                    <StationMarker possibleMoves={props.possibleMoves} onClickStation={makeMove} key={station.id} station={station} number={station.id} bounds={[station.stop_lat, station.stop_lon]}></StationMarker>
+                    <StationMarker myTurn={props.myTurn} possibleMoves={props.possibleMoves} onClickStation={makeMove} key={station.id} station={station} number={station.id} bounds={[station.stop_lat, station.stop_lon]}></StationMarker>
                 )}</div>
             {players.map((player) => <Marker key={player.id}
                 position={player.position}
