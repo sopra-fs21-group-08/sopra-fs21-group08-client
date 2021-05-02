@@ -4,6 +4,7 @@ import { Card, Form, Alert } from 'react-bootstrap';
 import ZButton from '../../views/design/ZButton'
 import Header from '../../views/Header'
 import { api } from '../../helpers/api';
+import Rules from '../../components/shared/Rules'
 import { useHistory, Link } from 'react-router-dom';
 function Register() {
     const [user, setUser] = useState({ username: null, password: null, controlPassword: null })
@@ -75,6 +76,7 @@ function Register() {
                     Do you already have an account? <Link to="/login">Login</Link>
                 </Card.Footer>
             </Card>
+            <Rules/>
         </div>
     )
 }

@@ -140,10 +140,6 @@ const Lobby = () => {
                                     <ZButton onClick={handleShowLeave}>
                                         Leave Game</ZButton>
                                 </Col>
-                                <Col>
-                                    <ZButton onClick={handleShow}>
-                                        Rules</ZButton>
-                                </Col>
                             </Row>
                         </Card.Footer>
         
@@ -178,6 +174,7 @@ const Lobby = () => {
         
                     </Card>
                     </center>
+                    <Rules/>
                     
                 </>
             )

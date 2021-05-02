@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../../views/game/Sidebar'
+import Rules from '../../components/shared/Rules'
 import Map from '../Pages/Map'
 import { Container, Modal, Button } from 'react-bootstrap'
 import { api, handleError } from '../../helpers/api';
@@ -138,9 +139,11 @@ const Game = () => {
                                 </Button>
                             </Modal.Footer>
                 </Modal>
+                <Rules/>
             </Container>
             {players.length>0&&stations.length>0&&playerClass!=null&&Object.keys(gameStatus).length>0&&
             <Map selectedTicket={selectedTicket} playerClass={playerClass} makeMove={makeMove} myTurn={myTurn} possibleMoves={possibleMoves} stations={stations} players={players} gameStatus={gameStatus} />}
+            
         </>
     )
 }

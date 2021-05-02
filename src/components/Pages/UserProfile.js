@@ -14,6 +14,7 @@ import avatar3 from '../../assets/img/avatar/avatar4.png'
 import avatar4 from '../../assets/img/avatar/avatar5.png'
 import avatar5 from '../../assets/img/avatar/avatar6.png'
 import avatar6 from '../../assets/img/avatar/avatar7.png'
+import Rules from '../../components/shared/Rules'
 import Background from '../../views/Background';
 import BackgroundImage from '../../assets/img/background/zurich_background.jpg'
 import { useHistory, Link, withRouter } from 'react-router-dom';
@@ -255,7 +256,7 @@ function UserProfile() {
             </Button>
           </Modal.Footer>
         </Modal>
-
+        <Rules/>
         </>
     )
 }
