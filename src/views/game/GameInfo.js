@@ -6,7 +6,7 @@ const GameInfo = ({gameStatus, amIMrX}) => {
     const mrXVisible = gameStatus.mrXVisible ? "visible" : "not visible"
     const userId = parseInt(localStorage.getItem("userId"));
     const currentPlayerID = gameStatus.currentPlayer&&gameStatus.currentPlayer.user&&gameStatus.currentPlayer.user.userId
-    const currentPlayer = currentPlayerID === userId ? "It's your turn" : {currentPlayerUsername} + " makes a move"
+    const currentPlayer = currentPlayerID === userId ? "It's your turn" : currentPlayerUsername + " makes a move"
 
 
     if (amIMrX){
