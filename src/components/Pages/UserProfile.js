@@ -59,38 +59,6 @@ function UserProfile() {
       fetchData();
     },[showEdit]);
 
-    useEffect(() =>
-    {
-      const checkifUserInLobby = async () => {
-          try{
-            const response = await api.get('/lobbies/'+ lobbyId);
-            console.log(response);
-            const players = response.data.users;
-            players.map(player => {
-              if(player.userId == localStorage.getItem("userId")){
-                  history.push('lobbies/' + lobbyId);
-              }
-            })
-          } catch (error) {
-
-          }
-      }
-      checkifUserInLobby();
-    }, [lobbyId]);
-
-    useEffect(() =>
-    {
-      const fetchlobbies = async () => {
-          const response = await api.get('/lobbies/');
-          const lobbies = response.data;
-          lobbies.map(lobby => {
-            setlobbyId(lobby.lobbyId);
-          })
-      }
-      fetchlobbies();
-    }, []);
-
-
     const [inputusername, setusername] = useState(null);
     const [inputlobby, setlobby] = useState(null);
 
