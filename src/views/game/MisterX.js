@@ -5,6 +5,7 @@ import { api, handleError } from '../../helpers/api';
 import { Accordion, Card, Row, Col } from 'react-bootstrap';
 
 import TransportButton from './TransportButton'
+import BlackBoard from './BlackBoard'
 import mrx from '../../assets/img/avatar/mrx.png'
 
 const styles = {
@@ -24,7 +25,7 @@ const styles = {
     }
 };
 
-const MisterX = ({player, isMoving, fetchPossibleMoves}) => {
+const MisterX = ({player, isMoving, fetchPossibleMoves, blackBoard}) => {
     var opacity = isMoving ? 1 : 0.5
     const { id } = useParams()
 
@@ -42,45 +43,7 @@ const MisterX = ({player, isMoving, fetchPossibleMoves}) => {
                     <Col>Mister X : {player.user.username}</Col>
                     </Row >
                 </Accordion.Toggle>
-                <Accordion.Collapse eventKey="0">
-                <Card.Body style={{paddingLeft: 10, paddingRight: 0, paddingTop: 5,paddingBottom: 5}}>
-                    <Row style={{fontSize: 10}} >
-                        <Col md="auto">
-                            <Card.Text>
-                                1. Bus
-                            </Card.Text>
-                        </Col>
-                        <Col md="auto">
-                            <Card.Text>
-                                2. Tram
-                            </Card.Text>
-                        </Col>
-                        <Col md="auto">
-                            <Card.Text>
-                                <b>3. Black</b>
-                            </Card.Text>
-                        </Col>
-                    </Row>
-                    <Row style={{fontSize: 10}} >
-                        <Col md="auto">
-                            <Card.Text>
-                                4. Tram
-                            </Card.Text>
-                        </Col>
-                        <Col md="auto">
-                            <Card.Text>
-                                5. Bus
-                            </Card.Text>
-                        </Col>
-                        <Col md="auto">
-                            <Card.Text>
-                                6. Tram
-                            </Card.Text>
-                        </Col>
-                    </Row>
-                    
-                </Card.Body>
-                </Accordion.Collapse>
+                <BlackBoard moves={blackBoard}  />
                 <Card.Footer style={{paddingRight: 0, paddingTop: 0,paddingBottom: 5}}>
                     <Row>
                         <Col md="auto" style={styles.col}>

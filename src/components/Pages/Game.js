@@ -16,6 +16,7 @@ const Game = () => {
     const [amIMrX, setAmIMrX] = useState(false)
     const [selectedTicket, setSelectedTicket] = useState(null)
     const [playerClass, setPlayerClass] = useState(null)
+    const [blackBoard, setBlackBoard] = useState([])
 
     // Fetches the stations from the backend
     useEffect(() => {
@@ -78,6 +79,17 @@ const Game = () => {
         fetchPlayers();
     }, [gameStatus]);
 
+    //fetch BlackBoard each time Players are updated
+   useEffect(() => {
+    const token = localStorage.getItem("token");
+    const fetchBlackBoard = async () => {
+        const response = await api.get('/games/'+ id +'/moves/blackboards', {headers:{'Authorization':  `Basic ${token}`}}); 
+        const blackboard = response.data;
+        setBlackBoard(blackboard);
+    };
+    fetchBlackBoard();
+}, [players]);
+
     // Check if Player is Mr. X or Detective
 
     useEffect(()=>{
@@ -111,7 +123,7 @@ const Game = () => {
     return (
         <>
             <Container style={{ position: "absolute", zIndex: 1000 }} fluid>
-                <Sidebar gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves} amIMrX={amIMrX} />
+                <Sidebar blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves} amIMrX={amIMrX} />
                 <Modal show={gameStatus.gameOver}>
                     <Modal.Header>
                         <Modal.Title>Game is over</Modal.Title>
