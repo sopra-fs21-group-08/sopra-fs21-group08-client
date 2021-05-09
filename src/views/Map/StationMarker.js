@@ -13,7 +13,7 @@ export default function StationMarker(props) {
     const [circleRadius, setCircleRadius] = useState(15)
     const [isActive, setIsActive] = useState(false)
     const calcBounds = (point)=>{
-        return [[point[0]-0.0002,point[1]-0.0002],[point[0]+0.0002,point[1]+0.0002]]
+        return [[point[0]-0.0006,point[1]-0.0006],[point[0]+0.0006,point[1]+0.0006]]
 
     }
     useEffect(()=>{
@@ -21,11 +21,11 @@ export default function StationMarker(props) {
         setIsActive(typeof(station)!="undefined")
         if(typeof(station)!="undefined"){
             setCircleColor("red")
-            setCircleRadius(20)
+            setCircleRadius(50)
             setCircleKey(circleKey+1)
         }else{
             setCircleColor("transparent")
-            setCircleRadius(15)
+            setCircleRadius(40)
             setCircleKey(circleKey+1)
         }
 
@@ -35,7 +35,7 @@ export default function StationMarker(props) {
     useEffect(()=>{
        
             setCircleColor("transparent")
-            setCircleRadius(15)
+            setCircleRadius(50)
             setCircleKey(circleKey+1)
 
         
