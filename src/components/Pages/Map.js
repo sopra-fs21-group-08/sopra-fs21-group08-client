@@ -84,6 +84,7 @@ function GameMap(props) {
             
         })
         setPlayers(formattedPlayers)
+        console.log("setPlayers")
 
     }, [props.players, props.stations])
     
@@ -132,16 +133,16 @@ function GameMap(props) {
             />
             <div>
                 {props.stations.map((station) =>
-                    <StationMarker resetFields={resetFields} myTurn={props.myTurn} possibleMoves={props.possibleMoves} onClickStation={makeMove} key={station.id} station={station} number={station.id} bounds={[station.stop_lat, station.stop_lon]}></StationMarker>
+                    <StationMarker resetFields={resetFields} myTurn={false} possibleMoves={props.possibleMoves} onClickStation={makeMove} key={"station-"+station.id} station={station} number={station.id} bounds={[station.stop_lat, station.stop_lon]}></StationMarker>
                 )}</div>
-            {players.map((player) => <Marker key={player.id}
+            {players.map((player) => <Marker key={"players-"+player.id}
                 position={player.position}
                 icon={player.figure}
             >
             </Marker>)}
 
 
-            {Object.keys(rts).map((route, index) => <Polyline key={index} pathOptions={{ color: rts[route].color }} positions={routes[route].positions} />)}
+            {Object.keys(rts).map((route, index) => <Polyline key={"polyline-"+index} pathOptions={{ color: rts[route].color }} positions={routes[route].positions} />)}
         </MapContainer>
     )
 }

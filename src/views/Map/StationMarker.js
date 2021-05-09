@@ -1,8 +1,10 @@
+
 import React,{useState, useEffect} from 'react'
-import { SVGOverlay, Circle} from 'react-leaflet'
+import { SVGOverlay, Circle, Popup, Marker} from 'react-leaflet'
 
 export default function StationMarker(props) {
     const [bounds, setBounds] = useState(null);
+    const [popupVisibility, setPopupVisibility] = useState(false);
     const [colorScheme, setColorScheme] = useState({
         top: null,
         middle: null,
@@ -53,10 +55,18 @@ export default function StationMarker(props) {
     }
     },[])
 
+    const showPopup = ()=>{
+        setPopupVisibility(true)
+        console.log("Setvisible")
+
+    }
+
     
     
     return (
-        <Circle center={props.bounds}  radius={circleRadius} key={circleKey} eventHandlers={{click:()=>{if(isActive){props.onClickStation(props.station)}}}} pathOptions={{fillColor: circleColor, stroke: false}}>
+        <>
+        
+        <Circle center={props.bounds}  radius={circleRadius} key={"circ-"+props.station.id+"-"+circleKey} eventHandlers={{click:()=>{if(isActive){props.onClickStation(props.station)}}, mouseover:showPopup}} pathOptions={{fillColor: circleColor, stroke: false}}>
         <SVGOverlay attributes={{viewBox: "0 0 28.4 28.4"}} bounds={calcBounds(props.bounds)} eventHandlers={{click:()=>{console.log("Test")}}} >
                 <path className="st0" style={colorScheme.top} d="M26.9,14.2c0-7-5.7-12.8-12.8-12.8S1.4,7.1,1.4,14.2H26.9z" />
                 <path className="st1" style={colorScheme.bottom} d="M1.4,14.2c0,7,5.7,12.8,12.8,12.8s12.8-5.7,12.8-12.8H1.4z" />
@@ -65,6 +75,7 @@ export default function StationMarker(props) {
                 <text transform="matrix(1 0 0 1 5.697 17.7227)" className="st4 st5"> {props.number} </text>
             </SVGOverlay>
             </Circle>
+            </>
            
     )
 }

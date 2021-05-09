@@ -18,6 +18,7 @@ const Game = () => {
     const [selectedTicket, setSelectedTicket] = useState(null)
     const [playerClass, setPlayerClass] = useState(null)
     const [blackBoard, setBlackBoard] = useState([])
+    const [turnUserId, setTurnUserId] = useState(0)
 
     // Fetches the stations from the backend
     useEffect(() => {
@@ -36,7 +37,6 @@ const Game = () => {
     //fetch Game Status every second
     useEffect(() => {
         const token = localStorage.getItem("token");
-        const userId = parseInt(localStorage.getItem("userId"));
         const fetchGameStatus = async () => {
             const response = await api.get('/games/'+ id + '/status', {headers:{'Authorization':  `Basic ${token}`}}); 
             const gameInfo = response.data;
@@ -44,10 +44,9 @@ const Game = () => {
             //console.log(currentPlayerId)
             //console.log("USERID")
             //console.log(userId)
-            if(currentPlayerId === userId){
-                setMyTurn(true)
-            }else{
-                setMyTurn(false)
+            
+            if(gameInfo.currentPlayer.user.userId!==turnUserId){
+                setTurnUserId(gameInfo.currentPlayer.user.userId)
             }
             setGameStatus(gameInfo);
         };
@@ -77,7 +76,13 @@ const Game = () => {
             }
         };
         fetchPlayers();
-    }, [gameStatus]);
+        const userId = parseInt(localStorage.getItem("userId"));
+        if(turnUserId === userId){
+            setMyTurn(true)
+        }else{
+            setMyTurn(false)
+        }
+    }, [turnUserId]);
 
     //fetch BlackBoard each time Players are updated
    useEffect(() => {
