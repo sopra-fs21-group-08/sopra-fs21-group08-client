@@ -67,6 +67,18 @@
   background-color: #6692ff;
 }
 
+.profilebutton {
+  border-color: #0F05A0;
+  color: #0F05A0;
+  border-radius: 1rem;
+}
+
+.profilebutton:hover {
+  border-color: #0F05A0;
+  background-color: #0F05A0;
+  color: white;
+}
+
 
 
 /* Background colors of Zurich */

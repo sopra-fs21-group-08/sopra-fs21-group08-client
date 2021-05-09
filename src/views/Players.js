@@ -47,8 +47,8 @@ const Players = () => {
   const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6]
   return (
           <div>
-            <Card className="hcenter" style={{ width: '27rem', height: '29rem', margin: '0.5rem' }}>
-                <Card.Header style={{fontSize: 28}} className="zbg-1">
+            <Card className="hcenter" style={{ width: '27rem', height: '29rem', margin: '0.5rem',  borderColor: '#0F05A0', borderRadius: '1rem', webkitFilter: 'drop-shadow(5px 5px 5px #222)', filter: 'drop-shadow(5px 5px 5px #222)' }}>
+                <Card.Header style={{fontSize: 28, borderTopLeftRadius: '1rem', borderTopRightRadius: '1rem', backgroundColor:'white', color:'#0F05A0'}}>
                    Other Players
                 </Card.Header>
               <Card.Body style={{overflowY: 'scroll'}}>
@@ -59,7 +59,7 @@ const Players = () => {
                  if(user.status == "ONLINE" && user.userId != localStorage.getItem('userId')) {
                    return(
                    <Col xs={4}>
-                    <Card.Img variant="top" src={avatar[user.userId%7]} />
+                    <Card.Img variant="top" style={{webkitFilter: 'drop-shadow(2px 2px 2px #222)', filter: 'drop-shadow(5px 5px 5px #222)'}} src={avatar[user.userId%7]} />
                     <div className='mt-2'>
                     </div>
                     {user.username}
@@ -71,7 +71,7 @@ const Players = () => {
                  else if(user.userId != localStorage.getItem('userId')) {
                    return(
                    <Col xs={4}>
-                    <Card.Img variant="top" src={avatar[user.userId%7]} style={{ opacity: 0.3 }}/>
+                    <Card.Img variant="top" style={{webkitFilter: 'drop-shadow(5px 5px 5px #222)', filter: 'drop-shadow(5px 5px 5px #222)', Overflow: 'visible', opacity: 0.3}} src={avatar[user.userId%7]} />
                     <div className='mt-2'>
                     </div>
                     <div style={{ opacity: 0.3 }}>

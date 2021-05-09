@@ -113,17 +113,17 @@ function UserProfile() {
         <center>
         <Container style={{ margin: '0rem'}}>
 
-        <CardDeck  className='mt-5'>
+        <CardDeck  className='mt-5' style={{webkitFilter: 'drop-shadow(5px 5px 5px #222)', filter: 'drop-shadow(5px 5px 5px #222)'}}>
           <Col>
-          <Card className="hcenter" style={{ width: '27rem', height: '29rem', margin: '0.5rem' }}>
-          <Card.Header style={{fontSize: 28}} className="zbg-1">
+          <Card className="hcenter" style={{ width: '27rem', height: '29rem', margin: '0.5rem', borderRadius: '1rem', webkitFilter: 'drop-shadow(5px 5px 5px #222)', filter: 'drop-shadow(5px 5px 5px #222)' }}>
+          <Card.Header style={{fontSize: 28, borderTopLeftRadius: '1rem', borderTopRightRadius: '1rem', backgroundColor:'white', }} className="zbg-5">
            {user.username}
           </Card.Header>
           <div className='ml-3'>
           <div className='mt-3'>
             <Row>
               <Col>
-              <Card.Img variant="top" src={avatar[user.userId%7]} />
+              <Card.Img variant="top" style={{webkitFilter: 'drop-shadow(2px 2px 2px #222)', filter: 'drop-shadow(5px 5px 5px #222)'}} src={avatar[user.userId%7]} />
               </Col>
               <Col>
               </Col>
@@ -134,12 +134,12 @@ function UserProfile() {
                 }}>
                   <Row>
                     <Col> <center>
-                    <Button onClick={ShowEdit} variant="light" size="sm" style={{ width: '7rem', height: '2rem', margin: '0.3rem' }}>
+                    <Button onClick={ShowEdit} variant="light" size="sm" style={{ width: '7rem', height: '2rem', margin: '0.3rem', borderRadius: '1rem', boxShadow: '1px 1px 2px grey' }}>
                     Edit Profile
                     </Button>
                     </center> </Col>
                     <Col> <center>
-                    <Button  onClick={handleShow} variant="light" size="sm" style={{ width: '7rem', height: '2rem', margin: '0.3rem' }}>
+                    <Button  onClick={handleShow} variant="light" size="sm" style={{ width: '7rem', height: '2rem', margin: '0.3rem', borderRadius: '1rem', boxShadow: '1px 1px 2px grey' }}>
                     LOG OUT
                     </Button>
                     </center> </Col>
@@ -152,7 +152,7 @@ function UserProfile() {
             <div className='mt-4'>
             <div className='ml-3'>
             <div className='mr-3'>
-            <Card.Body className="zbg-5">
+            <Card.Body className="zbg-5" style={{borderRadius: '1rem', boxShadow: '0px 0px 1px #0F05A0'}}>
               <Card.Text style={{textAlign: "left"}}>
                 <Col>
                   <p style={{fontWeight: "bold"}}>Games played: </p>
@@ -164,10 +164,10 @@ function UserProfile() {
             </div>
             </div>
             <Card.Body/>
-              <Card.Footer className="zbg-1">
+              <Card.Footer style={{borderRadius: '1rem'}}>
                 <Row>
-                  <Col> <ZButton onClick={ShowRoom}>Create Game</ZButton> </Col>
-                  <Col> <ZButton onClick={ShowJoinRoom} >Join Game</ZButton> </Col>
+                  <Col> <Button variant="outline-primary" className='profilebutton' onClick={ShowRoom}>Create Game</Button> </Col>
+                  <Col> <Button variant="outline-primary" className='profilebutton' onClick={ShowJoinRoom} >Join Game</Button> </Col>
                 </Row>
               </Card.Footer>
           </Card>
