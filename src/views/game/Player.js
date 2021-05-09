@@ -48,13 +48,13 @@ const Player = ({ player, color, isMoving=false, fetchPossibleMoves }) => {
                     </Row>
                     <Row >
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.tram} id={player.user.userId} onClick={() => fetchPossibleMoves(player.user.userId, "TRAM")}>Tram : </TransportButton>
+                            <TransportButton number={player.wallet.tram} id={player.user.userId} isMoving={isMoving} onClick={() => fetchPossibleMoves(player.user.userId, "TRAM")}>Tram : </TransportButton>
                         </Col>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.bus} id={player.user.userId} onClick={() => fetchPossibleMoves(player.user.userId, "BUS")}>Bus : </TransportButton>
+                            <TransportButton number={player.wallet.bus} id={player.user.userId} isMoving={isMoving} onClick={() => fetchPossibleMoves(player.user.userId, "BUS")}>Bus : </TransportButton>
                         </Col>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.train} id={player.user.userId} onClick={() => fetchPossibleMoves(player.user.userId, "TRAIN")}>Train : </TransportButton>
+                            <TransportButton number={player.wallet.train} id={player.user.userId} isMoving={isMoving} onClick={() => fetchPossibleMoves(player.user.userId, "TRAIN")}>Train : </TransportButton>
                         </Col>
                     </Row>
                     

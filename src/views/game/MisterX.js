@@ -47,13 +47,13 @@ const MisterX = ({player, isMoving, fetchPossibleMoves, blackBoard}) => {
                 <Card.Footer style={{paddingRight: 0, paddingTop: 0,paddingBottom: 5}}>
                     <Row>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.tram} id={player.user.userId} onClick={() => fetchPossibleMoves(player.user.userId, "TRAM")}>Tram : </TransportButton>
+                            <TransportButton number={player.wallet.tram} id={player.user.userId} isMoving={isMoving} onClick={() => fetchPossibleMoves(player.user.userId, "TRAM")}>Tram : </TransportButton>
                         </Col>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.bus} id={player.user.userId} onClick={() => fetchPossibleMoves(player.user.userId, "BUS")}>Bus : </TransportButton>
+                            <TransportButton number={player.wallet.bus} id={player.user.userId} isMoving={isMoving} onClick={() => fetchPossibleMoves(player.user.userId, "BUS")}>Bus : </TransportButton>
                         </Col>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.train} id={player.user.userId} onClick={() => fetchPossibleMoves(player.user.userId, "TRAIN")}>Train : </TransportButton>
+                            <TransportButton number={player.wallet.train} id={player.user.userId} isMoving={isMoving} onClick={() => fetchPossibleMoves(player.user.userId, "TRAIN")}>Train : </TransportButton>
                         </Col>
                     </Row>
                     <Row className="justify-content-md-center">
