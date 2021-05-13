@@ -8,7 +8,8 @@ export default function StationMarker(props) {
     const [colorScheme, setColorScheme] = useState({
         top: null,
         middle: null,
-        bottom: null
+        bottom: null,
+        font: {fill: "#000000"}
     });
     const [circleKey, setCircleKey]= useState(1)
     const [circleColor, setCircleColor] = useState("transparen")
@@ -44,20 +45,34 @@ export default function StationMarker(props) {
     }, [props.resetFields])
 
     useEffect(()=>{
-    if(props.station["reachable_by_bus"].length>0&&props.station["reachable_by_tram"].length>0){
+    if(props.station["reachable_by_bus"].length>0&&props.station["reachable_by_tram"].length>0&&props.station["reachable_by_train"].length>0){
+        setColorScheme({...colorScheme, top:{fill: "#F4E72D"}, middle:{fill: '#FF0000'}, font:{fill: '#FFFFFF'}, bottom: {fill: "#3299CC"}})
+    }
+    else if(props.station["reachable_by_bus"].length>0&&props.station["reachable_by_tram"]){
         setColorScheme({...colorScheme, top:{fill: "#F4E72D"}, bottom: {fill: "#3299CC"}})
+
+    }
+    else if(props.station["reachable_by_tram"].length>0&&props.station["reachable_by_train"].length>0){
+        setColorScheme({...colorScheme, top:{fill: "#3299CC"}, middle:{fill: '#FF0000'}, font:{fill: '#FFFFFF'}, bottom: {fill: "#3299CC"}})
+
+    }else if(props.station["reachable_by_bus"].length>0&&props.station["reachable_by_train"].length>0){
+        setColorScheme({...colorScheme, top:{fill: "#F4E72D"}, middle:{fill: '#FF0000'}, font:{fill: '#FFFFFF'}, bottom: {fill: "#F4E72D"}})
+
     }else if(props.station["reachable_by_bus"].length>0){
         setColorScheme({...colorScheme, top:{fill: "#F4E72D"}, bottom: {fill: "#F4E72D"}})
 
     }else if(props.station["reachable_by_tram"].length>0){
         setColorScheme({...colorScheme, top:{fill: "#3299CC"}, bottom: {fill: "#3299CC"}})
 
+    }else if(props.station["reachable_by_train"].length>0){
+        setColorScheme({...colorScheme, top:{fill: "#FF0000"}, middle:{fill: '#FF0000'}, font:{fill: '#FFFFFF'}, bottom: {fill: "#FF0000"}})
     }
     },[])
 
     const showPopup = ()=>{
         setPopupVisibility(true)
-        console.log("Setvisible")
+        //console.log("Setvisible")
+        console.log(props.station.name)
 
     }
 
@@ -70,9 +85,9 @@ export default function StationMarker(props) {
         <SVGOverlay attributes={{viewBox: "0 0 28.4 28.4"}} bounds={calcBounds(props.bounds)} eventHandlers={{click:()=>{console.log("Test")}}} >
                 <path className="st0" style={colorScheme.top} d="M26.9,14.2c0-7-5.7-12.8-12.8-12.8S1.4,7.1,1.4,14.2H26.9z" />
                 <path className="st1" style={colorScheme.bottom} d="M1.4,14.2c0,7,5.7,12.8,12.8,12.8s12.8-5.7,12.8-12.8H1.4z" />
-                <rect x="4.7" y="7.8" className="st2" width="18.9" height="12.8" />
+                <rect x="4.7" y="7.8" className="st2" style={colorScheme.middle} width="18.9" height="12.8" />
                 <rect x="5.7" y="10.6" className="st3" width="17" height="7.2" />
-                <text transform="matrix(1 0 0 1 5.697 17.7227)" className="st4 st5"> {props.number} </text>
+                <text transform="matrix(1 0 0 1 5.697 17.7227)" className="st4 st5" style={colorScheme.font}> {props.number} </text>
             </SVGOverlay>
             </Circle>
             </>
