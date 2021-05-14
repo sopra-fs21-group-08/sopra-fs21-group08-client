@@ -25,8 +25,8 @@ export const gameStatus = {
 
 export const player ={
     "user": {
-        "userId": 9,
-        "username": "e",
+        "userId": 2,
+        "username": "test_user",
         "status": "ONLINE",
         "dob": null,
         "creationDate": "2021-04-30"
