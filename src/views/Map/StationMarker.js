@@ -25,11 +25,11 @@ export default function StationMarker(props) {
         if(typeof(station)!="undefined"){
             setCircleColor("red")
             setCircleRadius(50)
-            setCircleKey(circleKey+1)
+            //setCircleKey(circleKey+1)
         }else{
             setCircleColor("transparent")
             setCircleRadius(40)
-            setCircleKey(circleKey+1)
+            //setCircleKey(circleKey+1)
         }
 
         
@@ -85,9 +85,12 @@ export default function StationMarker(props) {
         <SVGOverlay attributes={{viewBox: "0 0 28.4 28.4"}} bounds={calcBounds(props.bounds)} eventHandlers={{click:()=>{console.log("Test")}}} >
                 <path className="st0" style={colorScheme.top} d="M26.9,14.2c0-7-5.7-12.8-12.8-12.8S1.4,7.1,1.4,14.2H26.9z" />
                 <path className="st1" style={colorScheme.bottom} d="M1.4,14.2c0,7,5.7,12.8,12.8,12.8s12.8-5.7,12.8-12.8H1.4z" />
+                <g>
                 <rect x="4.7" y="7.8" className="st2" style={colorScheme.middle} width="18.9" height="12.8" />
-                <rect x="5.7" y="10.6" className="st3" width="17" height="7.2" />
-                <text transform="matrix(1 0 0 1 5.697 17.7227)" className="st4 st5" style={colorScheme.font}> {props.number} </text>
+                <text text-anchor="middle" alignment-baseline="central" className="st4 st5" style={colorScheme.font}><tspan x="13.7" y="17.5">{props.number}</tspan> </text>
+                </g>
+                <rect x="5.7" y="10.6" className="st3" width="17" height="7.2"></rect>
+                
             </SVGOverlay>
             </Circle>
             </>
