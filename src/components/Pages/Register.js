@@ -37,8 +37,16 @@ function Register() {
     return (
         <div>
             <Header />
-            <Card className="hcenter zborder">
-                <Card.Header className="zbg-1">Register</Card.Header>
+            <div style={{
+                 display: 'flex',
+                 alignItems: 'center',
+                 justifyContent: 'center',
+                 marginTop: '3rem'
+             }}>
+            <Card className="hcenter">
+              <Card.Header style={{fontSize: '1.3rem', borderTopLeftRadius: '24px', borderTopRightRadius: '24px', background: 'white', border: 'none'}}>
+                <center style={{fontSize: '2.5rem'}}> Register </center>
+              </Card.Header>
                 <Card.Body>
                     {alert.display && <Alert variant="danger">{alert.message}</Alert>}
                     <Form>
@@ -68,14 +76,16 @@ function Register() {
                                 Your password doesn't match
                             </Form.Control.Feedback>}
                         </Form.Group>
-                        <ZButton disabled={!user.username || !user.password || !user.controlPassword} onClick={register}>Register</ZButton>
-
+                        <div className="mt-4">
+                        <ZButton style={{width: '7rem'}} disabled={!user.username || !user.password || !user.controlPassword} onClick={register}>Register</ZButton>
+                        </div>
                     </Form>
                 </Card.Body>
-                <Card.Footer className="zbg-1">
-                    Do you already have an account? <Link to="/login">Login</Link>
+                <Card.Footer style={{fontSize: '1.1rem', borderBottomLeftRadius: '24px', borderBottomRightRadius: '24px', background: 'white', border: 'none'}}>
+                    <center>Do you already have an account? <Link to="/login">Login</Link></center>
                 </Card.Footer>
             </Card>
+            </div>
             <Rules/>
         </div>
     )

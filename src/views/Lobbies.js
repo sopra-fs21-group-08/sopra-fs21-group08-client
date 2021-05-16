@@ -47,9 +47,9 @@ const Lobbies = () => {
       <>
       <div style={{paddingLeft: 10, paddingRight: 10}}>
        <Row style={{fontWeight: "bold"}}>
-         <Col xs="1">ID</Col>
-         <Col xs="4">Name</Col>
-         <Col xs="4">Players</Col>
+         <Col xs="2">ID</Col>
+         <Col xs="5">Name</Col>
+         <Col xs="2">Players</Col>
          <Col></Col>
        </Row>
       </div>
@@ -66,16 +66,16 @@ const Lobbies = () => {
            return(
            <Card className="mt-3" style={{paddingLeft: 10, paddingRight: 10, paddingBottom: 16}}>
            <Row className="mt-3">
-             <Col xs="1">{lobby.lobbyId}</Col>
-             <Col xs="4">{lobby.lobbyName}</Col>
+             <Col xs="2">{lobby.lobbyId}</Col>
+             <Col xs="5">{lobby.lobbyName}</Col>
              {(() => {
              if(lobby.gameStarted==true){
              return (
-               <Col xs="4">{lobby.amountOfUsers}/{lobby.amountOfUsers}</Col>
+               <Col xs="2">{lobby.amountOfUsers}/{lobby.amountOfUsers}</Col>
              )}
              else {
              return (
-               <Col xs="4">{lobby.amountOfUsers}/6</Col>
+               <Col xs="2">{lobby.amountOfUsers}/6</Col>
              )}
              })()}
              <Col>{lobby.gameStarted}</Col>

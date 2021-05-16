@@ -11,7 +11,7 @@ function Rules() {
 
     return (
         <div className='rules'>
-            <Button variant="secondary" onClick={handleShow}>Rules</Button>
+            <Button variant="light" onClick={handleShow}>Rules</Button>
 
             <Modal show={show} onHide={handleClose} size="lg">
                 <Modal.Header closeButton>

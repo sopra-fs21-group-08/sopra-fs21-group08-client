@@ -29,8 +29,16 @@ function Login() {
     return (
         <div>
             <Header />
+            <div style={{
+                 display: 'flex',
+                 alignItems: 'center',
+                 justifyContent: 'center',
+                 marginTop: '3rem'
+             }}>
             <Card className="hcenter">
-                <Card.Header className="zbg-1">Login</Card.Header>
+              <Card.Header style={{fontSize: '1.3rem', borderTopLeftRadius: '24px', borderTopRightRadius: '24px', background: 'white', border: 'none'}}>
+                <center style={{fontSize: '2.5rem'}}> Login </center>
+              </Card.Header>
                 <Card.Body>
                 {alert.display&&<Alert variant="danger">{alert.message}</Alert>}
                     <Form>
@@ -49,14 +57,17 @@ function Login() {
                             }}>
                             </Form.Control>
                         </Form.Group>
-                        <ZButton onClick={login}>Login</ZButton>
+                        <div className="mt-4">
+                        <ZButton style={{width: '7rem'}} onClick={login}>Login</ZButton>
+                        </div>
 
                     </Form>
                 </Card.Body>
-                <Card.Footer className="zbg-1">
-                    Don't have an account? <Link to="/register">Sign up</Link>
+                <Card.Footer style={{fontSize: '1.1rem', borderBottomLeftRadius: '24px', borderBottomRightRadius: '24px', background: 'white', border: 'none'}}>
+                    <center>Don't have an account? <Link to="/register">Sign up</Link> </center>
                 </Card.Footer>
             </Card>
+            </div>
             <Rules/>
         </div>
     )

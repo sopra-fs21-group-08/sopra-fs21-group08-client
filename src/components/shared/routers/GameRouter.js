@@ -24,7 +24,7 @@ class GameRouter extends React.Component {
         
           render={() =>
             <UserProfileGuard>
-            <Container style={{position: "absolute", zIndex: 10}} fluid>
+            <Container style={{position: "absolute", zIndex: 10 }} fluid>
             <UserProfile />
             </Container>
             <Background />

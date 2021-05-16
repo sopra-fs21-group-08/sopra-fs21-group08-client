@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect, useParams, useHistory } from 'react-router-dom';
-import { Card, Row, Col, Modal } from 'react-bootstrap'
+import { Card, Row, Col, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 import Header from '../../views/Header'
 import ZButton from '../../views/design/ZButton'
@@ -113,32 +113,48 @@ const Lobby = () => {
             return (
                 <>
                     <Header />
-                    <center>
-                    <Card className="hcenter">
-                        <Card.Header className="zbg-1">{lobbyName}</Card.Header>
-                        <Card.Body>
-                            <Card.Title>Game #{gameId}</Card.Title>
+                    <div style={{
+                         display: 'flex',
+                         alignItems: 'center',
+                         justifyContent: 'center',
+                         marginTop: '3rem'
+                     }}>
+                     <center>
+                    <Card className="soft-white" style={{ width: '32rem', height: '33rem', marginBottom: '3rem', flex: 1 }}>
+                        <Card.Header style={{fontSize: '1.3rem', borderTopLeftRadius: '24px', borderTopRightRadius: '24px', background: 'white', border: 'none'}}>
+                            <center style={{fontSize: '2.5rem'}}> {lobbyName} </center>
+                        </Card.Header>
+                        <Card.Body style={{marginTop:'-1rem'}}>
                             <Row>
                                 {players.map(player => (
                                         <Col key={player.userId} xs={4}>
                                             <Card.Img variant="top" src={avatar[player.userId%7]} />
                                             <div className='mt-2'>
                                             </div>
-                                            {player.username}
+                                            <div style={{fontSize: 20}}>
+                                              {player.username}
+                                            </div>
                                             <div className='mt-4'>
                                             </div>
                                         </Col>
                                 ))}
                             </Row>
-                            <Card.Text className="text-muted">{players.length} out of 6 players are in the lobby</Card.Text>
-                            <Card.Text className="text-muted">Minimum 3 players are needed to start game</Card.Text>
-                            <ZButton disabled={players.length < 3} onClick={startGame}>Start Game</ZButton>
+                            <Card.Text style={{marginTop:'8rem'}} className="text-muted">{players.length} out of 6 players are in the lobby</Card.Text>
                         </Card.Body>
-                        <Card.Footer className="zbg-1">
+                        <Card.Footer style={{borderBottomLeftRadius: '24px', borderBottomRightRadius: '24px'}}>
                             <Row>
                                 <Col>
                                     <ZButton onClick={handleShowLeave}>
                                         Leave Game</ZButton>
+                                </Col>
+                                <Col>
+                                  <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Minimum of 3 players are needed to start the game!</Tooltip>}>
+                                    <span className="d-inline-block">
+                                          <Button disabled className="zbutton" style={{ pointerEvents: 'none' }}>
+                                            Start Game
+                                          </Button>
+                                    </span>
+                                  </OverlayTrigger>
                                 </Col>
                             </Row>
                         </Card.Footer>
@@ -174,6 +190,7 @@ const Lobby = () => {
         
                     </Card>
                     </center>
+                    </div>
                     <Rules/>
                     
                 </>
