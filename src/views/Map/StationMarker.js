@@ -50,7 +50,7 @@ export default function StationMarker(props) {
     if(props.station["reachable_by_bus"].length>0&&props.station["reachable_by_tram"].length>0&&props.station["reachable_by_train"].length>0){
         setColorScheme({...colorScheme, top:{fill: "#F4E72D"}, middle:{fill: '#FF0000'}, font:{fill: '#FFFFFF'}, bottom: {fill: "#3299CC"}})
     }
-    else if(props.station["reachable_by_bus"].length>0&&props.station["reachable_by_tram"]){
+    else if(props.station["reachable_by_bus"].length>0&&props.station["reachable_by_tram"].length>0){
         setColorScheme({...colorScheme, top:{fill: "#F4E72D"}, bottom: {fill: "#3299CC"}})
 
     }
