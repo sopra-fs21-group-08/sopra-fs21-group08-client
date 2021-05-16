@@ -122,7 +122,7 @@ const Lobby = () => {
                      <center>
                     <Card className="soft-white" style={{ width: '32rem', height: '33rem', marginBottom: '3rem', flex: 1 }}>
                         <Card.Header style={{fontSize: '1.3rem', borderTopLeftRadius: '24px', borderTopRightRadius: '24px', background: 'white', border: 'none'}}>
-                            <center style={{fontSize: '2.5rem'}}> {lobbyName} </center>
+                            <center style={{fontSize: '2.1rem'}}> {lobbyName} </center>
                         </Card.Header>
                         <Card.Body style={{marginTop:'-1rem'}}>
                             <Row>
@@ -139,7 +139,7 @@ const Lobby = () => {
                                         </Col>
                                 ))}
                             </Row>
-                            <Card.Text style={{marginTop:'8rem'}} className="text-muted">{players.length} out of 6 players are in the lobby</Card.Text>
+                            <Card.Text style={{marginTop:'9rem'}} className="text-muted">{players.length} out of 6 players are in the lobby</Card.Text>
                         </Card.Body>
                         <Card.Footer style={{borderBottomLeftRadius: '24px', borderBottomRightRadius: '24px'}}>
                             <Row>
