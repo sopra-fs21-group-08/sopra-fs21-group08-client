@@ -31,6 +31,7 @@ export default function StationMarker(props) {
             setCircleRadius(40)
             //setCircleKey(circleKey+1)
         }
+        console.log("BAAAAAAM 1")
 
         
     },[props.possibleMoves, props.myTurn])
@@ -40,6 +41,7 @@ export default function StationMarker(props) {
             setCircleColor("transparent")
             setCircleRadius(50)
             setCircleKey(circleKey+1)
+            console.log("BAAAAAAM 2")
 
         
     }, [props.resetFields])
@@ -67,12 +69,15 @@ export default function StationMarker(props) {
     }else if(props.station["reachable_by_train"].length>0){
         setColorScheme({...colorScheme, top:{fill: "#FF0000"}, middle:{fill: '#FF0000'}, font:{fill: '#FFFFFF'}, bottom: {fill: "#FF0000"}})
     }
+    console.log("BAAAAAAM 3")
     },[])
 
-    const showPopup = ()=>{
-        setPopupVisibility(true)
-        //console.log("Setvisible")
-        console.log(props.station.name)
+    const showPopup = (event)=>{
+        if(event.type=="mouseover"){
+            setPopupVisibility(true)
+        }else{
+            setPopupVisibility(false)
+        }
 
     }
 
@@ -80,8 +85,10 @@ export default function StationMarker(props) {
     
     return (
         <>
-        
-        <Circle center={props.bounds}  radius={circleRadius} key={"circ-"+props.station.id+"-"+circleKey} eventHandlers={{click:()=>{if(isActive){props.onClickStation(props.station)}}, mouseover:showPopup}} pathOptions={{fillColor: circleColor, stroke: false}}>
+        {popupVisibility&&<Popup className="stationinfo" closeButton={false} position={props.bounds}>
+            <b>{props.station.name}</b>
+            </Popup>}
+        <Circle center={props.bounds}  radius={circleRadius} key={"circ-"+props.station.id+"-"+circleKey} eventHandlers={{click:()=>{if(isActive){props.onClickStation(props.station)}}, mouseout:showPopup, mouseover:showPopup }} pathOptions={{fillColor: circleColor, stroke: false}}>
         <SVGOverlay attributes={{viewBox: "0 0 28.4 28.4"}} bounds={calcBounds(props.bounds)} eventHandlers={{click:()=>{console.log("Test")}}} >
                 <path className="st0" style={colorScheme.top} d="M26.9,14.2c0-7-5.7-12.8-12.8-12.8S1.4,7.1,1.4,14.2H26.9z" />
                 <path className="st1" style={colorScheme.bottom} d="M1.4,14.2c0,7,5.7,12.8,12.8,12.8s12.8-5.7,12.8-12.8H1.4z" />

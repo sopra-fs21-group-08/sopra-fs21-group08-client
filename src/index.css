@@ -325,6 +325,19 @@ box-shadow:  20px 20px 60px #d9d9d9,
         border-radius: 50%;
     }
 }
+.leaflet-fade-anim .leaflet-popup {
+  transition: none!important;
+  transform: none;
+}
+.leaflet-popup  .leaflet-zoom-animated{
+  transition: none!important;
+  transform: none!important;
+}
+.stationinfo .leaflet-popup-content-wrapper {
+ border-radius: 3px;
+ padding: 3px;
+ margin-left: 0;
+}
 
 /* Styling vor SVG stations */
 .st0{fill:#F4E72D;stroke:#000000;stroke-width:0.25;stroke-miterlimit:10;}
