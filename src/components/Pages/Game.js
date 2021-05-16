@@ -139,7 +139,7 @@ const Game = () => {
                                 </Button>
                             </Modal.Footer>
                 </Modal>
-                <Rules/>
+                <Rules style={{top: "90%"}} />
             </Container>
             {players.length>0&&stations.length>0&&playerClass!=null&&Object.keys(gameStatus).length>0&&
             <Map  movesClearer={movesClearer} selectedTicket={selectedTicket} playerClass={playerClass} makeMove={makeMove} myTurn={myTurn} possibleMoves={possibleMoves} stations={stations} players={players} gameStatus={gameStatus} />}
