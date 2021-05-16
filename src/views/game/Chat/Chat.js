@@ -68,7 +68,7 @@ const Chat = () => {
                  </>
                  ))}
                 </div>
-                <Form>
+                <Form onSubmit={(e) => {e.preventDefault(); sendMessage();}}>
                     <Container style={{ width: '14rem', height: '2rem', marginBottom: '10px', marginTop: '10px', marginLeft: '-15px'}}>
                     <Row>
                     <Col sm='8'><Form.Control size="sm" style={{ width: '133px'}} id="myInput" onChange={event => setMessage(event.target.value)}>
