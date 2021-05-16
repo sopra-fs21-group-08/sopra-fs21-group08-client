@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../../views/game/Sidebar'
+import GameInfo from '../../views/game/GameInfo'
 import Rules from '../../components/shared/Rules'
 import Map from '../Pages/Map'
 import { Container, Modal, Button } from 'react-bootstrap'
@@ -8,13 +9,13 @@ import { api, handleError } from '../../helpers/api';
 
 const Game = () => {
     const { id } = useParams()
+    const userId = parseInt(localStorage.getItem("userId"));
 
     const [stations, setStations] = useState([])
     const [players, setPlayers] = useState([])
     const [gameStatus, setGameStatus] = useState({})
     const [possibleMoves, setPossibleMoves] = useState([])
     const [myTurn, setMyTurn] = useState(null)
-    const [amIMrX, setAmIMrX] = useState(false)
     const [selectedTicket, setSelectedTicket] = useState(null)
     const [playerClass, setPlayerClass] = useState(null)
     const [blackBoard, setBlackBoard] = useState([])
@@ -66,17 +67,9 @@ const Game = () => {
             const response = await api.get('/games/'+ id +'/players', {headers:{'Authorization':  `Basic ${token}`}}); 
             const players = response.data;
             setPlayers(players);
-            const userId = parseInt(localStorage.getItem("userId"));
-            const mrXId = players&&players[0].user&&players[0].user.usedId
-            //console.log("Mr X" + mrXId)
-            //console.log("Mr userId" + userId)
-            if(mrXId === userId){
-                //console.log('you are mr x')
-                setAmIMrX(true)
-            }
         };
         fetchPlayers();
-        const userId = parseInt(localStorage.getItem("userId"));
+        
         if(turnUserId === userId){
             setMyTurn(true)
         }else{
@@ -96,10 +89,8 @@ const Game = () => {
 }, [players]);
 
     // Check if Player is Mr. X or Detective
-
     useEffect(()=>{
-        const userId = parseInt(localStorage.getItem("userId"));
-        const player = players.find((player)=>player.user.userId==userId)
+        const player = players.find((player)=>player.user.userId===userId)
         if(typeof(player)!="undefined"){
             setPlayerClass(player.playerClass)
         }
@@ -125,15 +116,16 @@ const Game = () => {
     }
    }
 
-   const movesClearer = ()=>{
+    const movesClearer = ()=>{
     setPossibleMoves([])
-}
+    }
 
-
+    
     return (
         <>
             <Container style={{ position: "absolute", zIndex: 1000 }} fluid>
-                <Sidebar blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves} amIMrX={amIMrX} />
+                <GameInfo gameStatus={gameStatus} playerClass={playerClass}/>
+                <Sidebar blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves}/>
                 <Modal show={gameStatus.gameOver}>
                     <Modal.Header>
                         <Modal.Title>Game is over</Modal.Title>
@@ -158,22 +150,15 @@ const Game = () => {
 
 export default Game
 
-// player representation:
-// {
-//     "user": {
-//         "userId": 9,
-//         "username": "e",
-//         "status": "ONLINE",
-//         "dob": null,
-//         "creationDate": "2021-04-30"
-//     },
-//     "playerClass": "MRX",
-//     "stationId": 145,
-//     "wallet": {
-//         "bus": 10,
-//         "black": 2,
-//         "double": 2,
-//         "train": 10,
-//         "tram": 10
-//     }
-// },
+// TODO: 
+// fix amIMrX
+// TRANSPORT BUTTONS
+// add color to tickets corresponding to line color
+// RULES
+// change to slider
+// alert message when it's your turen
+// PLAYER CARDS
+// signify where your card is positioned
+// make transport buttongs of your card more distinguishable
+// GAME INFO
+// 

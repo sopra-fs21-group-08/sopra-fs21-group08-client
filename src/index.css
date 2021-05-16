@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-    margin: 50px;
+  margin: 50px;
 }
 
 .center{
@@ -15,12 +15,17 @@ body {
 }
 
 .sidebar{
-    position: fixed;
-    right: 270px;
-    height: 100%;
-    margin-top: 20px;
-    margin-right: -250px;
-    overflow-y: auto;
+  position: fixed;
+  right: 270px;
+  height: 100%;
+  margin-top: 20px;
+  margin-right: -250px;
+  overflow-y: auto;
+}
+
+.gameInfo{
+  width: 100%;
+  height: auto;
 }
 
 .rules{
@@ -37,6 +42,8 @@ body {
   background: #ffffff;
   box-shadow:  20px 20px 60px #4247aa,
                -20px -20px 60px #5a61e6;
+  position: fixed;
+  top: 150px;
 }
 
 .header{
@@ -57,12 +64,12 @@ body {
   width: 13rem;
 }
 
-
-
 .zbutton {
   background-color: #4e54c8;
   border-color: #080046;
   justify-content: center;
+  background-color: #0F05A0;
+  border-color: #080046;
 }
 
 .zbutton:hover{
@@ -76,38 +83,67 @@ body {
   background-color: #6692ff;
 }
 
-.profilebutton {
-  border-color: #0F05A0;
-  color: #0F05A0;
-  border-radius: 1rem;
+.smallFont{
+  font-size: small;
 }
 
-.profilebutton:hover {
-  border-color: #0F05A0;
-  background-color: #0F05A0;
-  color: white;
+.textCentred{
+  text-align: center;
 }
 
+.textLeftAllign{
+  text-align: left;
+  padding-left: 3px;
+}
+
+.textRightAllign{
+  text-align: right;
+  padding-right: 3px;
+}
+
+.textVerticalAlign{
+  margin: auto;
+}
+
+.smallImg{
+  height: 30px;
+  float: right;
+  padding-right: 15px;
+  padding-top: 20px;
+}
+
+.mediumImage{
+  height: 40px;
+  padding-top: 0px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+}
+
+.mediumImage:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
 
 
 /* Background colors of Zurich */
 
 .zbg-1{
-  background-color: #0F05A0;
-  color: white;
+background-color: #0F05A0;
+color: white;
 }
-
 .zbg-2{
-  background-color: #080046;
+background-color: #080046;
 }
 .zbg-3{
-  background-color: #6692ff;
+background-color: #6692ff;
 }
 .zbg-4{
-  background-color: #3631db;
+background-color: #3631db;
 }
 .zbg-5{
-  background-color: #c1d7ff;
+background-color: #c1d7ff;
 }
 
 /* Neumorphism styling for cards and buttons */
@@ -290,7 +326,6 @@ box-shadow:  20px 20px 60px #d9d9d9,
         opacity: 0;
         border-radius: 50%;
     }
-
 }
 
 /* Styling vor SVG stations */
