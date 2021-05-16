@@ -150,7 +150,7 @@ const Lobby = () => {
                                 <Col>
                                   <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Minimum of 3 players are needed to start the game!</Tooltip>}>
                                     <span className="d-inline-block">
-                                          <Button disabled className="zbutton" style={{ pointerEvents: 'none' }}>
+                                          <Button disabled={players.length < 3} className="zbutton" style={{ pointerEvents: 'none' }}>
                                             Start Game
                                           </Button>
                                     </span>
