@@ -3,14 +3,14 @@ import { Button, Modal } from 'react-bootstrap'
 
 import ZButton from '../../views/design/ZButton'
 
-function Rules() {
+function Rules(props) {
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     return (
-        <div className='rules'>
+        <div className='rules' style={props.style}>
             <Button variant="light" onClick={handleShow}>Rules</Button>
 
             <Modal show={show} onHide={handleClose} size="lg">

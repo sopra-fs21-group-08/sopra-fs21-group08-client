@@ -123,7 +123,7 @@ function GameMap(props) {
 
 
     return (
-        <MapContainer center={center} key={mapKey} attributionControl={false} transparent={true} zoom={zoom} style={{ height: "100vh" }} scrollWheelZoom={true}>
+        <MapContainer center={center} key={mapKey} attributionControl={false} transparent={true} zoom={zoom} style={{ height: "100vh" }} zoomControl={false} scrollWheelZoom={true}>
            <ChangeView center={center} zoom={zoom} myTurn={props.myTurn} />
             <WMSTileLayer
                 layers={["ortho_s"]}
