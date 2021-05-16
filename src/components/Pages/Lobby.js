@@ -147,15 +147,28 @@ const Lobby = () => {
                                     <ZButton onClick={handleShowLeave}>
                                         Leave Game</ZButton>
                                 </Col>
-                                <Col>
+                                  {(() => {
+                                  if(players.length < 3) {
+                                  return(
+                                  <Col>
                                   <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Minimum of 3 players are needed to start the game!</Tooltip>}>
                                     <span className="d-inline-block">
-                                          <Button disabled={players.length < 3} className="zbutton" style={{ pointerEvents: 'none' }}>
+                                          <Button disabled className="zbutton" style={{ pointerEvents: 'none' }}>
                                             Start Game
                                           </Button>
                                     </span>
                                   </OverlayTrigger>
-                                </Col>
+                                  </Col>
+                                  )}
+                                  else{
+                                  return(
+                                  <Col>
+                                  <Button className="zbutton" onClick={startGame}>
+                                    Start Game
+                                  </Button>
+                                  </Col>
+                                  )}
+                                  })()}
                             </Row>
                         </Card.Footer>
         
