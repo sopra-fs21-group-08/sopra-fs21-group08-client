@@ -7,7 +7,7 @@ import TransportButton from './TransportButton'
 import {avatars} from '../../views/design/Avatars'
 
 /* Testing */
-// import {player} from '../../assets/MockDTOs'
+import {player} from '../../assets/MockDTOs'
 
 const styles = {
     grid: {
@@ -24,8 +24,8 @@ const styles = {
     }
 };
 
-const Player = ({ player, color, isMoving=false, fetchPossibleMoves }) => {
-// const Player = ({ color=1, isMoving=true, fetchPossibleMoves }) => {
+// const Player = ({ player, color, isMoving=false, fetchPossibleMoves }) => {
+const Player = ({ color=1, isMoving=true, fetchPossibleMoves }) => {
     var opacity = isMoving ? 1 : 0.5
     const themes = ['primary','success','danger','warning','info']
     const playerId = player.user&&player.user.userId
@@ -51,13 +51,13 @@ const Player = ({ player, color, isMoving=false, fetchPossibleMoves }) => {
                     </Row>
                     <Row >
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.tram} id={player.user.userId} isMoving={isMoving} onClick={() => fetchPossibleMoves(player.user.userId, "TRAM")}>Tram : </TransportButton>
+                            <TransportButton number={player.wallet.tram} id={player.user.userId} isMoving={isMoving} onClick={() => fetchPossibleMoves(player.user.userId, "TRAM")}>Tram</TransportButton>
                         </Col>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.bus} id={player.user.userId} isMoving={isMoving} onClick={() => fetchPossibleMoves(player.user.userId, "BUS")}>Bus : </TransportButton>
+                            <TransportButton number={player.wallet.bus} id={player.user.userId} isMoving={isMoving} onClick={() => fetchPossibleMoves(player.user.userId, "BUS")}>Bus</TransportButton>
                         </Col>
                         <Col md="auto" style={styles.col}>
-                            <TransportButton number={player.wallet.train} id={player.user.userId} isMoving={isMoving} onClick={() => fetchPossibleMoves(player.user.userId, "TRAIN")}>Train : </TransportButton>
+                            <TransportButton number={player.wallet.train} id={player.user.userId} isMoving={isMoving} onClick={() => fetchPossibleMoves(player.user.userId, "TRAIN")}>Train</TransportButton>
                         </Col>
                     </Row>
                     
