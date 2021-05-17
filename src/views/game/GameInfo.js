@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Card, Row, Col, Navbar, Container } from 'react-bootstrap';
+import { Card, Row, Col } from 'react-bootstrap';
 
 import {avatars} from '../design/Avatars'
 import { api, handleError } from '../../helpers/api';

@@ -13,7 +13,7 @@ import Button from 'react-bootstrap/Button';
 import QuitButton from './QuitButton';
 import { useHistory, Link, withRouter } from 'react-router-dom';
 
-const Sidebar = ({gameStatus, players, fetchPossibleMoves, amIMrX, blackBoard }) => {
+const Sidebar = ({gameStatus, players, fetchPossibleMoves, blackBoard }) => {
   let history = useHistory();
   const handleClick = () => history.push('/game')
   const { id } = useParams()
@@ -21,7 +21,6 @@ const Sidebar = ({gameStatus, players, fetchPossibleMoves, amIMrX, blackBoard })
 
   return(
       <div className='sidebar'>
-          {/* <GameInfo gameStatus={gameStatus} amIMrX={amIMrX}/> */}
           <Chat />
           {players.map((player, index) => (
             <>

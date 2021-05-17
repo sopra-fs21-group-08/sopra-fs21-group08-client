@@ -1,11 +1,14 @@
-import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
+
+import { Container, Modal, Button } from 'react-bootstrap'
+import { api, handleError } from '../../helpers/api';
+
 import Sidebar from '../../views/game/Sidebar'
 import GameInfo from '../../views/game/GameInfo'
 import Rules from '../../components/shared/Rules'
 import Map from '../Pages/Map'
-import { Container, Modal, Button } from 'react-bootstrap'
-import { api, handleError } from '../../helpers/api';
+import TurnAlert from '../../views/game/TurnAlert'
 
 const Game = () => {
     const { id } = useParams()
@@ -126,6 +129,7 @@ const Game = () => {
             <Container style={{ position: "absolute", zIndex: 1000 }} fluid>
                 <GameInfo gameStatus={gameStatus} playerClass={playerClass}/>
                 <Sidebar blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves}/>
+                {myTurn && <TurnAlert/>}
                 <Modal show={gameStatus.gameOver}>
                     <Modal.Header>
                         <Modal.Title>Game is over</Modal.Title>
@@ -151,14 +155,9 @@ const Game = () => {
 export default Game
 
 // TODO: 
-// fix amIMrX
 // TRANSPORT BUTTONS
 // add color to tickets corresponding to line color
 // RULES
 // change to slider
-// alert message when it's your turen
 // PLAYER CARDS
-// signify where your card is positioned
 // make transport buttongs of your card more distinguishable
-// GAME INFO
-// 
