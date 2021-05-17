@@ -7,7 +7,7 @@ import TransportButton from './TransportButton'
 import {avatars} from '../../views/design/Avatars'
 
 /* Testing */
-import {player} from '../../assets/MockDTOs'
+// import {player} from '../../assets/MockDTOs'
 
 const styles = {
     grid: {
@@ -24,8 +24,8 @@ const styles = {
     }
 };
 
-// const Player = ({ player, color, isMoving=false, fetchPossibleMoves }) => {
-const Player = ({ color=1, isMoving=true, fetchPossibleMoves }) => {
+const Player = ({ player, color, isMoving=false, fetchPossibleMoves }) => {
+// const Player = ({ color=1, isMoving=true, fetchPossibleMoves }) => {
     var opacity = isMoving ? 1 : 0.5
     const themes = ['primary','success','danger','warning','info']
     const playerId = player.user&&player.user.userId
