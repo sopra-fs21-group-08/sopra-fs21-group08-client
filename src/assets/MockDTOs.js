@@ -1,3 +1,32 @@
+export const lobbyInfo = {
+        "lobbyId": 2,
+        "lobbyName": "2",
+        "gameStarted": true,
+        "users": [
+            {
+                "userId": 5,
+                "username": "soy",
+                "status": "ONLINE",
+                "dob": null,
+                "creationDate": "2021-05-18"
+            },
+            {
+                "userId": 4,
+                "username": "hey",
+                "status": "ONLINE",
+                "dob": null,
+                "creationDate": "2021-05-18"
+            },
+            {
+                "userId": 6,
+                "username": "kay",
+                "status": "ONLINE",
+                "dob": null,
+                "creationDate": "2021-05-18"
+            }
+        ]
+}
+
 export const gameStatus = {
     "gameId": 3,
     "currentPlayer": {

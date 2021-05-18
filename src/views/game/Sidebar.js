@@ -1,30 +1,24 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
-import { api, handleError } from '../../helpers/api';
+import React, {useState, useEffect} from 'react'
 
-import { Row, Col, Container } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+
 import Player from './Player'
 import MisterX from './MisterX'
-import GameInfo from './GameInfo'
-
 import Chat from './Chat/Chat'
-import Button from 'react-bootstrap/Button';
 import QuitButton from './QuitButton';
-import { useHistory, Link, withRouter } from 'react-router-dom';
 
-const Sidebar = ({gameStatus, players, fetchPossibleMoves, blackBoard, turnUserId }) => {
-  let history = useHistory();
-  const handleClick = () => history.push('/game')
-  const { id } = useParams()
-  const currentPlayerId = turnUserId
-  console.log("PLAYERS")
-  console.log(players)
+const Sidebar = ({players, fetchPossibleMoves, blackBoard, turnUserId }) => {
+
+  const [thisPlayers, setThisPlayers] = useState([])
+
+  useEffect(()=>{
+    setThisPlayers(players)
+  }, [players])
 
   return(
       <div className='sidebar'>
           <Chat />
-          {players.map((player, index) => (
+          {thisPlayers.map((player, index) => (
             <>
             {(() => {
                  if(index === 0&&player.user !== null) {
@@ -32,7 +26,7 @@ const Sidebar = ({gameStatus, players, fetchPossibleMoves, blackBoard, turnUserI
                    <MisterX key={index}
                             blackBoard={blackBoard} 
                             player={player} 
-                            isMoving={player.user.userId === currentPlayerId ? true : false}
+                            isMoving={player.user.userId === turnUserId ? true : false}
                             fetchPossibleMoves={fetchPossibleMoves}/>
                    )
                  }else if (player.user !== null){
@@ -40,7 +34,7 @@ const Sidebar = ({gameStatus, players, fetchPossibleMoves, blackBoard, turnUserI
                     <Player key={index} 
                             player={player} 
                             color={index} 
-                            isMoving={player.user.userId === currentPlayerId ? true : false}
+                            isMoving={player.user.userId === turnUserId ? true : false}
                             fetchPossibleMoves={fetchPossibleMoves}/>
                    )
                  }})()}

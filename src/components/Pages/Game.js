@@ -21,6 +21,7 @@ const Game = () => {
     const [myTurn, setMyTurn] = useState(null)
     const [selectedTicket, setSelectedTicket] = useState(null)
     const [playerClass, setPlayerClass] = useState(null)
+    const [playerIdx, setPlayerIdx] = useState(null) // index of a player in the list of player (to choose right color)
     const [blackBoard, setBlackBoard] = useState([])
     const [turnUserId, setTurnUserId] = useState(0)
 
@@ -92,17 +93,22 @@ const Game = () => {
 
     // Check if Player is Mr. X or Detective
     useEffect(()=>{
-        
         const player = players.find((player)=>{
             if(player.user!==null&&player.user.userId===userId){
-                return player
-            
+                return player   
         }
         })
     
         if(typeof(player)!="undefined"&&player.user!==null){
             setPlayerClass(player.playerClass)
         }
+
+        // set playerIdx
+        players.forEach((player, index) => {
+            if(player.user!==null&&player.user.userId===userId){
+                setPlayerIdx(index)
+            }
+        })
     }, [players])
 
    // handle move
@@ -133,7 +139,7 @@ const Game = () => {
     return (
         <>
             <Container style={{ position: "absolute", zIndex: 1000 }} fluid>
-                <GameInfo gameStatus={gameStatus} playerClass={playerClass}/>
+                <GameInfo gameStatus={gameStatus} playerClass={playerClass} playerIdx={playerIdx}/>
                 <Sidebar turnUserId={turnUserId} blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves}/>
                 {myTurn && <TurnAlert/>}
                 <Modal show={gameStatus.gameOver}>
