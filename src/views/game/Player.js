@@ -36,7 +36,7 @@ const Player = ({ player, color, isMoving=false, fetchPossibleMoves }) => {
         <>
             <Card bg={themes[color-1]}
             text = {'info' === 'light' ? 'dark' : 'white'} 
-            style={{ height: '5rem', opacity: opacity}} 
+            style={{ height: '6rem', opacity: opacity}} 
             className="player"  
             >
                 <Card.Body style={{padding: '5px 5px 5px 15px'}}>

@@ -356,3 +356,20 @@ box-shadow:  20px 20px 60px #d9d9d9,
 .st3{fill:none;}
 .st4{font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;}
 .st5{font-size:10px;}
+
+/* Styling of Bus ticket */
+.ticket-overlay{fill:transparent;}
+.ticket-overlay:hover{fill:rgba(0 , 0, 0, 0.5);}
+.ticket-overlay:disabled{fill:rgba(255, 255, 255, 0.5);}
+.tram-st0{fill:#2A4B9B;}
+.train-st0{fill:#FF0000;}
+.bus-st0{fill:#ff9100;}
+.black-st0{fill:#000000;}
+	.ticket-st1{fill:#FFFFFF;}
+	.ticket-st2{fill:#E52421;}
+	.ticket-st3{fill:none;}
+	.ticket-st4{font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;}
+	.ticket-st5{font-size:12px;}
+  .st8{stroke:#FFFFFF;stroke-miterlimit:10;}
+	.st9{font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;}
+	.st10{font-size:42px;}

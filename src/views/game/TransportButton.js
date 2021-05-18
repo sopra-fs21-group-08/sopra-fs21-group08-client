@@ -1,5 +1,10 @@
 import { Button } from 'react-bootstrap'
 import React from 'react'
+import TramTicket from '../design/TramTicket'
+import TrainTicket from '../design/TrainTicket'
+import BusTicket from '../design/BusTicket'
+import BlackTicket from '../design/BlackTicket'
+import DoubleTicket from '../design/DoubleTicket'
 
 // Button styled in the colors of Zurich
 function TransportButton(props) {
@@ -11,19 +16,62 @@ function TransportButton(props) {
         'Double': 'grey'
     }
 
-    return (
-        <div>
-            <Button variant="outline-light" 
-                size="sm" 
-                disabled={props.number === 0 || props.id != localStorage.getItem("userId") || props.isMoving == false}
-                onClick={props.onClick} 
-                style={{fontSize: 10, background:colours[props.children]}}
-            >
-                {props.children} : {props.number}
-            </Button>
+    switch (props.children) {
+        case "Bus":
+            return (
+                <div>
+                    <BusTicket disabled={props.number === 0 || props.id != localStorage.getItem("userId") || props.isMoving == false} onClick={props.onClick}  amount={props.number}>
+        
+                    </BusTicket>
+                    
+                </div>
+            )
+          break;
+        case "Tram":
+            return (
+                <div>
+                    <TramTicket disabled={props.number === 0 || props.id != localStorage.getItem("userId") || props.isMoving == false} onClick={props.onClick}  amount={props.number}>
+        
+                    </TramTicket>
+                    
+                </div>
+            )
+            break;
+            case "Train":
+                return (
+                    <div>
+                        <TrainTicket disabled={props.number === 0 || props.id != localStorage.getItem("userId") || props.isMoving == false} onClick={props.onClick}  amount={props.number}>
             
-        </div>
-    )
+                        </TrainTicket>
+                        
+                    </div>
+                )
+                break;
+                case "Black":
+                    return (
+                        <div>
+                            <BlackTicket disabled={props.number === 0 || props.id != localStorage.getItem("userId") || props.isMoving == false} onClick={props.onClick}  amount={props.number}>
+                
+                            </BlackTicket>
+                            
+                        </div>
+                    )
+                    break;
+                    case "Double":
+                        return (
+                            <div>
+                                <DoubleTicket disabled={props.number === 0 || props.id != localStorage.getItem("userId") || props.isMoving == false} onClick={props.onClick}  amount={props.number}>
+                    
+                                </DoubleTicket>
+                                
+                            </div>
+                        )
+                        break;
+            default:
+                return null;
+        
+      }
+    
 }
 
 export default TransportButton
