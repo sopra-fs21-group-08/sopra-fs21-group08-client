@@ -58,7 +58,7 @@ function Login() {
                             </Form.Control>
                         </Form.Group>
                         <div className="mt-4">
-                        <ZButton style={{width: '7rem'}} onClick={login}>Login</ZButton>
+                        <ZButton style={{width: '7rem'}} disabled={!user.username || !user.password} onClick={login}>Login</ZButton>
                         </div>
 
                     </Form>
