@@ -31,7 +31,7 @@ export default function StationMarker(props) {
             setCircleRadius(40)
             //setCircleKey(circleKey+1)
         }
-        console.log("BAAAAAAM 1")
+       
 
         
     },[props.possibleMoves, props.myTurn])
@@ -41,7 +41,7 @@ export default function StationMarker(props) {
             setCircleColor("transparent")
             setCircleRadius(50)
             setCircleKey(circleKey+1)
-            console.log("BAAAAAAM 2")
+        
 
         
     }, [props.resetFields])
@@ -69,7 +69,7 @@ export default function StationMarker(props) {
     }else if(props.station["reachable_by_train"].length>0){
         setColorScheme({...colorScheme, top:{fill: "#FF0000"}, middle:{fill: '#FF0000'}, font:{fill: '#FFFFFF'}, bottom: {fill: "#FF0000"}})
     }
-    console.log("BAAAAAAM 3")
+    
     },[])
 
     const showPopup = (event)=>{
