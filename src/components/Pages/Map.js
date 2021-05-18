@@ -52,23 +52,14 @@ function GameMap(props) {
         var position = null;
         var figure = null;
         props.players.forEach((player, idx) => {
+            if(player.user!==null){
             id = player.user.userId;
             if(player.playerClass == "MRX"){
                 figure= figureBlack
             }else{
                 figure = figures[idx]
             }
-            /*
-            if(player.playerClass=="DETECTIVE"||props.playerClass=="MRX"|| props.gameStatus.mrXVisible){
-                position = props.stations.find(station => station.id===player.stationId)
-                position = [position.stop_lat, position.stop_lon]
-                if(props.playerClass=="DETECTIVE"&&props.gameStatus.mrXVisible){
-                    setLastMrXPosition(position)
-                }
-            }else{
-                position = lastMrXPosition
-            }
-            */
+            
            if(idx===0&&!props.gameStatus.mrXVisible&&props.playerClass=="DETECTIVE"){
                position = lastMrXPosition
            }else{
@@ -80,7 +71,7 @@ function GameMap(props) {
 
            }
             formattedPlayers.push({id: id, figure: figure, position: position})
-        
+        }
             
         })
         setPlayers(formattedPlayers)
@@ -142,7 +133,7 @@ function GameMap(props) {
             </Marker>)}
 
 
-            {Object.keys(rts).map((route, index) => <Polyline key={"polyline-"+index} pathOptions={{ color: rts[route].color }} positions={routes[route].positions} />)}
+            {Object.keys(rts).map((route, index) => <Polyline key={"polyline-"+index} eventHandlers={{click:()=>{console.log(route);}}} pathOptions={{ color: rts[route].color }} positions={routes[route].positions} />)}
         </MapContainer>
     )
 }

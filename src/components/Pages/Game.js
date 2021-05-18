@@ -93,8 +93,15 @@ const Game = () => {
 
     // Check if Player is Mr. X or Detective
     useEffect(()=>{
-        const player = players.find((player)=>player.user.userId===userId)
-        if(typeof(player)!="undefined"){
+        
+        const player = players.find((player)=>{
+            if(player.user!==null&&player.user.userId===userId){
+                return player
+            
+        }
+        })
+    
+        if(typeof(player)!="undefined"&&player.user!==null){
             setPlayerClass(player.playerClass)
         }
     }, [players])
@@ -128,7 +135,7 @@ const Game = () => {
         <>
             <Container style={{ position: "absolute", zIndex: 1000 }} fluid>
                 <GameInfo gameStatus={gameStatus} playerClass={playerClass}/>
-                <Sidebar blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves}/>
+                <Sidebar turnUserId={turnUserId} blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves}/>
                 {myTurn && <TurnAlert/>}
                 <Modal show={gameStatus.gameOver}>
                     <Modal.Header>
