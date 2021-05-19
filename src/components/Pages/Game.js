@@ -65,9 +65,8 @@ const Game = () => {
 
    //fetch Players each time Game Status is updated
    useEffect(() => {
-        const token = localStorage.getItem("token");
         const fetchPlayers = async () => {
-            const response = await api.get('/games/'+ id +'/players', {headers:{'Authorization':  `Basic ${token}`}}); 
+            const response = await api.get('/games/'+ id +'/players', {headers:{'Authorization':  localStorage.getItem("token")}});
             const players = response.data;
             setPlayers(players);
         };
