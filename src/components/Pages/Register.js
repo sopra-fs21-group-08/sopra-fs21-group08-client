@@ -49,7 +49,7 @@ function Register() {
               </Card.Header>
                 <Card.Body>
                     {alert.display && <Alert variant="danger">{alert.message}</Alert>}
-                    <Form>
+                    <Form onSubmit={(e) => {e.preventDefault(); if(user.username && user.password&&user.controlPassword){register();}}}>
                         <Form.Group>
                             <Form.Label>Username:</Form.Label>
                             <Form.Control type="text" placeholder="Username" onChange={e => {
@@ -77,7 +77,7 @@ function Register() {
                             </Form.Control.Feedback>}
                         </Form.Group>
                         <div className="mt-4">
-                        <ZButton style={{width: '7rem'}} disabled={!user.username || !user.password || !user.controlPassword} onClick={register}>Register</ZButton>
+                        <ZButton type="submit" style={{width: '7rem'}} disabled={!user.username || !user.password || !user.controlPassword} onClick={register}>Register</ZButton>
                         </div>
                     </Form>
                 </Card.Body>

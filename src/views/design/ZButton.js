@@ -4,7 +4,7 @@ import React from 'react'
 function ZButton(props) {
     return (
         <div>
-            <Button className="zbutton" disabled={props.disabled} onClick={props.onClick}>
+            <Button type={props.type} className="zbutton" disabled={props.disabled} onClick={props.onClick}>
                 {props.children}
             </Button>
             

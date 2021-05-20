@@ -2,7 +2,7 @@ import React from 'react'
 
 function BusTicketBlackBoard({ style, height }) {
     return (
-        <svg style={style} height={height} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.4 70.9">
+        <svg style={style} height={height} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.7 56.7">
             <path className="bus-st0" d="M50.6 56.7H6.1C2.7 56.7 0 54 0 50.6V6.1C0 2.7 2.7 0 6.1 0h44.5c3.4 0 6.1 2.7 6.1 6.1v44.5C56.7 54 54 56.7 50.6 56.7z" />
             <path class="ticket-st1" d="M38.9 32.7c-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.6 2.6 1.5 0 2.6-1.2 2.6-2.6C41.6 33.9 40.4 32.7 38.9 32.7zM38.9 36.7c-0.8 0-1.4-0.6-1.4-1.4 0-0.8 0.6-1.4 1.4-1.4 0.8 0 1.4 0.6 1.4 1.4C40.3 36.1 39.7 36.7 38.9 36.7z" />
             <path class="ticket-st1" d="M15.5 32.7c-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.6 2.6s2.6-1.2 2.6-2.6C18.1 33.9 16.9 32.7 15.5 32.7zM15.5 36.7c-0.8 0-1.4-0.6-1.4-1.4 0-0.8 0.6-1.4 1.4-1.4s1.4 0.6 1.4 1.4C16.9 36.1 16.3 36.7 15.5 36.7z" />

@@ -361,7 +361,7 @@ box-shadow:  20px 20px 60px #d9d9d9,
 }
 
 /* Styling vor SVG stations */
-.st0{fill:#F4E72D;stroke:#000000;stroke-width:0.25;stroke-miterlimit:10;}
+.st0{fill:#DEC20B;stroke:#000000;stroke-width:0.25;stroke-miterlimit:10;}
 .st1{fill:#3299CC;stroke:#000000;stroke-width:0.25;stroke-miterlimit:10;}
 .st2{fill:#FFFFFF;stroke:#000000;stroke-width:0.25;stroke-miterlimit:10;}
 .st3{fill:none;}
@@ -374,7 +374,7 @@ box-shadow:  20px 20px 60px #d9d9d9,
 .ticket-overlay:disabled{fill:rgba(255, 255, 255, 0.5);}
 .tram-st0{fill:#2A4B9B;}
 .train-st0{fill:#FF0000;}
-.bus-st0{fill:#ff9100;}
+.bus-st0{fill:#DEC20B;}
 .black-st0{fill:#000000;}
 	.ticket-st1{fill:#FFFFFF;}
 	.ticket-st2{fill:#E52421;}

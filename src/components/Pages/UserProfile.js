@@ -199,7 +199,7 @@ function UserProfile() {
             <Modal.Title>Edit Profile</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form>
+            <Form onSubmit={(e) => {e.preventDefault(); editProfile();}}>
                 <Form.Group>
                     <Form.Label>Username:</Form.Label>
                     <Form.Control type="text" placeholder="Username" onChange={event => setusername(event.target.value)}>
@@ -222,7 +222,7 @@ function UserProfile() {
 
         <Modal show={showRoom} onHide={closeRoom}>
           <Modal.Body  closeButton>
-            <Form>
+            <Form onSubmit={(e) => {e.preventDefault(); if(inputlobby){createGame();}}}>
                 <Form.Group>
                     <Form.Label>Create a new Game</Form.Label>
                     <Form.Control type="text" placeholder="Lobby Name" onChange={event => setlobby(event.target.value)}>

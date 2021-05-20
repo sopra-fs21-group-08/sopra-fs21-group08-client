@@ -41,7 +41,7 @@ function Login() {
               </Card.Header>
                 <Card.Body>
                 {alert.display&&<Alert variant="danger">{alert.message}</Alert>}
-                    <Form>
+                    <Form onSubmit={(e) => {e.preventDefault(); if(user.username && user.password){login();}}}>
                         <Form.Group>
                             <Form.Label>Username:</Form.Label>
                             <Form.Control type="text" placeholder="Username" onChange={e => {
@@ -58,7 +58,7 @@ function Login() {
                             </Form.Control>
                         </Form.Group>
                         <div className="mt-4">
-                        <ZButton style={{width: '7rem'}} disabled={!user.username || !user.password} onClick={login}>Login</ZButton>
+                        <ZButton type="submit" style={{width: '7rem'}} disabled={!user.username || !user.password} onClick={login}>Login</ZButton>
                         </div>
 
                     </Form>
