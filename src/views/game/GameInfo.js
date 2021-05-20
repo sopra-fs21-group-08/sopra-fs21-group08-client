@@ -3,16 +3,20 @@ import { Card, Row, Col } from 'react-bootstrap';
 // import { Squash as Hamburger } from 'hamburger-react'
 
 import {avatars} from '../design/Avatars'
+import BlackBoard from './BlackBoard'
 import { api, handleError } from '../../helpers/api';
 
-const GameInfo = ({gameStatus, playerClass, playerIdx}) => {
+// import {gameStatus} from '../../assets/MockDTOs'
+
+// const GameInfo = ({playerClass, playerIdx=1, blackBoard=[{'ticket':"BUS"}]}) => {
+const GameInfo = ({gameStatus, playerClass, playerIdx, blackBoard}) => {
     const [username, setUsername] = useState(null)
     const userId = localStorage.getItem('userId')
     const themes = ['primary','success','danger','warning','info']
 
     const mrXIsVisible = gameStatus&&gameStatus.mrXVisible
     const currentRound = gameStatus&&gameStatus.currentRound
-    const mrXVisible = gameStatus.mrXVisible ? <><b>Mr. X is visible this round </b></>: <>Mr. X is not visible this round</>
+    const mrXVisible = gameStatus.mrXVisible ? <><b>Mr. X : VISIBLE </b></>: <>Mr. X : not visible</>
     const youAreVisible = gameStatus.mrXVisible ? <><b>Detectives can see your position this round</b></>: <>Detectives don't see your position</>
 
     const userpic = <> 
@@ -25,12 +29,12 @@ const GameInfo = ({gameStatus, playerClass, playerIdx}) => {
             </Col>
         </Row>
     </>
+
     useEffect(() =>
     {
       const fetchData = async () => {
           try {
             const response = await api.get('/users/'+ userId);
-            console.log('Username is' + response.data) 
             const user = response.data;
             setUsername(user.username)
           }
@@ -48,10 +52,11 @@ const GameInfo = ({gameStatus, playerClass, playerIdx}) => {
                       bg={mrXIsVisible ? 'light': 'dark'}>
                     <Row>
                         <Col className='textVerticalAlign' md={2}>
-                            <Card.Text className="smallFont textLeftAllign">Round {currentRound}/22</Card.Text>
+                            <Card.Text className="smallFont textLeftAllign" style={{marginBottom:"0"}}>Round {currentRound}</Card.Text>
+                            <Card.Text className="smallFont textLeftAllign">{mrXVisible}</Card.Text>
                         </Col>
                         <Col className='textVerticalAlign' md={8}>
-                            <Card.Text className="smallFont textCentred">{youAreVisible}</Card.Text>
+                            <BlackBoard moves={blackBoard} />
                         </Col>
                         <Col md={2}>
                             {userpic}
@@ -64,10 +69,11 @@ const GameInfo = ({gameStatus, playerClass, playerIdx}) => {
                 <Card className="gameInfo" bg={themes[playerIdx-1]} text = {'white'}>
                     <Row>
                         <Col className='textVerticalAlign' md={2}>
-                            <Card.Text className="smallFont textLeftAllign">Round {currentRound}/22</Card.Text>
+                            <Card.Text className="smallFont textLeftAllign" style={{marginBottom:"0"}}>Round {currentRound}</Card.Text>
+                            <Card.Text className="smallFont textLeftAllign">{mrXVisible}</Card.Text>
                         </Col>
                         <Col className='textVerticalAlign' md={8}>
-                            <Card.Text className="smallFont textCentred">{mrXVisible}</Card.Text>
+                            <BlackBoard moves={blackBoard} />
                         </Col>
                         <Col md={2}>
                             {userpic}

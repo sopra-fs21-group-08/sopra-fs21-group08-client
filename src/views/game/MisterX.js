@@ -1,11 +1,8 @@
-import { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import { api, handleError } from '../../helpers/api';
 
 import { Accordion, Card, Row, Col } from 'react-bootstrap';
 
 import TransportButton from './TransportButton'
-import BlackBoard from './BlackBoard'
 import mrx from '../../assets/img/avatar/mrx.png'
 
 const styles = {
@@ -43,7 +40,6 @@ const MisterX = ({player, isMoving, fetchPossibleMoves, blackBoard}) => {
                     <Col>Mister X : {player.user.username}</Col>
                     </Row >
                 </Accordion.Toggle>
-                <BlackBoard moves={blackBoard}  />
                 <Card.Footer style={{paddingRight: 0, paddingTop: 0,paddingBottom: 5}}>
                     <Row>
                         <Col md="auto" style={styles.col}>
@@ -72,23 +68,3 @@ const MisterX = ({player, isMoving, fetchPossibleMoves, blackBoard}) => {
 }
 
 export default MisterX
-
-// player representation:
-// {
-//     "user": {
-//         "userId": 9,
-//         "username": "e",
-//         "status": "ONLINE",
-//         "dob": null,
-//         "creationDate": "2021-04-30"
-//     },
-//     "playerClass": "MRX",
-//     "stationId": 145,
-//     "wallet": {
-//         "bus": 10,
-//         "black": 2,
-//         "double": 2,
-//         "train": 10,
-//         "tram": 10
-//     }
-// },

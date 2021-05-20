@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
-
 import { Card, Row, Col } from 'react-bootstrap';
 
 import TransportButton from './TransportButton'
@@ -25,12 +22,8 @@ const styles = {
 };
 
 const Player = ({ player, color, isMoving=false, fetchPossibleMoves }) => {
-// const Player = ({ color=1, isMoving=true, fetchPossibleMoves }) => {
     var opacity = isMoving ? 1 : 0.5
     const themes = ['primary','success','danger','warning','info']
-    const playerId = player.user&&player.user.userId
-    const userId = Number(localStorage.getItem('userId'))
-    const yourCard = playerId===userId ? <>you</> : <></>
 
     return (
         <>
@@ -44,9 +37,6 @@ const Player = ({ player, color, isMoving=false, fetchPossibleMoves }) => {
                         <Col xs={4} ><Card.Img variant="top" src={avatars[player.user.userId%7]} /></Col>
                         <Col style={styles.col}>
                             <Card.Text>{player.user.username}</Card.Text>
-                        </Col>
-                        <Col>
-                            <Card.Text className="text-muted ">{yourCard}</Card.Text>
                         </Col>
                     </Row>
                     <Row >

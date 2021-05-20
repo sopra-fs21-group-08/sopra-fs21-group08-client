@@ -80,6 +80,7 @@ const Game = () => {
     }, [turnUserId]);
 
     //fetch BlackBoard each time Players are updated
+    //TODO: fetch it in gameinfo component
    useEffect(() => {
     const token = localStorage.getItem("token");
     const fetchBlackBoard = async () => {
@@ -138,7 +139,7 @@ const Game = () => {
     return (
         <>
             <Container style={{ position: "absolute", zIndex: 1000 }} fluid>
-                <GameInfo gameStatus={gameStatus} playerClass={playerClass} playerIdx={playerIdx}/>
+                <GameInfo gameStatus={gameStatus} playerClass={playerClass} playerIdx={playerIdx} blackBoard={blackBoard}/>
                 <Sidebar turnUserId={turnUserId} blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves}/>
                 {myTurn && <TurnAlert/>}
                 <Modal show={gameStatus.gameOver}>

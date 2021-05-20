@@ -49,7 +49,7 @@ export const gameStatus = {
     },
     "currentRound": 1,
     "gameOver": false,
-    "mrXVisible": false
+    "mrXVisible": true
 }
 
 export const player ={
@@ -69,4 +69,8 @@ export const player ={
         "train": 10,
         "tram": 10
     }
+}
+
+export const blackBoard = {
+    "Tickets":["BUS", "TRAM"]
 }

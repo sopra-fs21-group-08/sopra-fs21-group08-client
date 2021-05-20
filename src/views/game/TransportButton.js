@@ -1,5 +1,5 @@
-import { Button } from 'react-bootstrap'
 import React from 'react'
+
 import TramTicket from '../design/TramTicket'
 import TrainTicket from '../design/TrainTicket'
 import BusTicket from '../design/BusTicket'
@@ -8,13 +8,6 @@ import DoubleTicket from '../design/DoubleTicket'
 
 // Button styled in the colors of Zurich
 function TransportButton(props) {
-    const colours = {
-        'Tram' : 'blue',
-        'Bus' : 'green',
-        'Train': 'red', 
-        'Black': 'black', 
-        'Double': 'grey'
-    }
 
     switch (props.children) {
         case "Bus":
