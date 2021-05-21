@@ -9,6 +9,8 @@ import GameInfo from '../../views/game/GameInfo'
 import Rules from '../../components/shared/Rules'
 import Map from '../Pages/Map'
 import TurnAlert from '../../views/game/TurnAlert'
+import useSound from 'use-sound';
+import moveNotification from '../../assets/sounds/show-me-your-moves-small.mp3'
 
 const Game = () => {
     const { id } = useParams()
@@ -26,6 +28,7 @@ const Game = () => {
     const [blackBoard, setBlackBoard] = useState([])
     const [turnUserId, setTurnUserId] = useState(0)
     const [zoomToPosition, setZoomToPosition] = useState([])
+    const [moveSound] = useSound(moveNotification)
 
     // Fetches the stations from the backend
     useEffect(() => {
@@ -76,6 +79,8 @@ const Game = () => {
         
         if(turnUserId === userId){
             setMyTurn(true)
+            // If it annoys you while developing just comment it out ;)
+            moveSound();
         }else{
             setMyTurn(false)
         }

@@ -8,6 +8,8 @@ import User from '../../../components/shared/models/User';
 import { useParams } from 'react-router-dom';
 import SendMessageButton from '../../design/SendMessageButton';
 import { Button } from 'react-bootstrap'
+import useSound from 'use-sound';
+import chatNotification from '../../../assets/sounds/comedy_bubble_pop_002.mp3'
 
 
 const Chat = ({chatopen}) => {
@@ -23,6 +25,8 @@ const Chat = ({chatopen}) => {
     const [messages, setmessages] = useState([]);
     const [tempmessages, settempmessages] = useState([]);
     const [chatmessage, setMessage] = useState([]);
+    const [messageLength, setMessageLength] = useState(0)
+    const [messageSound] = useSound(chatNotification)
     const { id } = useParams()
     let gameId = id
 
@@ -48,6 +52,7 @@ const Chat = ({chatopen}) => {
           token: localStorage.getItem("token")
         });
         try{
+          setMessageLength(messageLength+1)
           await api.post('/games/'+gameId+'/chats', requestBody);
         } catch (error) {
           alert(`Something went wrong while trying to send the message: \n${handleError(error)}`);
@@ -57,12 +62,21 @@ const Chat = ({chatopen}) => {
 
     if(chatopen == true && tempmessages != messages){
         settempmessages(messages);
+        if(messages.length>messageLength){
+          messageSound()
+          setMessageLength(messageLength+1)
+        }
+        
     }
 
     return (
         <div>
           {(() => {
           if(JSON.stringify(tempmessages) !== JSON.stringify(messages)){
+            if(messages.length>messageLength&&messages[messages.length-1]){
+              messageSound()
+              setMessageLength(messageLength+1)
+            }
           console.log(tempmessages)
           console.log(messages)
           return(
