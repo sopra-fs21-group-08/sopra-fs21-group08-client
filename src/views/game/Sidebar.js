@@ -56,17 +56,18 @@ const Sidebar = ({players, fetchPossibleMoves, blackBoard, turnUserId, gameId, s
           {(() => {
           if(chatopen == false){
             return(
-              <Col><Button style={{ marginTop: 20, width: '2.5rem', height: '2.5rem', borderRadius: '2.5rem', marginLeft: '-1rem', color:'blue'}} onClick={toggle}><img src={ChatIcon} style={{height:'20px', width:'20px', marginLeft:'-3px', marginTop:'-2px', color:'white'}} /></Button></Col>
+              <Col><Button style={{ marginTop: 20, width: '2.5rem', height: '2.5rem', borderRadius: '2.5rem', marginLeft: '-1rem', color:'blue'}} onClick={toggle}><img src={ChatIcon} style={{height:'18px', width:'18px', marginLeft:'-2px', marginTop:'-2px', color:'white'}} /></Button></Col>
             )
           }
           else {
             return(
-                <Col><Button style={{ marginTop: 20, width: '2.5rem', height: '2.5rem', borderRadius: '2.5rem', marginLeft: '-1rem', color:'blue'}} onClick={toggle}><img src={CloseIcon} style={{height:'20px', width:'20px', marginLeft:'-2px', marginTop:'-3px', color:'white'}} /></Button></Col>
+                <Col><Button style={{ marginTop: 20, width: '2.5rem', height: '2.5rem', borderRadius: '2.5rem', marginLeft: '-1rem', color:'blue'}} onClick={toggle}><img src={CloseIcon} style={{height:'17px', width:'17px', marginLeft:'-1px', marginTop:'-3px', color:'white'}} /></Button></Col>
             )
           }
           })()}
           </Row>
           <Chat chatopen={chatopen}/>
+          <div style={{height: '8rem'}}/>
       </div>
     );
 }
