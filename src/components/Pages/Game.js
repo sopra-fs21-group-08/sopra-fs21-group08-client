@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import { Container, Modal, Button } from 'react-bootstrap'
 import { api, handleError } from '../../helpers/api';
@@ -13,6 +13,7 @@ import TurnAlert from '../../views/game/TurnAlert'
 const Game = () => {
     const { id } = useParams()
     const userId = parseInt(localStorage.getItem("userId"));
+    let history = useHistory();
 
     const [stations, setStations] = useState([])
     const [players, setPlayers] = useState([])
@@ -135,19 +136,34 @@ const Game = () => {
     setPossibleMoves([])
     }
 
+    const leaveGame = async () => {
+
+        const requestBody = JSON.stringify({
+            userId : Number(localStorage.getItem('userId')),
+            token : localStorage.getItem('token')
+        })
+        console.log(requestBody);
+        let path = '/lobbies/' + id
+        try{
+            await api.delete(path, { data: requestBody});
+            history.push('/game/profile');
+        }catch(error){
+            alert(`Something went wrong while trying to leave game: \n${handleError(error)}`);
+        }
+    }
     
     return (
         <>
             <Container style={{ position: "absolute", zIndex: 1000 }} fluid>
                 <GameInfo gameStatus={gameStatus} playerClass={playerClass} playerIdx={playerIdx} blackBoard={blackBoard}/>
-                <Sidebar turnUserId={turnUserId} blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves}/>
+                <Sidebar turnUserId={turnUserId} blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves} gameId={id}/>
                 {myTurn && <TurnAlert/>}
                 <Modal show={gameStatus.gameOver}>
                     <Modal.Header>
                         <Modal.Title>Game is over</Modal.Title>
                     </Modal.Header>
                     <Modal.Footer>
-                                <Button variant="secondary">
+                                <Button variant="secondary" onClick={leaveGame}>
                                 Go to Profile
                                 </Button>
                                 <Button >

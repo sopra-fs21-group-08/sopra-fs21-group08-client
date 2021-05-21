@@ -1,5 +1,5 @@
 import { Button } from 'react-bootstrap'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useParams } from 'react'
 import { useHistory, Link, withRouter } from 'react-router-dom';
 import User from '../../components/shared/models/User';
 import { api, handleError } from '../../helpers/api';
@@ -7,46 +7,43 @@ import { Modal } from 'react-bootstrap';
 import ZButton from '../design/ZButton'
 
 // Button styled in the colors of Zurich
-function QuitButton() {
+const QuitButton = ({gameId}) => {
     const [user, setuser] = useState([]);
     let history = useHistory();
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const logout = async () => {
+    const leaveGame = async () => {
+
         const requestBody = JSON.stringify({
-            userId : localStorage.getItem("userId"),
-            token : localStorage.getItem("token")
+            userId : Number(localStorage.getItem('userId')),
+            token : localStorage.getItem('token')
         })
         console.log(requestBody);
+        let path = '/lobbies/' + gameId
         try{
-            await api.put('/users/logout', requestBody);
-            localStorage.removeItem('token');
-            localStorage.removeItem('userId');
-            history.push('/login');
+            await api.delete(path, { data: requestBody});
+            history.push('/game/profile');
         }catch(error){
-            alert(`Something went wrong while trying to log out: \n${handleError(error)}`);
-            localStorage.removeItem('token');
-            localStorage.removeItem('userId');
-            history.push('/login');
+            alert(`Something went wrong while trying to leave game: \n${handleError(error)}`);
         }
     }
 
     return (
         <div>
-            <Button variant="danger" style={{ marginTop: 20, marginBottom: 40, width: '13rem', borderRadius: '1rem'}} onClick={handleShow}> Quit Game </Button>
+            <Button variant="danger" style={{ marginTop: 20, width: '9.5rem', height: '2.5rem', borderRadius: '1rem'}} onClick={handleShow}> Leave Game </Button>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Quit</Modal.Title>
+            <Modal.Title>Leave</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Are you sure you want to quit the game?</Modal.Body>
+          <Modal.Body>Are you sure you want to leave the game?</Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Cancel
             </Button>
-            <ZButton onClick={logout}>
-              Quit
+            <ZButton onClick={leaveGame}>
+              Leave
             </ZButton>
           </Modal.Footer>
         </Modal>

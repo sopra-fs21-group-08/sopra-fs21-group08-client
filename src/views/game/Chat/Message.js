@@ -14,7 +14,7 @@ const Message = ({text, user}) => {
     },[]);
 
     return (
-      <>
+      <div>
         <Row style={{fontSize: 13, color: 'blue'}}>
             <Col md="auto">
                 <Card.Text>
@@ -30,7 +30,7 @@ const Message = ({text, user}) => {
             </Col>
         </Row>
         <div ref={messagesEndRef} />
-      </>
+      </div>
     )
 }
 
