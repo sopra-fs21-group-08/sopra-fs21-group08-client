@@ -70,7 +70,7 @@ const Chat = ({chatopen}) => {
           )}})()}
           <div style={chatopen ? show : hide}>
             <Card
-            style={{ width: '13rem', backgroundColor: 'rgba(256, 256, 256, 0.95)' }}
+            style={{ backgroundColor: 'rgba(256, 256, 256, 0.95)' }}
             className="chat"
             >
             <Card.Header style={{height: '35px'}}>
@@ -89,11 +89,11 @@ const Chat = ({chatopen}) => {
                  ))}
                 </div>
                 <Form onSubmit={(e) => {e.preventDefault(); sendMessage();}}>
-                    <Container style={{ width: '14rem', height: '2rem', marginBottom: '10px', marginTop: '10px', marginLeft: '-15px'}}>
+                    <Container style={{ height: '2rem', marginBottom: '10px', marginTop: '10px', marginLeft: '-15px'}}>
                     <Row>
                     <Col sm='8'><Form.Control size="sm" style={{ width: '145px', borderRadius: '2rem', backgroundColor: 'rgba(256, 256, 256, 0.7)'}} id="myInput" onChange={event => setMessage(event.target.value)}>
                     </Form.Control></Col>
-                    <Col style={{marginTop: '0px', marginLeft: '4px'}} ><div style={{ flexDirection: 'row-reverse' }}><SendMessageButton size={23} style={{ textAlign: 'left' }} onClick={() => {sendMessage();}}/></div></Col>
+                    <Col style={{marginTop: '0px', marginLeft: '9.5rem', position: 'absolute'}} ><SendMessageButton size={23} style={{position: 'absolute' }} onClick={() => {sendMessage();}}/></Col>
                     </Row>
                     </Container>
                 </Form>

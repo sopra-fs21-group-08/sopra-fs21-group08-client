@@ -67,7 +67,7 @@ const Sidebar = ({players, fetchPossibleMoves, blackBoard, turnUserId, gameId, s
           })()}
           </Row>
           <Chat chatopen={chatopen}/>
-          <div style={{height: '8rem'}}/>
+          <div style={{height: '9rem'}}/>
       </div>
     );
 }
