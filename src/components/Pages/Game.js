@@ -25,6 +25,7 @@ const Game = () => {
     const [playerIdx, setPlayerIdx] = useState(null) // index of a player in the list of player (to choose right color)
     const [blackBoard, setBlackBoard] = useState([])
     const [turnUserId, setTurnUserId] = useState(0)
+    const [zoomToPosition, setZoomToPosition] = useState([])
 
     // Fetches the stations from the backend
     useEffect(() => {
@@ -151,12 +152,20 @@ const Game = () => {
             alert(`Something went wrong while trying to leave game: \n${handleError(error)}`);
         }
     }
+
+    const selectPosition = (player)=>{
+        if(player.stationId!==null){
+        var station = stations.find((station)=>station.id===player.stationId)
+        setZoomToPosition([station.stop_lat, station.stop_lon])
+    }
+
+    }
     
     return (
         <>
             <Container style={{ position: "absolute", zIndex: 1000 }} fluid>
                 <GameInfo gameStatus={gameStatus} playerClass={playerClass} playerIdx={playerIdx} blackBoard={blackBoard}/>
-                <Sidebar turnUserId={turnUserId} blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves} gameId={id}/>
+                <Sidebar selectPosition={selectPosition} turnUserId={turnUserId} blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves} gameId={id}/>
                 {myTurn && <TurnAlert/>}
                 <Modal show={gameStatus.gameOver}>
                     <Modal.Header>
@@ -174,7 +183,7 @@ const Game = () => {
                 <Rules style={{top: "90%"}} />
             </Container>
             {players.length>0&&stations.length>0&&playerClass!=null&&Object.keys(gameStatus).length>0&&
-            <Map turnUserId={turnUserId}  movesClearer={movesClearer} selectedTicket={selectedTicket} playerClass={playerClass} makeMove={makeMove} myTurn={myTurn} possibleMoves={possibleMoves} stations={stations} players={players} gameStatus={gameStatus} />}
+            <Map zoomToPosition={zoomToPosition} turnUserId={turnUserId}  movesClearer={movesClearer} selectedTicket={selectedTicket} playerClass={playerClass} makeMove={makeMove} myTurn={myTurn} possibleMoves={possibleMoves} stations={stations} players={players} gameStatus={gameStatus} />}
             
         </>
     )

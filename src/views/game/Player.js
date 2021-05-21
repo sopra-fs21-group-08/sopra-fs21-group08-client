@@ -21,20 +21,20 @@ const styles = {
     }
 };
 
-const Player = ({ player, color, isMoving=false, fetchPossibleMoves }) => {
+const Player = ({ player, color, isMoving=false, fetchPossibleMoves, onClick }) => {
     var opacity = isMoving ? 1 : 0.5
     const themes = ['primary','success','danger','warning','info']
 
     return (
         <>
-            <Card bg={themes[color-1]}
+            <Card bg={themes[color-1]} 
             text = {'info' === 'light' ? 'dark' : 'white'} 
             style={{ height: '6rem', opacity: opacity}} 
             className="player"  
             >
                 <Card.Body style={{padding: '5px 5px 5px 15px'}}>
                     <Row >
-                        <Col xs={4} ><Card.Img variant="top" src={avatars[player.user.userId%7]} /></Col>
+                        <Col xs={4} ><Card.Img onClick={onClick} variant="top" src={avatars[player.user.userId%7]} /></Col>
                         <Col style={styles.col}>
                             <Card.Text>{player.user.username}</Card.Text>
                         </Col>

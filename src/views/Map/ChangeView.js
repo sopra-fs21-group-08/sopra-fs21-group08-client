@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import {useMap } from 'react-leaflet'
 
-function ChangeView({ center, zoom, flyTo, mapFrame, mapFrameKey }) {
+function ChangeView({ center, zoom, flyTo, mapFrame, mapFrameKey, zoomToPosition }) {
   const map = useMap();
     useEffect(()=>{
       if(flyTo){
@@ -11,9 +11,15 @@ function ChangeView({ center, zoom, flyTo, mapFrame, mapFrameKey }) {
     },[flyTo])
     useEffect(()=>{
       if(mapFrameKey>0){
-      map.flyToBounds(mapFrame)
+      map.flyToBounds(mapFrame,{paddingTopLeft: [60.0,60.0], paddingTopRight: [10.0,10.0] })
     }
     },[mapFrameKey])
+    useEffect(()=>{
+      if(zoomToPosition.length>0){
+        console.log(center)
+        map.flyTo(zoomToPosition, 15)
+      }
+    },[zoomToPosition])
   return null;
 }
 

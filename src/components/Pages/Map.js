@@ -20,9 +20,6 @@ function GameMap(props) {
     const [flyTo, setFlyTo] = useState(false)
     const [mapFrame, setMapFrame]=useState([[0,0],[0,0]])
     const [mapFrameKey, setMapFrameKey] = useState(0)
-    
-
-
 
     const figures = [figureBlack, figureTurquoise, figureBlue, figureRed, figureWhite, figureYellow];
 
@@ -127,7 +124,8 @@ function GameMap(props) {
 
     return (
         <MapContainer center={center} key={mapKey} attributionControl={false} transparent={true} zoom={zoom} style={{ height: "100vh" }} zoomControl={false} scrollWheelZoom={true}>
-            <ChangeView center={center} zoom={zoom} flyTo={flyTo} mapFrame={mapFrame} mapFrameKey={mapFrameKey} />
+            <ChangeView center={center} zoom={zoom} flyTo={flyTo} mapFrame={mapFrame} mapFrameKey={mapFrameKey}
+            zoomToPosition={props.zoomToPosition} />
             <WMSTileLayer
                 layers={["ortho_s"]}
                 format="image/png"

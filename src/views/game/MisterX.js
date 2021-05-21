@@ -22,21 +22,21 @@ const styles = {
     }
 };
 
-const MisterX = ({player, isMoving, fetchPossibleMoves, blackBoard}) => {
+const MisterX = ({player, isMoving, fetchPossibleMoves, blackBoard, onClick}) => {
     var opacity = isMoving ? 1 : 0.5
     const { id } = useParams()
 
     return (
         <>
-        <Accordion defaultActiveKey="0">
-            <Card bg={'secondary'}
+        <Accordion defaultActiveKey="0" >
+            <Card bg={'secondary'} 
             text = {'info' === 'light' ? 'dark' : 'white'} 
             style={{ width: '13rem', opacity: opacity }} 
             className="player"  
             >
                 <Accordion.Toggle as= {Card.Header} eventKey="0">
                     <Row >
-                    <Col xs={3} ><Card.Img variant="top" src={mrx}/></Col>
+                    <Col xs={3} ><Card.Img onClick={onClick} variant="top" src={mrx}/></Col>
                     <Col>Mister X : {player.user.username}</Col>
                     </Row >
                 </Accordion.Toggle>

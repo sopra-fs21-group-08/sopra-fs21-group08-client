@@ -14,7 +14,7 @@ import MisterX from './MisterX'
 import Chat from './Chat/Chat'
 import QuitButton from './QuitButton';
 
-const Sidebar = ({players, fetchPossibleMoves, blackBoard, turnUserId, gameId}) => {
+const Sidebar = ({players, fetchPossibleMoves, blackBoard, turnUserId, gameId, selectPosition}) => {
 
   const [thisPlayers, setThisPlayers] = useState([])
   const [chatopen, setchatopen] = useState(false)
@@ -33,6 +33,7 @@ const Sidebar = ({players, fetchPossibleMoves, blackBoard, turnUserId, gameId}) 
                  if(index === 0&&player.user !== null) {
                    return(
                    <MisterX key={index}
+                            onClick={()=>{selectPosition(player)}}
                             blackBoard={blackBoard} 
                             player={player} 
                             isMoving={player.user.userId === turnUserId ? true : false}
@@ -40,7 +41,8 @@ const Sidebar = ({players, fetchPossibleMoves, blackBoard, turnUserId, gameId}) 
                    )
                  }else if (player.user !== null){
                    return(
-                    <Player key={index} 
+                    <Player key={index}
+                    onClick={()=>{selectPosition(player)}}
                             player={player} 
                             color={index} 
                             isMoving={player.user.userId === turnUserId ? true : false}
