@@ -1,13 +1,19 @@
 import React,{useEffect} from 'react'
 import {useMap } from 'react-leaflet'
 
-function ChangeView({ center, zoom, myTurn }) {
+function ChangeView({ center, zoom, flyTo, mapFrame, mapFrameKey }) {
   const map = useMap();
     useEffect(()=>{
-      if(myTurn){
+      if(flyTo){
+        console.log(center)
         map.flyTo(center, zoom)
       }
-    },[myTurn])
+    },[flyTo])
+    useEffect(()=>{
+      if(mapFrameKey>0){
+      map.flyToBounds(mapFrame)
+    }
+    },[mapFrameKey])
   return null;
 }
 
