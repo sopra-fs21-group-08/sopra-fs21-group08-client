@@ -91,12 +91,12 @@ const Game = () => {
         }else{
             setMyTurn(false)
         }
-        if(victory === true){
+        if(victory === true && gameStatus.gameOver){
             victorySound();
-        }else{
+        }else if(victory === false && gameStatus.gameOver){
             defeatSound();
         }
-    }, [turnUserId, victory]);
+    }, [turnUserId, gameStatus.gameOver]);
 
     //fetch BlackBoard each time Players are updated
     //TODO: fetch it in gameinfo component
