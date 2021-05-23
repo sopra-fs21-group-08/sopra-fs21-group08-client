@@ -80,7 +80,7 @@ const Chat = ({chatopen}) => {
           console.log(tempmessages)
           console.log(messages)
           return(
-            <CircleFill style={{position: 'absolute', marginLeft:'11.7rem', marginTop:'-50px', color:'red', width: '20px', height: '20px', zIndex:1}}/>
+            <CircleFill style={{position: 'absolute', marginLeft:'11.9rem', marginTop:'-70px', color:'red', width: '18px', height: '18px', zIndex:1}}/>
           )}})()}
           <div style={chatopen ? show : hide}>
             <Card
