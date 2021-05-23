@@ -75,7 +75,7 @@ const GameInfo = ({gameStatus, playerClass, playerIdx, blackBoard}) => {
                         <Col className='textVerticalAlign' md={8}>
                             <BlackBoard moves={blackBoard} />
                         </Col>
-                        <Col md={2}>
+                        <Col md={2} style={{marginBottom: '-2px', marginTop: '2px'}}>
                             {userpic}
                         </Col>
                     </Row>

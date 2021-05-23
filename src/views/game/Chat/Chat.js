@@ -84,7 +84,7 @@ const Chat = ({chatopen}) => {
           )}})()}
           <div style={chatopen ? show : hide}>
             <Card
-            style={{ backgroundColor: 'rgba(256, 256, 256, 0.95)' }}
+            style={{ backgroundColor: 'rgba(256, 256, 256, 0.95)', marginTop: '-0.8rem' }}
             className="chat"
             >
             <Card.Header style={{height: '35px'}}>
