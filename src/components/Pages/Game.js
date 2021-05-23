@@ -11,6 +11,10 @@ import Map from '../Pages/Map'
 import TurnAlert from '../../views/game/TurnAlert'
 import useSound from 'use-sound';
 import moveNotification from '../../assets/sounds/show-me-your-moves-small.mp3'
+import victorySoundEffect from '../../assets/sounds/Victory.mp3'
+import defeatSoundEffect from '../../assets/sounds/Defeat.mp3'
+
+import Confetti from 'react-confetti'
 
 const Game = () => {
     const { id } = useParams()
@@ -29,6 +33,9 @@ const Game = () => {
     const [turnUserId, setTurnUserId] = useState(0)
     const [zoomToPosition, setZoomToPosition] = useState([])
     const [moveSound] = useSound(moveNotification)
+    const [victorySound] = useSound(victorySoundEffect)
+    const [defeatSound] = useSound(defeatSoundEffect)
+    const [victory, setVictory] = useState(true)
 
     // Fetches the stations from the backend
     useEffect(() => {
@@ -84,7 +91,12 @@ const Game = () => {
         }else{
             setMyTurn(false)
         }
-    }, [turnUserId]);
+        if(victory === true){
+            victorySound();
+        }else{
+            defeatSound();
+        }
+    }, [turnUserId, victory]);
 
     //fetch BlackBoard each time Players are updated
     //TODO: fetch it in gameinfo component
@@ -172,19 +184,75 @@ const Game = () => {
                 <GameInfo gameStatus={gameStatus} playerClass={playerClass} playerIdx={playerIdx} blackBoard={blackBoard}/>
                 <Sidebar selectPosition={selectPosition} turnUserId={turnUserId} blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves} gameId={id}/>
                 {myTurn && <TurnAlert/>}
-                <Modal show={gameStatus.gameOver}>
-                    <Modal.Header>
-                        <Modal.Title>Game is over</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Footer>
-                                <Button variant="secondary" onClick={leaveGame}>
+                {(() => {
+                if(gameStatus.gameOver === true){
+                    if(victory === true){
+                      return(
+                      <>
+                      <Confetti />
+                        <Modal show={true}>
+                        <Modal.Header>
+                            <Modal.Title style={{color: 'green'}}>Victory</Modal.Title>
+                        </Modal.Header>
+                        {(() => {
+                        if(playerClass === "MRX"){
+                          return(
+                            <Modal.Body>
+                            Congratulations, the detectives were not able to catch you!
+                            </Modal.Body>
+                          )}
+                        else{
+                          return(
+                            <Modal.Body>
+                            Contratulations, you were able to catch Mr. X!
+                            </Modal.Body>
+                            )}
+                        })()}
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={leaveGame}>
                                 Go to Profile
                                 </Button>
-                                <Button >
+                                <Button>
                                 Play again
                                 </Button>
-                            </Modal.Footer>
-                </Modal>
+                        </Modal.Footer>
+                        </Modal>
+                      </>
+                    )}
+                    else {
+                      return(
+                      <>
+                        <Modal show={true}>
+                        <Modal.Header>
+                            <Modal.Title style={{color: 'red'}}>Defeat</Modal.Title>
+                        </Modal.Header>
+                        {(() => {
+                        if(playerClass === "MRX"){
+                          return(
+                            <Modal.Body>
+                            The detectives caught you. Let's try again!
+                            </Modal.Body>
+                          )}
+                        else{
+                          return(
+                            <Modal.Body>
+                            You were not able to catch Mr. X. Let's try again!
+                            </Modal.Body>
+                          )
+                        }
+                        })()}
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={leaveGame}>
+                                Go to Profile
+                                </Button>
+                                <Button>
+                                Play again
+                                </Button>
+                        </Modal.Footer>
+                        </Modal>
+                      </>
+                    )}
+                }})()}
                 <Rules style={{top: "90%"}} />
             </Container>
             {players.length>0&&stations.length>0&&playerClass!=null&&Object.keys(gameStatus).length>0&&
