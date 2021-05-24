@@ -54,10 +54,10 @@ const MisterX = ({player, isMoving, fetchPossibleMoves, blackBoard, onClick}) =>
                     </Row>
                     <Row className="justify-content-md-center">
                         <Col style={styles.col}>
-                            <TransportButton number={player.wallet.double} id={player.user.userId} onClick={() => fetchPossibleMoves(player.user.userId, "DOUBLE")}>Double</TransportButton>
+                            <TransportButton number={player.wallet.double} id={player.user.userId} onClick={() => {if(isMoving&&player.user.userId===parseInt(localStorage.getItem("userId")))fetchPossibleMoves(player.user.userId, "DOUBLE")}}>Double</TransportButton>
                         </Col>
                         <Col style={styles.col}>
-                            <TransportButton number={player.wallet.black} id={player.user.userId} onClick={() => fetchPossibleMoves(player.user.userId, "BLACK")}>Black</TransportButton>
+                            <TransportButton number={player.wallet.black} id={player.user.userId} onClick={() => {if(isMoving&&player.user.userId===parseInt(localStorage.getItem("userId")))fetchPossibleMoves(player.user.userId, "BLACK")}}>Black</TransportButton>
                         </Col>
                     </Row>
                 </Card.Footer>
