@@ -89,8 +89,9 @@ const Game = () => {
    }
 
    const replay = async () => {
+        const requestBody = JSON.stringify({});
         try{
-            const response = await api.post('lobbies/' + id + '/replay', {headers:{'Authorization':  localStorage.getItem("token")}});
+            const response = await api.post('lobbies/' + id + '/replay', requestBody, {headers:{'Authorization':  localStorage.getItem("token")}});
             history.push('lobbies/' + response.data.lobbyId);
         } catch (error) {
             alert(`Something went wrong while trying to play again: \n${handleError(error)}`);
