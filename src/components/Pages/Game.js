@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Link, withRouter } from 'react-router-dom';
 
 import { Container, Modal, Button } from 'react-bootstrap'
 import { api, handleError } from '../../helpers/api';
@@ -82,10 +82,20 @@ const Game = () => {
             setVictory(true)
             victorySound();
         }
-        else {
+        else if(playerClass !== null && data.winner !== null) {
             setVictory(false)
             defeatSound();
         }
+   }
+
+   const replay = async () => {
+        try{
+            const response = await api.post('lobbies/' + id + '/replay', {headers:{'Authorization':  localStorage.getItem("token")}});
+            history.push('lobbies/' + response.data.lobbyId);
+        } catch (error) {
+            alert(`Something went wrong while trying to play again: \n${handleError(error)}`);
+        }
+
    }
 
    //fetch Players each time Game Status is updated
@@ -197,7 +207,7 @@ const Game = () => {
                 <Sidebar selectPosition={selectPosition} turnUserId={turnUserId} blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves} gameId={id}/>
                 {myTurn && <TurnAlert/>}
                 {(() => {
-                if(gameStatus.gameOver === true){
+                if(gameStatus.gameOver == true && victory != null){
                     if(victory === true){
                       return(
                       <>
@@ -224,7 +234,7 @@ const Game = () => {
                             <Button variant="secondary" onClick={leaveGame}>
                                 Go to Profile
                                 </Button>
-                                <Button>
+                                <Button onClick={replay}>
                                 Play again
                                 </Button>
                         </Modal.Footer>
@@ -257,7 +267,7 @@ const Game = () => {
                             <Button variant="secondary" onClick={leaveGame}>
                                 Go to Profile
                                 </Button>
-                                <Button>
+                                <Button onClick={replay}>
                                 Play again
                                 </Button>
                         </Modal.Footer>
