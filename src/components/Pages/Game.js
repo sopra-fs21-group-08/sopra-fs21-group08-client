@@ -35,7 +35,7 @@ const Game = () => {
     const [moveSound] = useSound(moveNotification)
     const [victorySound] = useSound(victorySoundEffect)
     const [defeatSound] = useSound(defeatSoundEffect)
-    const [victory, setVictory] = useState(true)
+    const [victory, setVictory] = useState(null)
 
     // Fetches the stations from the backend
     useEffect(() => {
@@ -75,6 +75,19 @@ const Game = () => {
         return()=>clearInterval(interval)
    }, []);
 
+   const fetchSummary = async () => {
+        const response = await api.get('games/' + id + '/summary', {headers:{'Authorization': localStorage.getItem("token")}});
+        const data = response.data;
+        if(playerClass === data.winner){
+            setVictory(true)
+            victorySound();
+        }
+        else {
+            setVictory(false)
+            defeatSound();
+        }
+   }
+
    //fetch Players each time Game Status is updated
    useEffect(() => {
         const fetchPlayers = async () => {
@@ -91,12 +104,7 @@ const Game = () => {
         }else{
             setMyTurn(false)
         }
-        if(victory === true && gameStatus.gameOver){
-            victorySound();
-        }else if(victory === false && gameStatus.gameOver){
-            defeatSound();
-        }
-    }, [turnUserId, gameStatus.gameOver]);
+    }, [turnUserId]);
 
     //fetch BlackBoard each time Players are updated
     //TODO: fetch it in gameinfo component
@@ -177,6 +185,10 @@ const Game = () => {
     }
 
     }
+
+    if(gameStatus.gameOver === true && victory === null) {
+        fetchSummary();
+    }
     
     return (
         <>
@@ -219,7 +231,7 @@ const Game = () => {
                         </Modal>
                       </>
                     )}
-                    else {
+                    if(victory===false) {
                       return(
                       <>
                         <Modal show={true}>
