@@ -103,7 +103,7 @@ const Game = () => {
    useEffect(() => {
     const token = localStorage.getItem("token");
     const fetchBlackBoard = async () => {
-        const response = await api.get('/games/'+ id +'/moves/blackboards', {headers:{'Authorization':  `Basic ${token}`}}); 
+        const response = await api.get('/games/'+ id +'/moves/blackboards', {headers:{'Authorization':  localStorage.getItem("token")}});
         const blackboard = response.data;
         setBlackBoard(blackboard);
     };
@@ -134,7 +134,7 @@ const Game = () => {
    const fetchPossibleMoves = async (userId, ticketToMove) => {
        setSelectedTicket(ticketToMove)
        const url = '/games/' + id + '/moves/validate/' + userId
-       const response = await api.post(url,{ticket: ticketToMove}, {headers:{'Authorization': 'adsfa'}})
+       const response = await api.post(url,{ticket: ticketToMove}, {headers:{'Authorization':  localStorage.getItem("token")}})
        setPossibleMoves(response.data)
    }
 
@@ -143,7 +143,7 @@ const Game = () => {
        const userId = parseInt(localStorage.getItem("userId"));
        const url = '/games/'+id+'/moves/'+userId;
        try{
-       const response = await api.post(url, {ticket: ticketToMove, to: fieldId}, {headers:{'Authorization': 'adsfa'}})
+       const response = await api.post(url, {ticket: ticketToMove, to: fieldId}, {headers:{'Authorization':  localStorage.getItem("token")}})
        //console.log(response)
     }catch(error){
         //console.log(error)
