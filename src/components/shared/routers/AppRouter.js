@@ -75,6 +75,9 @@ class AppRouter extends React.Component {
             />
           </>
         </Switch>
+        <Switch>
+          <Redirect from="*" to="/login"></Redirect>
+        </Switch>
       </BrowserRouter>
     );
   }
