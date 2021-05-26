@@ -18,6 +18,7 @@ import { api, handleError } from '../../helpers/api';
 const Lobby = () => {
     const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6]
     const [players, setPlayers] = useState([])
+    const [playersLoaded, setPlayersLoaded] = useState(false);
     const [gameIsStarted, setGameIsStarted] = useState(false);
     const {id} = useParams()
     let gameId = id 
@@ -25,18 +26,40 @@ const Lobby = () => {
     let img = "https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg/100px100"
     const [lobbyName, setlobbyName] = useState([])
 
+    //check if user is allowed to be in the lobby
+    useEffect(()=>{
+            if(playersLoaded){
+            var foundPlayer = players.find(player=>player.userId===parseInt(localStorage.getItem('userId')))
+            console.log("foundPlayer")
+            console.log(foundPlayer)
+            if(foundPlayer===undefined){
+                history.push('/game/profile');
+                
+            }
+        }
+        
+
+    },[players])
+
     // fetch data from backend
     useEffect(() => {
         const fetchData = async () => {
+            try{
             const response = await api.get('/lobbies/'+ gameId); 
             console.log(response);
             const players = response.data.users;
             setlobbyName(response.data.lobbyName);
             setGameIsStarted(response.data.gameStarted);
             setPlayers(players);
+            setPlayersLoaded(true)
             console.log(players);
+            }catch(e){
+                history.push('/game/profile');
+            }
+            
+            
         };
-        fetchData();
+        
   
         const interval=setInterval(()=>{
               fetchData()
