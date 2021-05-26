@@ -55,12 +55,12 @@ const Sidebar = ({players, fetchPossibleMoves, blackBoard, turnUserId, gameId, s
           {(() => {
           if(chatopen == false){
             return(
-              <Button style={{ marginTop: -68, width: '2.5rem', height: '2.5rem', borderRadius: '2.5rem', color:'blue'}} onClick={toggle}><img src={ChatIcon} style={{height:'16px', width:'16px', marginLeft:'-1px', marginTop:'-4px', color:'white'}} /></Button>
+              <Button style={{ marginTop: -68, marginLeft: '3px', width: '2.5rem', height: '2.5rem', borderRadius: '2.5rem', color:'blue'}} onClick={toggle}><img src={ChatIcon} style={{height:'16px', width:'16px', marginLeft:'-1px', marginTop:'-4px', color:'white'}} /></Button>
             )
           }
           else {
             return(
-              <Button style={{ marginTop: -68, width: '2.5rem', height: '2.5rem', borderRadius: '2.5rem', color:'blue'}} onClick={toggle}><img src={CloseIcon} style={{height:'17px', width:'17px', marginLeft:'-1px', marginTop:'-3px', color:'white'}} /></Button>
+              <Button style={{ marginTop: -68, marginLeft: '3px', width: '2.5rem', height: '2.5rem', borderRadius: '2.5rem', color:'blue'}} onClick={toggle}><img src={CloseIcon} style={{height:'17px', width:'17px', marginLeft:'-1px', marginTop:'-3px', color:'white'}} /></Button>
             )
           }
           })()}
