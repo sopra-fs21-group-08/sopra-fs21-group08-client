@@ -155,8 +155,8 @@ function UserProfile() {
             <Card.Body className="inner-soft-blue" style={{borderRadius: '8px'}}>
               <Card.Text style={{textAlign: "left", color: "white"}}>
                 <Col>
-                  <p style={{fontWeight: "bold", marginLeft: "1rem", marginTop: "0.2rem"}}>Games played: </p>
-                  <p style={{marginLeft: "1rem"}}>Winning rate: </p>
+                  <p style={{fontWeight: "bold", marginLeft: "1rem", marginTop: "0.2rem"}}>Games played: {user.gamesPlayed} </p>
+                  <p style={{marginLeft: "1rem"}}>Winning rate: {user.winrate} </p>
                 </Col>
               </Card.Text>
             </Card.Body>
