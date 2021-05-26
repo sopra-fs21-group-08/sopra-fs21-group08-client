@@ -86,6 +86,9 @@ const Game = () => {
             setVictory(false)
             defeatSound();
         }
+        else if(data.winner === null){
+            setVictory('gameover')
+        }
    }
 
    const replay = async () => {
@@ -264,6 +267,27 @@ const Game = () => {
                           )
                         }
                         })()}
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={leaveGame}>
+                                Go to Profile
+                                </Button>
+                                <Button onClick={replay}>
+                                Play again
+                                </Button>
+                        </Modal.Footer>
+                        </Modal>
+                        </>
+                      )}
+                    if(victory==='gameover') {
+                      return(
+                      <>
+                        <Modal show={true}>
+                        <Modal.Header>
+                            <Modal.Title style={{color: 'red'}}>Game Over</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            Someone quit the game.
+                        </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={leaveGame}>
                                 Go to Profile
