@@ -1,13 +1,14 @@
 import React from "react";
+
+import {Container} from "react-bootstrap";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import { LoginGuard } from "../routeProtectors/LoginGuard";
+
 import Login from "../../Pages/Login";
-import Game from "../../Pages/Game";
+import GameRouter from "./GameRouter";
 import Register from "../../Pages/Register";
 import Background from "../../../views/Background";
 import { GameGuard } from "../routeProtectors/GameGuard";
-import GameRouter from "./GameRouter";
-import {Container, Row, Col} from "react-bootstrap";
+import { LoginGuard } from "../routeProtectors/LoginGuard";
 
 
 class AppRouter extends React.Component {
@@ -61,21 +62,6 @@ class AppRouter extends React.Component {
           </>
         </Switch>
         <Switch>
-          <>
-          <Route
-              path="/zoia"
-              exact
-              render={() => (
-                <>
-                  <Container style={{position: "absolute", zIndex: 10}} fluid>
-                  <Game />
-                  </Container>
-                </>
-              )}
-            />
-          </>
-        </Switch>
-        <Switch>
           <Redirect from="*" to="/login"></Redirect>
         </Switch>
       </BrowserRouter>
@@ -85,5 +71,3 @@ class AppRouter extends React.Component {
 
 
 export default AppRouter;
-
-//Todo: delete <Switch> to lobby
