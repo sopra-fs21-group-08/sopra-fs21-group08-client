@@ -5,6 +5,7 @@ import Header from '../../views/Header'
 import { api } from '../../helpers/api';
 import Rules from '../../components/shared/Rules'
 import { useHistory, Link } from 'react-router-dom';
+import Info from '../shared/Info';
 function Login() {
 
     const [user, setUser] = useState({ username: null, password: null })
@@ -69,6 +70,7 @@ function Login() {
             </Card>
             </div>
             <Rules/>
+            <Info/>
         </div>
     )
 }

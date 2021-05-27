@@ -6,6 +6,7 @@ import Header from '../../views/Header'
 import { api } from '../../helpers/api';
 import Rules from '../../components/shared/Rules'
 import { useHistory, Link } from 'react-router-dom';
+import Info from '../shared/Info';
 function Register() {
     const [user, setUser] = useState({ username: null, password: null, controlPassword: null })
     const [isValid, setIsValid] = useState({ username: true, password: true, controlPassword: true })
@@ -87,6 +88,7 @@ function Register() {
             </Card>
             </div>
             <Rules/>
+            <Info/>
         </div>
     )
 }

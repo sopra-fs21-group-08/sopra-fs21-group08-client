@@ -19,6 +19,7 @@ import Background from '../../views/Background';
 import BackgroundImage from '../../assets/img/background/zurich_background.jpg'
 import { useHistory, Link, withRouter } from 'react-router-dom';
 import User from '../shared/models/User';
+import Info from '../shared/Info';
 
 function UserProfile() {
 
@@ -257,6 +258,7 @@ function UserProfile() {
           </Modal.Footer>
         </Modal>
         <Rules/>
+        <Info/>
       </>
     )
 }
