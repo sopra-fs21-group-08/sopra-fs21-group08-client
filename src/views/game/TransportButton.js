@@ -19,7 +19,7 @@ function TransportButton(props) {
                     
                 </div>
             )
-          break;
+        
         case "Tram":
             return (
                 <div>
@@ -29,7 +29,7 @@ function TransportButton(props) {
                     
                 </div>
             )
-            break;
+            
             case "Train":
                 return (
                     <div>
@@ -39,7 +39,7 @@ function TransportButton(props) {
                         
                     </div>
                 )
-                break;
+                
                 case "Black":
                     return (
                         <div>
@@ -49,7 +49,7 @@ function TransportButton(props) {
                             
                         </div>
                     )
-                    break;
+                    
                     case "Double":
                         return (
                             <div>
@@ -59,7 +59,7 @@ function TransportButton(props) {
                                 
                             </div>
                         )
-                        break;
+                        
             default:
                 return null;
         
