@@ -1,6 +1,6 @@
 
 import React,{useState, useEffect} from 'react'
-import { SVGOverlay, Circle, Popup, Marker} from 'react-leaflet'
+import { SVGOverlay, Circle, Popup} from 'react-leaflet'
 
 export default function StationMarker(props) {
     const [bounds, setBounds] = useState(null);
@@ -23,8 +23,8 @@ export default function StationMarker(props) {
         var station = props.possibleMoves.find((station)=>station.id ===props.number)
         setIsActive(typeof(station)!="undefined")
         if(typeof(station)!="undefined"){
-            setCircleColor("red")
-            setCircleRadius(50)
+            setCircleColor("#DE3163")
+            setCircleRadius(70)
             //setCircleKey(circleKey+1)
         }else{
             setCircleColor("transparent")
@@ -88,7 +88,7 @@ export default function StationMarker(props) {
         {popupVisibility&&<Popup className="stationinfo" closeButton={false} position={props.bounds}>
             <b>{props.station.name}</b>
             </Popup>}
-        <Circle center={props.bounds}  radius={circleRadius} key={"circ-"+props.station.id+"-"+circleKey} eventHandlers={{click:()=>{if(isActive){props.onClickStation(props.station); setPopupVisibility(false)}}, mouseout:showPopup, mouseover:showPopup }} pathOptions={{fillColor: circleColor, stroke: false}}>
+        <Circle center={props.bounds}  radius={circleRadius} key={"circ-"+props.station.id+"-"+circleKey} eventHandlers={{click:()=>{if(isActive){props.onClickStation(props.station); setPopupVisibility(false)}}, mouseout:showPopup, mouseover:showPopup }} pathOptions={{fillColor: circleColor, stroke: false, fillOpacity: 0.6}}>
         <SVGOverlay attributes={{viewBox: "0 0 28.4 28.4"}} bounds={calcBounds(props.bounds)} eventHandlers={{click:()=>{console.log("Test")}}} >
                 <path className="st0" style={colorScheme.top} d="M26.9,14.2c0-7-5.7-12.8-12.8-12.8S1.4,7.1,1.4,14.2H26.9z" />
                 <path className="st1" style={colorScheme.bottom} d="M1.4,14.2c0,7,5.7,12.8,12.8,12.8s12.8-5.7,12.8-12.8H1.4z" />
