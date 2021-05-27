@@ -1,27 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import styled from "styled-components";
-import defaultavatar from '../assets/img/avatar/avatar0.jpeg';
-import avatar0 from '../assets/img/avatar/avatar1.png'
-import avatar1 from '../assets/img/avatar/avatar2.png'
-import avatar2 from '../assets/img/avatar/avatar3.png'
-import avatar3 from '../assets/img/avatar/avatar4.png'
-import avatar4 from '../assets/img/avatar/avatar5.png'
-import avatar5 from '../assets/img/avatar/avatar6.png'
-import avatar6 from '../assets/img/avatar/avatar7.png'
-import { api, handleError } from '../helpers/api';
-import { Card, Form, Alert, CardDeck, Image, Container, Col, Row, Modal } from 'react-bootstrap';
-import User from '../components/shared/models/User';
 
+import { api } from '../helpers/api';
+import { Card, Col, Row } from 'react-bootstrap';
+import {avatars} from '../views/design/Avatars'
 
-/**
- * This is an example of a Functional and stateless component (View) in React. 
- * Functional components are not classes and thus don't handle internal state changes.
- * Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen.
- * They are reusable pieces, and think about each piece in isolation.
- * Functional components have to return always something. However, they don't need a "render()" method.
- * https://reactjs.org/docs/components-and-props.html
- * @FunctionalComponent
- */
 const Players = () => {
 
     const [users, setusers] = useState([[]]);
@@ -30,13 +12,10 @@ const Players = () => {
     {
       const fetchData = async () => {
           const response = await api.get('/users/');
-          console.log(response);
           const users = response.data;
           setusers(users);
-          console.log(users);
       };
       fetchData();
-
       const interval=setInterval(()=>{
             fetchData()
            },1000)
@@ -44,7 +23,6 @@ const Players = () => {
       return()=>clearInterval(interval)
     }, []);
 
-  const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6]
   return (
           <div>
             <Card className="soft-white" style={{ width: '30rem', height: '33rem', marginBottom: '3rem', flex: 1 }}>
@@ -59,7 +37,7 @@ const Players = () => {
                  if(user.status == "ONLINE" && user.userId != localStorage.getItem('userId')) {
                    return(
                    <Col xs={4}>
-                    <Card.Img variant="top" src={avatar[user.userId%7]} />
+                    <Card.Img variant="top" src={avatars[user.userId%7]} />
                     <div className='mt-2'>
                     </div>
                     <div style={{fontSize: 20}}>
@@ -73,7 +51,7 @@ const Players = () => {
                  else if(user.userId != localStorage.getItem('userId')) {
                    return(
                    <Col xs={4}>
-                    <Card.Img variant="top" style={{Overflow: 'visible', opacity: 0.3}} src={avatar[user.userId%7]} />
+                    <Card.Img variant="top" style={{Overflow: 'visible', opacity: 0.3}} src={avatars[user.userId%7]} />
                     <div className='mt-2'>
                     </div>
                     <div style={{ opacity: 0.3 }}>

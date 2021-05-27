@@ -1,32 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import Button from 'react-bootstrap/Button';
-import { Card, Form, Alert, CardDeck, Image, Container, Col, Row, Modal } from 'react-bootstrap';
-import ZButton from '../../views/design/ZButton'
+
+import { useHistory } from 'react-router-dom';
+import { Card, Form, CardDeck, Container, Col, Row, Modal, Button } from 'react-bootstrap';
+
+import Info from '../shared/Info'
 import Header from '../../views/Header'
 import Player from '../../views/Players'
+import User from '../shared/models/User'
 import Lobbies from '../../views/Lobbies'
-import { api, handleError } from '../../helpers/api';
-import defaultavatar from '../../assets/img/avatar/avatar0.jpeg'
-import avatar0 from '../../assets/img/avatar/avatar1.png'
-import avatar1 from '../../assets/img/avatar/avatar2.png'
-import avatar2 from '../../assets/img/avatar/avatar3.png'
-import avatar3 from '../../assets/img/avatar/avatar4.png'
-import avatar4 from '../../assets/img/avatar/avatar5.png'
-import avatar5 from '../../assets/img/avatar/avatar6.png'
-import avatar6 from '../../assets/img/avatar/avatar7.png'
+import ZButton from '../../views/design/ZButton'
 import Rules from '../../components/shared/Rules'
-import Background from '../../views/Background';
-import BackgroundImage from '../../assets/img/background/zurich_background.jpg'
-import { useHistory, Link, withRouter } from 'react-router-dom';
-import User from '../shared/models/User';
-import Info from '../shared/Info';
+import {avatars} from '../../views/design/Avatars'
+import { api, handleError } from '../../helpers/api'
 
 function UserProfile() {
 
     const [user, setuser] = useState([]);
     const [lobbyId, setlobbyId] = useState([]);
-
-    const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
     let history = useHistory();
     const [show, setShow] = useState(false);
@@ -124,7 +114,7 @@ function UserProfile() {
           <div className='mt-4'>
             <Row>
               <Col>
-              <Card.Img variant="top" src={avatar[user.userId%7]} />
+              <Card.Img variant="top" src={avatars[user.userId%7]} />
               </Col>
               <Col>
               </Col>

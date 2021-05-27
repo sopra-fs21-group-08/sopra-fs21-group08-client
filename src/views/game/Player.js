@@ -3,18 +3,7 @@ import { Card, Row, Col } from 'react-bootstrap';
 import TransportButton from './TransportButton'
 import {avatars} from '../../views/design/Avatars'
 
-/* Testing */
-// import {player} from '../../assets/MockDTOs'
-
 const styles = {
-    grid: {
-        paddingLeft: 0,
-        paddingRight: 0
-    },
-    row: {
-        marginLeft: 0,
-        marginRight: 0
-    },
     col: {
         paddingLeft: 5,
         paddingRight: 0
@@ -58,6 +47,3 @@ const Player = ({ player, color, isMoving=false, fetchPossibleMoves, onClick }) 
 }
 
 export default Player
-
-// TODO: iterate over the wallet
-// {playerId===userId ? <>you</> : <></>}

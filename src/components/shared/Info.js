@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Button, Card, Col, Modal, Row } from 'react-bootstrap'
+
+import { Button, Modal, Row } from 'react-bootstrap'
 import { Github, InfoCircleFill as InfoSymbol } from 'react-bootstrap-icons';
+
 import Creator from '../../views/Creator';
 
 function Info() {
@@ -27,7 +29,7 @@ function Info() {
                     <Row>
                         <Creator name="Maximilian Huwyler" skills="Backend"/>
                         <Creator name="Filip Dombos" skills="Backend"/>
-                        <Creator name="Zoia Katashinskaya" skills="Frontend"/>
+                        <Creator name="Zoia Katashinskaia" skills="Frontend"/>
                         <Creator name="Marvin Münger" skills="Frontend"/>
                         <Creator name="Tobias Frauenfelder" skills="Frontend"/>
                     </Row>

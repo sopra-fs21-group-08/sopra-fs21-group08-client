@@ -1,52 +1,32 @@
 import React, { useState, useEffect } from 'react'
+
 import { Redirect, useParams, useHistory } from 'react-router-dom';
-import { Card, Row, Col, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
-import Button from 'react-bootstrap/Button';
+import { Card, Row, Col, Modal, OverlayTrigger, Tooltip, Button } from 'react-bootstrap'
+
+import Info from '../shared/Info'
 import Header from '../../views/Header'
 import ZButton from '../../views/design/ZButton'
-import avatar0 from '../../assets/img/avatar/avatar1.png'
-import avatar1 from '../../assets/img/avatar/avatar2.png'
-import avatar2 from '../../assets/img/avatar/avatar3.png'
-import avatar3 from '../../assets/img/avatar/avatar4.png'
-import avatar4 from '../../assets/img/avatar/avatar5.png'
-import avatar5 from '../../assets/img/avatar/avatar6.png'
-import avatar6 from '../../assets/img/avatar/avatar7.png'
 import Rules from '../../components/shared/Rules'
+import {avatars} from '../../views/design/Avatars'
 import { api, handleError } from '../../helpers/api';
 
 
 const Lobby = () => {
-    const avatar = [avatar0, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6]
-    const [players, setPlayers] = useState([])
-    const [playersLoaded, setPlayersLoaded] = useState(false);
-    const [gameIsStarted, setGameIsStarted] = useState(false);
+
     const {id} = useParams()
     let gameId = id 
     let history = useHistory();
-    let img = "https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg/100px100"
+
+    const [players, setPlayers] = useState([])
     const [lobbyName, setlobbyName] = useState([])
+    const [playersLoaded, setPlayersLoaded] = useState(false);
+    const [gameIsStarted, setGameIsStarted] = useState(false);
 
-    //check if user is allowed to be in the lobby
-    useEffect(()=>{
-            if(playersLoaded){
-            var foundPlayer = players.find(player=>player.userId===parseInt(localStorage.getItem('userId')))
-            console.log("foundPlayer")
-            console.log(foundPlayer)
-            if(foundPlayer===undefined){
-                history.push('/game/profile');
-                
-            }
-        }
-        
-
-    },[players])
-
-    // fetch data from backend
+    // fetch lobby data from backend
     useEffect(() => {
         const fetchData = async () => {
             try{
             const response = await api.get('/lobbies/'+ gameId); 
-            console.log(response);
             const players = response.data.users;
             setlobbyName(response.data.lobbyName);
             setGameIsStarted(response.data.gameStarted);
@@ -56,11 +36,7 @@ const Lobby = () => {
             }catch(e){
                 history.push('/game/profile');
             }
-            
-            
         };
-        
-  
         const interval=setInterval(()=>{
               fetchData()
              },1000)
@@ -68,15 +44,20 @@ const Lobby = () => {
         return()=>clearInterval(interval)
     }, []);
 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    //check if user is allowed to be in the lobby
+    useEffect(()=>{
+        if(playersLoaded){
+            var foundPlayer = players.find(player=>player.userId===parseInt(localStorage.getItem('userId')))
+            if(foundPlayer===undefined){
+                history.push('/game/profile');       
+            }
+        }
+    },[players])
 
     // handle leave game
     const [showLeave, setShowLeave] = useState(false);
     const closeLeave = () => setShowLeave(false);
     const handleShowLeave = () => setShowLeave(true);
-    
     const leaveGame = async () => {
         const requestBody = JSON.stringify({
             userId : Number(localStorage.getItem('userId')),
@@ -93,9 +74,6 @@ const Lobby = () => {
     }
 
     // handle game start
-    
-    // const handleGameIsStarted = () => setGameIsStarted(true);
-
     const startGame = async () => {
         // initiate new game at backend
         const requestBody = JSON.stringify({
@@ -103,25 +81,17 @@ const Lobby = () => {
             token: localStorage.getItem("token"),
           });
         try{
-            console.log("creating new game at backend")
-            console.log(requestBody)
             const response = await api.post('/games/' + id, requestBody);
             console.log("Status Code " + response.status)
-            // handleGameIsStarted();
         } catch (error) {
             alert(`Something went wrong while trying to start a new Game: \n${handleError(error)}`);
         }
     }
 
-
-    // handle back button
-    const [isGoingBack, setIsGoingBack] = useState(false);
-
+    // ask if user wants to leave lobby after clicking back button
     const onBackButtonEvent = (e) => {
         e.preventDefault();
-        if (!isGoingBack) {
-            handleShowLeave();
-        }
+        handleShowLeave();
     }
 
     useEffect(() => {
@@ -131,7 +101,8 @@ const Lobby = () => {
           window.removeEventListener('popstate', onBackButtonEvent);  
         };
     }, []);
-
+    
+    //render page
     if (!gameIsStarted){
             return (
                 <>
@@ -151,7 +122,7 @@ const Lobby = () => {
                             <Row>
                                 {players.map(player => (
                                         <Col key={player.userId} xs={4}>
-                                            <Card.Img variant="top" src={avatar[player.userId%7]} />
+                                            <Card.Img variant="top" src={avatars[player.userId%7]} />
                                             <div className='mt-2'>
                                             </div>
                                             <div style={{fontSize: 20}}>
@@ -195,20 +166,6 @@ const Lobby = () => {
                             </Row>
                         </Card.Footer>
         
-                        <Modal show={show} onHide={handleClose} size="lg">
-                            <Modal.Header closeButton>
-                            <Modal.Title>Game rules</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <Rules />
-                            </Modal.Body>
-                            <Modal.Footer>
-                            <ZButton variant="secondary" onClick={handleClose}>
-                                Close
-                            </ZButton>
-                            </Modal.Footer>
-                        </Modal>
-        
                         <Modal show={showLeave} onHide={closeLeave}>
                             <Modal.Header closeButton>
                                 <Modal.Title>Leaving Game Lobby</Modal.Title>
@@ -228,6 +185,7 @@ const Lobby = () => {
                     </center>
                     </div>
                     <Rules/>
+                    <Info/>
                     
                 </>
             )
@@ -240,4 +198,3 @@ const Lobby = () => {
 
 export default Lobby
 
-//TODO : fix game start so that all players are redirected
