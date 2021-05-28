@@ -202,7 +202,7 @@ function UserProfile() {
             <Button variant="secondary" onClick={closeEdit}>
               Cancel
             </Button>
-            <ZButton
+            <ZButton disabled={!inputusername}
             onClick={() => {
                 editProfile();
             }}>

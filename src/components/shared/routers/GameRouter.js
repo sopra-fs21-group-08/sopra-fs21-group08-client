@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Redirect, Route, Switch } from "react-router-dom";
 import UserProfile from "../../Pages/UserProfile";
-import GameOver from "../../Pages/GameOver";
 import Lobby from "../../Pages/Lobby";
 import Game from "../../Pages/Game";
 import Map from "../../Pages/Map";
@@ -30,19 +29,6 @@ class GameRouter extends React.Component {
             <Background />
             </UserProfileGuard>
           }
-        />
-
-        <Route
-          exact
-          path={`${this.props.base}/gameover`}
-
-          render={() =>
-            <>
-            <Container style={{position: "absolute", zIndex: 10}} fluid>
-            <GameOver />
-            </Container>
-            <Background />
-            </>}
         />
 
         <Route
