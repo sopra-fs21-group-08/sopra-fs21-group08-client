@@ -24,13 +24,13 @@ function Rules(props) {
                 </Modal.Header>
                 <Modal.Body>
                     <p>
-                        Welcome to a special SoPra edition of a famous board game Scotland Yard!<br/>
-                        This time Mister X tries to escape detectives in the city of Zurich.
+                        Welcome to a special SoPra edition of the famous board game Scotland Yard!<br/>
+                        This time, Mister X tries to escape the detectives in the city of Zurich.
                     </p>
                     <p>
                         <h4>Starting Position</h4>
-                        Game is designed for <b>3-6 players</b>. One person becomes Mister X and all others are Detectives. 
-                        Roles and initial positions on the map are assigned automatically.<br/>
+                        This game is designed for <b>3-6 players</b>. One person becomes Mister X and all the others are Detectives.
+                        The roles and initial positions on the map are assigned automatically.<br/>
                         <br/>
 
                         <h4>Detective and Mister X Screen Mode</h4>
@@ -42,10 +42,10 @@ function Rules(props) {
                                 <Image className="mx-auto img-fluid" height={400} src={mrXMode} rounded />
                             </Col>
                         </Row>
-                        Mister X is most of the time not visible to detectives and is displayed differently for detectives and Mr X.<br/> 
+                        Mister X is not visible to the detectives most of the time.<br/>
                         His/her position is revealed at <b>rounds 3, 8, 13, 18 and 22 </b> (highlighted on the blackboard). <br/> 
-                        Outside of this rounds detectives can see the last revealed position of Mr X. For example, if it's currently round 5 detectives see where Mr X was at round 3. 
-                        Mr X sees his/her current position all the time.<br/>
+                        Outside of these rounds, the detectives can see the last revealed position of Mr X. For example, if it's currently round 5, the detectives see where Mr X was at round 3.
+                        Mr X always sees his/her current position.<br/>
                         <br/>
                         <h4>Blackboard</h4> 
                         <Row>
@@ -53,8 +53,8 @@ function Rules(props) {
                                 <Image className="mx-auto img-fluid" src={blackboard} rounded />
                             </Col>
                         </Row>
-                        After every round Mr X displays the ticket he/she has used. This information is shown on the blackboard. <br/>
-                        You can also see when Mr X position was last revealed and what round would it be visible again.
+                        After every round, Mr X reveals the ticket he/she has used. This information is shown on the blackboard. <br/>
+                        You can also see when the position of Mr X was last revealed and which rounds it will be visible again.
                         <br/>
                         <br/>
                         <h4>Game Flow</h4>
@@ -81,10 +81,10 @@ function Rules(props) {
                                 <Image className="mx-auto" src={chooseATicket} rounded />
                             </Col>
                             </Row>
-                            To make a move a player should push a button with the corresponding means of transport on the player card.
+                            To make a move, a player should click on a button with the corresponding means of transport on his/her player card.
                             Possible options will be highlighted. Choose one of the given options. <br/>
-                            B.N: Be carefull possible moves could be different from what you expect. It takes time to learn 
-                            transport system ;)<br/>
+                            B.N: Be careful, possible moves could be different from what you expect. It takes time to learn
+                            transport systems ;)<br/>
                             <br/>
                             <h4>Special tickets</h4>
                             Special tickets are only available to Mister X.<br/>
@@ -95,7 +95,7 @@ function Rules(props) {
                             <br/>
                         <p>
                             <h4>End of the Game</h4>
-                            The game ends in case detectives catch Mister X or if 22 rounds are over and Mister X is still not found.
+                            The game ends if the detectives catch Mister X (detectives win) or if 22 rounds are over and Mister X is still not found (Mister X wins).
                         </p>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
