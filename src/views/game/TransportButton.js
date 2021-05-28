@@ -1,10 +1,10 @@
 import React from 'react'
-
-import TramTicket from '../design/TramTicket'
-import TrainTicket from '../design/TrainTicket'
-import BusTicket from '../design/BusTicket'
 import BlackTicket from '../design/BlackTicket'
+import BusTicket from '../design/BusTicket'
 import DoubleTicket from '../design/DoubleTicket'
+import TrainTicket from '../design/TrainTicket'
+import TramTicket from '../design/TramTicket'
+
 
 // Button styled in the colors of Zurich
 function TransportButton(props) {

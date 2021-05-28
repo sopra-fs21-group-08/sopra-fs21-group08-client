@@ -1,18 +1,16 @@
-import React, {useState, useEffect} from 'react'
-
-import { useParams } from 'react-router-dom';
-
-import { Button, Row, Col } from 'react-bootstrap'
-
-import { ChatFill } from 'react-bootstrap-icons';
+import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
+import Chat from './Chat/Chat';
 import ChatIcon from './Chat/chat-icon-white.png';
 import CloseIcon from './Chat/Close-icon.png';
-
-
-import Player from './Player'
-import MisterX from './MisterX'
-import Chat from './Chat/Chat'
+import MisterX from './MisterX';
+import Player from './Player';
 import QuitButton from './QuitButton';
+
+
+
+
+
 
 const Sidebar = ({players, fetchPossibleMoves, blackBoard, turnUserId, gameId, selectPosition}) => {
 

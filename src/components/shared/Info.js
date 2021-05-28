@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-
-import { Button, Modal, Row } from 'react-bootstrap'
+import React, { useState } from 'react';
+import { Button, Modal, Row } from 'react-bootstrap';
 import { Github, InfoCircleFill as InfoSymbol } from 'react-bootstrap-icons';
-
 import Creator from '../../views/Creator';
+
+
 
 function Info() {
     const [show, setShow] = useState(false);

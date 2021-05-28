@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
-
-import { Redirect, useParams, useHistory } from 'react-router-dom';
-import { Card, Row, Col, Modal, OverlayTrigger, Tooltip, Button } from 'react-bootstrap'
-
-import Info from '../shared/Info'
-import Header from '../../views/Header'
-import ZButton from '../../views/design/ZButton'
-import Rules from '../../components/shared/Rules'
-import {avatars} from '../../views/design/Avatars'
+import React, { useEffect, useState } from 'react';
+import { Button, Card, Col, Modal, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
+import { Redirect, useHistory, useParams } from 'react-router-dom';
+import Rules from '../../components/shared/Rules';
 import { api, handleError } from '../../helpers/api';
+import { avatars } from '../../views/design/Avatars';
+import ZButton from '../../views/design/ZButton';
+import Header from '../../views/Header';
+import Info from '../shared/Info';
+
+
 
 
 const Lobby = () => {

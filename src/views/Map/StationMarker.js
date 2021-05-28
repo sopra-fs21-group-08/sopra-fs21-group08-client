@@ -1,6 +1,6 @@
 
-import React,{useState, useEffect} from 'react'
-import { SVGOverlay, Circle, Popup} from 'react-leaflet'
+import React, { useEffect, useState } from 'react';
+import { Circle, Popup, SVGOverlay } from 'react-leaflet';
 
 export default function StationMarker(props) {
     const [bounds, setBounds] = useState(null);

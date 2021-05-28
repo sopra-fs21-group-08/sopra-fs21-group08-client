@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-
-import { api } from '../helpers/api';
+import React, { useEffect, useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
-import {avatars} from '../views/design/Avatars'
+import { api } from '../helpers/api';
+import { avatars } from '../views/design/Avatars';
+
 
 const Players = () => {
 

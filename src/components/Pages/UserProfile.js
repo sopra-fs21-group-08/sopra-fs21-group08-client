@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react'
-
+import React, { useEffect, useState } from 'react';
+import { Button, Card, CardDeck, Col, Container, Form, Modal, Row } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-import { Card, Form, CardDeck, Container, Col, Row, Modal, Button } from 'react-bootstrap';
+import Rules from '../../components/shared/Rules';
+import { api, handleError } from '../../helpers/api';
+import { avatars } from '../../views/design/Avatars';
+import ZButton from '../../views/design/ZButton';
+import Header from '../../views/Header';
+import Lobbies from '../../views/Lobbies';
+import Player from '../../views/Players';
+import Info from '../shared/Info';
+import User from '../shared/models/User';
 
-import Info from '../shared/Info'
-import Header from '../../views/Header'
-import Player from '../../views/Players'
-import User from '../shared/models/User'
-import Lobbies from '../../views/Lobbies'
-import ZButton from '../../views/design/ZButton'
-import Rules from '../../components/shared/Rules'
-import {avatars} from '../../views/design/Avatars'
-import { api, handleError } from '../../helpers/api'
+
 
 function UserProfile() {
 

@@ -1,12 +1,10 @@
-import React, {useState, useEffect} from 'react'
-
+import React from 'react';
 import { Table } from 'react-bootstrap';
+import bus from '../../assets/img/icons/bus.png';
+import train from '../../assets/img/icons/train.png';
+import tram from '../../assets/img/icons/tram.png';
 
-import {transportIcons} from '../design/TransportIcons'
-import bus from '../../assets/img/icons/bus.png'
-import tram from '../../assets/img/icons/tram.png'
-import train from '../../assets/img/icons/train.png'
-import {ReactComponent as Bus} from '../../assets/img/icons/svg/bus.svg'
+
 
 function BlackBoard({moves, rounds=22, visible_rounds=[3, 8, 13, 18, 22]}) {
     let blackBoard = []

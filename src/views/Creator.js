@@ -1,4 +1,4 @@
-import { Col, Card, Row, Image } from "react-bootstrap"
+import { Card, Col, Image, Row } from "react-bootstrap"
 
 
 function Creator({name, image, skills}) {

@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button';
-import { Card, Form, Alert } from 'react-bootstrap';
-import ZButton from '../../views/design/ZButton'
-import Header from '../../views/Header'
+import React, { useState } from 'react';
+import { Alert, Card, Form } from 'react-bootstrap';
+import { Link, useHistory } from 'react-router-dom';
+import Rules from '../../components/shared/Rules';
 import { api } from '../../helpers/api';
-import Rules from '../../components/shared/Rules'
-import { useHistory, Link } from 'react-router-dom';
+import ZButton from '../../views/design/ZButton';
+import Header from '../../views/Header';
 import Info from '../shared/Info';
 function Register() {
     const [user, setUser] = useState({ username: null, password: null, controlPassword: null })

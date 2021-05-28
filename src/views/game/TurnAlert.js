@@ -1,6 +1,6 @@
 import { useState } from 'react';
-
 import { Alert } from 'react-bootstrap';
+
 
 const TurnAlert = () => {
     const [timeOut, setTimeOut] = useState(null)

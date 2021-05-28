@@ -1,10 +1,8 @@
-import { Button } from 'react-bootstrap'
-import React, { useState, useEffect, useParams } from 'react'
-import { useHistory, Link, withRouter } from 'react-router-dom';
-import User from '../../components/shared/models/User';
+import React, { useState } from 'react';
+import { Button, Modal } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import { api, handleError } from '../../helpers/api';
-import { Modal } from 'react-bootstrap';
-import ZButton from '../design/ZButton'
+import ZButton from '../design/ZButton';
 
 // Button styled in the colors of Zurich
 const QuitButton = ({gameId}) => {

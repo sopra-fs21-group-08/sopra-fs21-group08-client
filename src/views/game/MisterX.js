@@ -1,9 +1,9 @@
+import { Accordion, Card, Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import mrx from '../../assets/img/avatar/mrx.png';
+import TransportButton from './TransportButton';
 
-import { Accordion, Card, Row, Col } from 'react-bootstrap';
 
-import TransportButton from './TransportButton'
-import mrx from '../../assets/img/avatar/mrx.png'
 
 const styles = {
     grid: {

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-
-import { useHistory, Link } from 'react-router-dom'
-import { Card, Form, Alert } from 'react-bootstrap'
-
-import Info from '../shared/Info'
-import Header from '../../views/Header'
-import { api } from '../../helpers/api'
+import { Alert, Card, Form } from 'react-bootstrap'
+import { Link, useHistory } from 'react-router-dom'
 import Rules from '../../components/shared/Rules'
+import { api } from '../../helpers/api'
 import ZButton from '../../views/design/ZButton'
+import Header from '../../views/Header'
+import Info from '../shared/Info'
+
+
 
 function Login() {
 

@@ -1,7 +1,7 @@
-import { Card, Row, Col } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
+import { avatars } from '../../views/design/Avatars';
+import TransportButton from './TransportButton';
 
-import TransportButton from './TransportButton'
-import {avatars} from '../../views/design/Avatars'
 
 const styles = {
     col: {

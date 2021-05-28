@@ -1,5 +1,5 @@
-import React,{useEffect} from 'react'
-import {useMap } from 'react-leaflet'
+import { useEffect } from 'react';
+import { useMap } from 'react-leaflet';
 
 function ChangeView({ center, zoom, flyTo, mapFrame, mapFrameKey, zoomToPosition }) {
   const map = useMap();

@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import styled from "styled-components";
-import avatar6 from '../assets/img/avatar/avatar7.png'
-import { api, handleError } from '../helpers/api';
-import { Card, Form, Alert, CardDeck, Image, Container, Col, Row, Modal } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Card, Col, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-import { useHistory, Link, withRouter } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { api, handleError } from '../helpers/api';
 
 
 

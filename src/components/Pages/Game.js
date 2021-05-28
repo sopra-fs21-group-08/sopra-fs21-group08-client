@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { useParams, useHistory, Link, withRouter } from 'react-router-dom';
-
-import { Container, Modal, Button } from 'react-bootstrap'
-import { api, handleError } from '../../helpers/api';
-
-import Sidebar from '../../views/game/Sidebar'
-import GameInfo from '../../views/game/GameInfo'
-import Rules from '../../components/shared/Rules'
-import Map from '../Pages/Map'
-import TurnAlert from '../../views/game/TurnAlert'
+import React, { useEffect, useState } from 'react';
+import { Button, Container, Modal } from 'react-bootstrap';
+import Confetti from 'react-confetti';
+import { useHistory, useParams } from 'react-router-dom';
 import useSound from 'use-sound';
-import moveNotification from '../../assets/sounds/show-me-your-moves-small.mp3'
-import victorySoundEffect from '../../assets/sounds/Victory.mp3'
-import defeatSoundEffect from '../../assets/sounds/Defeat.mp3'
+import defeatSoundEffect from '../../assets/sounds/Defeat.mp3';
+import moveNotification from '../../assets/sounds/show-me-your-moves-small.mp3';
+import victorySoundEffect from '../../assets/sounds/Victory.mp3';
+import Rules from '../../components/shared/Rules';
+import { api, handleError } from '../../helpers/api';
+import GameInfo from '../../views/game/GameInfo';
+import Sidebar from '../../views/game/Sidebar';
+import TurnAlert from '../../views/game/TurnAlert';
+import Map from '../Pages/Map';
 
-import Confetti from 'react-confetti'
+
+
 
 const Game = () => {
     const { id } = useParams()

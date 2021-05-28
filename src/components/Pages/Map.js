@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
 import 'leaflet/dist/leaflet.css';
-import L, { bounds } from 'leaflet';
-import { MapContainer, SVGOverlay, WMSTileLayer, Circle, Marker, Polyline, AttributionControl, useMap } from 'react-leaflet'
-import { figureTurquoise, figureBlack, figureBlue, figureRed, figureWhite, figureYellow } from '../../views/Map/Figure'
-import ChangeView from '../../views/Map/ChangeView'
-import StationMarker from '../../views/Map/StationMarker'
-import routes from '../../assets/mockstations/routes'
+import React, { useEffect, useState } from 'react';
+import { MapContainer, Marker, Polyline, WMSTileLayer } from 'react-leaflet';
+import routes from '../../assets/mockstations/routes';
+import ChangeView from '../../views/Map/ChangeView';
+import { figureBlack, figureBlue, figureRed, figureTurquoise, figureWhite, figureYellow } from '../../views/Map/Figure';
+import StationMarker from '../../views/Map/StationMarker';
 function GameMap(props) {
 
     const [rts, setRts] = useState(routes)

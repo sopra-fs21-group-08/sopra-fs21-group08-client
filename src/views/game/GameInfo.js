@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
-import { Card, Row, Col } from 'react-bootstrap';
-// import { Squash as Hamburger } from 'hamburger-react'
-
-import {avatars} from '../design/Avatars'
-import BlackBoard from './BlackBoard'
+import { useEffect, useState } from 'react';
+import { Card, Col, Row } from 'react-bootstrap';
 import { api, handleError } from '../../helpers/api';
+// import { Squash as Hamburger } from 'hamburger-react'
+import { avatars } from '../design/Avatars';
+import BlackBoard from './BlackBoard';
 
 // import {gameStatus} from '../../assets/MockDTOs'
 
