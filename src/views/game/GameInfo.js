@@ -21,11 +21,11 @@ const GameInfo = ({gameStatus, playerClass, playerIdx, blackBoard}) => {
 
     const userpic = <> 
         <Row>
-            <img className='mediumImage' src={avatars[userId%7]} alt='userpic' type='button'/>
+            <img className='mediumImage' src={avatars[userId%7]} alt='userpic'/>
         </Row>
         <Row>
             <Col>
-                <Card.Text className="smallFont textCentred" type='button'>{username}</Card.Text>
+                <Card.Text className="smallFont textCentred">{username}</Card.Text>
             </Col>
         </Row>
     </>
