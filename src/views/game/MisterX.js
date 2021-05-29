@@ -2,6 +2,7 @@ import { Accordion, Card, Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import mrx from '../../assets/img/avatar/mrx.png';
 import TransportButton from './TransportButton';
+import React, { useState } from 'react'
 
 
 
@@ -22,9 +23,21 @@ const styles = {
     }
 };
 
-const MisterX = ({player, isMoving, fetchPossibleMoves, blackBoard, onClick}) => {
+const MisterX = ({playerClass, player, isMoving, fetchPossibleMoves, blackBoard, onClick}) => {
+    let hide = {
+        display: 'none',
+    }
+    let show = {
+        display: 'block',
+    }
+
     var opacity = isMoving ? 1 : 0.5
     const { id } = useParams()
+    const [misterx, setmisterx] = useState(false)
+
+    if(playerClass == "MRX" && misterx == false){
+        setmisterx(true)
+    }
 
     return (
         <>
@@ -40,6 +53,7 @@ const MisterX = ({player, isMoving, fetchPossibleMoves, blackBoard, onClick}) =>
                     <Col>Mister X : {player.user.username}</Col>
                     </Row >
                 </Accordion.Toggle>
+                <div style={misterx ? show : hide}>
                 <Card.Footer style={{paddingRight: 0, paddingTop: 0,paddingBottom: 5}}>
                     <Row>
                         <Col md="auto" style={styles.col}>
@@ -61,6 +75,7 @@ const MisterX = ({player, isMoving, fetchPossibleMoves, blackBoard, onClick}) =>
                         </Col>
                     </Row>
                 </Card.Footer>
+                </div>
             </Card>
             </Accordion>
         </>

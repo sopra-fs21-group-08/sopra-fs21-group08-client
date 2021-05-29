@@ -12,7 +12,7 @@ import QuitButton from './QuitButton';
 
 
 
-const Sidebar = ({players, fetchPossibleMoves, blackBoard, turnUserId, gameId, selectPosition}) => {
+const Sidebar = ({playerClass, players, fetchPossibleMoves, blackBoard, turnUserId, gameId, selectPosition}) => {
 
   const [thisPlayers, setThisPlayers] = useState([])
   const [chatopen, setchatopen] = useState(false)
@@ -32,6 +32,7 @@ const Sidebar = ({players, fetchPossibleMoves, blackBoard, turnUserId, gameId, s
                    return(
                    <MisterX key={index}
                             onClick={()=>{selectPosition(player)}}
+                            playerClass={playerClass}
                             blackBoard={blackBoard} 
                             player={player} 
                             isMoving={player.user.userId === turnUserId ? true : false}

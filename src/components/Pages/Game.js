@@ -208,7 +208,7 @@ const Game = () => {
         <>
             <Container style={{ position: "absolute", zIndex: 1000 }} fluid>
                 <GameInfo gameStatus={gameStatus} playerClass={playerClass} playerIdx={playerIdx} blackBoard={blackBoard}/>
-                <Sidebar selectPosition={selectPosition} turnUserId={turnUserId} blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves} gameId={id}/>
+                <Sidebar playerClass={playerClass} selectPosition={selectPosition} turnUserId={turnUserId} blackBoard={blackBoard} gameStatus={gameStatus} players={players} fetchPossibleMoves={fetchPossibleMoves} gameId={id}/>
                 {myTurn && <TurnAlert/>}
                 {(() => {
                 if(gameStatus.gameOver == true && victory != null){
