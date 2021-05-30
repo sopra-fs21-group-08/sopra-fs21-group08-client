@@ -48,6 +48,8 @@ It correctly bundles React in production mode and optimizes the build for the be
 The application is deployed on [heroku](https://sopra-fs21-group-08-client.herokuapp.com/)
 
 ## Illustrations
+### Gameflow
+![Gameflow](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-client/blob/master/readme/images/gameflow.png?raw=true)
 
 ## Roadmap
 
