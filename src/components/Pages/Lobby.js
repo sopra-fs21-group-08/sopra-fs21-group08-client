@@ -32,7 +32,6 @@ const Lobby = () => {
             setGameIsStarted(response.data.gameStarted);
             setPlayers(players);
             setPlayersLoaded(true)
-            console.log(players);
             }catch(e){
                 history.push('/game/profile');
             }
@@ -63,7 +62,7 @@ const Lobby = () => {
             userId : Number(localStorage.getItem('userId')),
             token : localStorage.getItem('token')
         })
-        console.log(requestBody);
+        
         let path = '/lobbies/' + gameId
         try{
             await api.delete(path, { data: requestBody});
@@ -82,7 +81,7 @@ const Lobby = () => {
           });
         try{
             const response = await api.post('/games/' + id, requestBody);
-            console.log("Status Code " + response.status)
+            
         } catch (error) {
             alert(`Something went wrong while trying to start a new Game: \n${handleError(error)}`);
         }

@@ -70,7 +70,7 @@ function UserProfile() {
             userId : user.userId,
             token : localStorage.getItem("token")
         })
-        console.log(requestBody);
+       
         try{
             await api.put('/users/logout', requestBody);
             localStorage.removeItem('token');

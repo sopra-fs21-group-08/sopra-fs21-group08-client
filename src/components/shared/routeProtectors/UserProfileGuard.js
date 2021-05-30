@@ -20,7 +20,7 @@ export const UserProfileGuard = props => {
       const checkifUserInLobby = async () => {
           try{
             const response = await api.get('/lobbies/'+ lobbyId);
-            console.log(response);
+           
             const players = response.data.users;
             players.map(player => {
               if(player.userId == localStorage.getItem("userId")){

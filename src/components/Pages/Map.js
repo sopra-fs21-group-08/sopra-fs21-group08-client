@@ -23,8 +23,7 @@ function GameMap(props) {
     const figures = [figureBlack, figureTurquoise, figureBlue, figureRed, figureWhite, figureYellow];
 
     const makeMove = (station) => {
-        console.log(station)
-        console.log(props.selectedTicket)
+        
         props.makeMove(station.id, props.selectedTicket)
         const userId = parseInt(localStorage.getItem("userId"));
         var newPlayers = players
@@ -63,7 +62,7 @@ function GameMap(props) {
             formattedPlayers.push({ id: id, figure: figure, position: position })
         })
         setPlayers(formattedPlayers)
-        console.log("setPlayers")
+        
 
     }, [props.players, props.stations])
 
@@ -87,15 +86,13 @@ function GameMap(props) {
     }, [props.myTurn])
 
     useEffect(()=>{
-        console.log("POSSIBLE MOVES")
-        console.log(props.possibleMoves)
+        
         var possibleMoves = props.possibleMoves
         if(possibleMoves.length>0){
         var userId = parseInt(localStorage.getItem("userId"));
         var myStationId = props.players.find((player)=>player.user.userId===userId).stationId
         var position = props.stations.find((station) => station.id === myStationId)
-        console.log("myStation")
-        console.log(position)
+        
         possibleMoves.push(position)
         var min = [10000.0,10000.0]
         var max = [0.0,0.0]
@@ -142,7 +139,7 @@ function GameMap(props) {
             </Marker>)}
 
 
-            {Object.keys(rts).map((route, index) => <Polyline key={"polyline-" + index} eventHandlers={{ click: () => { console.log(route); } }} pathOptions={{ color: rts[route].color }} positions={routes[route].positions} />)}
+            {Object.keys(rts).map((route, index) => <Polyline key={"polyline-" + index} pathOptions={{ color: rts[route].color }} positions={routes[route].positions} />)}
         </MapContainer>
     )
 }

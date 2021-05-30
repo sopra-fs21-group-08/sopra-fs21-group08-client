@@ -43,7 +43,7 @@ const Game = () => {
             try {
                 const response = await api.get('/stations');
                 setStations(response.data)
-                //console.log(stations)
+               
             } catch (error) {
                 alert('Couldnt fetch the stations');
             }
@@ -57,10 +57,6 @@ const Game = () => {
             const response = await api.get('/games/'+ id + '/status', {headers:{'Authorization':  localStorage.getItem("token")}});
             const gameInfo = response.data;
             const currentPlayerId = gameInfo.currentPlayer&&gameInfo.currentPlayer.user&&gameInfo.currentPlayer.user.userId
-            //console.log(currentPlayerId)
-            //console.log("USERID")
-            //console.log(userId)
-            
             if(gameInfo.currentPlayer.user.userId!==turnUserId){
                 setTurnUserId(gameInfo.currentPlayer.user.userId)
             }
@@ -171,9 +167,9 @@ const Game = () => {
        const url = '/games/'+id+'/moves/'+userId;
        try{
        const response = await api.post(url, {ticket: ticketToMove, to: fieldId}, {headers:{'Authorization':  localStorage.getItem("token")}})
-       //console.log(response)
+      
     }catch(error){
-        //console.log(error)
+        
     }
    }
 
@@ -187,7 +183,6 @@ const Game = () => {
             userId : Number(localStorage.getItem('userId')),
             token : localStorage.getItem('token')
         })
-        console.log(requestBody);
         let path = '/lobbies/' + id
         try{
             await api.delete(path, { data: requestBody});
