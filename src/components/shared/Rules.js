@@ -63,8 +63,8 @@ function Rules(props) {
                         Tip: Use the chat to discuss your strategy!<br/>
                         <br/>
                         <h4>Tickets</h4>
-                        Each detective receives : <b>Tram</b> (10), <b>Bus</b> (8), <b>Train</b> (4)<br/>
-                        Mister X receives : <b>Tram</b> (10), <b>Bus</b> (8), <b>Train</b> (4), <b>Double-move</b> (2), <b>Black</b> (4)
+                        Each detective receives : <b>Tram</b> (10), <b>Bus</b> (10), <b>Train</b> (10)<br/>
+                        Mister X receives : <b>Tram</b> (10), <b>Bus</b> (10), <b>Train</b> (10), <b>Double-move</b> (2), <b>Black</b> (2)
                             <br/>
                             
                         </p>
@@ -83,8 +83,6 @@ function Rules(props) {
                             </Row>
                             To make a move, a player should click on a button with the corresponding means of transport on his/her player card.
                             Possible options will be highlighted. Choose one of the given options. <br/>
-                            B.N: Be careful, possible moves could be different from what you expect. It takes time to learn
-                            transport systems ;)<br/>
                             <br/>
                             <h4>Special tickets</h4>
                             Special tickets are only available to Mister X.<br/>
