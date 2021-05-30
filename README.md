@@ -1,24 +1,19 @@
-# SoPra FS21 - Scotland Yard Zürich Edition - Client Template
+# SoPra FS21 - Scotland Yard Zürich Edition - Client
 
-https://sopra-fs21-group-08-client.herokuapp.com/
+## Introduction
+Hi there, we are five students from the University of Zurich, who developed this application for the Software Engineering Lab FS21. The aim of this project was to create an online version of the popular board game "Scotland Yard". The main feature of the project was to transfer the game settings from London (where the game is originally based) to Zurich. All the stations and lines displayed in the game are from the real public transport system of Zurich.
 
-## Bootstrap Components
-https://react-bootstrap.github.io/components/alerts 
+Users can register and login to their profile on the [website](https://sopra-fs21-group-08-client.herokuapp.com/), where they see their player statistics and other online users. From there, the users can create or join public lobbies to play together with their friends. After a game has started, the players get assigned a role (detective or Mister X) and they are randomly positioned on the map. The goal is then for the detectives to catch Mister X using the public transport system of Zurich. To enhance the user experience, the players can chat with each other during a game and replay after the game is over. Additionally, after each game the score gets added to the players' user statistics.
+
+## Technologies used
+- [React](https://reactjs.org) as a framework for building the interface
+- [Bootstrap Components](https://react-bootstrap.github.io/components/alerts) for the design
+- [Npm](https://www.npmjs.com) as the packet manager
+- [React Leaflet](https://react-leaflet.js.org) for the map of Zurich
+
+Connection to the [backend](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-server) works through representational state transfer.
   
-## Getting started with React
-
-Read and go through those Tutorials, It will make your life easier!
-
-- Read the React [Docs](https://reactjs.org/docs/getting-started.html)
-- Do this React [Getting Started](https://reactjs.org/tutorial/tutorial.html) Tutorial (it doesn’t assume any existing React knowledge)
-- Get an Understanding of [CSS](http://localhost:3000) and [HTML](https://www.w3schools.com/html/html_intro.asp)!
-
-Once you have done all of this, in the template there are two main external dependencies that you should look at:
-
-- [styled-components](https://www.styled-components.com/docs)
-  It removes the mapping between components and styles (i.e. external css files). This means that when you're defining your styles, you're actually creating a normal React component, that has your styles attached to it
-* [react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start) Declarative routing for React being a collection of navigational components that compose declaratively with your application. 
-* [react-hooks](https://reactrouter.com/web/api/Hooks) Let's you access the state of the router and perform navigation from inside your components.
+## High Level Components
 
 
 
@@ -55,9 +50,28 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Learn More
+## Illustrations
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Roadmap
 
+## Authors and acknowledgement
 
->Thanks to Lucas Pelloni for the template
+### Frontend developers
+- Zoia Katashinskaia, BSc Computer Science, University of Zurich
+- Tobias Frauenfelder, BSc Computer Science, University of Zurich
+- Marvin Münger, BSc Computer Science, University of Zurich
+
+### Images
+Icons made by [Freepik](https://www.freepik.com/) from www.flaticon.com
+
+### Map
+[Map Data](https://www.stadt-zuerich.ch/geodaten/download/527)
+
+## MIT Licence
+Copyright (c) 2021 [Zoia Katashinskaia, Tobias Frauenfelder, Marvin Münger]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
