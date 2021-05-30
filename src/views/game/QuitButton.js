@@ -33,15 +33,15 @@ const QuitButton = ({gameId}) => {
             <Button variant="danger" style={{ marginTop: 20, width: '9.6rem', height: '2.5rem', borderRadius: '1rem', marginLeft: '3.1rem'}} onClick={handleShow}> Quit Game </Button>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Quit</Modal.Title>
+            <Modal.Title>Surrender</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Are you sure you want to quit the game?</Modal.Body>
+          <Modal.Body>Are you sure you want to give up?</Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Cancel
             </Button>
             <ZButton onClick={leaveGame}>
-              Quit
+              Give Up
             </ZButton>
           </Modal.Footer>
         </Modal>
