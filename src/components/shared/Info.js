@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Modal, Row } from 'react-bootstrap';
 import { Github, InfoCircleFill as InfoSymbol } from 'react-bootstrap-icons';
 import Creator from '../../views/Creator';
+import {avatars} from '../../views/design/Avatars'
 
 
 
@@ -27,11 +28,11 @@ function Info() {
                     </p>
                     <h2>Team</h2>
                     <Row>
-                        <Creator name="Maximilian Huwyler" skills="Backend"/>
-                        <Creator name="Filip Dombos" skills="Backend"/>
-                        <Creator name="Zoia Katashinskaia" skills="Frontend"/>
-                        <Creator name="Marvin Münger" skills="Frontend"/>
-                        <Creator name="Tobias Frauenfelder" skills="Frontend"/>
+                        <Creator name="Maximilian Huwyler" skills="Backend" image={avatars[1]}/>
+                        <Creator name="Filip Dombos" skills="Backend" image={avatars[2]}/>
+                        <Creator name="Zoia Katashinskaia" skills="Frontend" image={avatars[3]}/>
+                        <Creator name="Marvin Münger" skills="Frontend" image={avatars[4]} />
+                        <Creator name="Tobias Frauenfelder" skills="Frontend" image={avatars[5]} />
                     </Row>
 
                     <h2>Licence</h2>
@@ -40,6 +41,8 @@ function Info() {
                     Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
                     </p>
                     <h3>Sounds</h3>
+                    <h4>Chat sounds</h4>
+                    <p>From <a href="https://www.zapsplat.com/">Zapsplat.com</a></p>
                     <h3>Map</h3>
                     <p>
                     <a href="https://www.stadt-zuerich.ch/geodaten/download/527">Map Data</a>
