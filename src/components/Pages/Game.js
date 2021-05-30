@@ -224,13 +224,13 @@ const Game = () => {
                         if(playerClass === "MRX"){
                           return(
                             <Modal.Body>
-                            Congratulations, the detectives were not able to catch you!
+                            Congratulations, you won the game!
                             </Modal.Body>
                           )}
                         else{
                           return(
                             <Modal.Body>
-                            Contratulations, you were able to catch Mr. X!
+                            Congratulations, you won the game!
                             </Modal.Body>
                             )}
                         })()}
@@ -256,13 +256,13 @@ const Game = () => {
                         if(playerClass === "MRX"){
                           return(
                             <Modal.Body>
-                            The detectives caught you. Let's try again!
+                            You lost the game. Let's try again!
                             </Modal.Body>
                           )}
                         else{
                           return(
                             <Modal.Body>
-                            You were not able to catch Mr. X. Let's try again!
+                            You lost the game. Let's try again!
                             </Modal.Body>
                           )
                         }
