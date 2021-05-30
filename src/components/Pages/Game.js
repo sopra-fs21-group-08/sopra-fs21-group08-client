@@ -220,20 +220,9 @@ const Game = () => {
                         <Modal.Header>
                             <Modal.Title style={{color: 'green'}}>Victory</Modal.Title>
                         </Modal.Header>
-                        {(() => {
-                        if(playerClass === "MRX"){
-                          return(
-                            <Modal.Body>
-                            Congratulations, you won the game!
-                            </Modal.Body>
-                          )}
-                        else{
-                          return(
-                            <Modal.Body>
-                            Congratulations, you won the game!
-                            </Modal.Body>
-                            )}
-                        })()}
+                        <Modal.Body>
+                        Congratulations, you won the game!
+                        </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={leaveGame}>
                                 Go to Profile
@@ -252,21 +241,9 @@ const Game = () => {
                         <Modal.Header>
                             <Modal.Title style={{color: 'red'}}>Defeat</Modal.Title>
                         </Modal.Header>
-                        {(() => {
-                        if(playerClass === "MRX"){
-                          return(
-                            <Modal.Body>
-                            You lost the game. Let's try again!
-                            </Modal.Body>
-                          )}
-                        else{
-                          return(
-                            <Modal.Body>
-                            You lost the game. Let's try again!
-                            </Modal.Body>
-                          )
-                        }
-                        })()}
+                        <Modal.Body>
+                        You lost the game. Let's try again!
+                        </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={leaveGame}>
                                 Go to Profile
