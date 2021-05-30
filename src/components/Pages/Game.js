@@ -76,17 +76,22 @@ const Game = () => {
    }, []);
 
    const fetchSummary = async () => {
-        const response = await api.get('games/' + id + '/summary', {headers:{'Authorization': localStorage.getItem("token")}});
-        const data = response.data;
-        if(playerClass === data.winner){
-            setVictory(true)
-            victorySound();
+        try{
+            const response = await api.get('games/' + id + '/summary', {headers:{'Authorization': localStorage.getItem("token")}});
+            const data = response.data;
+            if(playerClass === data.winner){
+                setVictory(true)
+                victorySound();
+            }
+            else if(playerClass !== null && data.winner !== null) {
+                setVictory(false)
+                defeatSound();
+            }
+            else if(data.winner === null){
+                setVictory('gameover')
+            }
         }
-        else if(playerClass !== null && data.winner !== null) {
-            setVictory(false)
-            defeatSound();
-        }
-        else if(data.winner === null){
+        catch{
             setVictory('gameover')
         }
    }
