@@ -2,6 +2,8 @@ import React from 'react'
 
 function DoubleTicket({amount, onClick, disabled}) {
     return (
+        <>
+		<div className="numberCircle">{amount}</div>
        
 <svg height={35} onClick={onClick} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.4 70.9">
     <path class="black-st0" disabled={disabled} d="M7.8 69.8c-3.6 0-6.4-2.9-6.4-6.4V18.8c0-3.6 2.9-6.4 6.4-6.4h87.1c3.6 0 6.4 2.9 6.4 6.4v44.5c0 3.6-2.9 6.4-6.4 6.4H7.8z"/>
@@ -20,14 +22,8 @@ function DoubleTicket({amount, onClick, disabled}) {
 </g>
 	
     <path class="ticket-overlay" d="M7.8 69.8c-3.6 0-6.4-2.9-6.4-6.4V18.8c0-3.6 2.9-6.4 6.4-6.4h87.1c3.6 0 6.4 2.9 6.4 6.4v44.5c0 3.6-2.9 6.4-6.4 6.4H7.8z"/>
-    <g>
-		<path class="ticket-st2" d="M96.2,31.8c-8.2,0-14.9-6.8-14.9-14.9S88,1.9,96.2,1.9s14.9,6.8,14.9,14.9S104.4,31.8,96.2,31.8z"/>
-		<path class="ticket-st1" d="M96.2,2.5c7.9,0,14.4,6.5,14.4,14.4s-6.5,14.4-14.4,14.4s-14.4-6.5-14.4-14.4S88.3,2.5,96.2,2.5 M96.2,1.5
-			c-8.5,0-15.4,6.9-15.4,15.4s6.8,15.5,15.4,15.5c8.5,0,15.4-6.9,15.4-15.4S104.7,1.5,96.2,1.5L96.2,1.5z"/>
-	</g>
-	
-	<text text-anchor="middle"x="95" y="16"  alignment-baseline="central" class="ticket-st1 ticket-st4 ticket-st5">{amount}</text>
     </svg>
+    </>
 
             
        
