@@ -145,7 +145,7 @@ function UserProfile() {
               <Card.Text style={{textAlign: "left", color: "white"}}>
                 <Col>
                   <p style={{fontWeight: "bold", marginLeft: "1rem", marginTop: "0.2rem"}}>Games played: {user.gamesPlayed} </p>
-                  <p style={{marginLeft: "1rem"}}>Winning rate: {user.winrate} </p>
+                  <p style={{marginLeft: "1rem"}}>Winning rate: {user.winrate}% </p>
                 </Col>
               </Card.Text>
             </Card.Body>
