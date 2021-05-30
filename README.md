@@ -50,6 +50,23 @@ It correctly bundles React in production mode and optimizes the build for the be
 The application is deployed on [heroku](https://sopra-fs21-group-08-client.herokuapp.com/)
 
 ## Illustrations
+## Illustrations
+The game has two modes: Mr X mode where the player can always see his/her current location and the Detective mode where Mr X is only visible at certain rounds.  
+#### Mr X Mode
+![Mr X mode](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-client/blob/master/src/assets/img/tutorial/mrXMode.png)
+  
+#### Detective Mode
+![Detective Mode](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-client/blob/master/src/assets/img/tutorial/detectiveMode.png)
+
+#### Blackboard
+Blackboard tracks the information about tickets used by Mr X and shows the gameflow. Highlighted rounds signify when Mr X is visible for the detectives.
+![Blackboard](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-client/blob/master/src/assets/img/tutorial/blackboard.png)
+
+#### Move logic
+In order to move your figure choose a ticket you want to use and the possible moves would be highlighted. Then select a station.
+![Choose_Ticket](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-client/blob/master/src/assets/img/tutorial/chooseATicket.png)
+![Possible_Moves](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-client/blob/master/src/assets/img/tutorial/possibleMoves.png)
+
 ### Gameflow
 ![Gameflow](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-client/blob/master/readme/images/gameflow.png?raw=true)
 
@@ -66,6 +83,10 @@ Ideas for future development:
 - [Zoia Katashinskaia](https://github.com/zoyakatashinskaya), BSc Computer Science, University of Zurich
 - [Tobias Frauenfelder](https://github.com/tobifra), BSc Computer Science, University of Zurich
 - [Marvin Münger](https://github.com/marvinmuenger), BSc Computer Science, University of Zurich
+
+### Supervision & Guidance
+- Alain Küng, BSc Computer Science, University of Zurich
+- Roy Rutishauser, PhD Computer Science, University of Zurich
 
 ### Images
 Icons made by [Freepik](https://www.freepik.com/) from www.flaticon.com
