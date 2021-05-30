@@ -16,8 +16,8 @@ Connection to the [backend](https://github.com/sopra-fs21-group-08/sopra-fs21-gr
 ## High Level Components
 - [Game](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-client/blob/master/src/components/Pages/Game.js): This Component handles the main functionality of the game. It is set up of multiple subcomponents, such as the sidebar, chat, blackboard, map etc. which allows for low coupling inside the game. 
 - [UserProfile](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-client/blob/master/src/components/Pages/UserProfile.js): The User Profile acts as a main menu of the game. It handles the setup of the game. From here the player can see other players, can create or join a lobby and also edit the user profile.
-- [Lobby](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-client/blob/master/src/components/Pages/Lobby.js): The lobby handles the creation of games. A lobby is limited to 6 players and only allows the creation of a game if 3 players are in the lobby. 
-- [App Router](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-client/blob/master/src/components/shared/routers/AppRouter.js): The App Router handles the routing in the app. It ensures that the player is always redericted to the correct page in the game and that the user is autherized.
+- [Lobby](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-client/blob/master/src/components/Pages/Lobby.js): The lobby handles the creation of games. A lobby is limited to 6 players and only allows the creation of a game if 3 players are in the lobby. It connects the profile with the game and allows for an easy set up.
+- [App Router](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-client/blob/master/src/components/shared/routers/AppRouter.js): The App Router handles the routing in the app. It ensures that the player is always redericted to the correct page in the game and that the user is autherized to access this page.
 
 ## Prerequisites and Installation
 
