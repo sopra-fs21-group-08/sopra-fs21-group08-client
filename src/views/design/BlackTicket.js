@@ -5,7 +5,6 @@ function BlackTicket({amount, onClick, disabled}) {
        
 <svg height={35} onClick={onClick} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.4 70.9">
     <path class="black-st0" disabled={disabled} d="M7.8 69.8c-3.6 0-6.4-2.9-6.4-6.4V18.8c0-3.6 2.9-6.4 6.4-6.4h87.1c3.6 0 6.4 2.9 6.4 6.4v44.5c0 3.6-2.9 6.4-6.4 6.4H7.8z"/>
-    <path class="ticket-st1" d="M100.9 2.2c5.5 0 10 4.5 10 10s-4.5 10-10 10c-5.5 0-10-4.5-10-10S95.4 2.2 100.9 2.2M100.9 1.5c-5.9 0-10.7 4.8-10.7 10.7S94.9 23 100.9 23c5.9 0 10.7-4.8 10.7-10.7S106.8 1.5 100.9 1.5L100.9 1.5z"/>
     <g>
 	<path d="M38.7,53l0.2-0.2c0.8-0.7,1.6-1.5,2.4-2.2c0.7-0.6,1.3-1.1,1.8-1.5c0.9-0.7,1.4-1.1,2-1.9c0.5-0.7,0.7-1.1,0.9-1.6
 		c0.2-0.4,0.4-0.8,0.8-1.4c0.2-0.2,0.5-0.7,0.5-1.3c0-0.1,0-0.2,0-0.3l-3.4-2.6l2.7-3.2l1-1.2l0.4-1.5c0.2-0.3,0.4-0.7,0.3-1.2
@@ -52,8 +51,13 @@ function BlackTicket({amount, onClick, disabled}) {
 		c-0.3-0.1-0.6-0.3-1-0.4C55.6,24.7,55.4,24.7,55.2,24.7L55.2,24.7z"/>
 </g>
     <path class="ticket-overlay" d="M7.8 69.8c-3.6 0-6.4-2.9-6.4-6.4V18.8c0-3.6 2.9-6.4 6.4-6.4h87.1c3.6 0 6.4 2.9 6.4 6.4v44.5c0 3.6-2.9 6.4-6.4 6.4H7.8z"/>
-    <path class="ticket-st2" d="M100.9 22.6c-5.7 0-10.4-4.7-10.4-10.4s4.7-10.4 10.4-10.4 10.4 4.7 10.4 10.4S106.6 22.6 100.9 22.6z"/>
-    <rect x="94" y="7.5"  class="ticket-st3" width="13.7" height="9.4"/><text text-anchor="middle"x="100" y="13"  alignment-baseline="central" class="ticket-st1 ticket-st4 ticket-st5">  {amount}</text>
+    <g>
+		<path class="ticket-st2" d="M96.2,31.8c-8.2,0-14.9-6.8-14.9-14.9S88,1.9,96.2,1.9s14.9,6.8,14.9,14.9S104.4,31.8,96.2,31.8z"/>
+		<path class="ticket-st1" d="M96.2,2.5c7.9,0,14.4,6.5,14.4,14.4s-6.5,14.4-14.4,14.4s-14.4-6.5-14.4-14.4S88.3,2.5,96.2,2.5 M96.2,1.5
+			c-8.5,0-15.4,6.9-15.4,15.4s6.8,15.5,15.4,15.5c8.5,0,15.4-6.9,15.4-15.4S104.7,1.5,96.2,1.5L96.2,1.5z"/>
+	</g>
+	
+	<text text-anchor="middle"x="95" y="16"  alignment-baseline="central" class="ticket-st1 ticket-st4 ticket-st5">{amount}</text>
     </svg>
 
             

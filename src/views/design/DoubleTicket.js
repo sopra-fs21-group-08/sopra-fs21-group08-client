@@ -5,7 +5,6 @@ function DoubleTicket({amount, onClick, disabled}) {
        
 <svg height={35} onClick={onClick} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.4 70.9">
     <path class="black-st0" disabled={disabled} d="M7.8 69.8c-3.6 0-6.4-2.9-6.4-6.4V18.8c0-3.6 2.9-6.4 6.4-6.4h87.1c3.6 0 6.4 2.9 6.4 6.4v44.5c0 3.6-2.9 6.4-6.4 6.4H7.8z"/>
-    <path class="ticket-st1" d="M100.9 2.2c5.5 0 10 4.5 10 10s-4.5 10-10 10c-5.5 0-10-4.5-10-10S95.4 2.2 100.9 2.2M100.9 1.5c-5.9 0-10.7 4.8-10.7 10.7S94.9 23 100.9 23c5.9 0 10.7-4.8 10.7-10.7S106.8 1.5 100.9 1.5L100.9 1.5z"/>
     <g>
 	<path class="tram-st0" d="M51.3,41.1l0-28.7h43.5c3.6,0,6.4,2.9,6.4,6.4v22.3H51.3z"/>
 	<path class="bus-st0" d="M1.4,41.1V18.8c0-3.5,2.8-6.4,6.4-6.4h43.5v28.7H1.4z"/>
@@ -21,8 +20,13 @@ function DoubleTicket({amount, onClick, disabled}) {
 </g>
 	
     <path class="ticket-overlay" d="M7.8 69.8c-3.6 0-6.4-2.9-6.4-6.4V18.8c0-3.6 2.9-6.4 6.4-6.4h87.1c3.6 0 6.4 2.9 6.4 6.4v44.5c0 3.6-2.9 6.4-6.4 6.4H7.8z"/>
-    <path class="ticket-st2" d="M100.9 22.6c-5.7 0-10.4-4.7-10.4-10.4s4.7-10.4 10.4-10.4 10.4 4.7 10.4 10.4S106.6 22.6 100.9 22.6z"/>
-    <rect x="94" y="7.5"  class="ticket-st3" width="13.7" height="9.4"/><text text-anchor="middle"x="100" y="13"  alignment-baseline="central" class="ticket-st1 ticket-st4 ticket-st5">  {amount}</text>
+    <g>
+		<path class="ticket-st2" d="M96.2,31.8c-8.2,0-14.9-6.8-14.9-14.9S88,1.9,96.2,1.9s14.9,6.8,14.9,14.9S104.4,31.8,96.2,31.8z"/>
+		<path class="ticket-st1" d="M96.2,2.5c7.9,0,14.4,6.5,14.4,14.4s-6.5,14.4-14.4,14.4s-14.4-6.5-14.4-14.4S88.3,2.5,96.2,2.5 M96.2,1.5
+			c-8.5,0-15.4,6.9-15.4,15.4s6.8,15.5,15.4,15.5c8.5,0,15.4-6.9,15.4-15.4S104.7,1.5,96.2,1.5L96.2,1.5z"/>
+	</g>
+	
+	<text text-anchor="middle"x="95" y="16"  alignment-baseline="central" class="ticket-st1 ticket-st4 ticket-st5">{amount}</text>
     </svg>
 
             
