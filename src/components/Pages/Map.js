@@ -119,7 +119,7 @@ function GameMap(props) {
 
 
     return (
-        <MapContainer center={center} key={mapKey} attributionControl={false} transparent={true} zoom={zoom} style={{ height: "100vh" }} zoomControl={false} scrollWheelZoom={true} maxBounds={[[47.33326, 8.46891], [47.46071, 8.605674]]} minZoom={12}>
+        <MapContainer center={center} key={mapKey} attributionControl={false} transparent={true} zoom={zoom} style={{ height: "100vh" }} zoomControl={false} scrollWheelZoom={true} maxBounds={[[47.30326, 8.43891], [47.49071, 8.635674]]} minZoom={12}>
             <ChangeView center={center} zoom={zoom} flyTo={flyTo} mapFrame={mapFrame} mapFrameKey={mapFrameKey}
             zoomToPosition={props.zoomToPosition} />
             <WMSTileLayer
