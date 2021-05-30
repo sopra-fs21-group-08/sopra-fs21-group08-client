@@ -34,7 +34,7 @@ function BlackBoard({moves, rounds=22, visible_rounds=[3, 8, 13, 18, 22]}) {
     function chooseColor(x){
         switch(x){
             case "BUS":
-                return ('orange')
+                return ('#f3e600')
             case "TRAM":
                 return ('blue')
             case "TRAIN":
