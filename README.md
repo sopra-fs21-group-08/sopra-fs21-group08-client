@@ -63,9 +63,9 @@ Ideas for future development:
 ## Authors and acknowledgement
 
 ### Frontend developers
-- Zoia Katashinskaia, BSc Computer Science, University of Zurich
-- Tobias Frauenfelder, BSc Computer Science, University of Zurich
-- Marvin Münger, BSc Computer Science, University of Zurich
+- [Zoia Katashinskaia](https://github.com/zoyakatashinskaya), BSc Computer Science, University of Zurich
+- [Tobias Frauenfelder](https://github.com/tobifra), BSc Computer Science, University of Zurich
+- [Marvin Münger](https://github.com/marvinmuenger), BSc Computer Science, University of Zurich
 
 ### Images
 Icons made by [Freepik](https://www.freepik.com/) from www.flaticon.com
