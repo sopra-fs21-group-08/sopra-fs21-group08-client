@@ -54,6 +54,11 @@ The application is deployed on [heroku](https://sopra-fs21-group-08-client.herok
 ![Gameflow](https://github.com/sopra-fs21-group-08/sopra-fs21-group08-client/blob/master/readme/images/gameflow.png?raw=true)
 
 ## Roadmap
+Ideas for future development:
+- Develop different playing mode for three players where detectives play for themselves and for Bobbies (see [rules](https://www.ultraboardgames.com/scotland-yard/game-rules.php))
+- More options for profile editing such as upload picture, add friend, browse other users' profiles, etc.
+- Choose Mr X or Detective role manually and not being automatically assigned one
+- Develop game for other cities and maybe automate that process
 
 ## Authors and acknowledgement
 
